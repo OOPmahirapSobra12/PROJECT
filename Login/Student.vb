@@ -1,9 +1,13 @@
 ﻿Public Class Student
-    Private Sub Form3_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+    Private Sub btnsignout_Click(sender As Object, e As EventArgs) Handles btnsignout.Click
+        Login.Show()
     End Sub
 
-    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
-
+    Private Sub btnroomlist_Click(sender As Object, e As EventArgs) Handles btnroomlist.Click
+        roomstud.Show()
+        Me.Hide()
     End Sub
+
+
 End Class

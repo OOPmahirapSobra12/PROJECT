@@ -24,9 +24,9 @@ Partial Class Student
     Private Sub InitializeComponent()
         Me.btncreate = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.btnsignout = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
+        Me.btnroomlist = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'btncreate
@@ -36,9 +36,10 @@ Partial Class Student
         Me.btncreate.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btncreate.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btncreate.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.btncreate.Location = New System.Drawing.Point(477, 201)
+        Me.btncreate.Location = New System.Drawing.Point(716, 309)
+        Me.btncreate.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btncreate.Name = "btncreate"
-        Me.btncreate.Size = New System.Drawing.Size(283, 35)
+        Me.btncreate.Size = New System.Drawing.Size(424, 54)
         Me.btncreate.TabIndex = 21
         Me.btncreate.Text = " Schedule"
         Me.btncreate.UseVisualStyleBackColor = False
@@ -50,26 +51,28 @@ Partial Class Student
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.Button2.Location = New System.Drawing.Point(478, 255)
+        Me.Button2.Location = New System.Drawing.Point(717, 392)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(283, 35)
+        Me.Button2.Size = New System.Drawing.Size(424, 54)
         Me.Button2.TabIndex = 23
         Me.Button2.Text = "Feedbacks"
         Me.Button2.UseVisualStyleBackColor = False
         '
-        'Button3
+        'btnsignout
         '
-        Me.Button3.AutoSize = True
-        Me.Button3.BackColor = System.Drawing.Color.Transparent
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.Button3.Location = New System.Drawing.Point(566, 308)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(114, 35)
-        Me.Button3.TabIndex = 24
-        Me.Button3.Text = "Sign-Out"
-        Me.Button3.UseVisualStyleBackColor = False
+        Me.btnsignout.AutoSize = True
+        Me.btnsignout.BackColor = System.Drawing.Color.Transparent
+        Me.btnsignout.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnsignout.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnsignout.ForeColor = System.Drawing.Color.NavajoWhite
+        Me.btnsignout.Location = New System.Drawing.Point(849, 474)
+        Me.btnsignout.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.btnsignout.Name = "btnsignout"
+        Me.btnsignout.Size = New System.Drawing.Size(171, 54)
+        Me.btnsignout.TabIndex = 24
+        Me.btnsignout.Text = "Sign-Out"
+        Me.btnsignout.UseVisualStyleBackColor = False
         '
         'Button4
         '
@@ -77,46 +80,48 @@ Partial Class Student
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button4.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.Button4.Location = New System.Drawing.Point(14, 12)
+        Me.Button4.Location = New System.Drawing.Point(21, 18)
+        Me.Button4.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(21, 34)
+        Me.Button4.Size = New System.Drawing.Size(32, 52)
         Me.Button4.TabIndex = 25
         Me.Button4.Text = ":"
         Me.Button4.UseVisualStyleBackColor = False
         '
-        'Button5
+        'btnroomlist
         '
-        Me.Button5.AutoSize = True
-        Me.Button5.BackColor = System.Drawing.Color.Transparent
-        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button5.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.Button5.Location = New System.Drawing.Point(477, 148)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(283, 35)
-        Me.Button5.TabIndex = 26
-        Me.Button5.Text = "Room List"
-        Me.Button5.UseVisualStyleBackColor = False
+        Me.btnroomlist.AutoSize = True
+        Me.btnroomlist.BackColor = System.Drawing.Color.Transparent
+        Me.btnroomlist.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnroomlist.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnroomlist.ForeColor = System.Drawing.Color.NavajoWhite
+        Me.btnroomlist.Location = New System.Drawing.Point(716, 228)
+        Me.btnroomlist.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.btnroomlist.Name = "btnroomlist"
+        Me.btnroomlist.Size = New System.Drawing.Size(424, 54)
+        Me.btnroomlist.TabIndex = 26
+        Me.btnroomlist.Text = "Room List"
+        Me.btnroomlist.UseVisualStyleBackColor = False
         '
         'Student
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackgroundImage = Global.Login.My.Resources.Resources.FB_IMG_1729211691620
-        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.Button5)
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.ClientSize = New System.Drawing.Size(1200, 692)
+        Me.Controls.Add(Me.btnroomlist)
         Me.Controls.Add(Me.Button4)
-        Me.Controls.Add(Me.Button3)
+        Me.Controls.Add(Me.btnsignout)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.btncreate)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "Student"
-        Me.Text = "Form3"
-        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
+        Me.Text = "student"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -124,7 +129,7 @@ Partial Class Student
 
     Friend WithEvents btncreate As Button
     Friend WithEvents Button2 As Button
-    Friend WithEvents Button3 As Button
+    Friend WithEvents btnsignout As Button
     Friend WithEvents Button4 As Button
-    Friend WithEvents Button5 As Button
+    Friend WithEvents btnroomlist As Button
 End Class

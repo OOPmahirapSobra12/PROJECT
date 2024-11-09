@@ -1,8 +1,4 @@
-﻿Imports MySql.Data.MySqlClient
-Imports MySqlConnector
-
-Public Class RoomListForm
-
+﻿Public Class roomstud
 
     Private connection As New MySql.Data.MySqlClient.MySqlConnection("server=127.0.0.1;uid=root;pwd=password;database=project")
 
@@ -44,54 +40,16 @@ Public Class RoomListForm
     End Sub
 
     Private Sub RoomListForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-
         LoadRoomData() ' Load room data when the form is loaded
     End Sub
 
-    Private Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click
-        LoadRoomData() ' Reload room data from the database
+
+    Private Sub roomstud_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
-
-
 
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
-        Admin.Show()
+        Student.Show()
         Me.Hide()
     End Sub
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnUpdateRoomStatus.Click
-        If dgvRoomList.SelectedRows.Count > 0 Then
-            Dim selectedRow As DataGridViewRow = dgvRoomList.SelectedRows(0)
-
-            ' Ensure the column name matches exactly
-            Dim roomCode As String = selectedRow.Cells("room_code").Value.ToString()
-            Dim newStatus As String = cmbRoomStatus.SelectedItem?.ToString()
-
-            If String.IsNullOrEmpty(newStatus) Then
-                MessageBox.Show("Please select a status from the dropdown.")
-                Return
-            End If
-
-            Dim query As String = "UPDATE roomlist SET room_status = @status WHERE room_code = @code"
-            Dim command As New MySql.Data.MySqlClient.MySqlCommand(query, connection)
-            command.Parameters.AddWithValue("@status", newStatus)
-            command.Parameters.AddWithValue("@code", roomCode)
-
-            Try
-                connection.Open()
-                command.ExecuteNonQuery()
-                connection.Close()
-                MessageBox.Show("Room status updated successfully!")
-                LoadRoomData() ' Refresh the data
-            Catch ex As Exception
-                MessageBox.Show("An error occurred: " & ex.Message)
-            Finally
-                connection.Close()
-            End Try
-        Else
-            MessageBox.Show("Please select a room to update.")
-        End If
-    End Sub
-
 End Class

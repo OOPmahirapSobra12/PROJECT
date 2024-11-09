@@ -95,7 +95,7 @@ Partial Class Student
         Me.btnroomlist.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnroomlist.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnroomlist.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.btnroomlist.Location = New System.Drawing.Point(716, 228)
+        Me.btnroomlist.Location = New System.Drawing.Point(702, 225)
         Me.btnroomlist.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnroomlist.Name = "btnroomlist"
         Me.btnroomlist.Size = New System.Drawing.Size(424, 54)

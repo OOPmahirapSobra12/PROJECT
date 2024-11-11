@@ -136,6 +136,7 @@ Public Class profile
                     conn.Open()
                 End If
 
+
                 ' Execute the query to count the matching IDs
                 Dim count As Integer = Convert.ToInt32(command.ExecuteScalar())
 

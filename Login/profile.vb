@@ -10,6 +10,7 @@ Public Class profile
         account_load()
         buttonhidder()
         DbConnect()
+        txtdisabler()
     End Sub
 
 
@@ -97,16 +98,17 @@ Public Class profile
     End Sub
 
     Public Sub txtenabler()
-        txtfname.Enabled = True
-        txtlname.Enabled = True
-        txtusername.Enabled = True
+        txtfname.ReadOnly = False
+        txtlname.ReadOnly = False
+        txtusername.ReadOnly = False
     End Sub
 
     Public Sub txtdisabler()
-        txtfname.Enabled = True
-        txtlname.Enabled = True
-        txtusername.Enabled = True
+        txtfname.ReadOnly = True
+        txtlname.ReadOnly = True
+        txtusername.ReadOnly = True
     End Sub
+
 
     Private Sub btnmodify_Click(sender As Object, e As EventArgs) Handles btnmodify.Click
         buttonshow()
@@ -197,4 +199,8 @@ Public Class profile
         End Using
     End Sub
 
+    Private Sub btnback_Click(sender As Object, e As EventArgs) Handles btnback.Click
+        Admin.Show()
+        Me.Hide()
+    End Sub
 End Class

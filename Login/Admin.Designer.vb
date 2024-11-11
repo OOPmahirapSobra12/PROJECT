@@ -34,7 +34,17 @@ Partial Class Admin
         Me.btnreport = New System.Windows.Forms.Button()
         Me.btnfeedback = New System.Windows.Forms.Button()
         Me.DGVreport = New System.Windows.Forms.DataGridView()
+        Me.ReportID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ReportDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ReportTime = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ReportView = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.ReportDelete = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.DGVfeedback = New System.Windows.Forms.DataGridView()
+        Me.FeedbackID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FeedbackDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FeedbackTime = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FeedbackView = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.FeedbackDelete = New System.Windows.Forms.DataGridViewButtonColumn()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
@@ -236,13 +246,49 @@ Partial Class Admin
         Me.DGVreport.BackgroundColor = System.Drawing.Color.DodgerBlue
         Me.DGVreport.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken
         Me.DGVreport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DGVreport.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ReportID, Me.ReportDate, Me.ReportTime, Me.ReportView, Me.ReportDelete})
         Me.DGVreport.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DGVreport.GridColor = System.Drawing.Color.NavajoWhite
         Me.DGVreport.Location = New System.Drawing.Point(23, 178)
         Me.DGVreport.Name = "DGVreport"
         Me.DGVreport.ReadOnly = True
         Me.DGVreport.Size = New System.Drawing.Size(335, 79)
-        Me.DGVreport.TabIndex = 2
+        Me.DGVreport.TabIndex = 4
+        '
+        'ReportID
+        '
+        Me.ReportID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.ReportID.HeaderText = "Report ID"
+        Me.ReportID.Name = "ReportID"
+        Me.ReportID.ReadOnly = True
+        '
+        'ReportDate
+        '
+        Me.ReportDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.ReportDate.HeaderText = "Date Reported"
+        Me.ReportDate.Name = "ReportDate"
+        Me.ReportDate.ReadOnly = True
+        '
+        'ReportTime
+        '
+        Me.ReportTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.ReportTime.HeaderText = "Time Reported"
+        Me.ReportTime.Name = "ReportTime"
+        Me.ReportTime.ReadOnly = True
+        '
+        'ReportView
+        '
+        Me.ReportView.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.ReportView.HeaderText = "View"
+        Me.ReportView.Name = "ReportView"
+        Me.ReportView.ReadOnly = True
+        '
+        'ReportDelete
+        '
+        Me.ReportDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.ReportDelete.HeaderText = "Delete"
+        Me.ReportDelete.Name = "ReportDelete"
+        Me.ReportDelete.ReadOnly = True
         '
         'DGVfeedback
         '
@@ -251,13 +297,49 @@ Partial Class Admin
         Me.DGVfeedback.BackgroundColor = System.Drawing.Color.DodgerBlue
         Me.DGVfeedback.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken
         Me.DGVfeedback.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DGVfeedback.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.FeedbackID, Me.FeedbackDate, Me.FeedbackTime, Me.FeedbackView, Me.FeedbackDelete})
         Me.DGVfeedback.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DGVfeedback.GridColor = System.Drawing.Color.NavajoWhite
         Me.DGVfeedback.Location = New System.Drawing.Point(23, 297)
         Me.DGVfeedback.Name = "DGVfeedback"
         Me.DGVfeedback.ReadOnly = True
         Me.DGVfeedback.Size = New System.Drawing.Size(335, 79)
-        Me.DGVfeedback.TabIndex = 3
+        Me.DGVfeedback.TabIndex = 5
+        '
+        'FeedbackID
+        '
+        Me.FeedbackID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.FeedbackID.HeaderText = "Feedback ID"
+        Me.FeedbackID.Name = "FeedbackID"
+        Me.FeedbackID.ReadOnly = True
+        '
+        'FeedbackDate
+        '
+        Me.FeedbackDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.FeedbackDate.HeaderText = "Feedback Date"
+        Me.FeedbackDate.Name = "FeedbackDate"
+        Me.FeedbackDate.ReadOnly = True
+        '
+        'FeedbackTime
+        '
+        Me.FeedbackTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.FeedbackTime.HeaderText = "Feedback Time"
+        Me.FeedbackTime.Name = "FeedbackTime"
+        Me.FeedbackTime.ReadOnly = True
+        '
+        'FeedbackView
+        '
+        Me.FeedbackView.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.FeedbackView.HeaderText = "View"
+        Me.FeedbackView.Name = "FeedbackView"
+        Me.FeedbackView.ReadOnly = True
+        '
+        'FeedbackDelete
+        '
+        Me.FeedbackDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.FeedbackDelete.HeaderText = "Delete"
+        Me.FeedbackDelete.Name = "FeedbackDelete"
+        Me.FeedbackDelete.ReadOnly = True
         '
         'Admin
         '
@@ -296,5 +378,15 @@ Partial Class Admin
     Friend WithEvents btnreport As Button
     Friend WithEvents btnfeedback As Button
     Friend WithEvents DGVreport As DataGridView
+    Friend WithEvents ReportID As DataGridViewTextBoxColumn
+    Friend WithEvents ReportDate As DataGridViewTextBoxColumn
+    Friend WithEvents ReportTime As DataGridViewTextBoxColumn
+    Friend WithEvents ReportView As DataGridViewButtonColumn
+    Friend WithEvents ReportDelete As DataGridViewButtonColumn
     Friend WithEvents DGVfeedback As DataGridView
+    Friend WithEvents FeedbackID As DataGridViewTextBoxColumn
+    Friend WithEvents FeedbackDate As DataGridViewTextBoxColumn
+    Friend WithEvents FeedbackTime As DataGridViewTextBoxColumn
+    Friend WithEvents FeedbackView As DataGridViewButtonColumn
+    Friend WithEvents FeedbackDelete As DataGridViewButtonColumn
 End Class

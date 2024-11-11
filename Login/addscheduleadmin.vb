@@ -1,18 +1,21 @@
 ﻿Imports MySql.Data.MySqlClient
 Imports System.Windows.Forms
 Imports System.Data
-Imports ConnectionModule
 Public Class addscheduleadmin
-
-    Public Property rDate As String
-    Public Property rTime As String
-    Public Property rRoom As String
+    Public Property requestID As String
     Dim time As String
 
     Private Sub addscheduleadmin_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If conn.State = ConnectionState.Open Then
             conn.Close()
         End If
+
+        If requestID.Trim().Length = 0 Then
+            requestloader()
+        Else
+            MsgBox("no code recieved: " & requestID)
+        End If
+
         btnaddschedule.Enabled = False
         searchcbo()
         DDcbo()
@@ -33,38 +36,82 @@ Public Class addscheduleadmin
     End Sub
 
     Private Sub timerefresh()
-        ' Populate hours (1-12) in cbohour for a 12-hour clock format
-        cbohour.Items.Clear()
+        ' Populate "in" hours (1-12) in cbohourin for a 12-hour clock format
+        cbohourin.Items.Clear()
         For hour As Integer = 1 To 12
-            cbohour.Items.Add(hour.ToString())
+            cbohourin.Items.Add(hour.ToString())
         Next
 
-        ' Populate minutes (0-59) in cbominute
-        cbominute.Items.Clear()
+        ' Populate "out" hours (1-12) in cbohourout for a 12-hour clock format
+        cbohourout.Items.Clear()
+        For hour As Integer = 1 To 12
+            cbohourout.Items.Add(hour.ToString())
+        Next
+
+        ' Populate "in" minutes (0-59) in cbominutein
+        cbominutein.Items.Clear()
         For minute As Integer = 0 To 59
-            cbominute.Items.Add(minute.ToString("D2")) ' "D2" formats single digits as two-digit numbers (e.g., "01")
+            cbominutein.Items.Add(minute.ToString("D2")) ' "D2" formats single digits as two-digit numbers (e.g., "01")
         Next
 
-        ' Populate AM/PM options in cboampm
-        cboampm.Items.Clear()
-        cboampm.Items.Add("AM")
-        cboampm.Items.Add("PM")
+        ' Populate "out" minutes (0-59) in cbominuteout
+        cbominuteout.Items.Clear()
+        For minute As Integer = 0 To 59
+            cbominuteout.Items.Add(minute.ToString("D2"))
+        Next
 
-        ' Set default selections: First hour (1), first minute (00), and AM
-        cbohour.SelectedIndex = 0
-        cbominute.SelectedIndex = 0
-        cboampm.SelectedIndex = 0
+        ' Populate "in" AM/PM options in cboampmin
+        cboampmin.Items.Clear()
+        cboampmin.Items.Add("AM")
+        cboampmin.Items.Add("PM")
+
+        ' Populate "out" AM/PM options in cboampmout
+        cboampmout.Items.Clear()
+        cboampmout.Items.Add("AM")
+        cboampmout.Items.Add("PM")
+
+        ' Set default selections: First hour (1), first minute (00), and AM for "in" and "out" times
+        cbohourin.SelectedIndex = 0
+        cbominutein.SelectedIndex = 0
+        cboampmin.SelectedIndex = 0
+
+        cbohourout.SelectedIndex = 0
+        cbominuteout.SelectedIndex = 0
+        cboampmout.SelectedIndex = 0
     End Sub
 
-    Private Sub timeequation()
-        ' Construct the time string in the format hh:mm AM/PM
-        Dim hour As String = cbohour.SelectedItem.ToString()
-        Dim minute As String = cbominute.SelectedItem.ToString()
-        Dim ampm As String = cboampm.SelectedItem.ToString()
+    Public Sub timeequation(ByRef timein As String, ByRef timeout As String)
+        ' Get the hour, minute, and AM/PM for the "in" time
+        Dim hourIn As Integer = Integer.Parse(cbohourin.SelectedItem.ToString())
+        Dim minuteIn As Integer = Integer.Parse(cbominutein.SelectedItem.ToString())
+        Dim secondIn As String = "00" ' Default to 00 seconds, as seconds aren't being selected
+        Dim ampmIn As String = cboampmin.SelectedItem.ToString()
 
-        ' Combine components to form the final time string
-        time = hour & ":" & minute & " " & ampm
+        ' Get the hour, minute, and AM/PM for the "out" time
+        Dim hourOut As Integer = Integer.Parse(cbohourout.SelectedItem.ToString())
+        Dim minuteOut As Integer = Integer.Parse(cbominuteout.SelectedItem.ToString())
+        Dim secondOut As String = "00" ' Default to 00 seconds, as seconds aren't being selected
+        Dim ampmOut As String = cboampmout.SelectedItem.ToString()
+
+        ' Convert "in" time to 12-hour AM/PM format with seconds
+        If ampmIn = "PM" And hourIn < 12 Then
+            hourIn += 12
+        ElseIf ampmIn = "AM" And hourIn = 12 Then
+            hourIn = 0 ' Midnight case
+        End If
+
+        ' Convert "out" time to 12-hour AM/PM format with seconds
+        If ampmOut = "PM" And hourOut < 12 Then
+            hourOut += 12
+        ElseIf ampmOut = "AM" And hourOut = 12 Then
+            hourOut = 0 ' Midnight case
+        End If
+
+        ' Format the times to "hh:mm:ss AM/PM"
+        timein = hourIn.ToString("D2") & ":" & minuteIn.ToString("D2") & ":" & secondIn & " " & ampmIn
+        timeout = hourOut.ToString("D2") & ":" & minuteOut.ToString("D2") & ":" & secondOut & " " & ampmOut
     End Sub
+
 
 
     Private Sub DDcbo()
@@ -89,9 +136,9 @@ Public Class addscheduleadmin
         txtrname.Clear()
         txtrDD.Clear()
         txtrDD.Clear()
-        cbohour.SelectedIndex = 0
-        cbominute.SelectedIndex = 0
-        cboampm.SelectedIndex = 0
+        cbohourin.SelectedIndex = 0
+        cbominutein.SelectedIndex = 0
+        cboampmin.SelectedIndex = 0
     End Sub
 
     Private Sub btnsearch_Click(sender As Object, e As EventArgs) Handles btnsearch.Click
@@ -210,67 +257,118 @@ Public Class addscheduleadmin
     End Sub
 
     Private Sub btnconfirm_Click(sender As Object, e As EventArgs) Handles btnconfirm.Click
-        ' Check if all required text boxes are filled
-        If String.IsNullOrEmpty(txtrname.Text) Or
-       String.IsNullOrEmpty(txtrcode.Text) Or
-       String.IsNullOrEmpty(txtbuilding.Text) Then
-
+        ' Ensure all required fields are filled (textboxes and combo boxes)
+        If String.IsNullOrEmpty(txtrname.Text) OrElse
+       String.IsNullOrEmpty(txtrcode.Text) OrElse
+       String.IsNullOrEmpty(txtbuilding.Text) OrElse
+       String.IsNullOrEmpty(txtrDD.Text) OrElse
+       String.IsNullOrEmpty(cbohourin.Text) OrElse
+       String.IsNullOrEmpty(cbominutein.Text) OrElse
+       String.IsNullOrEmpty(cboampmin.Text) OrElse
+       String.IsNullOrEmpty(cbohourout.Text) OrElse
+       String.IsNullOrEmpty(cbominuteout.Text) OrElse
+       String.IsNullOrEmpty(cboampmout.Text) Then
             MessageBox.Show("Please fill in all fields before confirming.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return
         End If
 
-        ' Proceed with conflict checking logic if all fields are filled
-        Dim selectedRoom As String = txtrcode.Text
+        ' Declare variables to hold the formatted time
+        Dim timein As String = ""
+        Dim timeout As String = ""
+
+        ' Call timeequation() to properly format the time
+        timeequation(timein, timeout)
+
+        ' Proceed with checking for conflicts after the time is formatted
+        Dim selectedCode As String = txtrcode.Text
         Dim selectedDateOrDay As String = txtrDD.Text
-        Dim selectedTime As String = time
 
-        ' Define queries to search for conflicts in both shed and shedtemp tables
+        ' Use the formatted timein and timeout from the timeequation method
+        Dim selectedTimeIn As String = timein ' This is the formatted time_in
+        Dim selectedTimeOut As String = timeout ' This is the formatted time_out
+
+        ' Define query to search for conflicts in the database (schedtemp for Today/Date and shed for Day)
         Dim query As String = ""
+
         If cboDD.SelectedItem.ToString() = "Today" Or cboDD.SelectedItem.ToString() = "Date" Then
-            ' Temporary schedule, search by date
-            query = "SELECT * FROM shedtemp WHERE room_code = @room AND rDate = @date AND rTime = @time " &
-                "UNION ALL " &
-                "SELECT * FROM shed WHERE room_code = @room AND rDate = @date AND rTime = @time"
+            ' Temporary schedule, only search in schedtemp table by date
+            query = "SELECT * FROM schedtemp WHERE room_code = @room AND room_date = @date AND " &
+                "(room_time_in <= @timeOut AND room_time_out >= @timeIn)"
+
+            Using command As New MySqlCommand(query, conn)
+                command.Parameters.AddWithValue("@room", selectedCode)
+                command.Parameters.AddWithValue("@date", selectedDateOrDay)
+                command.Parameters.AddWithValue("@timeIn", selectedTimeIn)
+                command.Parameters.AddWithValue("@timeOut", selectedTimeOut)
+
+                Dim table As New DataTable()
+
+                Try
+                    ' Open the database connection if it's closed
+                    If conn.State = ConnectionState.Closed Then
+                        conn.Open()
+                    End If
+
+                    ' Execute the query and fill the DataTable
+                    Dim adapter As New MySqlDataAdapter(command)
+                    adapter.Fill(table)
+
+                    ' Check if any records were found
+                    If table.Rows.Count > 0 Then
+                        MessageBox.Show("There is already a schedule in this room at the selected time.", "Schedule Conflict", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                        btnaddschedule.Enabled = False ' Disable btnaddschedule if there's a conflict
+                    Else
+                        MessageBox.Show("No conflicts found. Schedule can be confirmed.", "No Conflict", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        btnaddschedule.Enabled = True ' Enable btnaddschedule when no conflict is found
+                    End If
+                Catch ex As Exception
+                    MessageBox.Show("Error checking schedule conflicts: " & ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Finally
+                    conn.Close() ' Ensure the connection is closed
+                End Try
+            End Using
         ElseIf cboDD.SelectedItem.ToString() = "Day" Then
-            ' Permanent schedule, search by day
-            query = "SELECT * FROM shedtemp WHERE room_code = @room AND rDay = @date AND rTime = @time " &
-                "UNION ALL " &
-                "SELECT * FROM shed WHERE room_code = @room AND rDay = @date AND rTime = @time"
+            ' Permanent schedule, search in shed table by day
+            query = "SELECT * FROM shed WHERE room_code = @room AND room_day = @day AND " &
+                "(room_time_in <= @timeOut AND room_time_out >= @timeIn)"
+
+            Using command As New MySqlCommand(query, conn)
+                command.Parameters.AddWithValue("@room", selectedCode)
+                command.Parameters.AddWithValue("@day", selectedDateOrDay)
+                command.Parameters.AddWithValue("@timeIn", selectedTimeIn)
+                command.Parameters.AddWithValue("@timeOut", selectedTimeOut)
+
+                Dim table As New DataTable()
+
+                Try
+                    ' Open the database connection if it's closed
+                    If conn.State = ConnectionState.Closed Then
+                        conn.Open()
+                    End If
+
+                    ' Execute the query and fill the DataTable
+                    Dim adapter As New MySqlDataAdapter(command)
+                    adapter.Fill(table)
+
+                    ' Check if any records were found
+                    If table.Rows.Count > 0 Then
+                        MessageBox.Show("There is already a schedule in this room at the selected time.", "Schedule Conflict", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                        btnaddschedule.Enabled = False ' Disable btnaddschedule if there's a conflict
+                    Else
+                        MessageBox.Show("No conflicts found. Schedule can be confirmed.", "No Conflict", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        btnaddschedule.Enabled = True ' Enable btnaddschedule when no conflict is found
+                    End If
+                Catch ex As Exception
+                    MessageBox.Show("Error checking schedule conflicts: " & ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Finally
+                    conn.Close() ' Ensure the connection is closed
+                End Try
+            End Using
         End If
-
-        ' Create the MySqlCommand with the query and parameters
-        Using command As New MySqlCommand(query, conn)
-            command.Parameters.AddWithValue("@room", selectedRoom)
-            command.Parameters.AddWithValue("@date", selectedDateOrDay)
-            command.Parameters.AddWithValue("@time", selectedTime)
-
-            Dim table As New DataTable()
-
-            Try
-                ' Open the database connection if it's closed
-                If conn.State = ConnectionState.Closed Then
-                    conn.Open()
-                End If
-
-                ' Execute the query and fill the DataTable
-                Dim adapter As New MySqlDataAdapter(command)
-                adapter.Fill(table)
-
-                ' Check if any records were found
-                If table.Rows.Count > 0 Then
-                    MessageBox.Show("There is already a schedule in this room at the selected time.", "Schedule Conflict", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                    btnadd.Enabled = False ' Disable btnadd if there's a conflict
-                Else
-                    MessageBox.Show("No conflicts found. Schedule can be confirmed.", "No Conflict", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    btnaddschedule.Enabled = True ' Enable btnadd if no conflict is found
-                End If
-            Catch ex As Exception
-                MessageBox.Show("Error checking schedule conflicts: " & ex.Message)
-            Finally
-                conn.Close()
-            End Try
-        End Using
     End Sub
+
+
+
 
 
     Private Sub cboDD_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboDD.SelectedIndexChanged
@@ -307,91 +405,160 @@ Public Class addscheduleadmin
         End Select
     End Sub
 
-    Private Sub TableLayoutPanel1_Paint(sender As Object, e As PaintEventArgs) Handles TableLayoutPanel1.Paint
+    Public Sub requestloader()
+        ' Check if the requestID is provided (it should not be empty or null)
+        If String.IsNullOrEmpty(requestID) Then
+            MessageBox.Show("Request ID is missing or invalid.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
 
+        ' SQL query to retrieve request data based on requestID
+        Dim query As String = "SELECT * FROM requests WHERE requestID = @requestID"
+
+        ' Create a new command to execute the query
+        Using command As New MySqlCommand(query, conn)
+            command.Parameters.AddWithValue("@requestID", requestID) ' Add the requestID parameter to the query
+
+            ' Create a DataTable to hold the query results
+            Dim table As New DataTable()
+
+            Try
+                ' Open the database connection if it's closed
+                If conn.State = ConnectionState.Closed Then
+                    conn.Open()
+                End If
+
+                ' Execute the query and fill the DataTable
+                Dim adapter As New MySqlDataAdapter(command)
+                adapter.Fill(table)
+
+                ' Check if any record is found
+                If table.Rows.Count > 0 Then
+                    ' Extract values from the DataTable and populate the controls
+                    Dim row As DataRow = table.Rows(0)
+
+                    ' Populate controls with the data
+                    txtbuilding.Text = row("room").ToString()
+                    txtrcode.Text = row("request").ToString()
+                    txtrname.Text = row("request_d").ToString()
+                    txtrDD.Text = row("request_t").ToString()
+                    cbohourin.Text = row("request_t_in").ToString()
+                    cbominutein.Text = row("request_t_out").ToString()
+
+                    ' Additional checks can be added here to match the correct combo boxes and textboxes if needed
+
+                Else
+                    ' If no data found, show a message
+                    MessageBox.Show("No data found for the provided Request ID.", "Data Not Found", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                End If
+            Catch ex As Exception
+                ' Show any errors that occur
+                MessageBox.Show("Error loading request data: " & ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Finally
+                ' Ensure the connection is closed
+                conn.Close()
+            End Try
+        End Using
     End Sub
 
-    Private Sub txtsearchbox_TextChanged(sender As Object, e As EventArgs) Handles txtsearchbox.TextChanged
-
-    End Sub
-
-    Private Sub TableLayoutPanel2_Paint(sender As Object, e As PaintEventArgs) Handles TableLayoutPanel2.Paint
-
-    End Sub
-
-    Private Sub TableLayoutPanel3_Paint(sender As Object, e As PaintEventArgs) Handles TableLayoutPanel3.Paint
-
-    End Sub
-
-    Private Sub TableLayoutPanel4_Paint(sender As Object, e As PaintEventArgs) Handles TableLayoutPanel4.Paint
-
-    End Sub
-
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
-
-    End Sub
-
-    Private Sub cbosearch_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbosearch.SelectedIndexChanged
-
-    End Sub
-
-    Private Sub txtrname_TextChanged(sender As Object, e As EventArgs) Handles txtrname.TextChanged
-
-    End Sub
-
-    Private Sub txtrcode_TextChanged(sender As Object, e As EventArgs) Handles txtrcode.TextChanged
-
-    End Sub
-
-    Private Sub txtrDD_TextChanged(sender As Object, e As EventArgs) Handles txtrDD.TextChanged
-
-    End Sub
-
-    Private Sub txtcode_Click(sender As Object, e As EventArgs) Handles txtcode.Click
-
-    End Sub
-
-    Private Sub txtroom_Click(sender As Object, e As EventArgs) Handles txtroom.Click
-
-    End Sub
-
-    Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
-
-    End Sub
-
-    Private Sub Label8_Click(sender As Object, e As EventArgs) Handles Label8.Click
-
-    End Sub
-
-    Private Sub txtbuilding_TextChanged(sender As Object, e As EventArgs) Handles txtbuilding.TextChanged
-
-    End Sub
-
-    Private Sub TableLayoutPanel6_Paint(sender As Object, e As PaintEventArgs) Handles TableLayoutPanel6.Paint
-
-    End Sub
-
-    Private Sub cbominute_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbominute.SelectedIndexChanged
-
-    End Sub
-
-    Private Sub cboampm_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboampm.SelectedIndexChanged
-
-    End Sub
-
-    Private Sub cbohour_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbohour.SelectedIndexChanged
-
-    End Sub
-
-    Private Sub DGVrooms_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DGVrooms.CellContentClick
-
-    End Sub
-
-    Private Sub TableLayoutPanel5_Paint(sender As Object, e As PaintEventArgs) Handles TableLayoutPanel5.Paint
-
-    End Sub
 
     Private Sub btnaddschedule_Click(sender As Object, e As EventArgs) Handles btnaddschedule.Click
+        ' Ensure all required fields are filled (textboxes and combo boxes)
+        If String.IsNullOrEmpty(txtrname.Text) OrElse
+           String.IsNullOrEmpty(txtrcode.Text) OrElse
+           String.IsNullOrEmpty(txtbuilding.Text) OrElse
+           String.IsNullOrEmpty(txtrDD.Text) OrElse
+           String.IsNullOrEmpty(cbohourin.Text) OrElse
+           String.IsNullOrEmpty(cbominutein.Text) OrElse
+           String.IsNullOrEmpty(cboampmin.Text) OrElse
+           String.IsNullOrEmpty(cbohourout.Text) OrElse
+           String.IsNullOrEmpty(cbominuteout.Text) OrElse
+           String.IsNullOrEmpty(cboampmout.Text) Then
+            MessageBox.Show("Please fill in all fields before confirming.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
 
+        ' Declare variables to hold the formatted time
+        Dim timein As String = ""
+        Dim timeout As String = ""
+
+        ' Call timeequation() to properly format the time
+        timeequation(timein, timeout)
+
+        ' Retrieve the selected room code, name, and building letter
+        Dim selectedCode As String = txtrcode.Text
+        Dim selectedName As String = txtrname.Text
+        Dim selectedBuilding As String = txtbuilding.Text
+
+        ' Get the selected date or day for the schedule
+        Dim selectedDateOrDay As String = txtrDD.Text
+
+        ' Use the formatted timein and timeout from the timeequation method
+        Dim selectedTimeIn As String = timein ' This is the formatted time_in
+        Dim selectedTimeOut As String = timeout ' This is the formatted time_out
+
+        ' Determine which table to insert into based on the selected option
+        If cboDD.SelectedItem.ToString() = "Today" Or cboDD.SelectedItem.ToString() = "Date" Then
+            ' Temporary schedule, insert into schedtemp table
+            Dim query As String = "INSERT INTO schedtemp (requesterID, room, request, request_d, request_t, request_t_in, request_t_out) " &
+                                  "VALUES (@requesterID, @room, @request, @request_d, @request_t, @request_t_in, @request_t_out)"
+
+            Using command As New MySqlCommand(query, conn)
+                ' Add parameters for the INSERT statement
+                command.Parameters.AddWithValue("@requesterID", requestID) ' Assuming requestID is set earlier
+                command.Parameters.AddWithValue("@room", selectedCode)
+                command.Parameters.AddWithValue("@request", "Room scheduling request")
+                command.Parameters.AddWithValue("@request_d", selectedDateOrDay)
+                command.Parameters.AddWithValue("@request_t", cboDD.SelectedItem.ToString())
+                command.Parameters.AddWithValue("@request_t_in", selectedTimeIn)
+                command.Parameters.AddWithValue("@request_t_out", selectedTimeOut)
+
+                Try
+                    ' Open the database connection if it's closed
+                    If conn.State = ConnectionState.Closed Then
+                        conn.Open()
+                    End If
+
+                    ' Execute the insert command
+                    command.ExecuteNonQuery()
+                    MessageBox.Show("Schedule has been successfully added to the temporary schedule.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Catch ex As Exception
+                    MessageBox.Show("Error adding schedule: " & ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Finally
+                    conn.Close() ' Ensure the connection is closed
+                End Try
+            End Using
+
+        ElseIf cboDD.SelectedItem.ToString() = "Day" Then
+            ' Permanent schedule, insert into shed table
+            Dim query As String = "INSERT INTO shed (requesterID, room, request, room_day, room_time_in, room_time_out) " &
+                                  "VALUES (@requesterID, @room, @request, @room_day, @room_time_in, @room_time_out)"
+
+            Using command As New MySqlCommand(query, conn)
+                ' Add parameters for the INSERT statement
+                command.Parameters.AddWithValue("@requesterID", requestID) ' Assuming requestID is set earlier
+                command.Parameters.AddWithValue("@room", selectedCode)
+                command.Parameters.AddWithValue("@request", "Room scheduling request")
+                command.Parameters.AddWithValue("@room_day", selectedDateOrDay)
+                command.Parameters.AddWithValue("@room_time_in", selectedTimeIn)
+                command.Parameters.AddWithValue("@room_time_out", selectedTimeOut)
+
+                Try
+                    ' Open the database connection if it's closed
+                    If conn.State = ConnectionState.Closed Then
+                        conn.Open()
+                    End If
+
+                    ' Execute the insert command
+                    command.ExecuteNonQuery()
+                    MessageBox.Show("Schedule has been successfully added to the permanent schedule.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Catch ex As Exception
+                    MessageBox.Show("Error adding schedule: " & ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Finally
+                    conn.Close() ' Ensure the connection is closed
+                End Try
+            End Using
+        End If
     End Sub
+
 End Class

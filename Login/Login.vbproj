@@ -137,16 +137,22 @@
     <Compile Include="addscheduleadmin.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="ScheduleStudent.Designer.vb">
+      <DependentUpon>ScheduleStudent.vb</DependentUpon>
     </Compile>
-    <Compile Include="Form1.vb">
+    <Compile Include="ScheduleStudent.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.vb">
-      <DependentUpon>Form2.vb</DependentUpon>
+    <Compile Include="RoomListStudent.Designer.vb">
+      <DependentUpon>RoomListStudent.vb</DependentUpon>
     </Compile>
-    <Compile Include="Form2.vb">
+    <Compile Include="RoomListStudent.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FeedbackStudent.Designer.vb">
+      <DependentUpon>FeedbackStudent.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FeedbackStudent.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Login.vb">
@@ -219,11 +225,11 @@
     <EmbeddedResource Include="addscheduleadmin.resx">
       <DependentUpon>addscheduleadmin.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <EmbeddedResource Include="RoomListStudent.resx">
+      <DependentUpon>RoomListStudent.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.vb</DependentUpon>
+    <EmbeddedResource Include="FeedbackStudent.resx">
+      <DependentUpon>FeedbackStudent.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.vb</DependentUpon>
@@ -239,6 +245,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Schedule.resx">
       <DependentUpon>Schedule.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScheduleStudent.resx">
+      <DependentUpon>ScheduleStudent.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Student.resx">
       <DependentUpon>Student.vb</DependentUpon>

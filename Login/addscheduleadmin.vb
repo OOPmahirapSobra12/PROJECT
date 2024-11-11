@@ -307,7 +307,91 @@ Public Class addscheduleadmin
         End Select
     End Sub
 
+    Private Sub TableLayoutPanel1_Paint(sender As Object, e As PaintEventArgs) Handles TableLayoutPanel1.Paint
+
+    End Sub
+
+    Private Sub txtsearchbox_TextChanged(sender As Object, e As EventArgs) Handles txtsearchbox.TextChanged
+
+    End Sub
+
+    Private Sub TableLayoutPanel2_Paint(sender As Object, e As PaintEventArgs) Handles TableLayoutPanel2.Paint
+
+    End Sub
+
+    Private Sub TableLayoutPanel3_Paint(sender As Object, e As PaintEventArgs) Handles TableLayoutPanel3.Paint
+
+    End Sub
+
+    Private Sub TableLayoutPanel4_Paint(sender As Object, e As PaintEventArgs) Handles TableLayoutPanel4.Paint
+
+    End Sub
+
+    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+
+    End Sub
+
+    Private Sub cbosearch_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbosearch.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub txtrname_TextChanged(sender As Object, e As EventArgs) Handles txtrname.TextChanged
+
+    End Sub
+
+    Private Sub txtrcode_TextChanged(sender As Object, e As EventArgs) Handles txtrcode.TextChanged
+
+    End Sub
+
+    Private Sub txtrDD_TextChanged(sender As Object, e As EventArgs) Handles txtrDD.TextChanged
+
+    End Sub
+
+    Private Sub txtcode_Click(sender As Object, e As EventArgs) Handles txtcode.Click
+
+    End Sub
+
+    Private Sub txtroom_Click(sender As Object, e As EventArgs) Handles txtroom.Click
+
+    End Sub
+
+    Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
+
+    End Sub
+
+    Private Sub Label8_Click(sender As Object, e As EventArgs) Handles Label8.Click
+
+    End Sub
+
+    Private Sub txtbuilding_TextChanged(sender As Object, e As EventArgs) Handles txtbuilding.TextChanged
+
+    End Sub
+
+    Private Sub TableLayoutPanel6_Paint(sender As Object, e As PaintEventArgs) Handles TableLayoutPanel6.Paint
+
+    End Sub
+
+    Private Sub cbominute_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbominute.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub cboampm_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboampm.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub cbohour_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbohour.SelectedIndexChanged
+
+    End Sub
+
+    Private Sub DGVrooms_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DGVrooms.CellContentClick
+
+    End Sub
+
     Private Sub TableLayoutPanel5_Paint(sender As Object, e As PaintEventArgs) Handles TableLayoutPanel5.Paint
+
+    End Sub
+
+    Private Sub btnaddschedule_Click(sender As Object, e As EventArgs) Handles btnaddschedule.Click
 
     End Sub
 End Class

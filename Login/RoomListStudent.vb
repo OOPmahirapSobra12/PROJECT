@@ -44,12 +44,11 @@
     End Sub
 
 
-    Private Sub roomstud_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-    End Sub
-
-    Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnbackstud.Click
         Student.Show()
         Me.Hide()
     End Sub
+
+
 End Class

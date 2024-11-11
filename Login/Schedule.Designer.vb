@@ -51,56 +51,64 @@ Partial Class Schedule
         Me.DataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         Me.DataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveCaption
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(248, 40)
+        Me.DataGridView1.Location = New System.Drawing.Point(372, 62)
+        Me.DataGridView1.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(673, 486)
+        Me.DataGridView1.RowHeadersWidth = 62
+        Me.DataGridView1.Size = New System.Drawing.Size(1010, 748)
         Me.DataGridView1.TabIndex = 0
         '
         'txtRoomName
         '
-        Me.txtRoomName.Location = New System.Drawing.Point(95, 217)
+        Me.txtRoomName.Location = New System.Drawing.Point(142, 334)
+        Me.txtRoomName.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtRoomName.Name = "txtRoomName"
-        Me.txtRoomName.Size = New System.Drawing.Size(100, 20)
+        Me.txtRoomName.Size = New System.Drawing.Size(148, 26)
         Me.txtRoomName.TabIndex = 1
         '
         'cboBuildingLetter
         '
         Me.cboBuildingLetter.FormattingEnabled = True
         Me.cboBuildingLetter.Items.AddRange(New Object() {"A", "B", "C"})
-        Me.cboBuildingLetter.Location = New System.Drawing.Point(95, 336)
+        Me.cboBuildingLetter.Location = New System.Drawing.Point(142, 517)
+        Me.cboBuildingLetter.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.cboBuildingLetter.Name = "cboBuildingLetter"
-        Me.cboBuildingLetter.Size = New System.Drawing.Size(121, 21)
+        Me.cboBuildingLetter.Size = New System.Drawing.Size(180, 28)
         Me.cboBuildingLetter.TabIndex = 2
         '
         'txtRoomTime
         '
-        Me.txtRoomTime.Location = New System.Drawing.Point(95, 291)
+        Me.txtRoomTime.Location = New System.Drawing.Point(142, 448)
+        Me.txtRoomTime.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtRoomTime.Name = "txtRoomTime"
-        Me.txtRoomTime.Size = New System.Drawing.Size(100, 20)
+        Me.txtRoomTime.Size = New System.Drawing.Size(148, 26)
         Me.txtRoomTime.TabIndex = 3
         '
         'cboRoomDay
         '
         Me.cboRoomDay.FormattingEnabled = True
         Me.cboRoomDay.Items.AddRange(New Object() {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"})
-        Me.cboRoomDay.Location = New System.Drawing.Point(95, 397)
+        Me.cboRoomDay.Location = New System.Drawing.Point(142, 611)
+        Me.cboRoomDay.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.cboRoomDay.Name = "cboRoomDay"
-        Me.cboRoomDay.Size = New System.Drawing.Size(121, 21)
+        Me.cboRoomDay.Size = New System.Drawing.Size(180, 28)
         Me.cboRoomDay.TabIndex = 4
         '
         'dtpRoomDate
         '
-        Me.dtpRoomDate.Location = New System.Drawing.Point(5, 461)
+        Me.dtpRoomDate.Location = New System.Drawing.Point(8, 709)
+        Me.dtpRoomDate.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.dtpRoomDate.Name = "dtpRoomDate"
-        Me.dtpRoomDate.Size = New System.Drawing.Size(200, 20)
+        Me.dtpRoomDate.Size = New System.Drawing.Size(298, 26)
         Me.dtpRoomDate.TabIndex = 5
         '
         'btnAdd
         '
         Me.btnAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAdd.Location = New System.Drawing.Point(12, 77)
+        Me.btnAdd.Location = New System.Drawing.Point(18, 118)
+        Me.btnAdd.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.Size = New System.Drawing.Size(106, 23)
+        Me.btnAdd.Size = New System.Drawing.Size(159, 35)
         Me.btnAdd.TabIndex = 6
         Me.btnAdd.Text = "Add Shedule"
         Me.btnAdd.UseVisualStyleBackColor = True
@@ -108,9 +116,10 @@ Partial Class Schedule
         'btnUpdate
         '
         Me.btnUpdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnUpdate.Location = New System.Drawing.Point(12, 106)
+        Me.btnUpdate.Location = New System.Drawing.Point(18, 163)
+        Me.btnUpdate.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnUpdate.Name = "btnUpdate"
-        Me.btnUpdate.Size = New System.Drawing.Size(106, 23)
+        Me.btnUpdate.Size = New System.Drawing.Size(159, 35)
         Me.btnUpdate.TabIndex = 7
         Me.btnUpdate.Text = "Update Schedule"
         Me.btnUpdate.UseVisualStyleBackColor = True
@@ -118,9 +127,10 @@ Partial Class Schedule
         'btnDelete
         '
         Me.btnDelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDelete.Location = New System.Drawing.Point(12, 135)
+        Me.btnDelete.Location = New System.Drawing.Point(18, 208)
+        Me.btnDelete.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnDelete.Name = "btnDelete"
-        Me.btnDelete.Size = New System.Drawing.Size(106, 23)
+        Me.btnDelete.Size = New System.Drawing.Size(159, 35)
         Me.btnDelete.TabIndex = 8
         Me.btnDelete.Text = "Delete Schedule"
         Me.btnDelete.UseVisualStyleBackColor = True
@@ -130,9 +140,10 @@ Partial Class Schedule
         Me.btnClear.BackColor = System.Drawing.SystemColors.Control
         Me.btnClear.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClear.ForeColor = System.Drawing.Color.Black
-        Me.btnClear.Location = New System.Drawing.Point(12, 164)
+        Me.btnClear.Location = New System.Drawing.Point(18, 252)
+        Me.btnClear.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnClear.Name = "btnClear"
-        Me.btnClear.Size = New System.Drawing.Size(106, 23)
+        Me.btnClear.Size = New System.Drawing.Size(159, 35)
         Me.btnClear.TabIndex = 9
         Me.btnClear.Text = "Clear Schedule"
         Me.btnClear.UseVisualStyleBackColor = False
@@ -141,9 +152,10 @@ Partial Class Schedule
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(5, 220)
+        Me.Label1.Location = New System.Drawing.Point(8, 338)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(83, 13)
+        Me.Label1.Size = New System.Drawing.Size(123, 20)
         Me.Label1.TabIndex = 10
         Me.Label1.Text = "Room Name :"
         '
@@ -151,9 +163,10 @@ Partial Class Schedule
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(5, 291)
+        Me.Label2.Location = New System.Drawing.Point(8, 448)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(83, 13)
+        Me.Label2.Size = New System.Drawing.Size(122, 20)
         Me.Label2.TabIndex = 11
         Me.Label2.Text = "Room TIme : "
         '
@@ -161,9 +174,10 @@ Partial Class Schedule
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(5, 339)
+        Me.Label3.Location = New System.Drawing.Point(8, 522)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(88, 13)
+        Me.Label3.Size = New System.Drawing.Size(131, 20)
         Me.Label3.TabIndex = 12
         Me.Label3.Text = "Building Name"
         '
@@ -171,52 +185,58 @@ Partial Class Schedule
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(5, 405)
+        Me.Label4.Location = New System.Drawing.Point(8, 623)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(37, 13)
+        Me.Label4.Size = New System.Drawing.Size(54, 20)
         Me.Label4.TabIndex = 13
         Me.Label4.Text = "Day :"
         '
         'txtRoomCode
         '
-        Me.txtRoomCode.Location = New System.Drawing.Point(95, 255)
+        Me.txtRoomCode.Location = New System.Drawing.Point(142, 392)
+        Me.txtRoomCode.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtRoomCode.Name = "txtRoomCode"
-        Me.txtRoomCode.Size = New System.Drawing.Size(100, 20)
+        Me.txtRoomCode.Size = New System.Drawing.Size(148, 26)
         Me.txtRoomCode.TabIndex = 14
         '
         'Label5
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(5, 258)
+        Me.Label5.Location = New System.Drawing.Point(8, 397)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(84, 13)
+        Me.Label5.Size = New System.Drawing.Size(124, 20)
         Me.Label5.TabIndex = 15
         Me.Label5.Text = "Room Code : "
         '
         'txtSchedID
         '
-        Me.txtSchedID.Location = New System.Drawing.Point(95, 367)
+        Me.txtSchedID.Location = New System.Drawing.Point(142, 565)
+        Me.txtSchedID.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtSchedID.Name = "txtSchedID"
-        Me.txtSchedID.Size = New System.Drawing.Size(121, 20)
+        Me.txtSchedID.Size = New System.Drawing.Size(180, 26)
         Me.txtSchedID.TabIndex = 16
         '
         'lblSchedID
         '
         Me.lblSchedID.AutoSize = True
         Me.lblSchedID.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSchedID.Location = New System.Drawing.Point(2, 374)
+        Me.lblSchedID.Location = New System.Drawing.Point(3, 575)
+        Me.lblSchedID.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblSchedID.Name = "lblSchedID"
-        Me.lblSchedID.Size = New System.Drawing.Size(64, 13)
+        Me.lblSchedID.Size = New System.Drawing.Size(92, 20)
         Me.lblSchedID.TabIndex = 17
         Me.lblSchedID.Text = "Sched ID:"
         '
         'btnBack
         '
         Me.btnBack.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnBack.Location = New System.Drawing.Point(5, 491)
+        Me.btnBack.Location = New System.Drawing.Point(8, 755)
+        Me.btnBack.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnBack.Name = "btnBack"
-        Me.btnBack.Size = New System.Drawing.Size(75, 23)
+        Me.btnBack.Size = New System.Drawing.Size(112, 35)
         Me.btnBack.TabIndex = 18
         Me.btnBack.Text = "BACK"
         Me.btnBack.UseVisualStyleBackColor = True
@@ -229,18 +249,19 @@ Partial Class Schedule
         Me.Label6.ForeColor = System.Drawing.Color.White
         Me.Label6.Image = Global.Login.My.Resources.Resources.image_removebg_preview2
         Me.Label6.Location = New System.Drawing.Point(0, 0)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(921, 37)
+        Me.Label6.Size = New System.Drawing.Size(1382, 57)
         Me.Label6.TabIndex = 19
         Me.Label6.Text = "SCHEDULE MANAGEMENT"
         Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'Schedule
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Highlight
-        Me.ClientSize = New System.Drawing.Size(921, 526)
+        Me.ClientSize = New System.Drawing.Size(1382, 809)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.lblSchedID)
@@ -261,6 +282,7 @@ Partial Class Schedule
         Me.Controls.Add(Me.cboBuildingLetter)
         Me.Controls.Add(Me.txtRoomName)
         Me.Controls.Add(Me.DataGridView1)
+        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "Schedule"
         Me.Text = "Schedule"
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()

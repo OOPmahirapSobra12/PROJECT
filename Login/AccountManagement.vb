@@ -50,9 +50,8 @@ Public Class AccountManagement
         ' Ensure a row is selected
         If DGVaccounts.SelectedRows.Count > 0 Then
             ' Get the account ID from the selected row
-            MsgBox(DGVaccounts.SelectedRows)
             Dim selectedAccountID As String = DGVaccounts.SelectedRows(0).Cells("accountID").Value.ToString()
-            MsgBox(selectedAccountID)
+
             ' Confirm deletion with the user
             Dim result As DialogResult = MessageBox.Show("Are you sure you want to delete the selected account?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
 
@@ -65,6 +64,7 @@ Public Class AccountManagement
             MessageBox.Show("Please select a row to delete.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If
     End Sub
+
 
     Private Sub DeleteAccount(selectedAccountID)
         ' SQL query to delete the account

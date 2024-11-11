@@ -1,7 +1,7 @@
 ﻿Public Class Student
 
     Private Sub btnsignout_Click(sender As Object, e As EventArgs) Handles btnsignout.Click
-        U_ID.ToString("")
+        U_ID = Nothing
         Login.Show()
         Me.Hide()
     End Sub

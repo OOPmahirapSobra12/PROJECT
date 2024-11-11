@@ -149,7 +149,7 @@ Public Class Admin
     End Sub
 
     Private Sub btnlogout_Click(sender As Object, e As EventArgs) Handles btnlogout.Click
-        U_ID.ToString("")
+        U_ID = Nothing
         Login.Show()
         Me.Hide()
     End Sub

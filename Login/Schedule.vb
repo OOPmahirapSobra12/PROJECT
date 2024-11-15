@@ -21,6 +21,7 @@ Public Class Schedule
         Dim query As String = "INSERT INTO sched (shed_id, room_code, room_name, building_letter, room_time, room_day, room_date) VALUES (@shed_id, @room_code, @room_name, @building_letter, @room_time, @room_day, @room_date)"
         Dim command As New MySqlCommand(query, connection)
 
+
         ' Ensure sched_id is entered manually
         command.Parameters.AddWithValue("@shed_id", Integer.Parse(txtSchedID.Text)) ' Convert to Integer
         command.Parameters.AddWithValue("@room_code", txtRoomCode.Text)

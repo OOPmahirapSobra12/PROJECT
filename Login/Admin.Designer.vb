@@ -30,26 +30,9 @@ Partial Class Admin
         Me.btnapproval = New System.Windows.Forms.Button()
         Me.btnmanagement = New System.Windows.Forms.Button()
         Me.btnlogout = New System.Windows.Forms.Button()
-        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
-        Me.btnreport = New System.Windows.Forms.Button()
-        Me.btnfeedback = New System.Windows.Forms.Button()
-        Me.DGVreport = New System.Windows.Forms.DataGridView()
-        Me.ReportID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ReportDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ReportTime = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.ReportView = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.ReportDelete = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.DGVfeedback = New System.Windows.Forms.DataGridView()
-        Me.FeedbackID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FeedbackDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FeedbackTime = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FeedbackView = New System.Windows.Forms.DataGridViewButtonColumn()
-        Me.FeedbackDelete = New System.Windows.Forms.DataGridViewButtonColumn()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
-        Me.TableLayoutPanel3.SuspendLayout()
-        CType(Me.DGVreport, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DGVfeedback, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TableLayoutPanel1
@@ -59,7 +42,6 @@ Partial Class Admin
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.375!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.625!))
         Me.TableLayoutPanel1.Controls.Add(Me.TableLayoutPanel2, 1, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.TableLayoutPanel3, 0, 1)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
@@ -72,15 +54,16 @@ Partial Class Admin
         'TableLayoutPanel2
         '
         Me.TableLayoutPanel2.ColumnCount = 3
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50.0!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 54.0!))
         Me.TableLayoutPanel2.Controls.Add(Me.btnprofile, 1, 2)
         Me.TableLayoutPanel2.Controls.Add(Me.btnlist, 1, 3)
         Me.TableLayoutPanel2.Controls.Add(Me.Button2, 1, 4)
         Me.TableLayoutPanel2.Controls.Add(Me.btnapproval, 1, 5)
         Me.TableLayoutPanel2.Controls.Add(Me.btnmanagement, 1, 6)
         Me.TableLayoutPanel2.Controls.Add(Me.btnlogout, 1, 7)
+        Me.TableLayoutPanel2.Controls.Add(Me.Button1, 2, 8)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(390, 12)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
@@ -106,9 +89,9 @@ Partial Class Admin
         Me.btnprofile.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnprofile.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnprofile.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.btnprofile.Location = New System.Drawing.Point(23, 119)
+        Me.btnprofile.Location = New System.Drawing.Point(53, 119)
         Me.btnprofile.Name = "btnprofile"
-        Me.btnprofile.Size = New System.Drawing.Size(361, 54)
+        Me.btnprofile.Size = New System.Drawing.Size(297, 54)
         Me.btnprofile.TabIndex = 27
         Me.btnprofile.Text = "Welcome, (Name)"
         Me.btnprofile.UseVisualStyleBackColor = False
@@ -121,9 +104,9 @@ Partial Class Admin
         Me.btnlist.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnlist.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnlist.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.btnlist.Location = New System.Drawing.Point(23, 179)
+        Me.btnlist.Location = New System.Drawing.Point(53, 179)
         Me.btnlist.Name = "btnlist"
-        Me.btnlist.Size = New System.Drawing.Size(361, 39)
+        Me.btnlist.Size = New System.Drawing.Size(297, 39)
         Me.btnlist.TabIndex = 28
         Me.btnlist.Text = "Room List"
         Me.btnlist.UseVisualStyleBackColor = False
@@ -136,9 +119,9 @@ Partial Class Admin
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.Button2.Location = New System.Drawing.Point(23, 224)
+        Me.Button2.Location = New System.Drawing.Point(53, 224)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(361, 37)
+        Me.Button2.Size = New System.Drawing.Size(297, 37)
         Me.Button2.TabIndex = 29
         Me.Button2.Text = "Schedule"
         Me.Button2.UseVisualStyleBackColor = False
@@ -151,9 +134,9 @@ Partial Class Admin
         Me.btnapproval.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnapproval.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnapproval.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.btnapproval.Location = New System.Drawing.Point(23, 267)
+        Me.btnapproval.Location = New System.Drawing.Point(53, 267)
         Me.btnapproval.Name = "btnapproval"
-        Me.btnapproval.Size = New System.Drawing.Size(361, 43)
+        Me.btnapproval.Size = New System.Drawing.Size(297, 43)
         Me.btnapproval.TabIndex = 30
         Me.btnapproval.Text = "Request Approval"
         Me.btnapproval.UseVisualStyleBackColor = False
@@ -166,9 +149,9 @@ Partial Class Admin
         Me.btnmanagement.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnmanagement.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnmanagement.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.btnmanagement.Location = New System.Drawing.Point(23, 316)
+        Me.btnmanagement.Location = New System.Drawing.Point(53, 316)
         Me.btnmanagement.Name = "btnmanagement"
-        Me.btnmanagement.Size = New System.Drawing.Size(361, 36)
+        Me.btnmanagement.Size = New System.Drawing.Size(297, 36)
         Me.btnmanagement.TabIndex = 32
         Me.btnmanagement.Text = "Account Management"
         Me.btnmanagement.UseVisualStyleBackColor = False
@@ -177,169 +160,30 @@ Partial Class Admin
         '
         Me.btnlogout.AutoSize = True
         Me.btnlogout.BackColor = System.Drawing.Color.Transparent
-        Me.btnlogout.Dock = System.Windows.Forms.DockStyle.Top
         Me.btnlogout.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnlogout.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnlogout.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.btnlogout.Location = New System.Drawing.Point(23, 358)
+        Me.btnlogout.Location = New System.Drawing.Point(53, 358)
         Me.btnlogout.Name = "btnlogout"
-        Me.btnlogout.Size = New System.Drawing.Size(361, 35)
+        Me.btnlogout.Size = New System.Drawing.Size(297, 37)
         Me.btnlogout.TabIndex = 33
         Me.btnlogout.Text = "Log out"
         Me.btnlogout.UseVisualStyleBackColor = False
         '
-        'TableLayoutPanel3
+        'Button1
         '
-        Me.TableLayoutPanel3.BackColor = System.Drawing.Color.Transparent
-        Me.TableLayoutPanel3.ColumnCount = 3
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel3.Controls.Add(Me.btnreport, 1, 2)
-        Me.TableLayoutPanel3.Controls.Add(Me.btnfeedback, 1, 4)
-        Me.TableLayoutPanel3.Controls.Add(Me.DGVreport, 1, 3)
-        Me.TableLayoutPanel3.Controls.Add(Me.DGVfeedback, 1, 5)
-        Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel3.Location = New System.Drawing.Point(3, 12)
-        Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
-        Me.TableLayoutPanel3.RowCount = 7
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 95.0!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60.0!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34.0!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 56.0!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(381, 435)
-        Me.TableLayoutPanel3.TabIndex = 1
-        '
-        'btnreport
-        '
-        Me.btnreport.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.btnreport.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnreport.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnreport.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.btnreport.Location = New System.Drawing.Point(23, 149)
-        Me.btnreport.Name = "btnreport"
-        Me.btnreport.Size = New System.Drawing.Size(335, 23)
-        Me.btnreport.TabIndex = 0
-        Me.btnreport.Text = "Reports:"
-        Me.btnreport.UseVisualStyleBackColor = True
-        '
-        'btnfeedback
-        '
-        Me.btnfeedback.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.btnfeedback.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnfeedback.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnfeedback.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.btnfeedback.Location = New System.Drawing.Point(23, 268)
-        Me.btnfeedback.Name = "btnfeedback"
-        Me.btnfeedback.Size = New System.Drawing.Size(335, 23)
-        Me.btnfeedback.TabIndex = 1
-        Me.btnfeedback.Text = "Feedback:"
-        Me.btnfeedback.UseVisualStyleBackColor = True
-        '
-        'DGVreport
-        '
-        Me.DGVreport.AllowUserToAddRows = False
-        Me.DGVreport.AllowUserToDeleteRows = False
-        Me.DGVreport.BackgroundColor = System.Drawing.Color.DodgerBlue
-        Me.DGVreport.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken
-        Me.DGVreport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGVreport.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ReportID, Me.ReportDate, Me.ReportTime, Me.ReportView, Me.ReportDelete})
-        Me.DGVreport.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DGVreport.GridColor = System.Drawing.Color.NavajoWhite
-        Me.DGVreport.Location = New System.Drawing.Point(23, 178)
-        Me.DGVreport.Name = "DGVreport"
-        Me.DGVreport.ReadOnly = True
-        Me.DGVreport.Size = New System.Drawing.Size(335, 79)
-        Me.DGVreport.TabIndex = 4
-        '
-        'ReportID
-        '
-        Me.ReportID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.ReportID.HeaderText = "Report ID"
-        Me.ReportID.Name = "ReportID"
-        Me.ReportID.ReadOnly = True
-        '
-        'ReportDate
-        '
-        Me.ReportDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.ReportDate.HeaderText = "Date Reported"
-        Me.ReportDate.Name = "ReportDate"
-        Me.ReportDate.ReadOnly = True
-        '
-        'ReportTime
-        '
-        Me.ReportTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.ReportTime.HeaderText = "Time Reported"
-        Me.ReportTime.Name = "ReportTime"
-        Me.ReportTime.ReadOnly = True
-        '
-        'ReportView
-        '
-        Me.ReportView.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.ReportView.HeaderText = "View"
-        Me.ReportView.Name = "ReportView"
-        Me.ReportView.ReadOnly = True
-        '
-        'ReportDelete
-        '
-        Me.ReportDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.ReportDelete.HeaderText = "Delete"
-        Me.ReportDelete.Name = "ReportDelete"
-        Me.ReportDelete.ReadOnly = True
-        '
-        'DGVfeedback
-        '
-        Me.DGVfeedback.AllowUserToAddRows = False
-        Me.DGVfeedback.AllowUserToDeleteRows = False
-        Me.DGVfeedback.BackgroundColor = System.Drawing.Color.DodgerBlue
-        Me.DGVfeedback.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken
-        Me.DGVfeedback.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGVfeedback.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.FeedbackID, Me.FeedbackDate, Me.FeedbackTime, Me.FeedbackView, Me.FeedbackDelete})
-        Me.DGVfeedback.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DGVfeedback.GridColor = System.Drawing.Color.NavajoWhite
-        Me.DGVfeedback.Location = New System.Drawing.Point(23, 297)
-        Me.DGVfeedback.Name = "DGVfeedback"
-        Me.DGVfeedback.ReadOnly = True
-        Me.DGVfeedback.Size = New System.Drawing.Size(335, 79)
-        Me.DGVfeedback.TabIndex = 5
-        '
-        'FeedbackID
-        '
-        Me.FeedbackID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.FeedbackID.HeaderText = "Feedback ID"
-        Me.FeedbackID.Name = "FeedbackID"
-        Me.FeedbackID.ReadOnly = True
-        '
-        'FeedbackDate
-        '
-        Me.FeedbackDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.FeedbackDate.HeaderText = "Feedback Date"
-        Me.FeedbackDate.Name = "FeedbackDate"
-        Me.FeedbackDate.ReadOnly = True
-        '
-        'FeedbackTime
-        '
-        Me.FeedbackTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.FeedbackTime.HeaderText = "Feedback Time"
-        Me.FeedbackTime.Name = "FeedbackTime"
-        Me.FeedbackTime.ReadOnly = True
-        '
-        'FeedbackView
-        '
-        Me.FeedbackView.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.FeedbackView.HeaderText = "View"
-        Me.FeedbackView.Name = "FeedbackView"
-        Me.FeedbackView.ReadOnly = True
-        '
-        'FeedbackDelete
-        '
-        Me.FeedbackDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.FeedbackDelete.HeaderText = "Delete"
-        Me.FeedbackDelete.Name = "FeedbackDelete"
-        Me.FeedbackDelete.ReadOnly = True
+        Me.Button1.AutoSize = True
+        Me.Button1.BackColor = System.Drawing.Color.Transparent
+        Me.Button1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.Color.NavajoWhite
+        Me.Button1.Location = New System.Drawing.Point(356, 401)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(48, 31)
+        Me.Button1.TabIndex = 35
+        Me.Button1.Text = "=>"
+        Me.Button1.UseVisualStyleBackColor = False
         '
         'Admin
         '
@@ -359,34 +203,17 @@ Partial Class Admin
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()
-        Me.TableLayoutPanel3.ResumeLayout(False)
-        CType(Me.DGVreport, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DGVfeedback, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
-    Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
     Friend WithEvents btnprofile As Button
     Friend WithEvents btnlist As Button
     Friend WithEvents Button2 As Button
     Friend WithEvents btnapproval As Button
     Friend WithEvents btnmanagement As Button
     Friend WithEvents btnlogout As Button
-    Friend WithEvents btnreport As Button
-    Friend WithEvents btnfeedback As Button
-    Friend WithEvents DGVreport As DataGridView
-    Friend WithEvents ReportID As DataGridViewTextBoxColumn
-    Friend WithEvents ReportDate As DataGridViewTextBoxColumn
-    Friend WithEvents ReportTime As DataGridViewTextBoxColumn
-    Friend WithEvents ReportView As DataGridViewButtonColumn
-    Friend WithEvents ReportDelete As DataGridViewButtonColumn
-    Friend WithEvents DGVfeedback As DataGridView
-    Friend WithEvents FeedbackID As DataGridViewTextBoxColumn
-    Friend WithEvents FeedbackDate As DataGridViewTextBoxColumn
-    Friend WithEvents FeedbackTime As DataGridViewTextBoxColumn
-    Friend WithEvents FeedbackView As DataGridViewButtonColumn
-    Friend WithEvents FeedbackDelete As DataGridViewButtonColumn
+    Friend WithEvents Button1 As Button
 End Class

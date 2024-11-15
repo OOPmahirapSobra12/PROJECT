@@ -131,6 +131,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="accountlogs.Designer.vb">
+      <DependentUpon>accountlogs.vb</DependentUpon>
+    </Compile>
+    <Compile Include="accountlogs.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="AccountManagement.Designer.vb">
       <DependentUpon>AccountManagement.vb</DependentUpon>
     </Compile>
@@ -143,10 +149,34 @@
     <Compile Include="addscheduleadmin.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="AdminPage2.Designer.vb">
+      <DependentUpon>AdminPage2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPage2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="feedbackreciever.Designer.vb">
+      <DependentUpon>feedbackreciever.vb</DependentUpon>
+    </Compile>
+    <Compile Include="feedbackreciever.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="profile.Designer.vb">
       <DependentUpon>profile.vb</DependentUpon>
     </Compile>
     <Compile Include="profile.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="reportreciever.Designer.vb">
+      <DependentUpon>reportreciever.vb</DependentUpon>
+    </Compile>
+    <Compile Include="reportreciever.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="roomlogs.Designer.vb">
+      <DependentUpon>roomlogs.vb</DependentUpon>
+    </Compile>
+    <Compile Include="roomlogs.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="roomoccupancy.Designer.vb">
@@ -247,14 +277,26 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="accountlogs.resx">
+      <DependentUpon>accountlogs.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AccountManagement.resx">
       <DependentUpon>AccountManagement.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="addscheduleadmin.resx">
       <DependentUpon>addscheduleadmin.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AdminPage2.resx">
+      <DependentUpon>AdminPage2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="feedbackreciever.resx">
+      <DependentUpon>feedbackreciever.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="profile.resx">
       <DependentUpon>profile.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reportreciever.resx">
+      <DependentUpon>reportreciever.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RoomListStudent.resx">
       <DependentUpon>RoomListStudent.vb</DependentUpon>
@@ -273,6 +315,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RoomListForm.resx">
       <DependentUpon>RoomListForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="roomlogs.resx">
+      <DependentUpon>roomlogs.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="roomoccupancy.resx">
       <DependentUpon>roomoccupancy.vb</DependentUpon>

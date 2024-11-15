@@ -138,7 +138,7 @@ Partial Class addscheduleadmin
         Me.btnsearch.Name = "btnsearch"
         Me.btnsearch.Size = New System.Drawing.Size(124, 33)
         Me.btnsearch.TabIndex = 0
-        Me.btnsearch.Text = "btnsearch"
+        Me.btnsearch.Text = "Search"
         Me.btnsearch.UseVisualStyleBackColor = True
         '
         'txtsearchbox

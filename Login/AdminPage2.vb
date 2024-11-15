@@ -2,8 +2,7 @@
 Imports System.Windows.Forms
 Imports System.Data
 
-Public Class Admin
-
+Public Class AdminPage2
     Private Sub Admin_load(sender As Object, e As EventArgs) Handles MyBase.Load
         If conn.State = ConnectionState.Open Then
             conn.Close()
@@ -12,19 +11,8 @@ Public Class Admin
         accountname_reload()
     End Sub
 
-    Private Sub btnlogout_Click(sender As Object, e As EventArgs) Handles btnlogout.Click
-        U_ID = Nothing
-        Login.Show()
-        Me.Hide()
-    End Sub
-
-    Private Sub btnmanagement_Click(sender As Object, e As EventArgs) Handles btnmanagement.Click
-        AccountManagement.Show()
-        Me.Hide()
-    End Sub
-
-    Private Sub btnapproval_Click(sender As Object, e As EventArgs) Handles btnapproval.Click
-        requestapproval.Show()
+    Private Sub buttonback_Click(sender As Object, e As EventArgs) Handles buttonback.Click
+        Admin.Show()
         Me.Hide()
     End Sub
 
@@ -58,28 +46,29 @@ Public Class Admin
         End Using
     End Sub
 
-    Private Sub btnprofile_Click(sender As Object, e As EventArgs) Handles btnprofile.Click
-        profile.Show()
+    Private Sub btnreport_Click(sender As Object, e As EventArgs) Handles btnreport.Click
+        reportreciever.Show()
         Me.Hide()
     End Sub
 
-    Private Sub btnlist_Click(sender As Object, e As EventArgs) Handles btnlist.Click
-        RoomListForm.Show()
-
-        Me.Hide()
-    End Sub
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Dim scheduleForm As New Schedule
-
-        ' Show the Schedule form
-        scheduleForm.Show()
-
-        ' Optionally, you can hide the current form if you don't want it to be visible
+    Private Sub btnfeedback_Click(sender As Object, e As EventArgs) Handles btnfeedback.Click
+        feedbackreciever.Show()
         Me.Hide()
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        AdminPage2.Show()
+    Private Sub btnroomlogs_Click(sender As Object, e As EventArgs) Handles btnroomlogs.Click
+        roomlogs.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub btnaccountlogs_Click(sender As Object, e As EventArgs) Handles btnaccountlogs.Click
+        accountlogs.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub btnlogout_Click(sender As Object, e As EventArgs) Handles btnlogout.Click
+        U_ID = Nothing
+        Login.Show()
         Me.Hide()
     End Sub
 End Class

@@ -143,6 +143,12 @@
     <Compile Include="addscheduleadmin.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="AdminPage2.Designer.vb">
+      <DependentUpon>AdminPage2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPage2.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="profile.Designer.vb">
       <DependentUpon>profile.vb</DependentUpon>
     </Compile>

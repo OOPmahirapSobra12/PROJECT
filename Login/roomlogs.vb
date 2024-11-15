@@ -119,4 +119,7 @@ Public Class roomlogs
         cbosearch.SelectedIndex = 0 ' Set default search category
     End Sub
 
+    Private Sub btnback_Click(sender As Object, e As EventArgs) Handles btnback.Click
+        Me.Hide()
+    End Sub
 End Class

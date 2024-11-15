@@ -160,6 +160,7 @@ Partial Class AdminPage2
         '
         Me.btnlogout.AutoSize = True
         Me.btnlogout.BackColor = System.Drawing.Color.Transparent
+        Me.btnlogout.Dock = System.Windows.Forms.DockStyle.Top
         Me.btnlogout.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnlogout.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnlogout.ForeColor = System.Drawing.Color.NavajoWhite

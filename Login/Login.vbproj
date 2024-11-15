@@ -274,6 +274,9 @@
     <EmbeddedResource Include="RoomListForm.resx">
       <DependentUpon>RoomListForm.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="roomoccupancy.resx">
+      <DependentUpon>roomoccupancy.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Schedule.resx">
       <DependentUpon>Schedule.vb</DependentUpon>
     </EmbeddedResource>

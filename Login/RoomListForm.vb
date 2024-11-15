@@ -1,66 +1,62 @@
 ﻿Imports MySql.Data.MySqlClient
-Imports MySqlConnector
 
 Public Class RoomListForm
 
+    ' Connection using MySQL
+    Private connection As New MySqlConnection("server=127.0.0.1;uid=root;pwd=password;database=project")
 
-    Private connection As New MySql.Data.MySqlClient.MySqlConnection("server=127.0.0.1;uid=root;pwd=password;database=project")
-
+    ' Method to load room data
     Private Sub LoadRoomData()
 
-        ' Updated query to fetch all rooms from the sched table
-        ' Define the query to get all relevant columns from the roomlist table
-        Dim query As String = "SELECT room_code, room_name, building_letter, room_status FROM roomlist"
-        Dim adapter As New MySql.Data.MySqlClient.MySqlDataAdapter(query, connection)
-        Dim table As New DataTable()
+        Dim sqlQuery As String = "SELECT s.room_code, s.room_name, s.building_letter, s.room_time_in, s.room_time_out, s.room_day, s.room_date, r.num_chairs, r.num_computers, r.num_laptops " &
+                             "FROM sched s " &
+                             "LEFT JOIN roomlist r ON s.room_code = r.room_code"
 
         Try
-            ' Open the connection and fill the DataTable with the query result
             connection.Open()
-            adapter.Fill(table)
-            connection.Close()
 
-            ' Bind the DataTable to the DataGridView to display the data
-            dgvRoomList.DataSource = table
-            dgvRoomList.AutoGenerateColumns = True
+            Dim dataAdapter As New MySqlDataAdapter(sqlQuery, connection)
+            Dim dataTable As New DataTable()
 
-            ' Add a new column to display the room status if it doesn't already exist
-            If dgvRoomList.Columns("room_status") Is Nothing Then
-                Dim statusColumn As New DataGridViewTextBoxColumn()
-                statusColumn.Name = "room_status"
-                statusColumn.HeaderText = "Room Status"
-                statusColumn.DataPropertyName = "room_status" ' Bind to the room_status field from the database
+            ' Clear current data and reload
+            dataAdapter.Fill(dataTable)
 
-                ' Add the column to the DataGridView
-                dgvRoomList.Columns.Add(statusColumn)
-            End If
+            ' Clear previous data source and bind to new data
+            dgvRoomList.DataSource = Nothing
+            dgvRoomList.DataSource = dataTable
+
+            ' Set column headers
+            dgvRoomList.Columns("num_chairs").HeaderText = "Number of Chairs"
+            dgvRoomList.Columns("num_computers").HeaderText = "Number of Computers"
+            dgvRoomList.Columns("num_laptops").HeaderText = "Number of Laptops"
 
         Catch ex As Exception
-            MessageBox.Show("An error occurred while loading the data: " & ex.Message)
+            MessageBox.Show("An error occurred: " & ex.Message)
         Finally
             connection.Close()
         End Try
 
     End Sub
 
-    Private Sub RoomListForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-
-        LoadRoomData() ' Load room data when the form is loaded
+    ' Form Load event to call the LoadRoomData method
+    Private Sub RoomListForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        LoadRoomData()
     End Sub
 
+    ' Refresh button to reload the data
     Private Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click
-        LoadRoomData() ' Reload room data from the database
+        dgvRoomList.DataSource = Nothing
+        LoadRoomData()
     End Sub
 
-
-
+    ' Back button to navigate back to Admin form
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
         Admin.Show()
         Me.Hide()
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnUpdateRoomStatus.Click
+    ' Update room status button
+    Private Sub btnUpdateRoomStatus_Click(sender As Object, e As EventArgs) Handles btnUpdateRoomStatus.Click
         If dgvRoomList.SelectedRows.Count > 0 Then
             Dim selectedRow As DataGridViewRow = dgvRoomList.SelectedRows(0)
 
@@ -73,17 +69,17 @@ Public Class RoomListForm
                 Return
             End If
 
+            ' Query to update the room status in the roomlist table
             Dim query As String = "UPDATE roomlist SET room_status = @status WHERE room_code = @code"
-            Dim command As New MySql.Data.MySqlClient.MySqlCommand(query, connection)
+            Dim command As New MySqlCommand(query, connection)
             command.Parameters.AddWithValue("@status", newStatus)
             command.Parameters.AddWithValue("@code", roomCode)
 
             Try
                 connection.Open()
                 command.ExecuteNonQuery()
-                connection.Close()
                 MessageBox.Show("Room status updated successfully!")
-                LoadRoomData() ' Refresh the data
+                LoadRoomData() ' Refresh the data after update
             Catch ex As Exception
                 MessageBox.Show("An error occurred: " & ex.Message)
             Finally
@@ -94,7 +90,60 @@ Public Class RoomListForm
         End If
     End Sub
 
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+    Private Sub btnUpdateRoomDetails_Click(sender As Object, e As EventArgs) Handles btnUpdateRoomDetails.Click
+        If dgvRoomList.SelectedRows.Count > 0 Then
+            ' Loop through each selected row (if multiple rows are selected)
+            For Each selectedRow As DataGridViewRow In dgvRoomList.SelectedRows
+
+                ' Retrieve the room details
+                Dim roomCode As String = selectedRow.Cells("room_code").Value.ToString()
+
+                ' Retrieve the values entered by the admin in the TextBoxes
+                Dim numChairs As Integer = If(Integer.TryParse(txtNumChairs.Text, numChairs), numChairs, 0)
+                Dim numComputers As Integer = If(Integer.TryParse(txtNumComputers.Text, numComputers), numComputers, 0)
+                Dim numLaptops As Integer = If(Integer.TryParse(txtNumLaptops.Text, numLaptops), numLaptops, 0)
+
+                ' SQL query to update the room details
+                Dim query As String = "UPDATE roomlist SET num_chairs = @numChairs, num_computers = @numComputers, num_laptops = @numLaptops WHERE room_code = @roomCode"
+
+                ' Create the MySQL command to execute the query
+                Dim command As New MySqlCommand(query, connection)
+
+                ' Add the parameters with the values from the form
+                command.Parameters.AddWithValue("@numChairs", numChairs)
+                command.Parameters.AddWithValue("@numComputers", numComputers)
+                command.Parameters.AddWithValue("@numLaptops", numLaptops)
+                command.Parameters.AddWithValue("@roomCode", roomCode)
+
+                Try
+                    ' Open the connection
+                    connection.Open()
+                    ' Execute the query to update room details
+                    command.ExecuteNonQuery()
+
+                    ' Show a message confirming the update
+                    MessageBox.Show("Room details updated successfully!")
+
+                    ' Reload the room data in the DataGridView after update
+                    LoadRoomData()
+                Catch ex As Exception
+                    ' Show error message if something goes wrong
+                    MessageBox.Show("An error occurred: " & ex.Message)
+                Finally
+                    ' Ensure the connection is closed in the end
+                    connection.Close()
+                End Try
+            Next
+        Else
+            ' If no row is selected, show a message
+            MessageBox.Show("Please select a room to update.")
+        End If
 
     End Sub
+
+    Private Sub dgvRoomList_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvRoomList.CellContentClick
+
+    End Sub
+
+
 End Class

@@ -149,6 +149,12 @@
     <Compile Include="profile.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="roomoccupancy.Designer.vb">
+      <DependentUpon>roomoccupancy.vb</DependentUpon>
+    </Compile>
+    <Compile Include="roomoccupancy.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ScheduleStudent.Designer.vb">
       <DependentUpon>ScheduleStudent.vb</DependentUpon>
     </Compile>

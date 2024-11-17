@@ -2,313 +2,147 @@
 
 Public Class RoomListForm
 
+    ' Connection using MySQL
+    Private connection As New MySqlConnection("server=127.0.0.1;uid=root;pwd=password;database=project")
 
     ' Method to load room data
     Private Sub LoadRoomData()
-        ' Query to select necessary columns from sched and roomlist tables, excluding time, day, and date fields
-        Dim sqlQuery As String = "SELECT room_code, room_name, building, num_chairs, num_computers, num_laptops FROM roomlist"
 
-        Dim dataAdapter As New MySqlDataAdapter(sqlQuery, conn)
-        Dim dataTable As New DataTable()
+        Dim sqlQuery As String = "SELECT s.room_code, s.room_name, s.building_letter, s.room_time_in, s.room_time_out, _
+                                    s.room_day, s.room_date, r.num_chairs, r.num_computers, r.num_laptops FROM sched s LEFT JOIN roomlist r ON s.room_code = r.room_code"
 
         Try
-            ' Fill the DataTable with data from the query
+            connection.Open()
+
+            Dim dataAdapter As New MySqlDataAdapter(sqlQuery, connection)
+            Dim dataTable As New DataTable()
+
+            ' Clear current data and reload
             dataAdapter.Fill(dataTable)
 
-            ' Set AutoGenerateColumns to False to avoid extra columns
-            DGVroomlist.AutoGenerateColumns = False
+            ' Clear previous data source and bind to new data
+            dgvRoomList.DataSource = Nothing
+            dgvRoomList.DataSource = dataTable
 
-            ' Bind the DataTable to the DataGridView
-            DGVroomlist.DataSource = dataTable
-
-            ' Manually map the data to the existing columns
-            For Each column As DataGridViewColumn In DGVroomlist.Columns
-                Select Case column.Name
-                    Case "room_code"
-                        column.DataPropertyName = "room_code"
-                    Case "room_name"
-                        column.DataPropertyName = "room_name"
-                    Case "building"
-                        column.DataPropertyName = "building"
-                    Case "num_chairs"
-                        column.DataPropertyName = "num_chairs"
-                    Case "num_computers"
-                        column.DataPropertyName = "num_computers"
-                    Case "num_laptops"
-                        column.DataPropertyName = "num_laptops"
-                End Select
-            Next
+            ' Set column headers
+            dgvRoomList.Columns("num_chairs").HeaderText = "Number of Chairs"
+            dgvRoomList.Columns("num_computers").HeaderText = "Number of Computers"
+            dgvRoomList.Columns("num_laptops").HeaderText = "Number of Laptops"
 
         Catch ex As Exception
-            ' Display an error message in case of an exception
-            MessageBox.Show("Error loading room data: " & ex.Message)
+            MessageBox.Show("An error occurred: " & ex.Message)
         Finally
-            ' Ensure the connection is closed
-            conn.Close()
+            connection.Close()
         End Try
-    End Sub
 
+    End Sub
 
     ' Form Load event to call the LoadRoomData method
     Private Sub RoomListForm_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        If conn.State = ConnectionState.Open Then
-            conn.Close()
-        End If
-        DbConnect()
         LoadRoomData()
-        cboType.SelectedIndex = 0
     End Sub
 
+    ' Refresh button to reload the data
+    Private Sub btnRefresh_Click(sender As Object, e As EventArgs) Handles btnRefresh.Click
+        dgvRoomList.DataSource = Nothing
+        LoadRoomData()
+    End Sub
 
-
-    Private Sub btnback_Click_1(sender As Object, e As EventArgs) Handles btnback.Click
+    ' Back button to navigate back to Admin form
+    Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
         Admin.Show()
         Me.Hide()
     End Sub
 
-    Private Sub btnsearch_Click(sender As Object, e As EventArgs) Handles btnsearch.Click
-        ' Get selected category from cbotype and search input from txtsearch
-        Dim category As String = cboType.SelectedItem?.ToString()
-        Dim searchValue As String = txtsearch.Text.Trim()
+    ' Update room status button
+    Private Sub btnUpdateRoomStatus_Click(sender As Object, e As EventArgs) Handles btnUpdateRoomStatus.Click
+        If dgvRoomList.SelectedRows.Count > 0 Then
+            Dim selectedRow As DataGridViewRow = dgvRoomList.SelectedRows(0)
 
-        ' Check if "Choose" is selected
-        If String.IsNullOrEmpty(category) OrElse category = "Choose" Then
-            ' Refresh the table by reloading data
-            LoadRoomData()
-            Return
-        End If
+            ' Ensure the column name matches exactly
+            Dim roomCode As String = selectedRow.Cells("room_code").Value.ToString()
+            Dim newStatus As String = cmbRoomStatus.SelectedItem?.ToString()
 
-        ' Map cbotype category to DataGridView column name
-        Dim columnName As String = ""
-        Select Case category
-            Case "Room Code"
-                columnName = "roomcode"
-            Case "Room Name"
-                columnName = "roomname"
-            Case "Building"
-                columnName = "building"
-            Case "Chair #"
-                columnName = "chairs"
-            Case "Computer #"
-                columnName = "computers"
-            Case "Laptop #"
-                columnName = "laptops"
-            Case Else
-                MessageBox.Show("Invalid category selected.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            If String.IsNullOrEmpty(newStatus) Then
+                MessageBox.Show("Please select a status from the dropdown.")
                 Return
-        End Select
-
-        ' Check if txtsearch is blank
-        If String.IsNullOrEmpty(searchValue) Then
-            ' Refresh the table and sort it based on the selected category
-            Dim dataTable As DataTable = CType(DGVroomlist.DataSource, DataTable)
-            If dataTable IsNot Nothing Then
-                Try
-                    ' Apply sorting to the DataTable's DefaultView
-                    dataTable.DefaultView.Sort = $"{columnName} ASC"
-                    DGVroomlist.DataSource = dataTable
-                Catch ex As Exception
-                    MessageBox.Show("An error occurred while sorting: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                End Try
-            Else
-                MessageBox.Show("No data to sort.", "No Data", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End If
-            Return
-        End If
 
-        ' If txtsearch is not blank, filter the DataTable based on search input
-        Dim dataTableForSearch As DataTable = CType(DGVroomlist.DataSource, DataTable)
-        If dataTableForSearch IsNot Nothing Then
+            ' Query to update the room status in the roomlist table
+            Dim query As String = "UPDATE roomlist SET room_status = @status WHERE room_code = @code"
+            Dim command As New MySqlCommand(query, connection)
+            command.Parameters.AddWithValue("@status", newStatus)
+            command.Parameters.AddWithValue("@code", roomCode)
+
             Try
-                ' Use DataTable.DefaultView.RowFilter for filtering
-                dataTableForSearch.DefaultView.RowFilter = $"{columnName} LIKE '%{searchValue}%'"
+                connection.Open()
+                command.ExecuteNonQuery()
+                MessageBox.Show("Room status updated successfully!")
+                LoadRoomData() ' Refresh the data after update
             Catch ex As Exception
-                MessageBox.Show("An error occurred while searching: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show("An error occurred: " & ex.Message)
+            Finally
+                connection.Close()
             End Try
         Else
-            MessageBox.Show("No data to search in.", "No Data", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            MessageBox.Show("Please select a room to update.")
         End If
     End Sub
 
-    Private Sub btndelete_Click(sender As Object, e As EventArgs) Handles btndelete.Click
-        ' Check if a row is selected
-        If DGVroomlist.SelectedRows.Count = 0 Then
-            MessageBox.Show("Please select a row to delete.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Return
-        End If
+    Private Sub btnUpdateRoomDetails_Click(sender As Object, e As EventArgs) Handles btnUpdateRoomDetails.Click
+        If dgvRoomList.SelectedRows.Count > 0 Then
+            ' Loop through each selected row (if multiple rows are selected)
+            For Each selectedRow As DataGridViewRow In dgvRoomList.SelectedRows
 
-        ' Get the primary key value from the selected row (assuming it's "room_code")
-        Dim selectedRow As DataGridViewRow = DGVroomlist.SelectedRows(0)
-        Dim roomCode As String = selectedRow.Cells("roomcode").Value.ToString()
+                ' Retrieve the room details
+                Dim roomCode As String = selectedRow.Cells("room_code").Value.ToString()
 
-        ' Confirm deletion
-        Dim result As DialogResult = MessageBox.Show($"Are you sure you want to delete room with code '{roomCode}'?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                ' Retrieve the values entered by the admin in the TextBoxes
+                Dim numChairs As Integer = If(Integer.TryParse(txtNumChairs.Text, numChairs), numChairs, 0)
+                Dim numComputers As Integer = If(Integer.TryParse(txtNumComputers.Text, numComputers), numComputers, 0)
+                Dim numLaptops As Integer = If(Integer.TryParse(txtNumLaptops.Text, numLaptops), numLaptops, 0)
 
-        If result = DialogResult.Yes Then
-            If conn.State = ConnectionState.Closed Then
-                conn.Open()
-            End If
+                ' SQL query to update the room details
+                Dim query As String = "UPDATE roomlist SET num_chairs = @numChairs, num_computers = @numComputers, num_laptops = @numLaptops WHERE room_code = @roomCode"
 
-            Try
-                ' Delete from the database
-                Dim query As String = "DELETE FROM sched WHERE room_code = @room_code"
-                Dim command As New MySqlCommand(query, conn)
-                command.Parameters.AddWithValue("@room_code", roomCode)
+                ' Create the MySQL command to execute the query
+                Dim command As New MySqlCommand(query, connection)
 
-                Dim rowsAffected As Integer = command.ExecuteNonQuery()
+                ' Add the parameters with the values from the form
+                command.Parameters.AddWithValue("@numChairs", numChairs)
+                command.Parameters.AddWithValue("@numComputers", numComputers)
+                command.Parameters.AddWithValue("@numLaptops", numLaptops)
+                command.Parameters.AddWithValue("@roomCode", roomCode)
 
+                Try
+                    ' Open the connection
+                    connection.Open()
+                    ' Execute the query to update room details
+                    command.ExecuteNonQuery()
 
-                ' Check if the deletion was successful
-                If rowsAffected > 0 Then
-                    ' Remove the row from the DataGridView
-                    DGVroomlist.Rows.Remove(selectedRow)
-                    MessageBox.Show("Room successfully deleted.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                Else
-                    MessageBox.Show("No matching room found to delete.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                End If
-            Catch ex As Exception
-                MessageBox.Show("An error occurred while deleting the room: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Finally
-                conn.Close()
-            End Try
-        End If
-    End Sub
+                    ' Show a message confirming the update
+                    MessageBox.Show("Room details updated successfully!")
 
-    Private Sub btnupdate_Click(sender As Object, e As EventArgs) Handles btnupdate.Click
-        ' Check if all the textboxes have values
-        If String.IsNullOrEmpty(txtcode.Text) OrElse String.IsNullOrEmpty(txtname.Text) OrElse
-       String.IsNullOrEmpty(txtbuilding.Text) OrElse String.IsNullOrEmpty(txtchair.Text) OrElse
-       String.IsNullOrEmpty(txtcomputer.Text) OrElse String.IsNullOrEmpty(txtlaptop.Text) Then
-            MessageBox.Show("Please fill in all fields.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Return
-        End If
-
-        ' Get the data from the textboxes
-        Dim roomCode As String = txtcode.Text.Trim()
-        Dim roomName As String = txtname.Text.Trim()
-        Dim building As String = txtbuilding.Text.Trim()
-        Dim numChairs As Integer = Convert.ToInt32(txtchair.Text.Trim())
-        Dim numComputers As Integer = Convert.ToInt32(txtcomputer.Text.Trim())
-        Dim numLaptops As Integer = Convert.ToInt32(txtlaptop.Text.Trim())
-
-        ' Confirmation dialog
-        Dim result As DialogResult = MessageBox.Show($"Are you sure you want to update room with code '{roomCode}'?", "Confirm Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-
-        If result = DialogResult.Yes Then
-            If conn.State = ConnectionState.Closed Then
-                conn.Open()
-            End If
-
-            Try
-                ' Prepare the SQL update query
-                Dim query As String = "UPDATE roomlist SET room_name = @room_name, building = @building, num_chairs = @num_chairs, num_computers = @num_computers, num_laptops = @num_laptops WHERE room_code = @room_code"
-
-                ' Create a command to execute the query
-                Dim command As New MySqlCommand(query, conn)
-                command.Parameters.AddWithValue("@room_code", roomCode)
-                command.Parameters.AddWithValue("@room_name", roomName)
-                command.Parameters.AddWithValue("@building", building)
-                command.Parameters.AddWithValue("@num_chairs", numChairs)
-                command.Parameters.AddWithValue("@num_computers", numComputers)
-                command.Parameters.AddWithValue("@num_laptops", numLaptops)
-
-
-                Dim rowsAffected As Integer = command.ExecuteNonQuery()
-
-
-                ' Check if the update was successful
-                If rowsAffected > 0 Then
-                    MessageBox.Show("Room data updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    ' Optionally, refresh the DataGridView to reflect the updated data
-                    LoadRoomData() ' Assuming LoadRoomData is the method to reload the room data
-                Else
-                    MessageBox.Show("Room not found or no changes made.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                End If
-
-            Catch ex As Exception
-                MessageBox.Show("An error occurred while updating the room data: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Finally
-                conn.Close()
-            End Try
-        End If
-    End Sub
-
-    Private Sub btnselect_Click(sender As Object, e As EventArgs) Handles btnselect.Click
-        txtcode.Enabled = False
-        ' Check if a row is selected in the DataGridView
-        If DGVroomlist.SelectedRows.Count > 0 Then
-            ' Get the selected row (assuming only one row is selected)
-            Dim selectedRow As DataGridViewRow = DGVroomlist.SelectedRows(0)
-
-            ' Get the values from the selected row and assign them to the textboxes
-            txtcode.Text = selectedRow.Cells("room_code").Value.ToString()
-            txtname.Text = selectedRow.Cells("room_name").Value.ToString()
-            txtbuilding.Text = selectedRow.Cells("building").Value.ToString()
-            txtchair.Text = selectedRow.Cells("num_chairs").Value.ToString()
-            txtcomputer.Text = selectedRow.Cells("num_computers").Value.ToString()
-            txtlaptop.Text = selectedRow.Cells("num_laptops").Value.ToString()
+                    ' Reload the room data in the DataGridView after update
+                    LoadRoomData()
+                Catch ex As Exception
+                    ' Show error message if something goes wrong
+                    MessageBox.Show("An error occurred: " & ex.Message)
+                Finally
+                    ' Ensure the connection is closed in the end
+                    connection.Close()
+                End Try
+            Next
         Else
             ' If no row is selected, show a message
-            MessageBox.Show("Please select a row first.", "Selection Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            MessageBox.Show("Please select a room to update.")
         End If
+
     End Sub
 
-    Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
-        ' Validate that all necessary fields are filled out
-        If String.IsNullOrEmpty(txtcode.Text) OrElse String.IsNullOrEmpty(txtname.Text) OrElse
-           String.IsNullOrEmpty(txtbuilding.Text) OrElse String.IsNullOrEmpty(txtchair.Text) OrElse
-           String.IsNullOrEmpty(txtcomputer.Text) OrElse String.IsNullOrEmpty(txtlaptop.Text) Then
-            MessageBox.Show("Please fill in all fields.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Return
-        End If
+    Private Sub dgvRoomList_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvRoomList.CellContentClick
 
-        ' Get values from the textboxes
-        Dim roomCode As String = txtcode.Text.Trim()
-        Dim roomName As String = txtname.Text.Trim()
-        Dim building As String = txtbuilding.Text.Trim()
-        Dim numChairs As Integer = Convert.ToInt32(txtchair.Text.Trim())
-        Dim numComputers As Integer = Convert.ToInt32(txtcomputer.Text.Trim())
-        Dim numLaptops As Integer = Convert.ToInt32(txtlaptop.Text.Trim())
-
-        ' Confirm the addition
-        Dim result As DialogResult = MessageBox.Show($"Are you sure you want to add room with code '{roomCode}'?", "Confirm Add", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-
-        If result = DialogResult.Yes Then
-            Try
-                If conn.State = ConnectionState.Closed Then
-                    conn.Open()
-                End If
-
-                ' Prepare the insert SQL query
-                Dim query As String = "INSERT INTO roomlist (room_code, room_name, building, num_chairs, num_computers, num_laptops, occupancy_status, room_status) " &
-                                      "VALUES (@room_code, @room_name, @building, @num_chairs, @num_computers, @num_laptops, )"
-
-                ' Create the command and add parameters
-                Dim command As New MySqlCommand(query, conn)
-                command.Parameters.AddWithValue("@room_code", roomCode)
-                command.Parameters.AddWithValue("@room_name", roomName)
-                command.Parameters.AddWithValue("@building", building)
-                command.Parameters.AddWithValue("@num_chairs", numChairs)
-                command.Parameters.AddWithValue("@num_computers", numComputers)
-                command.Parameters.AddWithValue("@num_laptops", numLaptops)
-
-                ' Execute the insert command
-                Dim rowsAffected As Integer = command.ExecuteNonQuery()
-
-                ' Check if the insert was successful
-                If rowsAffected > 0 Then
-                    MessageBox.Show("Room added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                    LoadRoomData() ' Reload the room data
-                Else
-                    MessageBox.Show("An error occurred while adding the room.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                End If
-            Catch ex As Exception
-                MessageBox.Show("An error occurred while adding the room: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Finally
-                ' Ensure the connection is closed
-                conn.Close()
-            End Try
-        End If
     End Sub
+
 
 End Class

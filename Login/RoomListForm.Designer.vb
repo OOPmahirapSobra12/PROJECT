@@ -22,9 +22,9 @@ Partial Class RoomListForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel6 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel8 = New System.Windows.Forms.TableLayoutPanel()
@@ -37,10 +37,11 @@ Partial Class RoomListForm
         Me.btnsearch = New System.Windows.Forms.Button()
         Me.TableLayoutPanel7 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel11 = New System.Windows.Forms.TableLayoutPanel()
-        Me.btnback = New System.Windows.Forms.Button()
-        Me.btnupdate = New System.Windows.Forms.Button()
         Me.btndelete = New System.Windows.Forms.Button()
         Me.btnselect = New System.Windows.Forms.Button()
+        Me.btnupdate = New System.Windows.Forms.Button()
+        Me.btnback = New System.Windows.Forms.Button()
+        Me.btnAdd = New System.Windows.Forms.Button()
         Me.TableLayoutPanel10 = New System.Windows.Forms.TableLayoutPanel()
         Me.txtlaptop = New System.Windows.Forms.TextBox()
         Me.txtbuilding = New System.Windows.Forms.TextBox()
@@ -61,7 +62,6 @@ Partial Class RoomListForm
         Me.num_chairs = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.num_computers = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.num_laptops = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.btnAdd = New System.Windows.Forms.Button()
         Me.TableLayoutPanel5.SuspendLayout()
         Me.TableLayoutPanel6.SuspendLayout()
         Me.TableLayoutPanel8.SuspendLayout()
@@ -269,32 +269,6 @@ Partial Class RoomListForm
         Me.TableLayoutPanel11.Size = New System.Drawing.Size(323, 141)
         Me.TableLayoutPanel11.TabIndex = 1
         '
-        'btnback
-        '
-        Me.btnback.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.btnback.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnback.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnback.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnback.Location = New System.Drawing.Point(217, 3)
-        Me.btnback.Name = "btnback"
-        Me.btnback.Size = New System.Drawing.Size(103, 40)
-        Me.btnback.TabIndex = 14
-        Me.btnback.Text = "Back"
-        Me.btnback.UseVisualStyleBackColor = False
-        '
-        'btnupdate
-        '
-        Me.btnupdate.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.btnupdate.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnupdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnupdate.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnupdate.Location = New System.Drawing.Point(3, 49)
-        Me.btnupdate.Name = "btnupdate"
-        Me.btnupdate.Size = New System.Drawing.Size(101, 36)
-        Me.btnupdate.TabIndex = 13
-        Me.btnupdate.Text = "Update"
-        Me.btnupdate.UseVisualStyleBackColor = False
-        '
         'btndelete
         '
         Me.btndelete.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
@@ -320,6 +294,45 @@ Partial Class RoomListForm
         Me.btnselect.TabIndex = 16
         Me.btnselect.Text = "Select"
         Me.btnselect.UseVisualStyleBackColor = False
+        '
+        'btnupdate
+        '
+        Me.btnupdate.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.btnupdate.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnupdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnupdate.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.btnupdate.Location = New System.Drawing.Point(3, 49)
+        Me.btnupdate.Name = "btnupdate"
+        Me.btnupdate.Size = New System.Drawing.Size(101, 36)
+        Me.btnupdate.TabIndex = 13
+        Me.btnupdate.Text = "Update"
+        Me.btnupdate.UseVisualStyleBackColor = False
+        '
+        'btnback
+        '
+        Me.btnback.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.btnback.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnback.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnback.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.btnback.Location = New System.Drawing.Point(217, 3)
+        Me.btnback.Name = "btnback"
+        Me.btnback.Size = New System.Drawing.Size(103, 40)
+        Me.btnback.TabIndex = 14
+        Me.btnback.Text = "Back"
+        Me.btnback.UseVisualStyleBackColor = False
+        '
+        'btnAdd
+        '
+        Me.btnAdd.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.btnAdd.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAdd.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.btnAdd.Location = New System.Drawing.Point(110, 49)
+        Me.btnAdd.Name = "btnAdd"
+        Me.btnAdd.Size = New System.Drawing.Size(101, 36)
+        Me.btnAdd.TabIndex = 17
+        Me.btnAdd.Text = "Add"
+        Me.btnAdd.UseVisualStyleBackColor = False
         '
         'TableLayoutPanel10
         '
@@ -502,38 +515,38 @@ Partial Class RoomListForm
         Me.DGVroomlist.AllowUserToResizeColumns = False
         Me.DGVroomlist.AllowUserToResizeRows = False
         Me.DGVroomlist.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ActiveCaption
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.MidnightBlue
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.GradientInactiveCaption
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DGVroomlist.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaption
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.MidnightBlue
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.GradientInactiveCaption
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DGVroomlist.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.DGVroomlist.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DGVroomlist.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.room_code, Me.room_name, Me.building, Me.num_chairs, Me.num_computers, Me.num_laptops})
         Me.DGVroomlist.Cursor = System.Windows.Forms.Cursors.Default
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.MidnightBlue
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DGVroomlist.DefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.MidnightBlue
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DGVroomlist.DefaultCellStyle = DataGridViewCellStyle2
         Me.DGVroomlist.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DGVroomlist.GridColor = System.Drawing.SystemColors.HotTrack
         Me.DGVroomlist.Location = New System.Drawing.Point(23, 113)
         Me.DGVroomlist.Name = "DGVroomlist"
         Me.DGVroomlist.ReadOnly = True
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.MidnightBlue
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DGVroomlist.RowHeadersDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.MidnightBlue
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DGVroomlist.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.DGVroomlist.RowHeadersWidth = 62
         Me.DGVroomlist.Size = New System.Drawing.Size(1010, 265)
         Me.DGVroomlist.TabIndex = 2
@@ -579,19 +592,6 @@ Partial Class RoomListForm
         Me.num_laptops.HeaderText = "Laptop #"
         Me.num_laptops.Name = "num_laptops"
         Me.num_laptops.ReadOnly = True
-        '
-        'btnAdd
-        '
-        Me.btnAdd.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.btnAdd.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAdd.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnAdd.Location = New System.Drawing.Point(110, 49)
-        Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.Size = New System.Drawing.Size(101, 36)
-        Me.btnAdd.TabIndex = 17
-        Me.btnAdd.Text = "Add"
-        Me.btnAdd.UseVisualStyleBackColor = False
         '
         'RoomListForm
         '

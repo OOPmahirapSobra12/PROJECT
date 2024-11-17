@@ -29,7 +29,7 @@ Public Class ScheduleStudent
         Me.Hide()
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles txtsearchsched.Click
 
 
         If cboSearchStud.SelectedItem.ToString() = "All" Then
@@ -57,7 +57,7 @@ Public Class ScheduleStudent
 
     Private Sub tablesearcher_rooms()
         Dim category As String = cboSearchStud.Text()
-        Dim search As String = txtsearchStud.Text()
+        Dim search As String = txtsearchRoomStud.Text()
 
         Dim query As String = ""
 

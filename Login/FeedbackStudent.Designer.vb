@@ -45,26 +45,27 @@ Partial Class feedbackstudent
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.lblroomstud.AutoSize = True
         Me.lblroomstud.BackColor = System.Drawing.Color.Transparent
-        Me.lblroomstud.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblroomstud.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblroomstud.ForeColor = System.Drawing.Color.White
-        Me.lblroomstud.Location = New System.Drawing.Point(294, 204)
+        Me.lblroomstud.Location = New System.Drawing.Point(228, 131)
         Me.lblroomstud.Name = "lblroomstud"
         Me.lblroomstud.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.lblroomstud.Size = New System.Drawing.Size(103, 32)
+        Me.lblroomstud.Size = New System.Drawing.Size(74, 25)
         Me.lblroomstud.TabIndex = 0
         Me.lblroomstud.Text = "Room:"
         '
         'cbofeedbackstud
         '
-        Me.cbofeedbackstud.BackColor = System.Drawing.Color.White
-        Me.cbofeedbackstud.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbofeedbackstud.BackColor = System.Drawing.SystemColors.Control
+        Me.cbofeedbackstud.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed
+        Me.cbofeedbackstud.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbofeedbackstud.FormattingEnabled = True
         Me.cbofeedbackstud.Items.AddRange(New Object() {"201", "202", "203", "204", "205"})
-        Me.cbofeedbackstud.Location = New System.Drawing.Point(417, 204)
+        Me.cbofeedbackstud.Location = New System.Drawing.Point(303, 130)
         Me.cbofeedbackstud.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.cbofeedbackstud.Name = "cbofeedbackstud"
         Me.cbofeedbackstud.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.cbofeedbackstud.Size = New System.Drawing.Size(149, 33)
+        Me.cbofeedbackstud.Size = New System.Drawing.Size(122, 27)
         Me.cbofeedbackstud.TabIndex = 1
         Me.cbofeedbackstud.Text = "Select Room"
         '
@@ -75,12 +76,12 @@ Partial Class feedbackstudent
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(165, 264)
+        Me.Label1.Location = New System.Drawing.Point(99, 191)
         Me.Label1.Name = "Label1"
         Me.Label1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label1.Size = New System.Drawing.Size(232, 32)
+        Me.Label1.Size = New System.Drawing.Size(169, 25)
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "Feedback Type:"
         '
@@ -91,11 +92,11 @@ Partial Class feedbackstudent
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.RadioButton1.AutoSize = True
         Me.RadioButton1.BackColor = System.Drawing.Color.Transparent
-        Me.RadioButton1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RadioButton1.Location = New System.Drawing.Point(14, 16)
+        Me.RadioButton1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RadioButton1.Location = New System.Drawing.Point(14, 19)
         Me.RadioButton1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(133, 30)
+        Me.RadioButton1.Size = New System.Drawing.Size(103, 24)
         Me.RadioButton1.TabIndex = 3
         Me.RadioButton1.TabStop = True
         Me.RadioButton1.Text = "Comment"
@@ -108,11 +109,11 @@ Partial Class feedbackstudent
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.RadioButton2.AutoSize = True
         Me.RadioButton2.BackColor = System.Drawing.Color.Transparent
-        Me.RadioButton2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RadioButton2.Location = New System.Drawing.Point(142, 15)
+        Me.RadioButton2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RadioButton2.Location = New System.Drawing.Point(142, 18)
         Me.RadioButton2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(102, 30)
+        Me.RadioButton2.Size = New System.Drawing.Size(83, 24)
         Me.RadioButton2.TabIndex = 4
         Me.RadioButton2.TabStop = True
         Me.RadioButton2.Text = "Report"
@@ -120,12 +121,13 @@ Partial Class feedbackstudent
         '
         'GroupBox1
         '
+        Me.GroupBox1.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox1.Controls.Add(Me.RadioButton2)
         Me.GroupBox1.Controls.Add(Me.RadioButton1)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.ForeColor = System.Drawing.Color.White
-        Me.GroupBox1.Location = New System.Drawing.Point(403, 250)
+        Me.GroupBox1.Location = New System.Drawing.Point(279, 173)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -138,12 +140,13 @@ Partial Class feedbackstudent
         '
         Me.lblfeedbackstud.AutoSize = True
         Me.lblfeedbackstud.BackColor = System.Drawing.Color.Transparent
-        Me.lblfeedbackstud.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblfeedbackstud.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.lblfeedbackstud.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblfeedbackstud.ForeColor = System.Drawing.Color.White
-        Me.lblfeedbackstud.Location = New System.Drawing.Point(202, 348)
+        Me.lblfeedbackstud.Location = New System.Drawing.Point(146, 253)
         Me.lblfeedbackstud.Name = "lblfeedbackstud"
         Me.lblfeedbackstud.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.lblfeedbackstud.Size = New System.Drawing.Size(148, 32)
+        Me.lblfeedbackstud.Size = New System.Drawing.Size(107, 25)
         Me.lblfeedbackstud.TabIndex = 6
         Me.lblfeedbackstud.Text = "Feedback"
         '
@@ -152,12 +155,13 @@ Partial Class feedbackstudent
         Me.txtfeedbackstud.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.txtfeedbackstud.Location = New System.Drawing.Point(171, 391)
+        Me.txtfeedbackstud.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtfeedbackstud.Location = New System.Drawing.Point(105, 290)
         Me.txtfeedbackstud.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtfeedbackstud.Multiline = True
         Me.txtfeedbackstud.Name = "txtfeedbackstud"
         Me.txtfeedbackstud.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.txtfeedbackstud.Size = New System.Drawing.Size(807, 224)
+        Me.txtfeedbackstud.Size = New System.Drawing.Size(1044, 312)
         Me.txtfeedbackstud.TabIndex = 7
         '
         'btnclear
@@ -166,12 +170,12 @@ Partial Class feedbackstudent
         Me.btnclear.BackColor = System.Drawing.Color.Transparent
         Me.btnclear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnclear.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.btnclear.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnclear.Location = New System.Drawing.Point(882, 403)
+        Me.btnclear.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnclear.Location = New System.Drawing.Point(1064, 300)
         Me.btnclear.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnclear.Name = "btnclear"
         Me.btnclear.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.btnclear.Size = New System.Drawing.Size(82, 40)
+        Me.btnclear.Size = New System.Drawing.Size(74, 41)
         Me.btnclear.TabIndex = 8
         Me.btnclear.Text = "Clear"
         Me.btnclear.UseVisualStyleBackColor = False
@@ -180,12 +184,12 @@ Partial Class feedbackstudent
         '
         Me.btnsubmit.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnsubmit.BackColor = System.Drawing.Color.Transparent
-        Me.btnsubmit.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnsubmit.Location = New System.Drawing.Point(851, 631)
+        Me.btnsubmit.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnsubmit.Location = New System.Drawing.Point(958, 606)
         Me.btnsubmit.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnsubmit.Name = "btnsubmit"
         Me.btnsubmit.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.btnsubmit.Size = New System.Drawing.Size(113, 48)
+        Me.btnsubmit.Size = New System.Drawing.Size(88, 39)
         Me.btnsubmit.TabIndex = 9
         Me.btnsubmit.Text = "Submit"
         Me.btnsubmit.UseVisualStyleBackColor = False
@@ -194,12 +198,12 @@ Partial Class feedbackstudent
         '
         Me.btnexit.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnexit.BackColor = System.Drawing.Color.Transparent
-        Me.btnexit.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnexit.Location = New System.Drawing.Point(734, 631)
+        Me.btnexit.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnexit.Location = New System.Drawing.Point(1051, 606)
         Me.btnexit.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnexit.Name = "btnexit"
         Me.btnexit.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.btnexit.Size = New System.Drawing.Size(111, 48)
+        Me.btnexit.Size = New System.Drawing.Size(87, 39)
         Me.btnexit.TabIndex = 10
         Me.btnexit.Text = "Exit"
         Me.btnexit.UseVisualStyleBackColor = False
@@ -224,7 +228,7 @@ Partial Class feedbackstudent
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1221, 724)
+        Me.ClientSize = New System.Drawing.Size(1258, 712)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.btnexit)
         Me.Controls.Add(Me.btnsubmit)
@@ -239,8 +243,8 @@ Partial Class feedbackstudent
         Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Name = "feedbackstudent"
         Me.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Feedback Form Student"
-        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)

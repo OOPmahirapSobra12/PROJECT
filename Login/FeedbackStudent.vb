@@ -7,4 +7,8 @@
     Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
 
     End Sub
+
+    Private Sub btnsubmit_Click(sender As Object, e As EventArgs) Handles btnsubmit.Click
+
+    End Sub
 End Class

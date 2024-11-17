@@ -43,12 +43,8 @@
         LoadRoomData() ' Load room data when the form is loaded
     End Sub
 
-
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnbackstud.Click
+    Private Sub btnbackstud_Click(sender As Object, e As EventArgs) Handles btnbackstud.Click
         Student.Show()
         Me.Hide()
     End Sub
-
-
 End Class

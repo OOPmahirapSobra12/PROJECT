@@ -33,7 +33,7 @@ Partial Class Student
         '
         'btncreate
         '
-        Me.btncreate.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.btncreate.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.btncreate.AutoSize = True
         Me.btncreate.BackColor = System.Drawing.Color.Transparent
         Me.btncreate.BackgroundImage = CType(resources.GetObject("btncreate.BackgroundImage"), System.Drawing.Image)
@@ -41,45 +41,43 @@ Partial Class Student
         Me.btncreate.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btncreate.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btncreate.ForeColor = System.Drawing.SystemColors.Control
-        Me.btncreate.Location = New System.Drawing.Point(103, 274)
+        Me.btncreate.Location = New System.Drawing.Point(65, 258)
         Me.btncreate.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btncreate.Name = "btncreate"
-        Me.btncreate.Size = New System.Drawing.Size(397, 204)
+        Me.btncreate.Size = New System.Drawing.Size(420, 230)
         Me.btncreate.TabIndex = 21
         Me.btncreate.Text = " Schedule"
         Me.btncreate.UseVisualStyleBackColor = False
         '
         'btnfeedbackstud
         '
-        Me.btnfeedbackstud.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.btnfeedbackstud.AutoSize = True
+        Me.btnfeedbackstud.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.btnfeedbackstud.BackColor = System.Drawing.Color.Transparent
         Me.btnfeedbackstud.BackgroundImage = CType(resources.GetObject("btnfeedbackstud.BackgroundImage"), System.Drawing.Image)
         Me.btnfeedbackstud.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.btnfeedbackstud.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnfeedbackstud.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnfeedbackstud.ForeColor = System.Drawing.SystemColors.Control
-        Me.btnfeedbackstud.Location = New System.Drawing.Point(103, 507)
+        Me.btnfeedbackstud.Location = New System.Drawing.Point(65, 500)
         Me.btnfeedbackstud.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnfeedbackstud.Name = "btnfeedbackstud"
-        Me.btnfeedbackstud.Size = New System.Drawing.Size(397, 210)
+        Me.btnfeedbackstud.Size = New System.Drawing.Size(420, 236)
         Me.btnfeedbackstud.TabIndex = 23
         Me.btnfeedbackstud.Text = "Feedbacks"
         Me.btnfeedbackstud.UseVisualStyleBackColor = False
         '
         'btnsignout
         '
-        Me.btnsignout.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnsignout.AutoSize = True
         Me.btnsignout.BackColor = System.Drawing.Color.Transparent
         Me.btnsignout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnsignout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnsignout.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnsignout.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnsignout.ForeColor = System.Drawing.SystemColors.Control
-        Me.btnsignout.Location = New System.Drawing.Point(1145, 686)
+        Me.btnsignout.Location = New System.Drawing.Point(1232, 716)
         Me.btnsignout.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnsignout.Name = "btnsignout"
-        Me.btnsignout.Size = New System.Drawing.Size(171, 54)
+        Me.btnsignout.Size = New System.Drawing.Size(108, 37)
         Me.btnsignout.TabIndex = 24
         Me.btnsignout.Text = "Sign-Out"
         Me.btnsignout.UseVisualStyleBackColor = False
@@ -100,6 +98,7 @@ Partial Class Student
         '
         'btnroomlist
         '
+        Me.btnroomlist.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.btnroomlist.AutoSize = True
         Me.btnroomlist.BackColor = System.Drawing.Color.Transparent
         Me.btnroomlist.BackgroundImage = CType(resources.GetObject("btnroomlist.BackgroundImage"), System.Drawing.Image)
@@ -107,10 +106,10 @@ Partial Class Student
         Me.btnroomlist.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnroomlist.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnroomlist.ForeColor = System.Drawing.SystemColors.Control
-        Me.btnroomlist.Location = New System.Drawing.Point(103, 53)
+        Me.btnroomlist.Location = New System.Drawing.Point(65, 30)
         Me.btnroomlist.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnroomlist.Name = "btnroomlist"
-        Me.btnroomlist.Size = New System.Drawing.Size(397, 188)
+        Me.btnroomlist.Size = New System.Drawing.Size(420, 214)
         Me.btnroomlist.TabIndex = 26
         Me.btnroomlist.Text = "Room List"
         Me.btnroomlist.UseVisualStyleBackColor = False
@@ -123,7 +122,7 @@ Partial Class Student
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("MS Reference Sans Serif", 24.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.Transparent
-        Me.Label1.Location = New System.Drawing.Point(669, 376)
+        Me.Label1.Location = New System.Drawing.Point(706, 384)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(513, 60)
         Me.Label1.TabIndex = 27
@@ -137,7 +136,7 @@ Partial Class Student
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackgroundImage = Global.Login.My.Resources.Resources.FB_IMG_1729211691620
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1329, 754)
+        Me.ClientSize = New System.Drawing.Size(1360, 768)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.btnroomlist)
         Me.Controls.Add(Me.Button4)
@@ -148,8 +147,8 @@ Partial Class Student
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "Student"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "student"
-        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

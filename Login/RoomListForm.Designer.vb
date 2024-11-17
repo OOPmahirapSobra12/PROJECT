@@ -56,10 +56,10 @@ Partial Class RoomListForm
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.DGVroomlist = New System.Windows.Forms.DataGridView()
         Me.cbostatus = New System.Windows.Forms.ComboBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.cbostat = New System.Windows.Forms.ComboBox()
+        Me.DGVroomlist = New System.Windows.Forms.DataGridView()
         Me.room_code = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.room_name = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.building = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -201,7 +201,7 @@ Partial Class RoomListForm
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(90, 15)
         Me.Label3.TabIndex = 10
-        Me.Label3.Text = "ROOM :"
+        Me.Label3.Text = "SEARCH:"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'txtsearch
@@ -532,6 +532,45 @@ Partial Class RoomListForm
         Me.Label5.Text = "Laptop Num:"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
+        'cbostatus
+        '
+        Me.cbostatus.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.cbostatus.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.cbostatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbostatus.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.cbostatus.FormattingEnabled = True
+        Me.cbostatus.Items.AddRange(New Object() {"...", "Occupied", "Not Occupied", "Closed"})
+        Me.cbostatus.Location = New System.Drawing.Point(117, 107)
+        Me.cbostatus.Name = "cbostatus"
+        Me.cbostatus.Size = New System.Drawing.Size(273, 33)
+        Me.cbostatus.TabIndex = 22
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Bold)
+        Me.Label11.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.Label11.Location = New System.Drawing.Point(396, 104)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(129, 38)
+        Me.Label11.TabIndex = 23
+        Me.Label11.Text = "Status:"
+        Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'cbostat
+        '
+        Me.cbostat.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.cbostat.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.cbostat.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbostat.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.cbostat.FormattingEnabled = True
+        Me.cbostat.Items.AddRange(New Object() {"...", "Open", "Closed"})
+        Me.cbostat.Location = New System.Drawing.Point(531, 107)
+        Me.cbostat.Name = "cbostat"
+        Me.cbostat.Size = New System.Drawing.Size(141, 33)
+        Me.cbostat.TabIndex = 24
+        '
         'DGVroomlist
         '
         Me.DGVroomlist.AllowUserToAddRows = False
@@ -574,45 +613,6 @@ Partial Class RoomListForm
         Me.DGVroomlist.RowHeadersWidth = 62
         Me.DGVroomlist.Size = New System.Drawing.Size(1010, 265)
         Me.DGVroomlist.TabIndex = 2
-        '
-        'cbostatus
-        '
-        Me.cbostatus.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.cbostatus.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.cbostatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbostatus.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.cbostatus.FormattingEnabled = True
-        Me.cbostatus.Items.AddRange(New Object() {"...", "Occupied", "Not Occupied", "Closed"})
-        Me.cbostatus.Location = New System.Drawing.Point(117, 107)
-        Me.cbostatus.Name = "cbostatus"
-        Me.cbostatus.Size = New System.Drawing.Size(273, 33)
-        Me.cbostatus.TabIndex = 22
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Bold)
-        Me.Label11.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.Label11.Location = New System.Drawing.Point(396, 104)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(129, 38)
-        Me.Label11.TabIndex = 23
-        Me.Label11.Text = "Status:"
-        Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'cbostat
-        '
-        Me.cbostat.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.cbostat.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.cbostat.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbostat.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.cbostat.FormattingEnabled = True
-        Me.cbostat.Items.AddRange(New Object() {"...", "Open", "Closed"})
-        Me.cbostat.Location = New System.Drawing.Point(531, 107)
-        Me.cbostat.Name = "cbostat"
-        Me.cbostat.Size = New System.Drawing.Size(141, 33)
-        Me.cbostat.TabIndex = 24
         '
         'room_code
         '

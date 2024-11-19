@@ -161,12 +161,6 @@
     <Compile Include="feedbackreciever.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="redesigning.Designer.vb">
-      <DependentUpon>redesigning.vb</DependentUpon>
-    </Compile>
-    <Compile Include="redesigning.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="reportreciever.Designer.vb">
       <DependentUpon>reportreciever.vb</DependentUpon>
     </Compile>
@@ -291,9 +285,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="feedbackreciever.resx">
       <DependentUpon>feedbackreciever.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="redesigning.resx">
-      <DependentUpon>redesigning.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="reportreciever.resx">
       <DependentUpon>reportreciever.vb</DependentUpon>

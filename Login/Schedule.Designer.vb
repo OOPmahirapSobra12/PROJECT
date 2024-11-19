@@ -22,9 +22,9 @@ Partial Class Schedule
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel6 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel8 = New System.Windows.Forms.TableLayoutPanel()
@@ -43,6 +43,7 @@ Partial Class Schedule
         Me.btnback = New System.Windows.Forms.Button()
         Me.btnAdd = New System.Windows.Forms.Button()
         Me.TableLayoutPanel10 = New System.Windows.Forms.TableLayoutPanel()
+        Me.cborcode = New System.Windows.Forms.ComboBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -67,7 +68,6 @@ Partial Class Schedule
         Me.s_date = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.time_in = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.time_out = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.cborcode = New System.Windows.Forms.ComboBox()
         Me.TableLayoutPanel5.SuspendLayout()
         Me.TableLayoutPanel6.SuspendLayout()
         Me.TableLayoutPanel8.SuspendLayout()
@@ -376,6 +376,19 @@ Partial Class Schedule
         Me.TableLayoutPanel10.Size = New System.Drawing.Size(698, 141)
         Me.TableLayoutPanel10.TabIndex = 0
         '
+        'cborcode
+        '
+        Me.cborcode.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.cborcode.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.cborcode.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cborcode.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.cborcode.FormattingEnabled = True
+        Me.cborcode.Items.AddRange(New Object() {"...", "Temporary", "Monday", "Tuesday", "Wednessday", "Thurday", "Friday", "Saturday"})
+        Me.cborcode.Location = New System.Drawing.Point(136, 37)
+        Me.cborcode.Name = "cborcode"
+        Me.cborcode.Size = New System.Drawing.Size(266, 33)
+        Me.cborcode.TabIndex = 31
+        '
         'Label6
         '
         Me.Label6.AutoSize = True
@@ -566,39 +579,39 @@ Partial Class Schedule
         Me.DGVschedule.AllowUserToResizeColumns = False
         Me.DGVschedule.AllowUserToResizeRows = False
         Me.DGVschedule.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption
-        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.ActiveCaption
-        DataGridViewCellStyle10.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle10.ForeColor = System.Drawing.Color.MidnightBlue
-        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.GradientInactiveCaption
-        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DGVschedule.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaption
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.MidnightBlue
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.GradientInactiveCaption
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DGVschedule.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.DGVschedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DGVschedule.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.sched_code, Me.room_code, Me.room_name, Me.detail, Me.s_day, Me.s_date, Me.time_in, Me.time_out})
         Me.DGVschedule.Cursor = System.Windows.Forms.Cursors.Default
-        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle11.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle11.ForeColor = System.Drawing.Color.MidnightBlue
-        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DGVschedule.DefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.MidnightBlue
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DGVschedule.DefaultCellStyle = DataGridViewCellStyle2
         Me.DGVschedule.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DGVschedule.GridColor = System.Drawing.SystemColors.HotTrack
         Me.DGVschedule.Location = New System.Drawing.Point(23, 113)
         Me.DGVschedule.MultiSelect = False
         Me.DGVschedule.Name = "DGVschedule"
         Me.DGVschedule.ReadOnly = True
-        DataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle12.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle12.ForeColor = System.Drawing.Color.MidnightBlue
-        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DGVschedule.RowHeadersDefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.MidnightBlue
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DGVschedule.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.DGVschedule.RowHeadersWidth = 62
         Me.DGVschedule.Size = New System.Drawing.Size(1010, 265)
         Me.DGVschedule.TabIndex = 2
@@ -657,19 +670,6 @@ Partial Class Schedule
         Me.time_out.HeaderText = "Time_Out"
         Me.time_out.Name = "time_out"
         Me.time_out.ReadOnly = True
-        '
-        'cborcode
-        '
-        Me.cborcode.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.cborcode.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.cborcode.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cborcode.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.cborcode.FormattingEnabled = True
-        Me.cborcode.Items.AddRange(New Object() {"...", "Temporary", "Monday", "Tuesday", "Wednessday", "Thurday", "Friday", "Saturday"})
-        Me.cborcode.Location = New System.Drawing.Point(136, 37)
-        Me.cborcode.Name = "cborcode"
-        Me.cborcode.Size = New System.Drawing.Size(266, 33)
-        Me.cborcode.TabIndex = 31
         '
         'Schedule
         '

@@ -118,4 +118,4 @@ Public Class accountlogs
         ' Hide the current form and return to the previous form or main menu
         Me.Hide()
     End Sub
-
+End Class

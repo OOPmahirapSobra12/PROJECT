@@ -587,6 +587,7 @@ Partial Class AccountManagement
         Me.cbolevel.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!)
         Me.cbolevel.ForeColor = System.Drawing.Color.MidnightBlue
         Me.cbolevel.FormattingEnabled = True
+        Me.cbolevel.Items.AddRange(New Object() {"Admin", "Teacher", "Student"})
         Me.cbolevel.Location = New System.Drawing.Point(138, 173)
         Me.cbolevel.Name = "cbolevel"
         Me.cbolevel.Size = New System.Drawing.Size(140, 32)

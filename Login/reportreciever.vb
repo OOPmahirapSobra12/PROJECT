@@ -33,12 +33,10 @@ Public Class reportreciever
                     column.DataPropertyName = "d"
                 ElseIf column.Name = "ReportTime" Then
                     column.DataPropertyName = "t"
+                ElseIf column.Name = "sender" Then
+                    column.DataPropertyName = "sender"
                 End If
             Next
-
-            ' Set the text for the buttons in the ReportView and ReportDelete columns
-            SetButtonText(DGVreport, "ReportView")
-            SetButtonText(DGVreport, "ReportDelete")
 
         Catch ex As Exception
             MessageBox.Show("Error retrieving reports: " & ex.Message)
@@ -48,30 +46,6 @@ Public Class reportreciever
                 conn.Close()
             End If
         End Try
-    End Sub
-
-    Private Sub DGV_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DGVreport.CellContentClick
-        If e.RowIndex < 0 Then Return ' Avoid header row
-
-        Dim dgv As DataGridView = CType(sender, DataGridView)
-        Dim id As String = dgv.Rows(e.RowIndex).Cells(0).Value.ToString() ' Assuming ID is the first column
-
-        If dgv.Columns(e.ColumnIndex).Name.Contains("View") Then
-            ' Open the view form with the report ID
-            Dim viewForm As New ViewFeedbackReport()
-            If dgv.Name = "DGVreport" Then
-                viewForm.report_ID = id
-            Else
-                MsgBox("Error fetching ID")
-            End If
-            viewForm.Show()
-            Me.Hide() ' Optionally hide or close the current form
-
-        ElseIf dgv.Columns(e.ColumnIndex).Name.Contains("Delete") Then
-            ' Delete the selected record
-            Dim tableName As String = If(dgv.Name = "DGVreport", "report", String.Empty)
-            DeleteRecord(tableName, id)
-        End If
     End Sub
 
     Private Sub DeleteRecord(tableName As String, id As String)
@@ -103,21 +77,6 @@ Public Class reportreciever
         End Using
     End Sub
 
-    Private Sub SetButtonText(dgv As DataGridView, columnName As String)
-        ' Loop through each row in the DataGridView
-        For Each row As DataGridViewRow In dgv.Rows
-            If row.IsNewRow Then Continue For ' Skip the new row placeholder
-
-            ' Ensure the button is of the correct type (DataGridViewButtonCell)
-            Dim buttonCell As DataGridViewButtonCell = TryCast(row.Cells(columnName), DataGridViewButtonCell)
-
-            ' Check if the button cell exists and set the value (text) of the button
-            If buttonCell IsNot Nothing Then
-                buttonCell.Value = If(columnName.Contains("Delete"), "Delete", "View") ' Set Delete/View text based on column name
-            End If
-        Next
-    End Sub
-
     Private Sub reportreciever_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If conn.State = ConnectionState.Open Then
             conn.Close()
@@ -127,7 +86,7 @@ Public Class reportreciever
         cbosearch.SelectedIndex = 0
     End Sub
 
-    Private Sub btnsearch_Click(sender As Object, e As EventArgs) Handles btnsearch.Click
+    Private Sub btnsearch_Click_1(sender As Object, e As EventArgs) Handles btnsearch.Click
         If String.IsNullOrEmpty(txtsearchbox.Text) Then
             report()
         Else
@@ -137,13 +96,30 @@ Public Class reportreciever
             Dim query As String = ""
 
             ' Construct the SQL query based on the selected category
-            Select Case category
-                Case "Date"
-                    query = "SELECT * FROM report WHERE d LIKE @search"
-                Case "Time"
-                    query = "SELECT * FROM report WHERE t LIKE @search"
+            Select Case cbosearch.Text
+                Case "Choose:"
+                    ' Search across all columns: report ID, Date, and Time
+                    query = "SELECT sender, ID, d, t " &
+                        "FROM report " &
+                        "WHERE ID LIKE @search OR d LIKE @search OR t LIKE @search"
+
+                Case "Report ID"
+                    query = "SELECT sender, ID, d, t " &
+                        "FROM report " &
+                        "WHERE ID LIKE @search"
+
+                Case "Date Reported"
+                    query = "SELECT sender, ID, d, t " &
+                        "FROM report " &
+                        "WHERE d LIKE @search"
+
+                Case "Time Reported"
+                    query = "SELECT sender, ID, d, t " &
+                        "FROM report " &
+                        "WHERE t LIKE @search"
+
                 Case Else
-                    MessageBox.Show("Please select a valid category.", "Invalid Category", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    MessageBox.Show("Invalid category selected. Please select a valid search category.", "Invalid Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                     Return
             End Select
 
@@ -174,7 +150,62 @@ Public Class reportreciever
         End If
     End Sub
 
-    Private Sub btnback_Click(sender As Object, e As EventArgs) Handles btnback.Click
+    Private Sub btnback_Click_1(sender As Object, e As EventArgs) Handles btnback.Click
         Me.Hide()
+    End Sub
+
+    Private Sub btnview_Click(sender As Object, e As EventArgs) Handles btnview.Click
+        Try
+            ' Ensure that a row is selected in the DataGridView
+            If DGVreport.SelectedRows.Count = 0 Then
+                MessageBox.Show("Please select a record to view.", "Selection Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return
+            End If
+
+            ' Get the ID of the selected row
+            Dim id As String = DGVreport.SelectedRows(0).Cells("ReportID").Value.ToString()
+
+            ' Open the ViewFeedbackReport form and pass the ID
+            Dim viewForm As New ViewFeedbackReport()
+            viewForm.report_ID = id
+            viewForm.Show()
+            Me.Hide()
+        Catch ex As Exception
+            MessageBox.Show("Error retrieving report record: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+    Private Sub btndelete_Click(sender As Object, e As EventArgs) Handles btndelete.Click
+        Try
+            ' Ensure that a row is selected in the DataGridView
+            If DGVreport.SelectedRows.Count = 0 Then
+                MessageBox.Show("Please select a record to delete.", "Selection Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return
+            End If
+
+            ' Get the ID of the selected row
+            Dim id As String = DGVreport.SelectedRows(0).Cells("ReportID").Value.ToString()
+
+            ' Confirm deletion
+            If MessageBox.Show($"Are you sure you want to delete report ID {id}?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = DialogResult.Yes Then
+                ' Execute the delete query
+                Dim query As String = "DELETE FROM report WHERE ID = @id"
+                Using command As New MySqlCommand(query, conn)
+                    command.Parameters.AddWithValue("@id", id)
+                    If conn.State = ConnectionState.Closed Then
+                        conn.Open()
+                    End If
+                    command.ExecuteNonQuery()
+                    MessageBox.Show("Record deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                End Using
+            End If
+
+            ' Refresh the DataGridView after deletion
+            report()
+        Catch ex As Exception
+            MessageBox.Show("Error deleting report record: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            conn.Close()
+        End Try
     End Sub
 End Class

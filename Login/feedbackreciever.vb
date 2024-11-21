@@ -48,10 +48,6 @@ Public Class feedbackreciever
         cbosearch.SelectedIndex = 0
     End Sub
 
-    Private Sub btnback_Click(sender As Object, e As EventArgs)
-        Me.Hide()
-    End Sub
-
     Private Sub btnview_Click(sender As Object, e As EventArgs) Handles btnview.Click
         Try
             ' Ensure that a row is selected in the DataGridView
@@ -123,22 +119,22 @@ Public Class feedbackreciever
         Select Case cbosearch.Text
             Case "Choose:"
                 ' Search across all columns: Feedback ID, Date, and Time
-                query = "SELECT sender, ID, d, t, feedback " &
+                query = "SELECT sender, ID, d, t " &
                         "FROM feedback " &
                         "WHERE ID LIKE @search OR d LIKE @search OR t LIKE @search"
 
             Case "Feedback ID"
-                query = "SELECT sender, ID, d, t, feedback " &
+                query = "SELECT sender, ID, d, t " &
                         "FROM feedback " &
                         "WHERE ID LIKE @search"
 
             Case "Date"
-                query = "SELECT sender, ID, d, t, feedback " &
+                query = "SELECT sender, ID, d, t " &
                         "FROM feedback " &
                         "WHERE d LIKE @search"
 
             Case "Time"
-                query = "SELECT sender, ID, d, t, feedback " &
+                query = "SELECT sender, ID, d, t " &
                         "FROM feedback " &
                         "WHERE t LIKE @search"
 
@@ -179,4 +175,7 @@ Public Class feedbackreciever
         End Using
     End Sub
 
+    Private Sub btnback_Click_1(sender As Object, e As EventArgs) Handles btnback.Click
+        Me.Hide()
+    End Sub
 End Class

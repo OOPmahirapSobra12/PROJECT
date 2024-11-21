@@ -92,7 +92,7 @@ Partial Class feedbackreciever
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.81482!))
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.03704!))
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.14815!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27.0!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 33.0!))
         Me.TableLayoutPanel3.Controls.Add(Me.btnsearch, 3, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.cbosearch, 1, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.txtsearchbox, 2, 0)
@@ -115,9 +115,9 @@ Partial Class feedbackreciever
         Me.btnsearch.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnsearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnsearch.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnsearch.Location = New System.Drawing.Point(433, 3)
+        Me.btnsearch.Location = New System.Drawing.Point(428, 3)
         Me.btnsearch.Name = "btnsearch"
-        Me.btnsearch.Size = New System.Drawing.Size(117, 33)
+        Me.btnsearch.Size = New System.Drawing.Size(116, 33)
         Me.btnsearch.TabIndex = 93
         Me.btnsearch.Text = "btnsearch"
         Me.btnsearch.UseVisualStyleBackColor = False
@@ -132,7 +132,7 @@ Partial Class feedbackreciever
         Me.cbosearch.Items.AddRange(New Object() {"Choose:", "Feedback ID", "Date", "Time"})
         Me.cbosearch.Location = New System.Drawing.Point(23, 3)
         Me.cbosearch.Name = "cbosearch"
-        Me.cbosearch.Size = New System.Drawing.Size(153, 33)
+        Me.cbosearch.Size = New System.Drawing.Size(151, 33)
         Me.cbosearch.TabIndex = 95
         '
         'txtsearchbox
@@ -141,9 +141,9 @@ Partial Class feedbackreciever
         Me.txtsearchbox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtsearchbox.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!)
         Me.txtsearchbox.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.txtsearchbox.Location = New System.Drawing.Point(182, 3)
+        Me.txtsearchbox.Location = New System.Drawing.Point(180, 3)
         Me.txtsearchbox.Name = "txtsearchbox"
-        Me.txtsearchbox.Size = New System.Drawing.Size(245, 31)
+        Me.txtsearchbox.Size = New System.Drawing.Size(242, 31)
         Me.txtsearchbox.TabIndex = 96
         '
         'TableLayoutPanel4

@@ -123,4 +123,8 @@ Public Class requestapproval
         Admin.Show()
         Me.Hide()
     End Sub
+
+    Private Sub btnrequestreload_Click(sender As Object, e As EventArgs) Handles btnrequestreload.Click
+        LoadRequests()
+    End Sub
 End Class

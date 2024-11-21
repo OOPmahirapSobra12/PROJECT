@@ -6,7 +6,7 @@ Public Class feedbackreciever
 
     Private Sub feedback()
         ' Query to select necessary columns (ID, d, t)
-        Dim query As String = "SELECT ID, d, t FROM feedback"
+        Dim query As String = "SELECT ID, d, t, sender FROM feedback"
         Dim adapter As New MySqlDataAdapter(query, conn)
         Dim table As New DataTable()
 
@@ -28,6 +28,8 @@ Public Class feedbackreciever
                     column.DataPropertyName = "d"
                 ElseIf column.Name = "FeedbackTime" Then
                     column.DataPropertyName = "t"
+                ElseIf column.Name = "sender" Then
+                    column.DataPropertyName = "sender"
                 End If
             Next
 
@@ -48,11 +50,7 @@ Public Class feedbackreciever
 
         If dgv.Columns(e.ColumnIndex).Name.Contains("View") Then
             Dim viewForm As New ViewFeedbackReport()
-            If dgv.Name = "DGVreport" Then
-                viewForm.report_ID = id
-            Else
-                viewForm.feedback_ID = id
-            End If
+            viewForm.feedback_ID = id
             viewForm.Show()
             Me.Hide()
 
@@ -101,7 +99,7 @@ Public Class feedbackreciever
         Next
     End Sub
 
-    Private Sub btnsearch_Click(sender As Object, e As EventArgs) Handles btnsearch.Click
+    Private Sub btnsearch_Click(sender As Object, e As EventArgs)
         If String.IsNullOrEmpty(txtsearchbox.Text) Then
             feedback()
         Else
@@ -112,6 +110,8 @@ Public Class feedbackreciever
 
             ' Construct the SQL query based on the selected category
             Select Case category
+                Case "Feedback ID"
+                    query = "SELECT * FROM report WHERE d LIKE @search"
                 Case "Date"
                     query = "SELECT * FROM report WHERE d LIKE @search"
                 Case "Time"
@@ -157,7 +157,15 @@ Public Class feedbackreciever
         cbosearch.SelectedIndex = 0
     End Sub
 
-    Private Sub btnback_Click(sender As Object, e As EventArgs) Handles btnback.Click
+    Private Sub btnback_Click(sender As Object, e As EventArgs)
         Me.Hide()
+    End Sub
+
+    Private Sub btnview_Click(sender As Object, e As EventArgs) Handles btnview.Click
+
+    End Sub
+
+    Private Sub btndelete_Click(sender As Object, e As EventArgs) Handles btndelete.Click
+
     End Sub
 End Class

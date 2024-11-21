@@ -41,29 +41,7 @@ Public Class AccountManagement
             MessageBox.Show("Error retrieving reports: " & ex.Message)
         End Try
     End Sub
-    Private Sub btnback_Click(sender As Object, e As EventArgs)
-        Admin.Show()
-        Me.Hide()
-    End Sub
 
-    Private Sub btndelete_Click(sender As Object, e As EventArgs)
-        ' Ensure a row is selected
-        If DGVaccounts.SelectedRows.Count > 0 Then
-            ' Get the account ID from the selected row
-            Dim selectedAccountID As String = DGVaccounts.SelectedRows(0).Cells("accountID").Value.ToString()
-
-            ' Confirm deletion with the user
-            Dim result As DialogResult = MessageBox.Show("Are you sure you want to delete the selected account?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
-
-            If result = DialogResult.Yes Then
-                ' Call the DeleteAccount method with the selected account ID
-                DeleteAccount(selectedAccountID)
-            End If
-        Else
-            ' If no row is selected, show a warning message
-            MessageBox.Show("Please select a row to delete.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-        End If
-    End Sub
 
 
     Private Sub DeleteAccount(selectedAccountID)
@@ -97,7 +75,7 @@ Public Class AccountManagement
     End Sub
 
 
-    Private Sub btnclear_Click(sender As Object, e As EventArgs)
+    Private Sub clear()
         ' Clear the textboxes
         txtfname.Clear()
         txtID.Clear()
@@ -113,7 +91,7 @@ Public Class AccountManagement
     End Sub
 
 
-    Private Sub btnadd_Click(sender As Object, e As EventArgs)
+    Private Sub addnew()
         ' Validate that none of the fields are empty
         If String.IsNullOrEmpty(txtcode.Text) OrElse
        String.IsNullOrEmpty(txtfname.Text) OrElse
@@ -207,7 +185,7 @@ Public Class AccountManagement
         cbolevel.SelectedIndex = -1 ' No item selected by default
     End Sub
 
-    Private Sub btnmodify_Click(sender As Object, e As EventArgs)
+    Private Sub modify()
         Try
             ' Ensure that a row is selected in the DataGridView
             If DGVaccounts.SelectedRows.Count = 0 Then
@@ -289,124 +267,47 @@ Public Class AccountManagement
         End Try
     End Sub
 
+    Private Sub btnmodify_Click_1(sender As Object, e As EventArgs) Handles btnmodify.Click
+        modify()
+    End Sub
 
+    Private Sub btnadd_Click_1(sender As Object, e As EventArgs) Handles btnadd.Click
+        addnew()
+    End Sub
 
+    Private Sub btndelete_Click_1(sender As Object, e As EventArgs) Handles btndelete.Click
+        ' Ensure a row is selected
+        If DGVaccounts.SelectedRows.Count > 0 Then
+            ' Get the account ID from the selected row
+            Dim selectedAccountID As String = DGVaccounts.SelectedRows(0).Cells("accountID").Value.ToString()
 
-    Private Sub buttonpic_Click(sender As Object, e As EventArgs)
-        ' Create an OpenFileDialog to allow the user to select a picture
-        Dim openFileDialog As New OpenFileDialog()
+            ' Confirm deletion with the user
+            Dim result As DialogResult = MessageBox.Show("Are you sure you want to delete the selected account?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
 
-        ' Set filter for image files (e.g., .jpg, .png, .bmp)
-        openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif"
-
-        ' Set the title of the dialog
-        openFileDialog.Title = "Select an Image"
-
-        ' Show the dialog and check if the user selected a file
-        If openFileDialog.ShowDialog() = DialogResult.OK Then
-            ' Get the file path of the selected image
-            Dim filePath As String = openFileDialog.FileName
-
-            ' Load the image into the PictureBox (PBpic)
-            PBpic.Image = Image.FromFile(filePath)
+            If result = DialogResult.Yes Then
+                ' Call the DeleteAccount method with the selected account ID
+                DeleteAccount(selectedAccountID)
+            End If
+        Else
+            ' If no row is selected, show a warning message
+            MessageBox.Show("Please select a row to delete.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If
     End Sub
 
-    Private Sub btnupdate_Click(sender As Object, e As EventArgs)
-        ' Ensure that the ID field is not empty
-        If String.IsNullOrEmpty(txtID.Text) Then
-            MessageBox.Show("Please enter an ID to update.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Return
-        End If
-
-        ' Get the ID from the txtID textbox
-        Dim selectedID As String = txtID.Text
-
-        ' Ensure only one record exists with the same ID
-        Dim query As String = "SELECT COUNT(*) FROM accounts WHERE ID = @id"
-        Using command As New MySqlCommand(query, conn)
-            command.Parameters.AddWithValue("@id", selectedID)
-
-            Try
-                ' Open the connection if it's closed
-                If conn.State = ConnectionState.Closed Then
-                    conn.Open()
-                End If
-
-                ' Execute the query to count the matching IDs
-                Dim count As Integer = Convert.ToInt32(command.ExecuteScalar())
-
-                If count = 1 Then
-                    ' If only one record is found, proceed with the update
-                    Dim updateQuery As String = "UPDATE accounts SET " &
-                                                "username = @username, " &
-                                                "pword = @pword, " &
-                                                "fname = @fname, " &
-                                                "lname = @lname, " &
-                                                "accesslevel = @accesslevel, " &
-                                                "image = @picture " &  ' Assuming picture is stored as a binary (BLOB) field
-                                                "WHERE ID = @id"
-
-                    ' Execute the update query
-                    Using updateCommand As New MySqlCommand(updateQuery, conn)
-                        ' Add parameters to prevent SQL injection
-                        updateCommand.Parameters.AddWithValue("@username", txtusername.Text)
-                        updateCommand.Parameters.AddWithValue("@pword", txtpassword.Text)
-                        updateCommand.Parameters.AddWithValue("@fname", txtfname.Text)
-                        updateCommand.Parameters.AddWithValue("@lname", txtlname.Text)
-                        updateCommand.Parameters.AddWithValue("@accesslevel", cbolevel.SelectedItem.ToString())
-
-                        ' For the picture, we need to save the image in the database (convert it to a binary format if needed)
-                        If PBpic.Image IsNot Nothing Then
-                            Try
-                                Dim ms As New IO.MemoryStream()
-                                PBpic.Image.Save(ms, PBpic.Image.RawFormat)
-                                updateCommand.Parameters.AddWithValue("@picture", ms.ToArray())  ' Store the image as a binary data
-                            Catch ex As Exception
-                                MessageBox.Show("Error saving image: " & ex.Message, "Image Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                                Return
-                            End Try
-                        Else
-                            ' If no picture is selected, you can store a NULL or empty value (depending on your database schema)
-                            updateCommand.Parameters.AddWithValue("@picture", DBNull.Value)
-                        End If
-
-                        updateCommand.Parameters.AddWithValue("@id", selectedID)
-
-                        Try
-                            updateCommand.ExecuteNonQuery()
-                            MessageBox.Show("Account updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
-                            ' Refresh the DataGridView or account listing
-                            tableloader()  ' Assuming this is the method to reload the account data
-
-                            ' Clear the fields after successful update (optional)
-                            btnclear.PerformClick()
-
-                            ' Disable btnupdate and hide it
-                            btnupdate.Enabled = False
-                            btnupdate.Visible = False
-
-                            ' Enable btnadd and make it visible
-                            btnadd.Enabled = True
-                            btnadd.Visible = True
-
-                        Catch ex As Exception
-                            MessageBox.Show($"Error updating account: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                        End Try
-                    End Using
-                Else
-                    ' If more than one record is found, show an error (should not happen in your case)
-                    MessageBox.Show("Multiple records found with the same ID. Update failed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                End If
-            Catch ex As Exception
-                MessageBox.Show($"Error checking record: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Finally
-                conn.Close()
-            End Try
-        End Using
+    Private Sub btnclear_Click_1(sender As Object, e As EventArgs) Handles btnclear.Click
+        clear()
     End Sub
 
+    Private Sub btnback_Click_1(sender As Object, e As EventArgs) Handles btnback.Click
+        Admin.Show()
+        Me.Hide()
+    End Sub
 
+    Private Sub btnsearch_Click(sender As Object, e As EventArgs) Handles btnsearch.Click
 
+    End Sub
+
+    Private Sub buttonpic_Click(sender As Object, e As EventArgs) Handles buttonpic.Click
+
+    End Sub
 End Class

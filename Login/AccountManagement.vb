@@ -41,12 +41,12 @@ Public Class AccountManagement
             MessageBox.Show("Error retrieving reports: " & ex.Message)
         End Try
     End Sub
-    Private Sub btnback_Click(sender As Object, e As EventArgs) Handles btnback.Click
+    Private Sub btnback_Click(sender As Object, e As EventArgs)
         Admin.Show()
         Me.Hide()
     End Sub
 
-    Private Sub btndelete_Click(sender As Object, e As EventArgs) Handles btndelete.Click
+    Private Sub btndelete_Click(sender As Object, e As EventArgs)
         ' Ensure a row is selected
         If DGVaccounts.SelectedRows.Count > 0 Then
             ' Get the account ID from the selected row
@@ -97,7 +97,7 @@ Public Class AccountManagement
     End Sub
 
 
-    Private Sub btnclear_Click(sender As Object, e As EventArgs) Handles btnclear.Click
+    Private Sub btnclear_Click(sender As Object, e As EventArgs)
         ' Clear the textboxes
         txtfname.Clear()
         txtID.Clear()
@@ -113,7 +113,7 @@ Public Class AccountManagement
     End Sub
 
 
-    Private Sub btnadd_Click(sender As Object, e As EventArgs) Handles btnadd.Click
+    Private Sub btnadd_Click(sender As Object, e As EventArgs)
         ' Validate that none of the fields are empty
         If String.IsNullOrEmpty(txtcode.Text) OrElse
        String.IsNullOrEmpty(txtfname.Text) OrElse
@@ -207,7 +207,7 @@ Public Class AccountManagement
         cbolevel.SelectedIndex = -1 ' No item selected by default
     End Sub
 
-    Private Sub btnmodify_Click(sender As Object, e As EventArgs) Handles btnmodify.Click
+    Private Sub btnmodify_Click(sender As Object, e As EventArgs)
         Try
             ' Ensure that a row is selected in the DataGridView
             If DGVaccounts.SelectedRows.Count = 0 Then
@@ -292,7 +292,7 @@ Public Class AccountManagement
 
 
 
-    Private Sub buttonpic_Click(sender As Object, e As EventArgs) Handles buttonpic.Click
+    Private Sub buttonpic_Click(sender As Object, e As EventArgs)
         ' Create an OpenFileDialog to allow the user to select a picture
         Dim openFileDialog As New OpenFileDialog()
 
@@ -312,7 +312,7 @@ Public Class AccountManagement
         End If
     End Sub
 
-    Private Sub btnupdate_Click(sender As Object, e As EventArgs) Handles btnupdate.Click
+    Private Sub btnupdate_Click(sender As Object, e As EventArgs)
         ' Ensure that the ID field is not empty
         If String.IsNullOrEmpty(txtID.Text) Then
             MessageBox.Show("Please enter an ID to update.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)

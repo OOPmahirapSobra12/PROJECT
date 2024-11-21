@@ -48,7 +48,7 @@ Public Class accountlogs
         End Try
     End Sub
 
-    Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnsearch.Click
+    Private Sub btnSearch_Click(sender As Object, e As EventArgs)
         If String.IsNullOrEmpty(txtsearchbox.Text) Then
             LoadAccountLogs()
         Else
@@ -101,7 +101,7 @@ Public Class accountlogs
         End If
     End Sub
 
-    Private Sub btnback_Click(sender As Object, e As EventArgs) Handles btnback.Click
+    Private Sub btnback_Click(sender As Object, e As EventArgs)
         Me.Hide()
     End Sub
 End Class

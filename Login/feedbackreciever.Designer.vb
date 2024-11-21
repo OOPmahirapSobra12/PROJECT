@@ -25,26 +25,26 @@ Partial Class feedbackreciever
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
-        Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
-        Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.btnsearch = New System.Windows.Forms.Button()
         Me.cbosearch = New System.Windows.Forms.ComboBox()
         Me.txtsearchbox = New System.Windows.Forms.TextBox()
-        Me.btnsearch = New System.Windows.Forms.Button()
-        Me.DGVfeedback = New System.Windows.Forms.DataGridView()
-        Me.btnback = New System.Windows.Forms.Button()
-        Me.btnview = New System.Windows.Forms.Button()
+        Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
         Me.btndelete = New System.Windows.Forms.Button()
+        Me.btnview = New System.Windows.Forms.Button()
+        Me.btnback = New System.Windows.Forms.Button()
+        Me.DGVfeedback = New System.Windows.Forms.DataGridView()
         Me.FeedbackID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FeedbackDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FeedbackTime = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.sender = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
         Me.TableLayoutPanel4.SuspendLayout()
-        Me.TableLayoutPanel5.SuspendLayout()
         CType(Me.DGVfeedback, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TableLayoutPanel5.SuspendLayout()
         Me.SuspendLayout()
         '
         'TableLayoutPanel1
@@ -92,7 +92,7 @@ Partial Class feedbackreciever
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.81482!))
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.03704!))
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.14815!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 26.0!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27.0!))
         Me.TableLayoutPanel3.Controls.Add(Me.btnsearch, 3, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.cbosearch, 1, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.txtsearchbox, 2, 0)
@@ -101,11 +101,50 @@ Partial Class feedbackreciever
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
         Me.TableLayoutPanel3.RowCount = 1
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47.0!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47.0!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47.0!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39.0!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39.0!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39.0!))
         Me.TableLayoutPanel3.Size = New System.Drawing.Size(582, 39)
         Me.TableLayoutPanel3.TabIndex = 3
+        '
+        'btnsearch
+        '
+        Me.btnsearch.AutoSize = True
+        Me.btnsearch.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.btnsearch.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnsearch.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnsearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnsearch.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.btnsearch.Location = New System.Drawing.Point(433, 3)
+        Me.btnsearch.Name = "btnsearch"
+        Me.btnsearch.Size = New System.Drawing.Size(117, 33)
+        Me.btnsearch.TabIndex = 93
+        Me.btnsearch.Text = "btnsearch"
+        Me.btnsearch.UseVisualStyleBackColor = False
+        '
+        'cbosearch
+        '
+        Me.cbosearch.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.cbosearch.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.cbosearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!)
+        Me.cbosearch.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.cbosearch.FormattingEnabled = True
+        Me.cbosearch.Items.AddRange(New Object() {"Choose:", "Feedback ID", "Date", "Time"})
+        Me.cbosearch.Location = New System.Drawing.Point(23, 3)
+        Me.cbosearch.Name = "cbosearch"
+        Me.cbosearch.Size = New System.Drawing.Size(153, 33)
+        Me.cbosearch.TabIndex = 95
+        '
+        'txtsearchbox
+        '
+        Me.txtsearchbox.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.txtsearchbox.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txtsearchbox.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!)
+        Me.txtsearchbox.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.txtsearchbox.Location = New System.Drawing.Point(182, 3)
+        Me.txtsearchbox.Name = "txtsearchbox"
+        Me.txtsearchbox.Size = New System.Drawing.Size(245, 31)
+        Me.txtsearchbox.TabIndex = 96
         '
         'TableLayoutPanel4
         '
@@ -123,6 +162,94 @@ Partial Class feedbackreciever
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel4.Size = New System.Drawing.Size(582, 42)
         Me.TableLayoutPanel4.TabIndex = 89
+        '
+        'btndelete
+        '
+        Me.btndelete.AutoSize = True
+        Me.btndelete.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.btndelete.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btndelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btndelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btndelete.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.btndelete.Location = New System.Drawing.Point(391, 3)
+        Me.btndelete.Name = "btndelete"
+        Me.btndelete.Size = New System.Drawing.Size(188, 36)
+        Me.btndelete.TabIndex = 98
+        Me.btndelete.Text = "Delete"
+        Me.btndelete.UseVisualStyleBackColor = False
+        '
+        'btnview
+        '
+        Me.btnview.AutoSize = True
+        Me.btnview.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.btnview.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnview.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnview.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnview.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.btnview.Location = New System.Drawing.Point(197, 3)
+        Me.btnview.Name = "btnview"
+        Me.btnview.Size = New System.Drawing.Size(188, 36)
+        Me.btnview.TabIndex = 97
+        Me.btnview.Text = "View"
+        Me.btnview.UseVisualStyleBackColor = False
+        '
+        'btnback
+        '
+        Me.btnback.AutoSize = True
+        Me.btnback.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.btnback.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnback.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnback.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnback.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.btnback.Location = New System.Drawing.Point(3, 3)
+        Me.btnback.Name = "btnback"
+        Me.btnback.Size = New System.Drawing.Size(188, 36)
+        Me.btnback.TabIndex = 96
+        Me.btnback.Text = "Back"
+        Me.btnback.UseVisualStyleBackColor = False
+        '
+        'DGVfeedback
+        '
+        Me.DGVfeedback.AllowUserToAddRows = False
+        Me.DGVfeedback.AllowUserToDeleteRows = False
+        Me.DGVfeedback.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.DGVfeedback.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken
+        Me.DGVfeedback.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DGVfeedback.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.FeedbackID, Me.FeedbackDate, Me.FeedbackTime, Me.sender})
+        Me.DGVfeedback.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DGVfeedback.GridColor = System.Drawing.Color.MidnightBlue
+        Me.DGVfeedback.Location = New System.Drawing.Point(3, 48)
+        Me.DGVfeedback.Name = "DGVfeedback"
+        Me.DGVfeedback.ReadOnly = True
+        Me.DGVfeedback.Size = New System.Drawing.Size(582, 253)
+        Me.DGVfeedback.TabIndex = 92
+        '
+        'FeedbackID
+        '
+        Me.FeedbackID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.FeedbackID.HeaderText = "Feedback ID"
+        Me.FeedbackID.Name = "FeedbackID"
+        Me.FeedbackID.ReadOnly = True
+        '
+        'FeedbackDate
+        '
+        Me.FeedbackDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.FeedbackDate.HeaderText = "Feedback Date"
+        Me.FeedbackDate.Name = "FeedbackDate"
+        Me.FeedbackDate.ReadOnly = True
+        '
+        'FeedbackTime
+        '
+        Me.FeedbackTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.FeedbackTime.HeaderText = "Feedback Time"
+        Me.FeedbackTime.Name = "FeedbackTime"
+        Me.FeedbackTime.ReadOnly = True
+        '
+        'sender
+        '
+        Me.sender.HeaderText = "Sender"
+        Me.sender.Name = "sender"
+        Me.sender.ReadOnly = True
         '
         'TableLayoutPanel5
         '
@@ -154,133 +281,6 @@ Partial Class feedbackreciever
         Me.Label1.Text = "Feedbacks"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         '
-        'cbosearch
-        '
-        Me.cbosearch.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.cbosearch.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.cbosearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!)
-        Me.cbosearch.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.cbosearch.FormattingEnabled = True
-        Me.cbosearch.Items.AddRange(New Object() {"Choose:", "Feedback ID", "Date", "Time"})
-        Me.cbosearch.Location = New System.Drawing.Point(23, 3)
-        Me.cbosearch.Name = "cbosearch"
-        Me.cbosearch.Size = New System.Drawing.Size(153, 33)
-        Me.cbosearch.TabIndex = 95
-        '
-        'txtsearchbox
-        '
-        Me.txtsearchbox.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.txtsearchbox.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txtsearchbox.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!)
-        Me.txtsearchbox.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.txtsearchbox.Location = New System.Drawing.Point(182, 3)
-        Me.txtsearchbox.Name = "txtsearchbox"
-        Me.txtsearchbox.Size = New System.Drawing.Size(246, 31)
-        Me.txtsearchbox.TabIndex = 96
-        '
-        'btnsearch
-        '
-        Me.btnsearch.AutoSize = True
-        Me.btnsearch.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.btnsearch.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnsearch.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnsearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnsearch.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnsearch.Location = New System.Drawing.Point(434, 3)
-        Me.btnsearch.Name = "btnsearch"
-        Me.btnsearch.Size = New System.Drawing.Size(118, 33)
-        Me.btnsearch.TabIndex = 93
-        Me.btnsearch.Text = "btnsearch"
-        Me.btnsearch.UseVisualStyleBackColor = False
-        '
-        'DGVfeedback
-        '
-        Me.DGVfeedback.AllowUserToAddRows = False
-        Me.DGVfeedback.AllowUserToDeleteRows = False
-        Me.DGVfeedback.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.DGVfeedback.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken
-        Me.DGVfeedback.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGVfeedback.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.FeedbackID, Me.FeedbackDate, Me.FeedbackTime, Me.sender})
-        Me.DGVfeedback.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DGVfeedback.GridColor = System.Drawing.Color.MidnightBlue
-        Me.DGVfeedback.Location = New System.Drawing.Point(3, 48)
-        Me.DGVfeedback.Name = "DGVfeedback"
-        Me.DGVfeedback.ReadOnly = True
-        Me.DGVfeedback.Size = New System.Drawing.Size(582, 253)
-        Me.DGVfeedback.TabIndex = 92
-        '
-        'btnback
-        '
-        Me.btnback.AutoSize = True
-        Me.btnback.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.btnback.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnback.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnback.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnback.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnback.Location = New System.Drawing.Point(3, 3)
-        Me.btnback.Name = "btnback"
-        Me.btnback.Size = New System.Drawing.Size(188, 36)
-        Me.btnback.TabIndex = 96
-        Me.btnback.Text = "Back"
-        Me.btnback.UseVisualStyleBackColor = False
-        '
-        'btnview
-        '
-        Me.btnview.AutoSize = True
-        Me.btnview.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.btnview.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnview.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnview.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnview.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnview.Location = New System.Drawing.Point(197, 3)
-        Me.btnview.Name = "btnview"
-        Me.btnview.Size = New System.Drawing.Size(188, 36)
-        Me.btnview.TabIndex = 97
-        Me.btnview.Text = "View"
-        Me.btnview.UseVisualStyleBackColor = False
-        '
-        'btndelete
-        '
-        Me.btndelete.AutoSize = True
-        Me.btndelete.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.btndelete.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btndelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btndelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btndelete.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btndelete.Location = New System.Drawing.Point(391, 3)
-        Me.btndelete.Name = "btndelete"
-        Me.btndelete.Size = New System.Drawing.Size(188, 36)
-        Me.btndelete.TabIndex = 98
-        Me.btndelete.Text = "Delete"
-        Me.btndelete.UseVisualStyleBackColor = False
-        '
-        'FeedbackID
-        '
-        Me.FeedbackID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.FeedbackID.HeaderText = "Feedback ID"
-        Me.FeedbackID.Name = "FeedbackID"
-        Me.FeedbackID.ReadOnly = True
-        '
-        'FeedbackDate
-        '
-        Me.FeedbackDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.FeedbackDate.HeaderText = "Feedback Date"
-        Me.FeedbackDate.Name = "FeedbackDate"
-        Me.FeedbackDate.ReadOnly = True
-        '
-        'FeedbackTime
-        '
-        Me.FeedbackTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.FeedbackTime.HeaderText = "Feedback Time"
-        Me.FeedbackTime.Name = "FeedbackTime"
-        Me.FeedbackTime.ReadOnly = True
-        '
-        'sender
-        '
-        Me.sender.HeaderText = "Sender"
-        Me.sender.Name = "sender"
-        Me.sender.ReadOnly = True
-        '
         'feedbackreciever
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -298,9 +298,9 @@ Partial Class feedbackreciever
         Me.TableLayoutPanel3.PerformLayout()
         Me.TableLayoutPanel4.ResumeLayout(False)
         Me.TableLayoutPanel4.PerformLayout()
+        CType(Me.DGVfeedback, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel5.ResumeLayout(False)
         Me.TableLayoutPanel5.PerformLayout()
-        CType(Me.DGVfeedback, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

@@ -308,6 +308,22 @@ Public Class AccountManagement
     End Sub
 
     Private Sub buttonpic_Click(sender As Object, e As EventArgs) Handles buttonpic.Click
+        ' Create an OpenFileDialog to allow the user to select a picture
+        Dim openFileDialog As New OpenFileDialog()
 
+        ' Set filter for image files (e.g., .jpg, .png, .bmp)
+        openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif"
+
+        ' Set the title of the dialog
+        openFileDialog.Title = "Select an Image"
+
+        ' Show the dialog and check if the user selected a file
+        If openFileDialog.ShowDialog() = DialogResult.OK Then
+            ' Get the file path of the selected image
+            Dim filePath As String = openFileDialog.FileName
+
+            ' Load the image into the PictureBox (PBpic)
+            PBpic.Image = Image.FromFile(filePath)
+        End If
     End Sub
 End Class

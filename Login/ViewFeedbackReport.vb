@@ -36,17 +36,8 @@ Public Class ViewFeedbackReport
                 txtsender.Text = row("sender").ToString()
                 txtdate.Text = row("d").ToString()
                 txttime.Text = row("t").ToString()
-
-                ' Set the DataGridView's text column data source
-                DGVtextbox.AutoGenerateColumns = False
-                DGVtextbox.DataSource = table
-
-                ' Manually map the data to the existing columns
-                For Each column As DataGridViewColumn In DGVtextbox.Columns
-                    If column.Name = "sendertext" Then
-                        column.DataPropertyName = "report"
-                    End If
-                Next
+                txtchat.Text = row("report").ToString()
+                titlebar.Text = "Report"
             Else
                 MessageBox.Show("No report found with the provided ID.", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If
@@ -77,17 +68,8 @@ Public Class ViewFeedbackReport
                 txtsender.Text = row("sender").ToString()
                 txtdate.Text = row("d").ToString()
                 txttime.Text = row("t").ToString()
-
-                ' Set the DataGridView's text column data source
-                DGVtextbox.AutoGenerateColumns = False
-                DGVtextbox.DataSource = table
-
-                ' Manually map the data to the existing columns
-                For Each column As DataGridViewColumn In DGVtextbox.Columns
-                    If column.Name = "sendertext" Then
-                        column.DataPropertyName = "feedback"
-                    End If
-                Next
+                txtchat.Text = row("report").ToString()
+                titlebar.Text = "Feedback"
             Else
                 MessageBox.Show("No feedback found with the provided ID.", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If
@@ -118,5 +100,7 @@ Public Class ViewFeedbackReport
     Private Sub btnback_Click(sender As Object, e As EventArgs) Handles btnback.Click
         Admin.Show()
         Me.Hide()
+        report_ID = ""
+        feedback_ID = ""
     End Sub
 End Class

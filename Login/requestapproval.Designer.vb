@@ -59,8 +59,8 @@ Partial Class requestapproval
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 5
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 37.16381!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 52.07824!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.7824!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 68.45966!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.75795!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(800, 450)
@@ -88,12 +88,12 @@ Partial Class requestapproval
         '
         'btnback
         '
-        Me.btnback.BackColor = System.Drawing.Color.Transparent
+        Me.btnback.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.btnback.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnback.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnback.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnback.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnback.ForeColor = System.Drawing.Color.NavajoWhite
+        Me.btnback.ForeColor = System.Drawing.Color.MidnightBlue
         Me.btnback.Location = New System.Drawing.Point(505, 3)
         Me.btnback.Name = "btnback"
         Me.btnback.Size = New System.Drawing.Size(246, 32)
@@ -103,12 +103,12 @@ Partial Class requestapproval
         '
         'btndelete
         '
-        Me.btndelete.BackColor = System.Drawing.Color.Transparent
+        Me.btndelete.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.btndelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btndelete.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btndelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btndelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btndelete.ForeColor = System.Drawing.Color.NavajoWhite
+        Me.btndelete.ForeColor = System.Drawing.Color.MidnightBlue
         Me.btndelete.Location = New System.Drawing.Point(254, 3)
         Me.btndelete.Name = "btndelete"
         Me.btndelete.Size = New System.Drawing.Size(245, 32)
@@ -118,12 +118,12 @@ Partial Class requestapproval
         '
         'btnadd
         '
-        Me.btnadd.BackColor = System.Drawing.Color.Transparent
+        Me.btnadd.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.btnadd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnadd.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnadd.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnadd.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnadd.ForeColor = System.Drawing.Color.NavajoWhite
+        Me.btnadd.ForeColor = System.Drawing.Color.MidnightBlue
         Me.btnadd.Location = New System.Drawing.Point(3, 3)
         Me.btnadd.Name = "btnadd"
         Me.btnadd.Size = New System.Drawing.Size(245, 32)
@@ -135,14 +135,15 @@ Partial Class requestapproval
         '
         Me.DGVrequest.AllowUserToAddRows = False
         Me.DGVrequest.AllowUserToDeleteRows = False
-        Me.DGVrequest.BackgroundColor = System.Drawing.Color.DodgerBlue
+        Me.DGVrequest.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.DGVrequest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DGVrequest.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.requestID, Me.requesterID, Me.requestdate, Me.requesttime, Me.room, Me.timerequest_in, Me.timerequest_out, Me.requesttext})
         Me.DGVrequest.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DGVrequest.Location = New System.Drawing.Point(23, 175)
+        Me.DGVrequest.GridColor = System.Drawing.Color.MidnightBlue
+        Me.DGVrequest.Location = New System.Drawing.Point(23, 108)
         Me.DGVrequest.Name = "DGVrequest"
         Me.DGVrequest.ReadOnly = True
-        Me.DGVrequest.Size = New System.Drawing.Size(754, 207)
+        Me.DGVrequest.Size = New System.Drawing.Size(754, 274)
         Me.DGVrequest.TabIndex = 8
         '
         'requestID
@@ -221,21 +222,21 @@ Partial Class requestapproval
         Me.TableLayoutPanel4.Location = New System.Drawing.Point(23, 23)
         Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
         Me.TableLayoutPanel4.RowCount = 2
-        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 52.55474!))
-        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 47.44526!))
-        Me.TableLayoutPanel4.Size = New System.Drawing.Size(754, 146)
+        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.12329!))
+        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 82.87671!))
+        Me.TableLayoutPanel4.Size = New System.Drawing.Size(754, 79)
         Me.TableLayoutPanel4.TabIndex = 4
         '
         'btnrequestreload
         '
         Me.btnrequestreload.AutoSize = True
-        Me.btnrequestreload.BackColor = System.Drawing.Color.Transparent
+        Me.btnrequestreload.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.btnrequestreload.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnrequestreload.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.btnrequestreload.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnrequestreload.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnrequestreload.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.btnrequestreload.Location = New System.Drawing.Point(3, 91)
+        Me.btnrequestreload.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.btnrequestreload.Location = New System.Drawing.Point(3, 24)
         Me.btnrequestreload.Name = "btnrequestreload"
         Me.btnrequestreload.Size = New System.Drawing.Size(748, 52)
         Me.btnrequestreload.TabIndex = 11
@@ -249,7 +250,7 @@ Partial Class requestapproval
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.BackgroundImage = Global.Login.My.Resources.Resources.FB_IMG_1729211691620
+        Me.BackgroundImage = Global.Login.My.Resources.Resources._467460386_1064088022134846_6079649981189841706_n
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.ControlBox = False

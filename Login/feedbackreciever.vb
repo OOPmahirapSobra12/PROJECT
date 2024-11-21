@@ -6,7 +6,7 @@ Public Class feedbackreciever
 
     Private Sub feedback()
         ' Query to select necessary columns (ID, d, t)
-        Dim query As String = "SELECT ID, d, t FROM feedback"
+        Dim query As String = "SELECT ID, d, t, sender FROM feedback"
         Dim adapter As New MySqlDataAdapter(query, conn)
         Dim table As New DataTable()
 
@@ -28,125 +28,16 @@ Public Class feedbackreciever
                     column.DataPropertyName = "d"
                 ElseIf column.Name = "FeedbackTime" Then
                     column.DataPropertyName = "t"
+                ElseIf column.Name = "sender" Then
+                    column.DataPropertyName = "sender"
                 End If
             Next
-
-            ' Set the text for the buttons in the FeedbackView and FeedbackDelete columns
-            SetButtonText(DGVfeedback, "FeedbackView")
-            SetButtonText(DGVfeedback, "FeedbackDelete")
 
         Catch ex As Exception
             MessageBox.Show("Error retrieving feedback: " & ex.Message)
         End Try
     End Sub
 
-    Private Sub DGV_CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
-        If e.RowIndex < 0 Then Return ' Avoid header row
-
-        Dim dgv As DataGridView = CType(sender, DataGridView)
-        Dim id As String = dgv.Rows(e.RowIndex).Cells(0).Value.ToString() ' Assuming ID is the first column
-
-        If dgv.Columns(e.ColumnIndex).Name.Contains("View") Then
-            Dim viewForm As New ViewFeedbackReport()
-            If dgv.Name = "DGVreport" Then
-                viewForm.report_ID = id
-            Else
-                viewForm.feedback_ID = id
-            End If
-            viewForm.Show()
-            Me.Hide()
-
-        ElseIf dgv.Columns(e.ColumnIndex).Name.Contains("Delete") Then
-            Dim tableName As String = If(dgv.Name = "DGVreport", "report", "feedback")
-            DeleteRecord(tableName, id)
-        End If
-    End Sub
-
-    Private Sub DeleteRecord(tableName As String, id As String)
-        Dim query As String = $"DELETE FROM {tableName} WHERE ID = @id"
-        Using command As New MySqlCommand(query, conn)
-            command.Parameters.AddWithValue("@id", id)
-            Try
-                If conn.State = ConnectionState.Closed Then
-                    conn.Open()
-                End If
-                command.ExecuteNonQuery()
-                MessageBox.Show($"{tableName} record deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Catch ex As Exception
-                MessageBox.Show($"Error deleting {tableName} record: " & ex.Message)
-            Finally
-                conn.Close()
-                feedback()
-            End Try
-        End Using
-    End Sub
-
-    Private Sub SetButtonText(dgv As DataGridView, columnName As String)
-        ' Loop through each row in the DataGridView
-        For Each row As DataGridViewRow In dgv.Rows
-            If row.IsNewRow Then
-                Continue For ' Skip the new row placeholder
-            End If
-
-            ' Ensure the button is of the correct type (DataGridViewButtonCell)
-            Dim buttonCell As DataGridViewButtonCell = TryCast(row.Cells(columnName), DataGridViewButtonCell)
-
-            ' Check if the button cell exists and set the value (text) of the button
-            If buttonCell IsNot Nothing Then
-                buttonCell.Value = "View" ' or "Delete", depending on the column
-                If columnName.Contains("Delete") Then
-                    buttonCell.Value = "Delete" ' Set Delete text for Delete buttons
-                End If
-            End If
-        Next
-    End Sub
-
-    Private Sub btnsearch_Click(sender As Object, e As EventArgs) Handles btnsearch.Click
-        If String.IsNullOrEmpty(txtsearchbox.Text) Then
-            feedback()
-        Else
-            Dim category As String = cbosearch.Text()
-            Dim search As String = txtsearchbox.Text()
-
-            Dim query As String = ""
-
-            ' Construct the SQL query based on the selected category
-            Select Case category
-                Case "Date"
-                    query = "SELECT * FROM report WHERE d LIKE @search"
-                Case "Time"
-                    query = "SELECT * FROM report WHERE t LIKE @search"
-                Case Else
-                    MessageBox.Show("Please select a valid category.", "Invalid Category", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                    Return
-            End Select
-
-            ' Create the MySqlCommand object
-            Dim command As New MySqlCommand(query, conn)
-
-            ' Add the parameter for the search term, using '%' for partial matching
-            command.Parameters.AddWithValue("@search", "%" & search & "%")
-
-            Dim table As New DataTable()
-
-            Try
-                If conn.State = ConnectionState.Closed Then
-                    conn.Open()
-                End If
-
-                ' Execute the query and fill the DataTable
-                Dim adapter As New MySqlDataAdapter(command)
-                adapter.Fill(table)
-
-                ' Bind the DataTable to the DataGridView
-                DGVfeedback.DataSource = table
-            Catch ex As Exception
-                MessageBox.Show("Error retrieving room list: " & ex.Message)
-            Finally
-                conn.Close()
-            End Try
-        End If
-    End Sub
 
     Private Sub feedbackreciever_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If conn.State = ConnectionState.Open Then
@@ -157,7 +48,134 @@ Public Class feedbackreciever
         cbosearch.SelectedIndex = 0
     End Sub
 
-    Private Sub btnback_Click(sender As Object, e As EventArgs) Handles btnback.Click
+    Private Sub btnview_Click(sender As Object, e As EventArgs) Handles btnview.Click
+        Try
+            ' Ensure that a row is selected in the DataGridView
+            If DGVfeedback.SelectedRows.Count = 0 Then
+                MessageBox.Show("Please select a record to view.", "Selection Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return
+            End If
+
+            ' Get the ID of the selected row
+            Dim id As String = DGVfeedback.SelectedRows(0).Cells("FeedbackID").Value.ToString()
+
+            ' Open the ViewFeedbackReport form and pass the ID
+            Dim viewForm As New ViewFeedbackReport()
+            viewForm.feedback_ID = id
+            viewForm.Show()
+            Me.Hide()
+        Catch ex As Exception
+            MessageBox.Show("Error retrieving feedback record: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
+
+    Private Sub btndelete_Click(sender As Object, e As EventArgs) Handles btndelete.Click
+        Try
+            ' Ensure that a row is selected in the DataGridView
+            If DGVfeedback.SelectedRows.Count = 0 Then
+                MessageBox.Show("Please select a record to delete.", "Selection Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return
+            End If
+
+            ' Get the ID of the selected row
+            Dim id As String = DGVfeedback.SelectedRows(0).Cells("FeedbackID").Value.ToString()
+
+            ' Confirm deletion
+            If MessageBox.Show($"Are you sure you want to delete feedback ID {id}?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = DialogResult.Yes Then
+                ' Execute the delete query
+                Dim query As String = "DELETE FROM feedback WHERE ID = @id"
+                Using command As New MySqlCommand(query, conn)
+                    command.Parameters.AddWithValue("@id", id)
+                    If conn.State = ConnectionState.Closed Then
+                        conn.Open()
+                    End If
+                    command.ExecuteNonQuery()
+                    MessageBox.Show("Record deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                End Using
+            End If
+
+            ' Refresh the DataGridView after deletion
+            feedback()
+        Catch ex As Exception
+            MessageBox.Show("Error deleting feedback record: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            conn.Close()
+        End Try
+    End Sub
+
+    Private Sub btnsearch_Click_1(sender As Object, e As EventArgs) Handles btnsearch.Click
+        ' If the textbox is empty, refresh the data
+        If String.IsNullOrEmpty(txtsearchbox.Text.Trim()) Then
+            feedback() ' Refresh the DataGridView by reloading all data
+            Return
+        End If
+
+        ' Get the search term from the textbox
+        Dim searchTerm As String = txtsearchbox.Text.Trim()
+        Dim query As String = ""
+
+        ' Check the selected combo box item
+        Select Case cbosearch.Text
+            Case "Choose:"
+                ' Search across all columns: Feedback ID, Date, and Time
+                query = "SELECT sender, ID, d, t " &
+                        "FROM feedback " &
+                        "WHERE ID LIKE @search OR d LIKE @search OR t LIKE @search"
+
+            Case "Feedback ID"
+                query = "SELECT sender, ID, d, t " &
+                        "FROM feedback " &
+                        "WHERE ID LIKE @search"
+
+            Case "Date"
+                query = "SELECT sender, ID, d, t " &
+                        "FROM feedback " &
+                        "WHERE d LIKE @search"
+
+            Case "Time"
+                query = "SELECT sender, ID, d, t " &
+                        "FROM feedback " &
+                        "WHERE t LIKE @search"
+
+            Case Else
+                MessageBox.Show("Invalid category selected. Please select a valid search category.", "Invalid Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return
+        End Select
+
+        ' Execute the search query
+        Dim table As New DataTable()
+        Using command As New MySqlCommand(query, conn)
+            ' Add the search parameter with wildcard matching
+            command.Parameters.AddWithValue("@search", "%" & searchTerm & "%")
+
+            Try
+                ' Open the connection if it is closed
+                If conn.State = ConnectionState.Closed Then
+                    conn.Open()
+                End If
+
+                ' Execute the query and fill the DataTable
+                Dim adapter As New MySqlDataAdapter(command)
+                adapter.Fill(table)
+
+                ' Bind the results to the DataGridView
+                DGVfeedback.DataSource = table
+
+                ' Notify the user if no results are found
+                If table.Rows.Count = 0 Then
+                    MessageBox.Show("No matching records found.", "No Results", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                End If
+            Catch ex As Exception
+                MessageBox.Show("Error executing search: " & ex.Message, "Search Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Finally
+                ' Ensure the connection is closed
+                conn.Close()
+            End Try
+        End Using
+    End Sub
+
+    Private Sub btnback_Click_1(sender As Object, e As EventArgs) Handles btnback.Click
         Me.Hide()
     End Sub
 End Class

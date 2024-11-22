@@ -30,10 +30,10 @@ Partial Class roomliststaff
         Me.Chair = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Computer = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Laptop = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.txtsearchstaff = New System.Windows.Forms.TextBox()
+        Me.txtsearch1 = New System.Windows.Forms.TextBox()
         Me.cboType = New System.Windows.Forms.ComboBox()
         Me.btnback = New System.Windows.Forms.Button()
-        Me.btnsearch = New System.Windows.Forms.Button()
+        Me.btnSearch1 = New System.Windows.Forms.Button()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         CType(Me.DGVroomlist, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -99,13 +99,13 @@ Partial Class roomliststaff
         Me.Laptop.Name = "Laptop"
         Me.Laptop.Width = 125
         '
-        'txtsearchstaff
+        'txtsearch1
         '
-        Me.txtsearchstaff.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtsearchstaff.Location = New System.Drawing.Point(826, 13)
-        Me.txtsearchstaff.Name = "txtsearchstaff"
-        Me.txtsearchstaff.Size = New System.Drawing.Size(252, 30)
-        Me.txtsearchstaff.TabIndex = 13
+        Me.txtsearch1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtsearch1.Location = New System.Drawing.Point(826, 13)
+        Me.txtsearch1.Name = "txtsearch1"
+        Me.txtsearch1.Size = New System.Drawing.Size(252, 30)
+        Me.txtsearch1.TabIndex = 13
         '
         'cboType
         '
@@ -126,15 +126,15 @@ Partial Class roomliststaff
         Me.btnback.Text = "Back"
         Me.btnback.UseVisualStyleBackColor = True
         '
-        'btnsearch
+        'btnSearch1
         '
-        Me.btnsearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnsearch.Location = New System.Drawing.Point(1103, 12)
-        Me.btnsearch.Name = "btnsearch"
-        Me.btnsearch.Size = New System.Drawing.Size(109, 32)
-        Me.btnsearch.TabIndex = 10
-        Me.btnsearch.Text = "Search"
-        Me.btnsearch.UseVisualStyleBackColor = True
+        Me.btnSearch1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnSearch1.Location = New System.Drawing.Point(1103, 12)
+        Me.btnSearch1.Name = "btnSearch1"
+        Me.btnSearch1.Size = New System.Drawing.Size(109, 32)
+        Me.btnSearch1.TabIndex = 10
+        Me.btnSearch1.Text = "Search"
+        Me.btnSearch1.UseVisualStyleBackColor = True
         '
         'TextBox2
         '
@@ -162,10 +162,10 @@ Partial Class roomliststaff
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1369, 545)
         Me.Controls.Add(Me.DGVroomlist)
-        Me.Controls.Add(Me.txtsearchstaff)
+        Me.Controls.Add(Me.txtsearch1)
         Me.Controls.Add(Me.cboType)
         Me.Controls.Add(Me.btnback)
-        Me.Controls.Add(Me.btnsearch)
+        Me.Controls.Add(Me.btnSearch1)
         Me.Controls.Add(Me.TextBox2)
         Me.Controls.Add(Me.TextBox1)
         Me.Name = "roomliststaff"
@@ -184,10 +184,10 @@ Partial Class roomliststaff
     Friend WithEvents Chair As DataGridViewTextBoxColumn
     Friend WithEvents Computer As DataGridViewTextBoxColumn
     Friend WithEvents Laptop As DataGridViewTextBoxColumn
-    Friend WithEvents txtsearchstaff As TextBox
+    Friend WithEvents txtsearch1 As TextBox
     Friend WithEvents cboType As ComboBox
     Friend WithEvents btnback As Button
-    Friend WithEvents btnsearch As Button
+    Friend WithEvents btnSearch1 As Button
     Friend WithEvents TextBox2 As TextBox
     Friend WithEvents TextBox1 As TextBox
 End Class

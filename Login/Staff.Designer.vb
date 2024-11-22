@@ -40,9 +40,10 @@ Partial Class Staff
         Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button5.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button5.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.Button5.Location = New System.Drawing.Point(480, 153)
+        Me.Button5.Location = New System.Drawing.Point(640, 188)
+        Me.Button5.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(283, 35)
+        Me.Button5.Size = New System.Drawing.Size(377, 43)
         Me.Button5.TabIndex = 31
         Me.Button5.Text = "Room List"
         Me.Button5.UseVisualStyleBackColor = False
@@ -54,9 +55,10 @@ Partial Class Staff
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button3.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.Button3.Location = New System.Drawing.Point(571, 341)
+        Me.Button3.Location = New System.Drawing.Point(761, 420)
+        Me.Button3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(114, 35)
+        Me.Button3.Size = New System.Drawing.Size(152, 43)
         Me.Button3.TabIndex = 30
         Me.Button3.Text = "Sign-Out"
         Me.Button3.UseVisualStyleBackColor = False
@@ -68,9 +70,10 @@ Partial Class Staff
         Me.btncreate.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btncreate.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btncreate.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.btncreate.Location = New System.Drawing.Point(480, 206)
+        Me.btncreate.Location = New System.Drawing.Point(640, 254)
+        Me.btncreate.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btncreate.Name = "btncreate"
-        Me.btncreate.Size = New System.Drawing.Size(283, 35)
+        Me.btncreate.Size = New System.Drawing.Size(377, 43)
         Me.btncreate.TabIndex = 27
         Me.btncreate.Text = " Schedule"
         Me.btncreate.UseVisualStyleBackColor = False
@@ -82,9 +85,10 @@ Partial Class Staff
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button4.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.Button4.Location = New System.Drawing.Point(480, 259)
+        Me.Button4.Location = New System.Drawing.Point(640, 319)
+        Me.Button4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(283, 35)
+        Me.Button4.Size = New System.Drawing.Size(377, 43)
         Me.Button4.TabIndex = 32
         Me.Button4.Text = "Report"
         Me.Button4.UseVisualStyleBackColor = False
@@ -95,9 +99,10 @@ Partial Class Staff
         Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button6.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button6.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.Button6.Location = New System.Drawing.Point(12, 12)
+        Me.Button6.Location = New System.Drawing.Point(16, 15)
+        Me.Button6.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(21, 34)
+        Me.Button6.Size = New System.Drawing.Size(28, 42)
         Me.Button6.TabIndex = 33
         Me.Button6.Text = ":"
         Me.Button6.UseVisualStyleBackColor = False
@@ -109,9 +114,10 @@ Partial Class Staff
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.Button1.Location = New System.Drawing.Point(480, 300)
+        Me.Button1.Location = New System.Drawing.Point(640, 369)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(283, 35)
+        Me.Button1.Size = New System.Drawing.Size(377, 43)
         Me.Button1.TabIndex = 34
         Me.Button1.Text = "Request Approval"
         Me.Button1.UseVisualStyleBackColor = False
@@ -122,9 +128,10 @@ Partial Class Staff
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!)
         Me.Label2.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.Label2.Location = New System.Drawing.Point(12, 46)
+        Me.Label2.Location = New System.Drawing.Point(16, 57)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(141, 25)
+        Me.Label2.Size = New System.Drawing.Size(179, 31)
         Me.Label2.TabIndex = 47
         Me.Label2.Text = "Room Status:"
         '
@@ -134,20 +141,22 @@ Partial Class Staff
         Me.DGVcomment.BackgroundColor = System.Drawing.Color.DodgerBlue
         Me.DGVcomment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DGVcomment.GridColor = System.Drawing.Color.NavajoWhite
-        Me.DGVcomment.Location = New System.Drawing.Point(12, 74)
+        Me.DGVcomment.Location = New System.Drawing.Point(16, 91)
+        Me.DGVcomment.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.DGVcomment.Name = "DGVcomment"
-        Me.DGVcomment.Size = New System.Drawing.Size(369, 353)
+        Me.DGVcomment.RowHeadersWidth = 51
+        Me.DGVcomment.Size = New System.Drawing.Size(492, 434)
         Me.DGVcomment.TabIndex = 46
         '
         'Staff
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackgroundImage = Global.Login.My.Resources.Resources.FB_IMG_1729211691620
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(1067, 554)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.DGVcomment)
         Me.Controls.Add(Me.Button1)
@@ -158,6 +167,7 @@ Partial Class Staff
         Me.Controls.Add(Me.btncreate)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "Staff"
         Me.Text = "Form4"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized

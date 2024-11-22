@@ -161,10 +161,22 @@
     <Compile Include="feedbackreciever.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="reportreciever.Designer.vb">
       <DependentUpon>reportreciever.vb</DependentUpon>
     </Compile>
     <Compile Include="reportreciever.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="roomliststaff.Designer.vb">
+      <DependentUpon>roomliststaff.vb</DependentUpon>
+    </Compile>
+    <Compile Include="roomliststaff.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="roomlogs.Designer.vb">
@@ -286,8 +298,14 @@
     <EmbeddedResource Include="feedbackreciever.resx">
       <DependentUpon>feedbackreciever.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="reportreciever.resx">
       <DependentUpon>reportreciever.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="roomliststaff.resx">
+      <DependentUpon>roomliststaff.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RoomListStudent.resx">
       <DependentUpon>RoomListStudent.vb</DependentUpon>

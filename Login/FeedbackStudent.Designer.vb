@@ -167,7 +167,7 @@ Partial Class feedbackstudent
         Me.btnclear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.btnclear.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnclear.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnclear.Location = New System.Drawing.Point(882, 403)
+        Me.btnclear.Location = New System.Drawing.Point(881, 404)
         Me.btnclear.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnclear.Name = "btnclear"
         Me.btnclear.RightToLeft = System.Windows.Forms.RightToLeft.No

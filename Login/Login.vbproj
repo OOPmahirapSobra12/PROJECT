@@ -167,6 +167,12 @@
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="RequestApprovalstaff.Designer.vb">
+      <DependentUpon>RequestApprovalstaff.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RequestApprovalstaff.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="reportreciever.Designer.vb">
       <DependentUpon>reportreciever.vb</DependentUpon>
     </Compile>
@@ -309,6 +315,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="reportreciever.resx">
       <DependentUpon>reportreciever.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RequestApprovalstaff.resx">
+      <DependentUpon>RequestApprovalstaff.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="roomliststaff.resx">
       <DependentUpon>roomliststaff.vb</DependentUpon>

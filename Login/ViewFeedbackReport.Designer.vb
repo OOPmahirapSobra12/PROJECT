@@ -34,8 +34,8 @@ Partial Class ViewFeedbackReport
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.titlebar = New System.Windows.Forms.Label()
-        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
         Me.txtchat = New System.Windows.Forms.TextBox()
+        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
@@ -47,7 +47,7 @@ Partial Class ViewFeedbackReport
         Me.txttime.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txttime.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txttime.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.txttime.Location = New System.Drawing.Point(99, 272)
+        Me.txttime.Location = New System.Drawing.Point(98, 272)
         Me.txttime.Name = "txttime"
         Me.txttime.ReadOnly = True
         Me.txttime.Size = New System.Drawing.Size(271, 29)
@@ -64,7 +64,7 @@ Partial Class ViewFeedbackReport
         Me.Label2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Label2.Location = New System.Drawing.Point(3, 269)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(90, 36)
+        Me.Label2.Size = New System.Drawing.Size(89, 36)
         Me.Label2.TabIndex = 64
         Me.Label2.Text = "Time:"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -75,7 +75,7 @@ Partial Class ViewFeedbackReport
         Me.txtdate.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtdate.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.txtdate.Location = New System.Drawing.Point(99, 236)
+        Me.txtdate.Location = New System.Drawing.Point(98, 236)
         Me.txtdate.Name = "txtdate"
         Me.txtdate.ReadOnly = True
         Me.txtdate.Size = New System.Drawing.Size(271, 29)
@@ -92,7 +92,7 @@ Partial Class ViewFeedbackReport
         Me.Label3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Label3.Location = New System.Drawing.Point(3, 233)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(90, 36)
+        Me.Label3.Size = New System.Drawing.Size(89, 36)
         Me.Label3.TabIndex = 62
         Me.Label3.Text = "Date:"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -103,7 +103,7 @@ Partial Class ViewFeedbackReport
         Me.txttype.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txttype.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txttype.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.txttype.Location = New System.Drawing.Point(99, 201)
+        Me.txttype.Location = New System.Drawing.Point(98, 201)
         Me.txttype.Name = "txttype"
         Me.txttype.ReadOnly = True
         Me.txttype.Size = New System.Drawing.Size(271, 29)
@@ -120,7 +120,7 @@ Partial Class ViewFeedbackReport
         Me.Label1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Label1.Location = New System.Drawing.Point(3, 198)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(90, 35)
+        Me.Label1.Size = New System.Drawing.Size(89, 35)
         Me.Label1.TabIndex = 60
         Me.Label1.Text = "Type:"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -131,7 +131,7 @@ Partial Class ViewFeedbackReport
         Me.txtsender.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtsender.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtsender.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.txtsender.Location = New System.Drawing.Point(99, 163)
+        Me.txtsender.Location = New System.Drawing.Point(98, 163)
         Me.txtsender.Name = "txtsender"
         Me.txtsender.ReadOnly = True
         Me.txtsender.Size = New System.Drawing.Size(271, 29)
@@ -148,7 +148,7 @@ Partial Class ViewFeedbackReport
         Me.txtcode.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.txtcode.Location = New System.Drawing.Point(3, 160)
         Me.txtcode.Name = "txtcode"
-        Me.txtcode.Size = New System.Drawing.Size(90, 38)
+        Me.txtcode.Size = New System.Drawing.Size(89, 38)
         Me.txtcode.TabIndex = 58
         Me.txtcode.Text = "Sender:"
         Me.txtcode.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -163,7 +163,7 @@ Partial Class ViewFeedbackReport
         Me.btnback.ForeColor = System.Drawing.Color.MidnightBlue
         Me.btnback.Location = New System.Drawing.Point(3, 308)
         Me.btnback.Name = "btnback"
-        Me.btnback.Size = New System.Drawing.Size(90, 43)
+        Me.btnback.Size = New System.Drawing.Size(89, 43)
         Me.btnback.TabIndex = 56
         Me.btnback.Text = "Back"
         Me.btnback.UseVisualStyleBackColor = False
@@ -215,12 +215,25 @@ Partial Class ViewFeedbackReport
         Me.titlebar.Text = "Account Logs"
         Me.titlebar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         '
+        'txtchat
+        '
+        Me.txtchat.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.txtchat.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txtchat.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtchat.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.txtchat.Location = New System.Drawing.Point(23, 91)
+        Me.txtchat.Multiline = True
+        Me.txtchat.Name = "txtchat"
+        Me.txtchat.ReadOnly = True
+        Me.txtchat.Size = New System.Drawing.Size(368, 329)
+        Me.txtchat.TabIndex = 64
+        '
         'TableLayoutPanel3
         '
         Me.TableLayoutPanel3.ColumnCount = 3
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.73726!))
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 74.26273!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21.0!))
         Me.TableLayoutPanel3.Controls.Add(Me.btnback, 0, 6)
         Me.TableLayoutPanel3.Controls.Add(Me.Label2, 0, 5)
         Me.TableLayoutPanel3.Controls.Add(Me.txttime, 1, 5)
@@ -244,19 +257,6 @@ Partial Class ViewFeedbackReport
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel3.Size = New System.Drawing.Size(394, 444)
         Me.TableLayoutPanel3.TabIndex = 57
-        '
-        'txtchat
-        '
-        Me.txtchat.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.txtchat.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txtchat.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtchat.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.txtchat.Location = New System.Drawing.Point(23, 91)
-        Me.txtchat.Multiline = True
-        Me.txtchat.Name = "txtchat"
-        Me.txtchat.ReadOnly = True
-        Me.txtchat.Size = New System.Drawing.Size(368, 329)
-        Me.txtchat.TabIndex = 64
         '
         'ViewFeedbackReport
         '

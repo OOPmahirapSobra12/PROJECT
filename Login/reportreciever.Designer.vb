@@ -33,12 +33,12 @@ Partial Class reportreciever
         Me.btnview = New System.Windows.Forms.Button()
         Me.btnback = New System.Windows.Forms.Button()
         Me.DGVreport = New System.Windows.Forms.DataGridView()
-        Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.ReportID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ReportDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ReportTime = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.sender = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
@@ -92,7 +92,7 @@ Partial Class reportreciever
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.81482!))
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.03704!))
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.14815!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 31.0!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 35.0!))
         Me.TableLayoutPanel3.Controls.Add(Me.btnsearch, 3, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.cbosearch, 1, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.txtsearchbox, 2, 0)
@@ -115,9 +115,9 @@ Partial Class reportreciever
         Me.btnsearch.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnsearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnsearch.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnsearch.Location = New System.Drawing.Point(430, 3)
+        Me.btnsearch.Location = New System.Drawing.Point(427, 3)
         Me.btnsearch.Name = "btnsearch"
-        Me.btnsearch.Size = New System.Drawing.Size(116, 33)
+        Me.btnsearch.Size = New System.Drawing.Size(115, 33)
         Me.btnsearch.TabIndex = 93
         Me.btnsearch.Text = "btnsearch"
         Me.btnsearch.UseVisualStyleBackColor = False
@@ -132,7 +132,7 @@ Partial Class reportreciever
         Me.cbosearch.Items.AddRange(New Object() {"Choose:", "Feedback ID", "Date", "Time"})
         Me.cbosearch.Location = New System.Drawing.Point(23, 3)
         Me.cbosearch.Name = "cbosearch"
-        Me.cbosearch.Size = New System.Drawing.Size(152, 33)
+        Me.cbosearch.Size = New System.Drawing.Size(151, 33)
         Me.cbosearch.TabIndex = 95
         '
         'txtsearchbox
@@ -141,9 +141,9 @@ Partial Class reportreciever
         Me.txtsearchbox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtsearchbox.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!)
         Me.txtsearchbox.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.txtsearchbox.Location = New System.Drawing.Point(181, 3)
+        Me.txtsearchbox.Location = New System.Drawing.Point(180, 3)
         Me.txtsearchbox.Name = "txtsearchbox"
-        Me.txtsearchbox.Size = New System.Drawing.Size(243, 31)
+        Me.txtsearchbox.Size = New System.Drawing.Size(241, 31)
         Me.txtsearchbox.TabIndex = 96
         '
         'TableLayoutPanel4
@@ -224,6 +224,33 @@ Partial Class reportreciever
         Me.DGVreport.Size = New System.Drawing.Size(582, 253)
         Me.DGVreport.TabIndex = 92
         '
+        'ReportID
+        '
+        Me.ReportID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.ReportID.HeaderText = "Report ID"
+        Me.ReportID.Name = "ReportID"
+        Me.ReportID.ReadOnly = True
+        '
+        'ReportDate
+        '
+        Me.ReportDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.ReportDate.HeaderText = "Date Reported"
+        Me.ReportDate.Name = "ReportDate"
+        Me.ReportDate.ReadOnly = True
+        '
+        'ReportTime
+        '
+        Me.ReportTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.ReportTime.HeaderText = "Time Reported"
+        Me.ReportTime.Name = "ReportTime"
+        Me.ReportTime.ReadOnly = True
+        '
+        'sender
+        '
+        Me.sender.HeaderText = "Sender"
+        Me.sender.Name = "sender"
+        Me.sender.ReadOnly = True
+        '
         'TableLayoutPanel5
         '
         Me.TableLayoutPanel5.ColumnCount = 3
@@ -253,33 +280,6 @@ Partial Class reportreciever
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Reports"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        '
-        'ReportID
-        '
-        Me.ReportID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.ReportID.HeaderText = "Report ID"
-        Me.ReportID.Name = "ReportID"
-        Me.ReportID.ReadOnly = True
-        '
-        'ReportDate
-        '
-        Me.ReportDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.ReportDate.HeaderText = "Date Reported"
-        Me.ReportDate.Name = "ReportDate"
-        Me.ReportDate.ReadOnly = True
-        '
-        'ReportTime
-        '
-        Me.ReportTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.ReportTime.HeaderText = "Time Reported"
-        Me.ReportTime.Name = "ReportTime"
-        Me.ReportTime.ReadOnly = True
-        '
-        'sender
-        '
-        Me.sender.HeaderText = "Sender"
-        Me.sender.Name = "sender"
-        Me.sender.ReadOnly = True
         '
         'reportreciever
         '

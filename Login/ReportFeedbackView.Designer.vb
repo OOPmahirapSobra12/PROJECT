@@ -36,6 +36,10 @@ Partial Class Staff_report
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txtuser = New System.Windows.Forms.TextBox()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.txtdate = New System.Windows.Forms.TextBox()
+        Me.txttime = New System.Windows.Forms.TextBox()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel5.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
@@ -170,16 +174,22 @@ Partial Class Staff_report
         '
         'TableLayoutPanel6
         '
-        Me.TableLayoutPanel6.ColumnCount = 4
-        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70.0!))
-        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.0!))
-        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.0!))
-        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 72.0!))
+        Me.TableLayoutPanel6.ColumnCount = 6
+        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22.0!))
+        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.41744!))
+        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.53989!))
+        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.99629!))
+        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
+        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel6.Controls.Add(Me.Label4, 1, 2)
         Me.TableLayoutPanel6.Controls.Add(Me.Label2, 1, 0)
         Me.TableLayoutPanel6.Controls.Add(Me.Label3, 1, 1)
         Me.TableLayoutPanel6.Controls.Add(Me.txtuser, 2, 0)
         Me.TableLayoutPanel6.Controls.Add(Me.TextBox1, 2, 1)
+        Me.TableLayoutPanel6.Controls.Add(Me.Label1, 3, 0)
+        Me.TableLayoutPanel6.Controls.Add(Me.Label5, 3, 1)
+        Me.TableLayoutPanel6.Controls.Add(Me.txtdate, 4, 0)
+        Me.TableLayoutPanel6.Controls.Add(Me.txttime, 4, 1)
         Me.TableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel6.Location = New System.Drawing.Point(3, 3)
         Me.TableLayoutPanel6.Name = "TableLayoutPanel6"
@@ -196,9 +206,9 @@ Partial Class Staff_report
         Me.Label4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.Label4.Location = New System.Drawing.Point(73, 66)
+        Me.Label4.Location = New System.Drawing.Point(25, 66)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(126, 35)
+        Me.Label4.Size = New System.Drawing.Size(131, 35)
         Me.Label4.TabIndex = 104
         Me.Label4.Text = "Message:"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -209,9 +219,9 @@ Partial Class Staff_report
         Me.Label2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.Label2.Location = New System.Drawing.Point(73, 0)
+        Me.Label2.Location = New System.Drawing.Point(25, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(126, 33)
+        Me.Label2.Size = New System.Drawing.Size(131, 33)
         Me.Label2.TabIndex = 101
         Me.Label2.Text = "Sender:"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -222,9 +232,9 @@ Partial Class Staff_report
         Me.Label3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.Label3.Location = New System.Drawing.Point(73, 33)
+        Me.Label3.Location = New System.Drawing.Point(25, 33)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(126, 33)
+        Me.Label3.Size = New System.Drawing.Size(131, 33)
         Me.Label3.TabIndex = 102
         Me.Label3.Text = "Type:"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -232,26 +242,76 @@ Partial Class Staff_report
         'txtuser
         '
         Me.txtuser.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.txtuser.Dock = System.Windows.Forms.DockStyle.Left
+        Me.txtuser.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtuser.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!)
         Me.txtuser.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.txtuser.Location = New System.Drawing.Point(205, 3)
+        Me.txtuser.Location = New System.Drawing.Point(162, 3)
         Me.txtuser.Name = "txtuser"
         Me.txtuser.ReadOnly = True
-        Me.txtuser.Size = New System.Drawing.Size(302, 31)
+        Me.txtuser.Size = New System.Drawing.Size(164, 31)
         Me.txtuser.TabIndex = 105
         '
         'TextBox1
         '
         Me.TextBox1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.TextBox1.Dock = System.Windows.Forms.DockStyle.Left
+        Me.TextBox1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!)
         Me.TextBox1.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.TextBox1.Location = New System.Drawing.Point(205, 36)
+        Me.TextBox1.Location = New System.Drawing.Point(162, 36)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.ReadOnly = True
-        Me.TextBox1.Size = New System.Drawing.Size(169, 31)
+        Me.TextBox1.Size = New System.Drawing.Size(164, 31)
         Me.TextBox1.TabIndex = 106
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.Label1.Location = New System.Drawing.Point(332, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(91, 33)
+        Me.Label1.TabIndex = 107
+        Me.Label1.Text = "Date:"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.Label5.Location = New System.Drawing.Point(332, 33)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(91, 33)
+        Me.Label5.TabIndex = 108
+        Me.Label5.Text = "Time:"
+        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'txtdate
+        '
+        Me.txtdate.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.txtdate.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txtdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!)
+        Me.txtdate.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.txtdate.Location = New System.Drawing.Point(429, 3)
+        Me.txtdate.Name = "txtdate"
+        Me.txtdate.ReadOnly = True
+        Me.txtdate.Size = New System.Drawing.Size(129, 31)
+        Me.txtdate.TabIndex = 109
+        '
+        'txttime
+        '
+        Me.txttime.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.txttime.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txttime.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!)
+        Me.txttime.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.txttime.Location = New System.Drawing.Point(429, 36)
+        Me.txttime.Name = "txttime"
+        Me.txttime.ReadOnly = True
+        Me.txttime.Size = New System.Drawing.Size(129, 31)
+        Me.txttime.TabIndex = 110
         '
         'Staff_report
         '
@@ -292,4 +352,8 @@ Partial Class Staff_report
     Friend WithEvents Label3 As Label
     Friend WithEvents txtuser As TextBox
     Friend WithEvents TextBox1 As TextBox
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents txtdate As TextBox
+    Friend WithEvents txttime As TextBox
 End Class

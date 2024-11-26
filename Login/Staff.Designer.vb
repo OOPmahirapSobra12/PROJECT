@@ -196,7 +196,7 @@ Partial Class Staff
         Me.btnaccount.Name = "btnaccount"
         Me.btnaccount.Size = New System.Drawing.Size(368, 37)
         Me.btnaccount.TabIndex = 53
-        Me.btnaccount.Text = "Room List"
+        Me.btnaccount.Text = "Name (View Account)"
         Me.btnaccount.UseVisualStyleBackColor = False
         '
         'TableLayoutPanel2

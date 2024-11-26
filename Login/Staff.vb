@@ -1,28 +1,30 @@
 ﻿Public Class Staff
-    Private Sub Form4_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub Staff_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
 
-    Private Sub btncreate_Click(sender As Object, e As EventArgs) Handles btncreate.Click
+    Private Sub btnschedule_Click(sender As Object, e As EventArgs)
 
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+    Private Sub btnreport_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub btnrequest_Click(sender As Object, e As EventArgs)
+
+    End Sub
+    Private Sub btnroomlist_click(sender As Object, e As EventArgs)
+        Dim roomliststaff As New roomliststaff()
+        roomliststaff.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub btnlogout_Click(sender As Object, e As EventArgs)
         U_ID = Nothing
         Login.Show()
         Me.Hide()
     End Sub
 
-    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
 
-        Dim roomliststaff As New roomliststaff()
-
-
-        roomliststaff.Show()
-
-    End Sub
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-
-    End Sub
 End Class

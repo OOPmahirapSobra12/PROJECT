@@ -161,22 +161,16 @@
     <Compile Include="feedbackreciever.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="viewreportfeedback.Designer.vb">
+      <DependentUpon>viewreportfeedback.vb</DependentUpon>
     </Compile>
-    <Compile Include="Form1.vb">
+    <Compile Include="viewreportfeedback.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="RequestApprovalstaff.Designer.vb">
       <DependentUpon>RequestApprovalstaff.vb</DependentUpon>
     </Compile>
     <Compile Include="RequestApprovalstaff.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="reportreciever.Designer.vb">
-      <DependentUpon>reportreciever.vb</DependentUpon>
-    </Compile>
-    <Compile Include="reportreciever.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="roomliststaff.Designer.vb">
@@ -246,10 +240,10 @@
     <Compile Include="Schedule.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ReportFeedbackView.Designer.vb">
-      <DependentUpon>ReportFeedbackView.vb</DependentUpon>
+    <Compile Include="Report_Feedbacksender.Designer.vb">
+      <DependentUpon>Report_Feedbacksender.vb</DependentUpon>
     </Compile>
-    <Compile Include="ReportFeedbackView.vb">
+    <Compile Include="Report_Feedbacksender.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Student.Designer.vb">
@@ -287,12 +281,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <Compile Include="UniversalDim.vb" />
-    <Compile Include="ViewFeedbackReport.Designer.vb">
-      <DependentUpon>ViewFeedbackReport.vb</DependentUpon>
-    </Compile>
-    <Compile Include="ViewFeedbackReport.vb">
-      <SubType>Form</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="accountlogs.resx">
@@ -310,11 +298,8 @@
     <EmbeddedResource Include="feedbackreciever.resx">
       <DependentUpon>feedbackreciever.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="reportreciever.resx">
-      <DependentUpon>reportreciever.vb</DependentUpon>
+    <EmbeddedResource Include="viewreportfeedback.resx">
+      <DependentUpon>viewreportfeedback.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RequestApprovalstaff.resx">
       <DependentUpon>RequestApprovalstaff.vb</DependentUpon>
@@ -352,8 +337,8 @@
     <EmbeddedResource Include="ScheduleStudent.resx">
       <DependentUpon>ScheduleStudent.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReportFeedbackView.resx">
-      <DependentUpon>ReportFeedbackView.vb</DependentUpon>
+    <EmbeddedResource Include="Report_Feedbacksender.resx">
+      <DependentUpon>Report_Feedbacksender.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Student.resx">
       <DependentUpon>Student.vb</DependentUpon>
@@ -369,9 +354,6 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ViewFeedbackReport.resx">
-      <DependentUpon>ViewFeedbackReport.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -60,8 +60,9 @@ Public Class feedbackreciever
             Dim id As String = DGVfeedback.SelectedRows(0).Cells("FeedbackID").Value.ToString()
 
             ' Open the ViewFeedbackReport form and pass the ID
-            Dim viewForm As New ViewFeedbackReport()
-            viewForm.feedback_ID = id
+            Dim viewForm As New viewreportfeedback()
+            M_ID = id
+            type = "feedback"
             viewForm.Show()
             Me.Hide()
         Catch ex As Exception

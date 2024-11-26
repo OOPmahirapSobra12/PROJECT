@@ -2,27 +2,42 @@
 Imports System.Windows.Forms
 Imports System.Data
 
-Public Class ViewFeedbackReport
-    Public Property report_ID As String
-    Public Property feedback_ID As String
-
-    Private Sub ViewFeedbackReort_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        loader()
-        MsgBox(report_ID)
-        MsgBox(feedback_ID)
+Public Class viewreportfeedback
+    Public message_ID As String = M_ID
+    Private Sub viewreportfeedback_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If conn.State = ConnectionState.Open Then
+            conn.Close()
+        End If
+        ' Check if report_ID is not empty, if so, load report data
+        If type = "report" Then
+            loadReport(message_ID)
+            cbotype.SelectedIndex = 1
+            lbltitle.Text = "Report"
+            ' Check if feedback_ID is not empty, if so, load feedback data
+        ElseIf type = "feedback" Then
+            loadFeedback(message_ID)
+            cbotype.SelectedIndex = 2
+            lbltitle.Text = "Feedback"
+        Else
+            ' Show error if neither report_ID nor feedback_ID is provided
+            MessageBox.Show("Error: No valid report or feedback ID found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
         DbConnect()
-
-
-
     End Sub
-    ' Separate method to load report data
-    Public Sub loadReport(report_ID As String)
+
+    Private Sub btnback_Click(sender As Object, e As EventArgs) Handles btnback.Click
+        M_ID = ""
+        type = ""
+        Me.Hide()
+    End Sub
+
+    Public Sub loadReport(message_ID As String)
         Dim query As String = "SELECT sender, d, t, report FROM report WHERE ID = @reportID"
         Dim adapter As New MySqlDataAdapter(query, conn)
         Dim table As New DataTable()
 
         ' Add parameter to prevent SQL injection
-        adapter.SelectCommand.Parameters.AddWithValue("@reportID", report_ID)
+        adapter.SelectCommand.Parameters.AddWithValue("@reportID", message_ID)
 
         Try
             ' Fill the DataTable with data from the report table
@@ -33,11 +48,10 @@ Public Class ViewFeedbackReport
                 Dim row As DataRow = table.Rows(0)
 
                 ' Populate the respective controls with the values from the row
-                txtsender.Text = row("sender").ToString()
+                txtusername.Text = row("sender").ToString()
                 txtdate.Text = row("d").ToString()
                 txttime.Text = row("t").ToString()
-                txtchat.Text = row("report").ToString()
-                titlebar.Text = "Report"
+                txtmessage.Text = row("report").ToString()
             Else
                 MessageBox.Show("No report found with the provided ID.", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If
@@ -48,13 +62,13 @@ Public Class ViewFeedbackReport
     End Sub
 
     ' Separate method to load feedback data
-    Public Sub loadFeedback(feedback_ID As String)
+    Public Sub loadFeedback(message_ID As String)
         Dim query As String = "SELECT sender, d, t, feedback FROM feedback WHERE ID = @feedbackID"
         Dim adapter As New MySqlDataAdapter(query, conn)
         Dim table As New DataTable()
 
         ' Add parameter to prevent SQL injection
-        adapter.SelectCommand.Parameters.AddWithValue("@feedbackID", feedback_ID)
+        adapter.SelectCommand.Parameters.AddWithValue("@feedbackID", message_ID)
 
         Try
             ' Fill the DataTable with data from the feedback table
@@ -65,11 +79,10 @@ Public Class ViewFeedbackReport
                 Dim row As DataRow = table.Rows(0)
 
                 ' Populate the respective controls with the values from the row
-                txtsender.Text = row("sender").ToString()
+                txtusername.Text = row("sender").ToString()
                 txtdate.Text = row("d").ToString()
                 txttime.Text = row("t").ToString()
-                txtchat.Text = row("report").ToString()
-                titlebar.Text = "Feedback"
+                txtmessage.Text = row("report").ToString()
             Else
                 MessageBox.Show("No feedback found with the provided ID.", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If
@@ -77,30 +90,5 @@ Public Class ViewFeedbackReport
         Catch ex As Exception
             MessageBox.Show("Error retrieving feedback: " & ex.Message)
         End Try
-    End Sub
-
-    ' Updated loader method to call the correct loading method based on the ID provided
-    Public Sub loader()
-        ' Check if report_ID is not empty, if so, load report data
-        If Not String.IsNullOrEmpty(report_ID) Then
-            loadReport(report_ID)
-            txttype.Text = "Report"
-            ' Check if feedback_ID is not empty, if so, load feedback data
-        ElseIf Not String.IsNullOrEmpty(feedback_ID) Then
-            loadFeedback(feedback_ID)
-            txttype.Text = "Feedback"
-        Else
-            ' Show error if neither report_ID nor feedback_ID is provided
-            MessageBox.Show("Error: No valid report or feedback ID found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End If
-    End Sub
-
-
-
-    Private Sub btnback_Click(sender As Object, e As EventArgs) Handles btnback.Click
-        Admin.Show()
-        Me.Hide()
-        report_ID = ""
-        feedback_ID = ""
     End Sub
 End Class

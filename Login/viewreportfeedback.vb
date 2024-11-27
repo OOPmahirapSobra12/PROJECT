@@ -26,6 +26,15 @@ Public Class viewreportfeedback
     End Sub
 
     Private Sub btnback_Click(sender As Object, e As EventArgs) Handles btnback.Click
+        If type = "low" Then
+            Student.Show()
+        ElseIf type = "mid" Then
+            Staff.Show()
+        ElseIf type = "high" Then
+            Admin.Show()
+        Else
+            MsgBox("Error, can't go back to the previews UI")
+        End If
         M_ID = ""
         type = ""
         Me.Hide()

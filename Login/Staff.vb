@@ -9,10 +9,18 @@ Public Class Staff
         End If
         DbConnect()
         Nameloader()
+        If String.IsNullOrEmpty(access) Then
+            access = "mid"
+        Else
+            access = ""
+            access = "mid"
+        End If
+
     End Sub
 
     Private Sub btnschedule_Click(sender As Object, e As EventArgs)
-
+        Schedule.Show()
+        Me.Hide()
     End Sub
 
     Private Sub btnreport_Click(sender As Object, e As EventArgs)

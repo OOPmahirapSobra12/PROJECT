@@ -73,7 +73,7 @@ Partial Class Staff
         Me.btnrequest.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnrequest.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnrequest.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.btnrequest.Location = New System.Drawing.Point(3, 321)
+        Me.btnrequest.Location = New System.Drawing.Point(3, 324)
         Me.btnrequest.Name = "btnrequest"
         Me.btnrequest.Size = New System.Drawing.Size(368, 44)
         Me.btnrequest.TabIndex = 52
@@ -88,7 +88,7 @@ Partial Class Staff
         Me.btnreport.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnreport.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnreport.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.btnreport.Location = New System.Drawing.Point(3, 271)
+        Me.btnreport.Location = New System.Drawing.Point(3, 274)
         Me.btnreport.Name = "btnreport"
         Me.btnreport.Size = New System.Drawing.Size(368, 44)
         Me.btnreport.TabIndex = 51
@@ -103,7 +103,7 @@ Partial Class Staff
         Me.btnroomlist.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnroomlist.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnroomlist.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.btnroomlist.Location = New System.Drawing.Point(3, 171)
+        Me.btnroomlist.Location = New System.Drawing.Point(3, 174)
         Me.btnroomlist.Name = "btnroomlist"
         Me.btnroomlist.Size = New System.Drawing.Size(368, 44)
         Me.btnroomlist.TabIndex = 50
@@ -118,7 +118,7 @@ Partial Class Staff
         Me.btnlogout.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnlogout.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnlogout.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.btnlogout.Location = New System.Drawing.Point(3, 371)
+        Me.btnlogout.Location = New System.Drawing.Point(3, 374)
         Me.btnlogout.Name = "btnlogout"
         Me.btnlogout.Size = New System.Drawing.Size(368, 44)
         Me.btnlogout.TabIndex = 49
@@ -133,7 +133,7 @@ Partial Class Staff
         Me.btnschedule.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnschedule.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnschedule.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.btnschedule.Location = New System.Drawing.Point(3, 221)
+        Me.btnschedule.Location = New System.Drawing.Point(3, 224)
         Me.btnschedule.Name = "btnschedule"
         Me.btnschedule.Size = New System.Drawing.Size(368, 44)
         Me.btnschedule.TabIndex = 48
@@ -173,8 +173,8 @@ Partial Class Staff
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
         Me.TableLayoutPanel3.RowCount = 9
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.87065!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.69652!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.18703!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.46883!))
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5!))
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5!))
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5!))
@@ -192,9 +192,9 @@ Partial Class Staff
         Me.btnaccount.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnaccount.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnaccount.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.btnaccount.Location = New System.Drawing.Point(3, 128)
+        Me.btnaccount.Location = New System.Drawing.Point(3, 124)
         Me.btnaccount.Name = "btnaccount"
-        Me.btnaccount.Size = New System.Drawing.Size(368, 37)
+        Me.btnaccount.Size = New System.Drawing.Size(368, 44)
         Me.btnaccount.TabIndex = 53
         Me.btnaccount.Text = "Name (View Account)"
         Me.btnaccount.UseVisualStyleBackColor = False

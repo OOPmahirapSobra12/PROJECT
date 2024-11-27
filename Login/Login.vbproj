@@ -161,6 +161,12 @@
     <Compile Include="feedbackreciever.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Staff2.Designer.vb">
+      <DependentUpon>Staff2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Staff2.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="viewreportfeedback.Designer.vb">
       <DependentUpon>viewreportfeedback.vb</DependentUpon>
     </Compile>
@@ -297,6 +303,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="feedbackreciever.resx">
       <DependentUpon>feedbackreciever.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Staff2.resx">
+      <DependentUpon>Staff2.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="viewreportfeedback.resx">
       <DependentUpon>viewreportfeedback.vb</DependentUpon>

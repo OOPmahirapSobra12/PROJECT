@@ -68,5 +68,8 @@ Public Class Staff
         Me.Hide()
     End Sub
 
-
+    Private Sub btnaccount_Click(sender As Object, e As EventArgs) Handles btnaccount.Click
+        Staff2.Show()
+        Me.Hide()
+    End Sub
 End Class

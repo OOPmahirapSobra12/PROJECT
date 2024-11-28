@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class requestapproval
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class requestapproval
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
@@ -28,7 +28,10 @@ Partial Class requestapproval
         Me.btndelete = New System.Windows.Forms.Button()
         Me.btnadd = New System.Windows.Forms.Button()
         Me.DGVrequest = New System.Windows.Forms.DataGridView()
+        Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
+        Me.btnrequestreload = New System.Windows.Forms.Button()
         Me.requestID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.type = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.requesterID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.requestdate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.requesttime = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -36,8 +39,6 @@ Partial Class requestapproval
         Me.timerequest_in = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.timerequest_out = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.requesttext = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
-        Me.btnrequestreload = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         CType(Me.DGVrequest, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -73,11 +74,11 @@ Partial Class requestapproval
         Me.TableLayoutPanel2.ColumnCount = 3
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 166.0!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel2.Controls.Add(Me.btnadd, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.btnback, 2, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.btndelete, 1, 0)
-        Me.TableLayoutPanel2.Controls.Add(Me.btnadd, 0, 0)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(23, 388)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
@@ -94,9 +95,9 @@ Partial Class requestapproval
         Me.btnback.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnback.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnback.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnback.Location = New System.Drawing.Point(505, 3)
+        Me.btnback.Location = New System.Drawing.Point(591, 3)
         Me.btnback.Name = "btnback"
-        Me.btnback.Size = New System.Drawing.Size(246, 32)
+        Me.btnback.Size = New System.Drawing.Size(160, 32)
         Me.btnback.TabIndex = 0
         Me.btnback.Text = "Back"
         Me.btnback.UseVisualStyleBackColor = False
@@ -109,9 +110,9 @@ Partial Class requestapproval
         Me.btndelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btndelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btndelete.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btndelete.Location = New System.Drawing.Point(254, 3)
+        Me.btndelete.Location = New System.Drawing.Point(297, 3)
         Me.btndelete.Name = "btndelete"
-        Me.btndelete.Size = New System.Drawing.Size(245, 32)
+        Me.btndelete.Size = New System.Drawing.Size(288, 32)
         Me.btndelete.TabIndex = 2
         Me.btndelete.Text = "Delete"
         Me.btndelete.UseVisualStyleBackColor = False
@@ -126,9 +127,9 @@ Partial Class requestapproval
         Me.btnadd.ForeColor = System.Drawing.Color.MidnightBlue
         Me.btnadd.Location = New System.Drawing.Point(3, 3)
         Me.btnadd.Name = "btnadd"
-        Me.btnadd.Size = New System.Drawing.Size(245, 32)
+        Me.btnadd.Size = New System.Drawing.Size(288, 32)
         Me.btnadd.TabIndex = 3
-        Me.btnadd.Text = "Add"
+        Me.btnadd.Text = "Add/Modify"
         Me.btnadd.UseVisualStyleBackColor = False
         '
         'DGVrequest
@@ -137,7 +138,7 @@ Partial Class requestapproval
         Me.DGVrequest.AllowUserToDeleteRows = False
         Me.DGVrequest.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.DGVrequest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGVrequest.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.requestID, Me.requesterID, Me.requestdate, Me.requesttime, Me.room, Me.timerequest_in, Me.timerequest_out, Me.requesttext})
+        Me.DGVrequest.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.requestID, Me.type, Me.requesterID, Me.requestdate, Me.requesttime, Me.room, Me.timerequest_in, Me.timerequest_out, Me.requesttext})
         Me.DGVrequest.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DGVrequest.GridColor = System.Drawing.Color.MidnightBlue
         Me.DGVrequest.Location = New System.Drawing.Point(23, 108)
@@ -146,6 +147,38 @@ Partial Class requestapproval
         Me.DGVrequest.Size = New System.Drawing.Size(754, 274)
         Me.DGVrequest.TabIndex = 8
         '
+        'TableLayoutPanel4
+        '
+        Me.TableLayoutPanel4.ColumnCount = 1
+        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel4.Controls.Add(Me.btnrequestreload, 0, 1)
+        Me.TableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel4.Location = New System.Drawing.Point(23, 23)
+        Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
+        Me.TableLayoutPanel4.RowCount = 2
+        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.12329!))
+        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 82.87671!))
+        Me.TableLayoutPanel4.Size = New System.Drawing.Size(754, 79)
+        Me.TableLayoutPanel4.TabIndex = 4
+        '
+        'btnrequestreload
+        '
+        Me.btnrequestreload.AutoSize = True
+        Me.btnrequestreload.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.btnrequestreload.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnrequestreload.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.btnrequestreload.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnrequestreload.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnrequestreload.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.btnrequestreload.Location = New System.Drawing.Point(3, 24)
+        Me.btnrequestreload.Name = "btnrequestreload"
+        Me.btnrequestreload.Size = New System.Drawing.Size(748, 52)
+        Me.btnrequestreload.TabIndex = 11
+        Me.btnrequestreload.Text = "Request Schedules"
+        Me.btnrequestreload.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnrequestreload.UseVisualStyleBackColor = False
+        '
         'requestID
         '
         Me.requestID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
@@ -153,6 +186,13 @@ Partial Class requestapproval
         Me.requestID.HeaderText = "Request ID"
         Me.requestID.Name = "requestID"
         Me.requestID.ReadOnly = True
+        '
+        'type
+        '
+        Me.type.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.type.HeaderText = "Request Type"
+        Me.type.Name = "type"
+        Me.type.ReadOnly = True
         '
         'requesterID
         '
@@ -212,38 +252,6 @@ Partial Class requestapproval
         Me.requesttext.Name = "requesttext"
         Me.requesttext.ReadOnly = True
         '
-        'TableLayoutPanel4
-        '
-        Me.TableLayoutPanel4.ColumnCount = 1
-        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel4.Controls.Add(Me.btnrequestreload, 0, 1)
-        Me.TableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel4.Location = New System.Drawing.Point(23, 23)
-        Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
-        Me.TableLayoutPanel4.RowCount = 2
-        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.12329!))
-        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 82.87671!))
-        Me.TableLayoutPanel4.Size = New System.Drawing.Size(754, 79)
-        Me.TableLayoutPanel4.TabIndex = 4
-        '
-        'btnrequestreload
-        '
-        Me.btnrequestreload.AutoSize = True
-        Me.btnrequestreload.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.btnrequestreload.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnrequestreload.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.btnrequestreload.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnrequestreload.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnrequestreload.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnrequestreload.Location = New System.Drawing.Point(3, 24)
-        Me.btnrequestreload.Name = "btnrequestreload"
-        Me.btnrequestreload.Size = New System.Drawing.Size(748, 52)
-        Me.btnrequestreload.TabIndex = 11
-        Me.btnrequestreload.Text = "Request Schedules"
-        Me.btnrequestreload.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnrequestreload.UseVisualStyleBackColor = False
-        '
         'requestapproval
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -274,7 +282,10 @@ Partial Class requestapproval
     Friend WithEvents btndelete As Button
     Friend WithEvents btnadd As Button
     Friend WithEvents DGVrequest As DataGridView
+    Friend WithEvents TableLayoutPanel4 As TableLayoutPanel
+    Friend WithEvents btnrequestreload As Button
     Friend WithEvents requestID As DataGridViewTextBoxColumn
+    Friend WithEvents type As DataGridViewTextBoxColumn
     Friend WithEvents requesterID As DataGridViewTextBoxColumn
     Friend WithEvents requestdate As DataGridViewTextBoxColumn
     Friend WithEvents requesttime As DataGridViewTextBoxColumn
@@ -282,6 +293,4 @@ Partial Class requestapproval
     Friend WithEvents timerequest_in As DataGridViewTextBoxColumn
     Friend WithEvents timerequest_out As DataGridViewTextBoxColumn
     Friend WithEvents requesttext As DataGridViewTextBoxColumn
-    Friend WithEvents TableLayoutPanel4 As TableLayoutPanel
-    Friend WithEvents btnrequestreload As Button
 End Class

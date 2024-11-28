@@ -23,8 +23,9 @@ Partial Class Staff
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.DGVcomment = New System.Windows.Forms.DataGridView()
-        Me.btnrequest = New System.Windows.Forms.Button()
+        Me.DGVrooms = New System.Windows.Forms.DataGridView()
+        Me.room_name = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.status = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btnreport = New System.Windows.Forms.Button()
         Me.btnroomlist = New System.Windows.Forms.Button()
         Me.btnlogout = New System.Windows.Forms.Button()
@@ -32,8 +33,9 @@ Partial Class Staff
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
         Me.btnaccount = New System.Windows.Forms.Button()
+        Me.btnapproval = New System.Windows.Forms.Button()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        CType(Me.DGVcomment, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DGVrooms, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
@@ -53,32 +55,35 @@ Partial Class Staff
         Me.Label2.Text = "Room Status:"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         '
-        'DGVcomment
+        'DGVrooms
         '
-        Me.DGVcomment.BackgroundColor = System.Drawing.Color.DodgerBlue
-        Me.DGVcomment.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGVcomment.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DGVcomment.GridColor = System.Drawing.Color.NavajoWhite
-        Me.DGVcomment.Location = New System.Drawing.Point(23, 126)
-        Me.DGVcomment.Name = "DGVcomment"
-        Me.DGVcomment.RowHeadersWidth = 51
-        Me.DGVcomment.Size = New System.Drawing.Size(368, 294)
-        Me.DGVcomment.TabIndex = 53
+        Me.DGVrooms.AllowUserToAddRows = False
+        Me.DGVrooms.AllowUserToDeleteRows = False
+        Me.DGVrooms.BackgroundColor = System.Drawing.Color.DodgerBlue
+        Me.DGVrooms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DGVrooms.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.room_name, Me.status})
+        Me.DGVrooms.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DGVrooms.GridColor = System.Drawing.Color.NavajoWhite
+        Me.DGVrooms.Location = New System.Drawing.Point(23, 126)
+        Me.DGVrooms.Name = "DGVrooms"
+        Me.DGVrooms.ReadOnly = True
+        Me.DGVrooms.RowHeadersWidth = 51
+        Me.DGVrooms.Size = New System.Drawing.Size(368, 294)
+        Me.DGVrooms.TabIndex = 53
         '
-        'btnrequest
+        'room_name
         '
-        Me.btnrequest.AutoSize = True
-        Me.btnrequest.BackColor = System.Drawing.Color.Transparent
-        Me.btnrequest.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnrequest.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnrequest.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnrequest.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.btnrequest.Location = New System.Drawing.Point(3, 324)
-        Me.btnrequest.Name = "btnrequest"
-        Me.btnrequest.Size = New System.Drawing.Size(368, 44)
-        Me.btnrequest.TabIndex = 52
-        Me.btnrequest.Text = "Request"
-        Me.btnrequest.UseVisualStyleBackColor = False
+        Me.room_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.room_name.HeaderText = "Room Name"
+        Me.room_name.Name = "room_name"
+        Me.room_name.ReadOnly = True
+        '
+        'status
+        '
+        Me.status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.status.HeaderText = "Status"
+        Me.status.Name = "status"
+        Me.status.ReadOnly = True
         '
         'btnreport
         '
@@ -88,7 +93,7 @@ Partial Class Staff
         Me.btnreport.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnreport.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnreport.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.btnreport.Location = New System.Drawing.Point(3, 274)
+        Me.btnreport.Location = New System.Drawing.Point(3, 284)
         Me.btnreport.Name = "btnreport"
         Me.btnreport.Size = New System.Drawing.Size(368, 44)
         Me.btnreport.TabIndex = 51
@@ -103,9 +108,9 @@ Partial Class Staff
         Me.btnroomlist.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnroomlist.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnroomlist.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.btnroomlist.Location = New System.Drawing.Point(3, 174)
+        Me.btnroomlist.Location = New System.Drawing.Point(3, 186)
         Me.btnroomlist.Name = "btnroomlist"
-        Me.btnroomlist.Size = New System.Drawing.Size(368, 44)
+        Me.btnroomlist.Size = New System.Drawing.Size(368, 45)
         Me.btnroomlist.TabIndex = 50
         Me.btnroomlist.Text = "Room List"
         Me.btnroomlist.UseVisualStyleBackColor = False
@@ -118,9 +123,9 @@ Partial Class Staff
         Me.btnlogout.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnlogout.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnlogout.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.btnlogout.Location = New System.Drawing.Point(3, 374)
+        Me.btnlogout.Location = New System.Drawing.Point(3, 381)
         Me.btnlogout.Name = "btnlogout"
-        Me.btnlogout.Size = New System.Drawing.Size(368, 44)
+        Me.btnlogout.Size = New System.Drawing.Size(368, 37)
         Me.btnlogout.TabIndex = 49
         Me.btnlogout.Text = "Sign-Out"
         Me.btnlogout.UseVisualStyleBackColor = False
@@ -133,9 +138,9 @@ Partial Class Staff
         Me.btnschedule.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnschedule.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnschedule.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.btnschedule.Location = New System.Drawing.Point(3, 224)
+        Me.btnschedule.Location = New System.Drawing.Point(3, 237)
         Me.btnschedule.Name = "btnschedule"
-        Me.btnschedule.Size = New System.Drawing.Size(368, 44)
+        Me.btnschedule.Size = New System.Drawing.Size(368, 41)
         Me.btnschedule.TabIndex = 48
         Me.btnschedule.Text = " Schedule"
         Me.btnschedule.UseVisualStyleBackColor = False
@@ -165,21 +170,21 @@ Partial Class Staff
         Me.TableLayoutPanel3.Controls.Add(Me.btnroomlist, 0, 3)
         Me.TableLayoutPanel3.Controls.Add(Me.btnreport, 0, 5)
         Me.TableLayoutPanel3.Controls.Add(Me.btnschedule, 0, 4)
-        Me.TableLayoutPanel3.Controls.Add(Me.btnrequest, 0, 6)
-        Me.TableLayoutPanel3.Controls.Add(Me.btnlogout, 0, 7)
         Me.TableLayoutPanel3.Controls.Add(Me.btnaccount, 0, 2)
+        Me.TableLayoutPanel3.Controls.Add(Me.btnlogout, 0, 7)
+        Me.TableLayoutPanel3.Controls.Add(Me.btnapproval, 0, 6)
         Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel3.Location = New System.Drawing.Point(403, 3)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
         Me.TableLayoutPanel3.RowCount = 9
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.18703!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.46135!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.7182!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.7207!))
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.46883!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.7207!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.72319!))
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel3.Size = New System.Drawing.Size(394, 444)
         Me.TableLayoutPanel3.TabIndex = 57
@@ -194,10 +199,25 @@ Partial Class Staff
         Me.btnaccount.ForeColor = System.Drawing.Color.NavajoWhite
         Me.btnaccount.Location = New System.Drawing.Point(3, 124)
         Me.btnaccount.Name = "btnaccount"
-        Me.btnaccount.Size = New System.Drawing.Size(368, 44)
+        Me.btnaccount.Size = New System.Drawing.Size(368, 56)
         Me.btnaccount.TabIndex = 53
         Me.btnaccount.Text = "Name (View Account)"
         Me.btnaccount.UseVisualStyleBackColor = False
+        '
+        'btnapproval
+        '
+        Me.btnapproval.AutoSize = True
+        Me.btnapproval.BackColor = System.Drawing.Color.Transparent
+        Me.btnapproval.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnapproval.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnapproval.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnapproval.ForeColor = System.Drawing.Color.NavajoWhite
+        Me.btnapproval.Location = New System.Drawing.Point(3, 334)
+        Me.btnapproval.Name = "btnapproval"
+        Me.btnapproval.Size = New System.Drawing.Size(368, 41)
+        Me.btnapproval.TabIndex = 54
+        Me.btnapproval.Text = "Request Approval"
+        Me.btnapproval.UseVisualStyleBackColor = False
         '
         'TableLayoutPanel2
         '
@@ -205,7 +225,7 @@ Partial Class Staff
         Me.TableLayoutPanel2.ColumnCount = 2
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel2.Controls.Add(Me.DGVcomment, 1, 3)
+        Me.TableLayoutPanel2.Controls.Add(Me.DGVrooms, 1, 3)
         Me.TableLayoutPanel2.Controls.Add(Me.Label2, 1, 2)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(3, 3)
@@ -234,7 +254,7 @@ Partial Class Staff
         Me.Name = "Staff"
         Me.Text = "Form4"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
-        CType(Me.DGVcomment, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DGVrooms, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel3.ResumeLayout(False)
         Me.TableLayoutPanel3.PerformLayout()
@@ -245,8 +265,7 @@ Partial Class Staff
     End Sub
 
     Friend WithEvents Label2 As Label
-    Friend WithEvents DGVcomment As DataGridView
-    Friend WithEvents btnrequest As Button
+    Friend WithEvents DGVrooms As DataGridView
     Friend WithEvents btnreport As Button
     Friend WithEvents btnroomlist As Button
     Friend WithEvents btnlogout As Button
@@ -255,4 +274,7 @@ Partial Class Staff
     Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
     Friend WithEvents btnaccount As Button
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
+    Friend WithEvents room_name As DataGridViewTextBoxColumn
+    Friend WithEvents status As DataGridViewTextBoxColumn
+    Friend WithEvents btnapproval As Button
 End Class

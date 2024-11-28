@@ -11,31 +11,50 @@ Public Class requestapproval
         LoadRequests()
     End Sub
 
-    Private Sub btnadd_Click(sender As Object, e As EventArgs) Handles btnadd.Click
-        Dim result As DialogResult = MessageBox.Show("Are you sure to add a new schedule?", "Confirm Creation of New Schedule?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+    Private Sub btnadd_modify_Click(sender As Object, e As EventArgs) Handles btnadd.Click
+        Dim result As DialogResult = MessageBox.Show("Are you sure to proceed?", "Confirm Action", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
 
         If result = DialogResult.Yes Then
             ' Check if a row is selected in the DGVrequest DataGridView
             If DGVrequest.SelectedRows.Count > 0 Then
                 Dim selectedRow As DataGridViewRow = DGVrequest.SelectedRows(0)
 
-                ' Create an instance of the add schedule form
-                Dim addForm As New addscheduleadmin()
+                ' Check the value of the "type" column in the selected row
+                Dim actionType As String = selectedRow.Cells("type").Value.ToString().ToLower()
 
-                ' Transfer the requestID to the add schedule form
-                addForm.requestID = selectedRow.Cells("requestID").Value.ToString()
+                If actionType = "modify" Then
+                    ' Create an instance of the modify schedule form
+                    Dim modifyForm As New modifyscheduleadmin()
 
-                ' Show the add schedule form with data from the selected row
-                addForm.ShowDialog()
-                Me.Hide()
+                    ' Transfer the requestID to the modify schedule form
+                    modifyForm.requestID = selectedRow.Cells("requestID").Value.ToString()
+
+                    ' Show the modify schedule form
+                    modifyForm.ShowDialog()
+                    Me.Hide()
+                ElseIf actionType = "add" Then
+                    ' Create an instance of the add schedule form
+                    Dim addForm As New addscheduleadmin()
+
+                    ' Transfer the requestID to the add schedule form
+                    addForm.requestID = selectedRow.Cells("requestID").Value.ToString()
+
+                    ' Show the add schedule form
+                    addForm.ShowDialog()
+                    Me.Hide()
+                Else
+                    ' Show an error if the "type" column has an unexpected value
+                    MessageBox.Show("Invalid action type. Please check the data.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End If
             Else
-                ' Create and show the add schedule form without transferring any data
+                ' No row selected, show a generic add form
                 Dim addForm As New addscheduleadmin()
                 addForm.ShowDialog()
                 Me.Hide()
             End If
         End If
     End Sub
+
 
 
     Private Sub btndelete_Click(sender As Object, e As EventArgs) Handles btndelete.Click
@@ -120,7 +139,13 @@ Public Class requestapproval
 
 
     Private Sub btnback_Click(sender As Object, e As EventArgs) Handles btnback.Click
-        Admin.Show()
+        If access = "high" Then
+            Admin.Show()
+        ElseIf access = "mid" Then
+            Staff.Show()
+        Else
+            MsgBox("Error, cant go back to the previews UI! ")
+        End If
         Me.Hide()
     End Sub
 

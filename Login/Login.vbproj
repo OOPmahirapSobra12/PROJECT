@@ -167,10 +167,17 @@
     <Compile Include="admin_feedback.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Staff2.Designer.vb">
-      <DependentUpon>Staff2.vb</DependentUpon>
+    <Compile Include="logs.vb" />
+    <Compile Include="modifyscheduleadmin.Designer.vb">
+      <DependentUpon>modifyscheduleadmin.vb</DependentUpon>
     </Compile>
-    <Compile Include="Staff2.vb">
+    <Compile Include="modifyscheduleadmin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Staffprofile.Designer.vb">
+      <DependentUpon>Staffprofile.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Staffprofile.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="staffreport.Designer.vb">
@@ -183,6 +190,24 @@
       <DependentUpon>staff_feedback.vb</DependentUpon>
     </Compile>
     <Compile Include="staff_feedback.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="staff_request_add.Designer.vb">
+      <DependentUpon>staff_request_add.vb</DependentUpon>
+    </Compile>
+    <Compile Include="staff_request_add.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="staff_request_modify.Designer.vb">
+      <DependentUpon>staff_request_modify.vb</DependentUpon>
+    </Compile>
+    <Compile Include="staff_request_modify.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="staff_schedule.Designer.vb">
+      <DependentUpon>staff_schedule.vb</DependentUpon>
+    </Compile>
+    <Compile Include="staff_schedule.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="viewreportfeedback.Designer.vb">
@@ -325,14 +350,23 @@
     <EmbeddedResource Include="admin_feedback.resx">
       <DependentUpon>admin_feedback.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Staff2.resx">
-      <DependentUpon>Staff2.vb</DependentUpon>
+    <EmbeddedResource Include="Staffprofile.resx">
+      <DependentUpon>Staffprofile.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="staffreport.resx">
       <DependentUpon>staffreport.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="staff_feedback.resx">
       <DependentUpon>staff_feedback.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="staff_request_add.resx">
+      <DependentUpon>staff_request_add.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="staff_request_modify.resx">
+      <DependentUpon>staff_request_modify.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="staff_schedule.resx">
+      <DependentUpon>staff_schedule.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="viewreportfeedback.resx">
       <DependentUpon>viewreportfeedback.vb</DependentUpon>

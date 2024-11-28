@@ -20,12 +20,12 @@ Public Class AdminPage2
     End Sub
 
     Private Sub btnreport_Click(sender As Object, e As EventArgs) Handles btnreport.Click
-        reportreciever.Show()
+        adminreport.Show()
         Me.Hide()
     End Sub
 
     Private Sub btnfeedback_Click(sender As Object, e As EventArgs) Handles btnfeedback.Click
-        feedbackreciever.Show()
+        admin_feedback.Show()
         Me.Hide()
     End Sub
 
@@ -40,6 +40,9 @@ Public Class AdminPage2
     End Sub
 
     Private Sub btnlogout_Click(sender As Object, e As EventArgs) Handles btnlogout.Click
+        Dim accountID As String = U_ID
+        Dim Action As String = "logout"
+        logging_log(accountID, Action)
         U_ID = Nothing
         Login.Show()
         Me.Hide()

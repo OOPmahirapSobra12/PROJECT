@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class Staff2
+Partial Class Staffprofile
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -334,7 +334,7 @@ Partial Class Staff2
         Me.btnpic.Text = "Update Pic:"
         Me.btnpic.UseVisualStyleBackColor = False
         '
-        'Staff2
+        'Staffprofile
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -343,7 +343,7 @@ Partial Class Staff2
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "Staff2"
+        Me.Name = "Staffprofile"
         Me.Text = "Form1"
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel3.ResumeLayout(False)

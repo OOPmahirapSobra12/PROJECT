@@ -92,7 +92,7 @@ Public Class Login
                     reader.Read() ' Move to the first row
                     Dim accountId As String = reader("ID").ToString() ' Get the ID of the account as a string
                     Dim accountlevel As String = reader("accesslevel").ToString().ToLower() ' Get account level in lowercase
-
+                    Dim Action As String = "login"
                     reader.Close() ' Close the reader as it's no longer needed
 
                     U_ID = accountId
@@ -106,6 +106,8 @@ Public Class Login
                             MsgBox("Welcome " & username)
                             txtpassword.Clear()
                             txtuname.Clear()
+                            access = "low"
+                            logging_log(accountId, Action)
 
                         Case "mid"
                             Dim mid As New Staff()
@@ -114,6 +116,8 @@ Public Class Login
                             MsgBox("Welcome " & username)
                             txtpassword.Clear()
                             txtuname.Clear()
+                            logging_log(accountId, Action)
+                            access = "mid"
 
                         Case "high"
                             ' Create the Admin form, assign U_ID and show it
@@ -123,6 +127,8 @@ Public Class Login
                             MsgBox("Welcome " & username)
                             txtpassword.Clear()
                             txtuname.Clear()
+                            logging_log(accountId, Action)
+                            access = "high"
 
                         Case Else
                             MsgBox("Error: Account level not recognized")
@@ -144,11 +150,6 @@ Public Class Login
         End Try
     End Sub
 
-
-
-
-
-
     Private Sub btncreate_Click(sender As Object, e As EventArgs) Handles btncreate.Click
         ' Ensure the connection is closed
         If conn IsNot Nothing AndAlso conn.State = ConnectionState.Open Then
@@ -161,10 +162,6 @@ Public Class Login
     End Sub
     Private Sub btnclose_Click(sender As Object, e As EventArgs) Handles btnclose.Click
         Application.Exit()
-    End Sub
-
-    Private Sub TableLayoutPanel1_Paint(sender As Object, e As PaintEventArgs) Handles TableLayoutPanel1.Paint
-
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs)

@@ -11,10 +11,12 @@ Public Class adminreport
         DbConnect()
         cboType.SelectedIndex = 0
         tableloader()
+        txtsearch.Text = ""
     End Sub
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         Report_Feedbacksender.Show()
+        type = "report"
     End Sub
 
     Private Sub btnback_Click(sender As Object, e As EventArgs) Handles btnback.Click
@@ -62,20 +64,24 @@ Public Class adminreport
     End Sub
 
     Private Sub btnview_Click(sender As Object, e As EventArgs) Handles btnview.Click
-        ' Ensure a row is selected before proceeding
-        If DGVreport.SelectedRows.Count = 0 Then
-            MessageBox.Show("Please select a report to view.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Return
-        End If
+        Try
+            ' Ensure that a row is selected in the DataGridView
+            If DGVreport.SelectedRows.Count = 0 Then
+                MessageBox.Show("Please select a record to view.", "Selection Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return
+            End If
 
-        ' Get the report_id from the selected row
-        Dim reportId As String = DGVreport.SelectedRows(0).Cells("report_id").Value.ToString()
+            ' Get the ID of the selected row
+            Dim id As String = DGVreport.SelectedRows(0).Cells("FeedbackID").Value.ToString()
 
-        ' Assign the selected report_id to the public variable R_ID
-        M_ID = reportId
-
-        ' Open the report viewer form (or handle the viewing logic here)
-        viewreportfeedback.Show()
+            ' Open the ViewFeedbackReport form and pass the ID
+            Dim viewForm As New viewreportfeedback()
+            M_ID = id
+            type = "report"
+            viewForm.Show()
+        Catch ex As Exception
+            MessageBox.Show("Error retrieving feedback record: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 
 

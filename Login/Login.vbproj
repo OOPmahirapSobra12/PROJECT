@@ -161,10 +161,10 @@
     <Compile Include="adminreport.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="feedbackreciever.Designer.vb">
-      <DependentUpon>feedbackreciever.vb</DependentUpon>
+    <Compile Include="admin_feedback.Designer.vb">
+      <DependentUpon>admin_feedback.vb</DependentUpon>
     </Compile>
-    <Compile Include="feedbackreciever.vb">
+    <Compile Include="admin_feedback.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Staff2.Designer.vb">
@@ -322,14 +322,17 @@
     <EmbeddedResource Include="adminreport.resx">
       <DependentUpon>adminreport.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="feedbackreciever.resx">
-      <DependentUpon>feedbackreciever.vb</DependentUpon>
+    <EmbeddedResource Include="admin_feedback.resx">
+      <DependentUpon>admin_feedback.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Staff2.resx">
       <DependentUpon>Staff2.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="staffreport.resx">
       <DependentUpon>staffreport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="staff_feedback.resx">
+      <DependentUpon>staff_feedback.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="viewreportfeedback.resx">
       <DependentUpon>viewreportfeedback.vb</DependentUpon>

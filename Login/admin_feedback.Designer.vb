@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class staff_feedback
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class admin_feedback
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()>
+    <System.Diagnostics.DebuggerNonUserCode()> _
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class staff_feedback
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()>
+    <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
@@ -72,7 +72,7 @@ Partial Class staff_feedback
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 87.77778!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(1056, 555)
-        Me.TableLayoutPanel1.TabIndex = 114
+        Me.TableLayoutPanel1.TabIndex = 115
         '
         'TableLayoutPanel2
         '
@@ -101,7 +101,7 @@ Partial Class staff_feedback
         Me.TableLayoutPanel9.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.05747!))
         Me.TableLayoutPanel9.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.09579!))
         Me.TableLayoutPanel9.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.10345!))
-        Me.TableLayoutPanel9.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 39.0!))
+        Me.TableLayoutPanel9.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42.0!))
         Me.TableLayoutPanel9.Controls.Add(Me.btnsearch, 5, 0)
         Me.TableLayoutPanel9.Controls.Add(Me.cboType, 2, 0)
         Me.TableLayoutPanel9.Controls.Add(Me.txtsearch, 4, 0)
@@ -122,9 +122,9 @@ Partial Class staff_feedback
         Me.btnsearch.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnsearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnsearch.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnsearch.Location = New System.Drawing.Point(824, 3)
+        Me.btnsearch.Location = New System.Drawing.Point(822, 3)
         Me.btnsearch.Name = "btnsearch"
-        Me.btnsearch.Size = New System.Drawing.Size(175, 35)
+        Me.btnsearch.Size = New System.Drawing.Size(174, 35)
         Me.btnsearch.TabIndex = 12
         Me.btnsearch.Text = "Search"
         Me.btnsearch.UseVisualStyleBackColor = False
@@ -139,7 +139,7 @@ Partial Class staff_feedback
         Me.cboType.Items.AddRange(New Object() {"Choose:", "Report ID", "Sender Name", "Date Reported", "Time Reported"})
         Me.cboType.Location = New System.Drawing.Point(246, 3)
         Me.cboType.Name = "cboType"
-        Me.cboType.Size = New System.Drawing.Size(221, 33)
+        Me.cboType.Size = New System.Drawing.Size(220, 33)
         Me.cboType.TabIndex = 9
         '
         'txtsearch
@@ -148,9 +148,9 @@ Partial Class staff_feedback
         Me.txtsearch.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtsearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtsearch.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.txtsearch.Location = New System.Drawing.Point(573, 3)
+        Me.txtsearch.Location = New System.Drawing.Point(572, 3)
         Me.txtsearch.Name = "txtsearch"
-        Me.txtsearch.Size = New System.Drawing.Size(245, 31)
+        Me.txtsearch.Size = New System.Drawing.Size(244, 31)
         Me.txtsearch.TabIndex = 11
         '
         'Label3
@@ -159,7 +159,7 @@ Partial Class staff_feedback
         Me.Label3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.Label3.Location = New System.Drawing.Point(473, 0)
+        Me.Label3.Location = New System.Drawing.Point(472, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(94, 41)
         Me.Label3.TabIndex = 100
@@ -378,7 +378,7 @@ Partial Class staff_feedback
         Me.lbltitle.Text = "Feedback"
         Me.lbltitle.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         '
-        'staff_feedback
+        'admin_feedback
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -387,8 +387,9 @@ Partial Class staff_feedback
         Me.ClientSize = New System.Drawing.Size(1056, 555)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "staff_feedback"
-        Me.Text = "staff_feedback"
+        Me.Name = "admin_feedback"
+        Me.Text = "admin_feedback"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel9.ResumeLayout(False)
@@ -413,6 +414,11 @@ Partial Class staff_feedback
     Friend WithEvents Label3 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents TableLayoutPanel4 As TableLayoutPanel
+    Friend WithEvents DGVfeedback As DataGridView
+    Friend WithEvents FeedbackID As DataGridViewTextBoxColumn
+    Friend WithEvents FeedbackDate As DataGridViewTextBoxColumn
+    Friend WithEvents FeedbackTime As DataGridViewTextBoxColumn
+    Friend WithEvents sender As DataGridViewTextBoxColumn
     Friend WithEvents TableLayoutPanel7 As TableLayoutPanel
     Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
     Friend WithEvents TableLayoutPanel11 As TableLayoutPanel
@@ -422,9 +428,4 @@ Partial Class staff_feedback
     Friend WithEvents btnAdd As Button
     Friend WithEvents TableLayoutPanel5 As TableLayoutPanel
     Friend WithEvents lbltitle As Label
-    Friend WithEvents DGVfeedback As DataGridView
-    Friend WithEvents FeedbackID As DataGridViewTextBoxColumn
-    Friend WithEvents FeedbackDate As DataGridViewTextBoxColumn
-    Friend WithEvents FeedbackTime As DataGridViewTextBoxColumn
-    Friend WithEvents sender As DataGridViewTextBoxColumn
 End Class

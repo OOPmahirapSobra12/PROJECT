@@ -2,7 +2,17 @@
 Imports System.Windows.Forms
 Imports System.Data
 
-Public Class feedbackreciever
+Public Class admin_feedback
+
+    Private Sub admin_feedback_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If conn.State = ConnectionState.Open Then
+            conn.Close()
+        End If
+        DbConnect()
+        feedback()
+        cboType.SelectedIndex = 0
+        txtsearch.Text = ""
+    End Sub
 
     Private Sub feedback()
         ' Query to select necessary columns (ID, d, t)
@@ -38,16 +48,6 @@ Public Class feedbackreciever
         End Try
     End Sub
 
-
-    Private Sub feedbackreciever_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        If conn.State = ConnectionState.Open Then
-            conn.Close()
-        End If
-        DbConnect()
-        feedback()
-        cbosearch.SelectedIndex = 0
-    End Sub
-
     Private Sub btnview_Click(sender As Object, e As EventArgs) Handles btnview.Click
         Try
             ' Ensure that a row is selected in the DataGridView
@@ -64,12 +64,10 @@ Public Class feedbackreciever
             M_ID = id
             type = "feedback"
             viewForm.Show()
-            Me.Hide()
         Catch ex As Exception
             MessageBox.Show("Error retrieving feedback record: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
-
 
     Private Sub btndelete_Click(sender As Object, e As EventArgs) Handles btndelete.Click
         Try
@@ -105,19 +103,19 @@ Public Class feedbackreciever
         End Try
     End Sub
 
-    Private Sub btnsearch_Click_1(sender As Object, e As EventArgs) Handles btnsearch.Click
+    Private Sub btnsearch_Click(sender As Object, e As EventArgs) Handles btnsearch.Click
         ' If the textbox is empty, refresh the data
-        If String.IsNullOrEmpty(txtsearchbox.Text.Trim()) Then
+        If String.IsNullOrEmpty(txtsearch.Text.Trim()) Then
             feedback() ' Refresh the DataGridView by reloading all data
             Return
         End If
 
         ' Get the search term from the textbox
-        Dim searchTerm As String = txtsearchbox.Text.Trim()
+        Dim searchTerm As String = txtsearch.Text.Trim()
         Dim query As String = ""
 
         ' Check the selected combo box item
-        Select Case cbosearch.Text
+        Select Case cboType.Text
             Case "Choose:"
                 ' Search across all columns: Feedback ID, Date, and Time
                 query = "SELECT sender, ID, d, t " &
@@ -176,7 +174,13 @@ Public Class feedbackreciever
         End Using
     End Sub
 
-    Private Sub btnback_Click_1(sender As Object, e As EventArgs) Handles btnback.Click
+    Private Sub btnback_Click(sender As Object, e As EventArgs) Handles btnback.Click
+        Admin.Show()
         Me.Hide()
+    End Sub
+
+    Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
+        Report_Feedbacksender.Show()
+        type = "report"
     End Sub
 End Class

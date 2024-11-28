@@ -181,7 +181,7 @@ Partial Class viewreportfeedback
         Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.53989!))
         Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.99629!))
         Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 49.0!))
+        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 57.0!))
         Me.TableLayoutPanel6.Controls.Add(Me.Label4, 1, 2)
         Me.TableLayoutPanel6.Controls.Add(Me.Label2, 1, 0)
         Me.TableLayoutPanel6.Controls.Add(Me.Label3, 1, 1)
@@ -209,7 +209,7 @@ Partial Class viewreportfeedback
         Me.Label4.ForeColor = System.Drawing.Color.MidnightBlue
         Me.Label4.Location = New System.Drawing.Point(25, 66)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(123, 35)
+        Me.Label4.Size = New System.Drawing.Size(121, 35)
         Me.Label4.TabIndex = 104
         Me.Label4.Text = "Message:"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -222,7 +222,7 @@ Partial Class viewreportfeedback
         Me.Label2.ForeColor = System.Drawing.Color.MidnightBlue
         Me.Label2.Location = New System.Drawing.Point(25, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(123, 33)
+        Me.Label2.Size = New System.Drawing.Size(121, 33)
         Me.Label2.TabIndex = 101
         Me.Label2.Text = "Sender:"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -235,7 +235,7 @@ Partial Class viewreportfeedback
         Me.Label3.ForeColor = System.Drawing.Color.MidnightBlue
         Me.Label3.Location = New System.Drawing.Point(25, 33)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(123, 33)
+        Me.Label3.Size = New System.Drawing.Size(121, 33)
         Me.Label3.TabIndex = 102
         Me.Label3.Text = "Type:"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -246,10 +246,10 @@ Partial Class viewreportfeedback
         Me.txtusername.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtusername.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!)
         Me.txtusername.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.txtusername.Location = New System.Drawing.Point(154, 3)
+        Me.txtusername.Location = New System.Drawing.Point(152, 3)
         Me.txtusername.Name = "txtusername"
         Me.txtusername.ReadOnly = True
-        Me.txtusername.Size = New System.Drawing.Size(155, 31)
+        Me.txtusername.Size = New System.Drawing.Size(152, 31)
         Me.txtusername.TabIndex = 105
         '
         'Label1
@@ -258,9 +258,9 @@ Partial Class viewreportfeedback
         Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.Label1.Location = New System.Drawing.Point(315, 0)
+        Me.Label1.Location = New System.Drawing.Point(310, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(86, 33)
+        Me.Label1.Size = New System.Drawing.Size(84, 33)
         Me.Label1.TabIndex = 107
         Me.Label1.Text = "Date:"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -271,9 +271,9 @@ Partial Class viewreportfeedback
         Me.Label5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.Label5.Location = New System.Drawing.Point(315, 33)
+        Me.Label5.Location = New System.Drawing.Point(310, 33)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(86, 33)
+        Me.Label5.Size = New System.Drawing.Size(84, 33)
         Me.Label5.TabIndex = 108
         Me.Label5.Text = "Time:"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -284,10 +284,10 @@ Partial Class viewreportfeedback
         Me.txtdate.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!)
         Me.txtdate.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.txtdate.Location = New System.Drawing.Point(407, 3)
+        Me.txtdate.Location = New System.Drawing.Point(400, 3)
         Me.txtdate.Name = "txtdate"
         Me.txtdate.ReadOnly = True
-        Me.txtdate.Size = New System.Drawing.Size(121, 31)
+        Me.txtdate.Size = New System.Drawing.Size(119, 31)
         Me.txtdate.TabIndex = 109
         '
         'txttime
@@ -296,10 +296,10 @@ Partial Class viewreportfeedback
         Me.txttime.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txttime.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!)
         Me.txttime.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.txttime.Location = New System.Drawing.Point(407, 36)
+        Me.txttime.Location = New System.Drawing.Point(400, 36)
         Me.txttime.Name = "txttime"
         Me.txttime.ReadOnly = True
-        Me.txttime.Size = New System.Drawing.Size(121, 31)
+        Me.txttime.Size = New System.Drawing.Size(119, 31)
         Me.txttime.TabIndex = 110
         '
         'cbotype
@@ -311,9 +311,9 @@ Partial Class viewreportfeedback
         Me.cbotype.ForeColor = System.Drawing.Color.MidnightBlue
         Me.cbotype.FormattingEnabled = True
         Me.cbotype.Items.AddRange(New Object() {"Choose:", "Report", "Feedback"})
-        Me.cbotype.Location = New System.Drawing.Point(154, 36)
+        Me.cbotype.Location = New System.Drawing.Point(152, 36)
         Me.cbotype.Name = "cbotype"
-        Me.cbotype.Size = New System.Drawing.Size(155, 33)
+        Me.cbotype.Size = New System.Drawing.Size(152, 33)
         Me.cbotype.TabIndex = 111
         '
         'viewreportfeedback

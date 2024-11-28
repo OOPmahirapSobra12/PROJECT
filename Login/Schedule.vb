@@ -516,20 +516,20 @@ Public Class Schedule
 
 
     Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btndelete.Click
-        ' Ensure that a shed_id is selected before proceeding
-        If String.IsNullOrEmpty(txtschedID.Text) Then
+        ' Ensure a row is selected before proceeding
+        If DGVschedule.SelectedRows.Count = 0 Then
             MessageBox.Show("Please select a schedule to delete.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return
         End If
+
+        ' Get the shed_id from the selected row in the table
+        Dim shedId As String = DGVschedule.SelectedRows(0).Cells("shed_id").Value.ToString()
 
         ' Confirm with the user before deleting
         Dim result As DialogResult = MessageBox.Show("Are you sure you want to delete this schedule?", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
         If result = DialogResult.No Then
             Return
         End If
-
-        ' Get the shed_id from the textbox
-        Dim shedId As String = txtschedID.Text.Trim()
 
         ' Define SQL queries for deleting from both tables
         Dim sqlDeleteSched As String = "DELETE FROM sched WHERE shed_id = @shed_id"
@@ -563,6 +563,108 @@ Public Class Schedule
                 conn.Close()
             End If
         End Try
+
     End Sub
+
+    Private Sub btnsearch_Click(sender As Object, e As EventArgs) Handles btnsearch.Click
+        ' Validate that the user has entered a search term
+        If String.IsNullOrWhiteSpace(txtsearch.Text) Then
+            MessageBox.Show("Please enter a search term.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        ' Get the selected category and search term
+        Dim selectedCategory As String = cboType.SelectedItem.ToString()
+        Dim searchTerm As String = txtsearch.Text.Trim()
+
+        ' Construct the base SQL query
+        Dim sqlQuery As String = "
+        SELECT 
+            sched.shed_id,
+            sched.room_code, 
+            roomlist.room_name, 
+            sched.detail, 
+            sched.room_day, 
+            sched.room_time_in, 
+            sched.room_time_out, 
+            NULL AS room_date, 
+            roomlist.building
+        FROM sched
+            JOIN roomlist ON sched.room_code = roomlist.room_code
+
+        UNION
+
+        SELECT 
+            schedtemp.shed_id,
+            schedtemp.room_code, 
+            roomlist.room_name, 
+            schedtemp.detail, 
+            NULL AS room_day, 
+            schedtemp.room_time_in, 
+            schedtemp.room_time_out, 
+            schedtemp.room_date, 
+            roomlist.building
+        FROM schedtemp
+            JOIN roomlist ON schedtemp.room_code = roomlist.room_code
+        WHERE {0} LIKE @searchTerm;"
+
+        ' Add WHERE clause for filtering based on the selected category
+        Dim columnMap As New Dictionary(Of String, String) From {
+            {"Schedule ID", "shed_id"},
+            {"Room Code", "room_code"},
+            {"Room Name", "room_name"},
+            {"Detail", "detail"},
+            {"Day", "room_day"},
+            {"Date", "room_date"}
+        }
+
+        If Not columnMap.ContainsKey(selectedCategory) Then
+            MessageBox.Show("Invalid search category selected.", "Search Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        ' Replace placeholder in the query with the appropriate column name
+        sqlQuery = String.Format(sqlQuery, columnMap(selectedCategory))
+
+        ' Prepare the search term for a wildcard search
+        Dim parameterValue As String = "%" & searchTerm & "%"
+
+        ' Create a new DataAdapter to execute the query
+        Dim dataAdapter As New MySqlDataAdapter(sqlQuery, conn)
+        dataAdapter.SelectCommand.Parameters.AddWithValue("@searchTerm", parameterValue)
+
+        ' Create a DataTable to hold the search results
+        Dim dataTable As New DataTable()
+
+        Try
+            ' Open the connection if not already open
+            If conn.State <> ConnectionState.Open Then
+                conn.Open()
+            End If
+
+            ' Fill the DataTable with search results
+            dataAdapter.Fill(dataTable)
+
+            ' Handle room_day/room_date logic in results
+            For Each row As DataRow In dataTable.Rows
+                If Not String.IsNullOrEmpty(row("room_date").ToString()) Then
+                    row("room_day") = "N/A"
+                ElseIf Not String.IsNullOrEmpty(row("room_day").ToString()) Then
+                    row("room_date") = "N/A"
+                End If
+            Next
+
+            ' Bind the DataTable to the DataGridView
+            DGVschedule.DataSource = dataTable
+        Catch ex As Exception
+            MessageBox.Show("Error executing search: " & ex.Message, "Search Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            ' Ensure the connection is closed
+            If conn.State = ConnectionState.Open Then
+                conn.Close()
+            End If
+        End Try
+    End Sub
+
 
 End Class

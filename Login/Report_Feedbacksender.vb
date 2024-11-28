@@ -5,6 +5,7 @@ Imports System.Data
 Public Class Report_Feedbacksender
     Dim nowdate As String
     Dim nowtime As String
+
     Public Sub Typeloader()
         If type = "report" Then
             txttitle.Text = "Report"
@@ -132,8 +133,6 @@ Public Class Report_Feedbacksender
     End Sub
 
     Private Sub btnback_Click(sender As Object, e As EventArgs) Handles btnback.Click
-        Staff.Show()
-        type = ""
         Me.Hide()
     End Sub
 End Class

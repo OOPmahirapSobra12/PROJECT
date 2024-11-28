@@ -22,9 +22,9 @@ Partial Class Schedule
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel6 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel8 = New System.Windows.Forms.TableLayoutPanel()
@@ -35,30 +35,6 @@ Partial Class Schedule
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txtsearch = New System.Windows.Forms.TextBox()
         Me.btnsearch = New System.Windows.Forms.Button()
-        Me.TableLayoutPanel7 = New System.Windows.Forms.TableLayoutPanel()
-        Me.TableLayoutPanel11 = New System.Windows.Forms.TableLayoutPanel()
-        Me.btndelete = New System.Windows.Forms.Button()
-        Me.btnselect = New System.Windows.Forms.Button()
-        Me.btnupdate = New System.Windows.Forms.Button()
-        Me.btnback = New System.Windows.Forms.Button()
-        Me.btnAdd = New System.Windows.Forms.Button()
-        Me.TableLayoutPanel10 = New System.Windows.Forms.TableLayoutPanel()
-        Me.cborcode = New System.Windows.Forms.ComboBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.cboday = New System.Windows.Forms.ComboBox()
-        Me.DTPdate = New System.Windows.Forms.DateTimePicker()
-        Me.DTPtimein = New System.Windows.Forms.DateTimePicker()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.DTPtimeout = New System.Windows.Forms.DateTimePicker()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.txtdetail = New System.Windows.Forms.TextBox()
-        Me.txtname = New System.Windows.Forms.TextBox()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.txtschedID = New System.Windows.Forms.TextBox()
         Me.DGVschedule = New System.Windows.Forms.DataGridView()
         Me.sched_code = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.room_code = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -68,14 +44,38 @@ Partial Class Schedule
         Me.s_date = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.time_in = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.time_out = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TableLayoutPanel10 = New System.Windows.Forms.TableLayoutPanel()
+        Me.txtschedID = New System.Windows.Forms.TextBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.txtname = New System.Windows.Forms.TextBox()
+        Me.txtdetail = New System.Windows.Forms.TextBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.DTPtimeout = New System.Windows.Forms.DateTimePicker()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.DTPtimein = New System.Windows.Forms.DateTimePicker()
+        Me.DTPdate = New System.Windows.Forms.DateTimePicker()
+        Me.cboday = New System.Windows.Forms.ComboBox()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.cborcode = New System.Windows.Forms.ComboBox()
+        Me.TableLayoutPanel11 = New System.Windows.Forms.TableLayoutPanel()
+        Me.btnAdd = New System.Windows.Forms.Button()
+        Me.btnback = New System.Windows.Forms.Button()
+        Me.btnupdate = New System.Windows.Forms.Button()
+        Me.btnselect = New System.Windows.Forms.Button()
+        Me.btndelete = New System.Windows.Forms.Button()
+        Me.TableLayoutPanel7 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel5.SuspendLayout()
         Me.TableLayoutPanel6.SuspendLayout()
         Me.TableLayoutPanel8.SuspendLayout()
         Me.TableLayoutPanel9.SuspendLayout()
-        Me.TableLayoutPanel7.SuspendLayout()
-        Me.TableLayoutPanel11.SuspendLayout()
-        Me.TableLayoutPanel10.SuspendLayout()
         CType(Me.DGVschedule, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TableLayoutPanel10.SuspendLayout()
+        Me.TableLayoutPanel11.SuspendLayout()
+        Me.TableLayoutPanel7.SuspendLayout()
         Me.SuspendLayout()
         '
         'TableLayoutPanel5
@@ -169,25 +169,25 @@ Partial Class Schedule
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Label2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Bold)
         Me.Label2.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.Label2.Location = New System.Drawing.Point(3, 56)
+        Me.Label2.Location = New System.Drawing.Point(3, 37)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(129, 22)
+        Me.Label2.Size = New System.Drawing.Size(129, 41)
         Me.Label2.TabIndex = 8
         Me.Label2.Text = "Search for :"
-        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'cboType
         '
         Me.cboType.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.cboType.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.cboType.Dock = System.Windows.Forms.DockStyle.Fill
         Me.cboType.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboType.ForeColor = System.Drawing.Color.MidnightBlue
         Me.cboType.FormattingEnabled = True
         Me.cboType.Items.AddRange(New Object() {"Choose", "Schedule Code", "Room Code", "Room Name", "Detail", "Day", "Date", "Time In", "Time Out"})
-        Me.cboType.Location = New System.Drawing.Point(138, 42)
+        Me.cboType.Location = New System.Drawing.Point(138, 40)
         Me.cboType.Name = "cboType"
         Me.cboType.Size = New System.Drawing.Size(179, 33)
         Me.cboType.TabIndex = 9
@@ -195,23 +195,23 @@ Partial Class Schedule
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.Label3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.Label3.Location = New System.Drawing.Point(323, 63)
+        Me.Label3.Location = New System.Drawing.Point(323, 37)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(90, 15)
+        Me.Label3.Size = New System.Drawing.Size(90, 41)
         Me.Label3.TabIndex = 10
         Me.Label3.Text = "SEARCH :"
-        Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'txtsearch
         '
         Me.txtsearch.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.txtsearch.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.txtsearch.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtsearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtsearch.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.txtsearch.Location = New System.Drawing.Point(419, 44)
+        Me.txtsearch.Location = New System.Drawing.Point(419, 40)
         Me.txtsearch.Name = "txtsearch"
         Me.txtsearch.Size = New System.Drawing.Size(197, 31)
         Me.txtsearch.TabIndex = 11
@@ -219,358 +219,15 @@ Partial Class Schedule
         'btnsearch
         '
         Me.btnsearch.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.btnsearch.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.btnsearch.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnsearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnsearch.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnsearch.Location = New System.Drawing.Point(622, 44)
+        Me.btnsearch.Location = New System.Drawing.Point(622, 40)
         Me.btnsearch.Name = "btnsearch"
-        Me.btnsearch.Size = New System.Drawing.Size(139, 31)
+        Me.btnsearch.Size = New System.Drawing.Size(139, 35)
         Me.btnsearch.TabIndex = 12
         Me.btnsearch.Text = "Search"
         Me.btnsearch.UseVisualStyleBackColor = False
-        '
-        'TableLayoutPanel7
-        '
-        Me.TableLayoutPanel7.ColumnCount = 2
-        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69.80198!))
-        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.19802!))
-        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel7.Controls.Add(Me.TableLayoutPanel11, 1, 0)
-        Me.TableLayoutPanel7.Controls.Add(Me.TableLayoutPanel10, 0, 0)
-        Me.TableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel7.Location = New System.Drawing.Point(23, 384)
-        Me.TableLayoutPanel7.Name = "TableLayoutPanel7"
-        Me.TableLayoutPanel7.RowCount = 1
-        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 147.0!))
-        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 147.0!))
-        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 147.0!))
-        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 147.0!))
-        Me.TableLayoutPanel7.Size = New System.Drawing.Size(1010, 147)
-        Me.TableLayoutPanel7.TabIndex = 1
-        '
-        'TableLayoutPanel11
-        '
-        Me.TableLayoutPanel11.ColumnCount = 3
-        Me.TableLayoutPanel11.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel11.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel11.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel11.Controls.Add(Me.btndelete, 1, 0)
-        Me.TableLayoutPanel11.Controls.Add(Me.btnselect, 0, 0)
-        Me.TableLayoutPanel11.Controls.Add(Me.btnupdate, 0, 1)
-        Me.TableLayoutPanel11.Controls.Add(Me.btnback, 2, 0)
-        Me.TableLayoutPanel11.Controls.Add(Me.btnAdd, 1, 1)
-        Me.TableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel11.Location = New System.Drawing.Point(707, 3)
-        Me.TableLayoutPanel11.Name = "TableLayoutPanel11"
-        Me.TableLayoutPanel11.RowCount = 3
-        Me.TableLayoutPanel11.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46.0!))
-        Me.TableLayoutPanel11.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel11.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 53.0!))
-        Me.TableLayoutPanel11.Size = New System.Drawing.Size(300, 141)
-        Me.TableLayoutPanel11.TabIndex = 1
-        '
-        'btndelete
-        '
-        Me.btndelete.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.btndelete.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btndelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btndelete.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btndelete.Location = New System.Drawing.Point(103, 3)
-        Me.btndelete.Name = "btndelete"
-        Me.btndelete.Size = New System.Drawing.Size(94, 40)
-        Me.btndelete.TabIndex = 15
-        Me.btndelete.Text = "Delete"
-        Me.btndelete.UseVisualStyleBackColor = False
-        '
-        'btnselect
-        '
-        Me.btnselect.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.btnselect.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnselect.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnselect.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnselect.Location = New System.Drawing.Point(3, 3)
-        Me.btnselect.Name = "btnselect"
-        Me.btnselect.Size = New System.Drawing.Size(94, 40)
-        Me.btnselect.TabIndex = 16
-        Me.btnselect.Text = "Select"
-        Me.btnselect.UseVisualStyleBackColor = False
-        '
-        'btnupdate
-        '
-        Me.btnupdate.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.btnupdate.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnupdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnupdate.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnupdate.Location = New System.Drawing.Point(3, 49)
-        Me.btnupdate.Name = "btnupdate"
-        Me.btnupdate.Size = New System.Drawing.Size(94, 36)
-        Me.btnupdate.TabIndex = 13
-        Me.btnupdate.Text = "Update"
-        Me.btnupdate.UseVisualStyleBackColor = False
-        '
-        'btnback
-        '
-        Me.btnback.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.btnback.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnback.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnback.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnback.Location = New System.Drawing.Point(203, 3)
-        Me.btnback.Name = "btnback"
-        Me.btnback.Size = New System.Drawing.Size(94, 40)
-        Me.btnback.TabIndex = 14
-        Me.btnback.Text = "Back"
-        Me.btnback.UseVisualStyleBackColor = False
-        '
-        'btnAdd
-        '
-        Me.btnAdd.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.btnAdd.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAdd.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnAdd.Location = New System.Drawing.Point(103, 49)
-        Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.Size = New System.Drawing.Size(94, 36)
-        Me.btnAdd.TabIndex = 17
-        Me.btnAdd.Text = "Add"
-        Me.btnAdd.UseVisualStyleBackColor = False
-        '
-        'TableLayoutPanel10
-        '
-        Me.TableLayoutPanel10.ColumnCount = 4
-        Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.05444!))
-        Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.96848!))
-        Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.85185!))
-        Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.07407!))
-        Me.TableLayoutPanel10.Controls.Add(Me.cborcode, 1, 1)
-        Me.TableLayoutPanel10.Controls.Add(Me.Label6, 2, 2)
-        Me.TableLayoutPanel10.Controls.Add(Me.Label5, 2, 1)
-        Me.TableLayoutPanel10.Controls.Add(Me.Label10, 2, 0)
-        Me.TableLayoutPanel10.Controls.Add(Me.cboday, 3, 0)
-        Me.TableLayoutPanel10.Controls.Add(Me.DTPdate, 3, 1)
-        Me.TableLayoutPanel10.Controls.Add(Me.DTPtimein, 3, 2)
-        Me.TableLayoutPanel10.Controls.Add(Me.Label7, 2, 3)
-        Me.TableLayoutPanel10.Controls.Add(Me.DTPtimeout, 3, 3)
-        Me.TableLayoutPanel10.Controls.Add(Me.Label9, 0, 3)
-        Me.TableLayoutPanel10.Controls.Add(Me.txtdetail, 1, 3)
-        Me.TableLayoutPanel10.Controls.Add(Me.txtname, 1, 2)
-        Me.TableLayoutPanel10.Controls.Add(Me.Label8, 0, 2)
-        Me.TableLayoutPanel10.Controls.Add(Me.Label4, 0, 1)
-        Me.TableLayoutPanel10.Controls.Add(Me.Label11, 0, 0)
-        Me.TableLayoutPanel10.Controls.Add(Me.txtschedID, 1, 0)
-        Me.TableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel10.Location = New System.Drawing.Point(3, 3)
-        Me.TableLayoutPanel10.Name = "TableLayoutPanel10"
-        Me.TableLayoutPanel10.RowCount = 6
-        Me.TableLayoutPanel10.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34.0!))
-        Me.TableLayoutPanel10.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
-        Me.TableLayoutPanel10.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34.0!))
-        Me.TableLayoutPanel10.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38.0!))
-        Me.TableLayoutPanel10.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16.0!))
-        Me.TableLayoutPanel10.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel10.Size = New System.Drawing.Size(698, 141)
-        Me.TableLayoutPanel10.TabIndex = 0
-        '
-        'cborcode
-        '
-        Me.cborcode.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.cborcode.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.cborcode.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cborcode.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.cborcode.FormattingEnabled = True
-        Me.cborcode.Items.AddRange(New Object() {"...", "Temporary", "Monday", "Tuesday", "Wednessday", "Thurday", "Friday", "Saturday"})
-        Me.cborcode.Location = New System.Drawing.Point(136, 37)
-        Me.cborcode.Name = "cborcode"
-        Me.cborcode.Size = New System.Drawing.Size(266, 33)
-        Me.cborcode.TabIndex = 31
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Bold)
-        Me.Label6.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.Label6.Location = New System.Drawing.Point(408, 70)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(76, 34)
-        Me.Label6.TabIndex = 24
-        Me.Label6.Text = "Time In:"
-        Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Bold)
-        Me.Label5.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.Label5.Location = New System.Drawing.Point(408, 34)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(76, 36)
-        Me.Label5.TabIndex = 23
-        Me.Label5.Text = "Date:"
-        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Bold)
-        Me.Label10.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.Label10.Location = New System.Drawing.Point(408, 0)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(76, 34)
-        Me.Label10.TabIndex = 21
-        Me.Label10.Text = "Day:"
-        Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'cboday
-        '
-        Me.cboday.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.cboday.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.cboday.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cboday.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.cboday.FormattingEnabled = True
-        Me.cboday.Items.AddRange(New Object() {"...", "Temporary", "Monday", "Tuesday", "Wednessday", "Thurday", "Friday", "Saturday"})
-        Me.cboday.Location = New System.Drawing.Point(490, 3)
-        Me.cboday.Name = "cboday"
-        Me.cboday.Size = New System.Drawing.Size(205, 33)
-        Me.cboday.TabIndex = 22
-        '
-        'DTPdate
-        '
-        Me.DTPdate.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.DTPdate.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DTPdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.DTPdate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DTPdate.Location = New System.Drawing.Point(490, 37)
-        Me.DTPdate.Name = "DTPdate"
-        Me.DTPdate.Size = New System.Drawing.Size(205, 30)
-        Me.DTPdate.TabIndex = 25
-        '
-        'DTPtimein
-        '
-        Me.DTPtimein.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.DTPtimein.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DTPtimein.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.DTPtimein.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.DTPtimein.Location = New System.Drawing.Point(490, 73)
-        Me.DTPtimein.Name = "DTPtimein"
-        Me.DTPtimein.Size = New System.Drawing.Size(205, 30)
-        Me.DTPtimein.TabIndex = 26
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Bold)
-        Me.Label7.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.Label7.Location = New System.Drawing.Point(408, 104)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(76, 38)
-        Me.Label7.TabIndex = 27
-        Me.Label7.Text = "Time Out:"
-        Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'DTPtimeout
-        '
-        Me.DTPtimeout.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.DTPtimeout.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DTPtimeout.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
-        Me.DTPtimeout.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.DTPtimeout.Location = New System.Drawing.Point(490, 107)
-        Me.DTPtimeout.Name = "DTPtimeout"
-        Me.DTPtimeout.Size = New System.Drawing.Size(205, 30)
-        Me.DTPtimeout.TabIndex = 28
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Bold)
-        Me.Label9.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.Label9.Location = New System.Drawing.Point(3, 104)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(127, 38)
-        Me.Label9.TabIndex = 14
-        Me.Label9.Text = "Detail:"
-        Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'txtdetail
-        '
-        Me.txtdetail.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.txtdetail.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txtdetail.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtdetail.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.txtdetail.Location = New System.Drawing.Point(136, 107)
-        Me.txtdetail.Name = "txtdetail"
-        Me.txtdetail.Size = New System.Drawing.Size(266, 31)
-        Me.txtdetail.TabIndex = 19
-        '
-        'txtname
-        '
-        Me.txtname.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.txtname.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txtname.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtname.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.txtname.Location = New System.Drawing.Point(136, 73)
-        Me.txtname.Name = "txtname"
-        Me.txtname.Size = New System.Drawing.Size(266, 31)
-        Me.txtname.TabIndex = 17
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Bold)
-        Me.Label8.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.Label8.Location = New System.Drawing.Point(3, 70)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(127, 34)
-        Me.Label8.TabIndex = 13
-        Me.Label8.Text = "Room Name:"
-        Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Bold)
-        Me.Label4.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.Label4.Location = New System.Drawing.Point(3, 34)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(127, 36)
-        Me.Label4.TabIndex = 9
-        Me.Label4.Text = "Room Code:"
-        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Bold)
-        Me.Label11.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.Label11.Location = New System.Drawing.Point(3, 0)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(127, 34)
-        Me.Label11.TabIndex = 29
-        Me.Label11.Text = "Schedule Code:"
-        Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'txtschedID
-        '
-        Me.txtschedID.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.txtschedID.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txtschedID.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtschedID.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.txtschedID.Location = New System.Drawing.Point(136, 3)
-        Me.txtschedID.Name = "txtschedID"
-        Me.txtschedID.Size = New System.Drawing.Size(266, 31)
-        Me.txtschedID.TabIndex = 30
         '
         'DGVschedule
         '
@@ -579,39 +236,39 @@ Partial Class Schedule
         Me.DGVschedule.AllowUserToResizeColumns = False
         Me.DGVschedule.AllowUserToResizeRows = False
         Me.DGVschedule.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaption
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.MidnightBlue
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.GradientInactiveCaption
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DGVschedule.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.ActiveCaption
+        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle7.ForeColor = System.Drawing.Color.MidnightBlue
+        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.GradientInactiveCaption
+        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DGVschedule.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle7
         Me.DGVschedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DGVschedule.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.sched_code, Me.room_code, Me.room_name, Me.detail, Me.s_day, Me.s_date, Me.time_in, Me.time_out})
         Me.DGVschedule.Cursor = System.Windows.Forms.Cursors.Default
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.MidnightBlue
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DGVschedule.DefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle8.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle8.ForeColor = System.Drawing.Color.MidnightBlue
+        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DGVschedule.DefaultCellStyle = DataGridViewCellStyle8
         Me.DGVschedule.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DGVschedule.GridColor = System.Drawing.SystemColors.HotTrack
         Me.DGVschedule.Location = New System.Drawing.Point(23, 113)
         Me.DGVschedule.MultiSelect = False
         Me.DGVschedule.Name = "DGVschedule"
         Me.DGVschedule.ReadOnly = True
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.MidnightBlue
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DGVschedule.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle9.ForeColor = System.Drawing.Color.MidnightBlue
+        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DGVschedule.RowHeadersDefaultCellStyle = DataGridViewCellStyle9
         Me.DGVschedule.RowHeadersWidth = 62
         Me.DGVschedule.Size = New System.Drawing.Size(1010, 265)
         Me.DGVschedule.TabIndex = 2
@@ -671,6 +328,349 @@ Partial Class Schedule
         Me.time_out.Name = "time_out"
         Me.time_out.ReadOnly = True
         '
+        'TableLayoutPanel10
+        '
+        Me.TableLayoutPanel10.ColumnCount = 4
+        Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.05444!))
+        Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.96848!))
+        Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.85185!))
+        Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.07407!))
+        Me.TableLayoutPanel10.Controls.Add(Me.cborcode, 1, 1)
+        Me.TableLayoutPanel10.Controls.Add(Me.Label6, 2, 2)
+        Me.TableLayoutPanel10.Controls.Add(Me.Label5, 2, 1)
+        Me.TableLayoutPanel10.Controls.Add(Me.Label10, 2, 0)
+        Me.TableLayoutPanel10.Controls.Add(Me.cboday, 3, 0)
+        Me.TableLayoutPanel10.Controls.Add(Me.DTPdate, 3, 1)
+        Me.TableLayoutPanel10.Controls.Add(Me.DTPtimein, 3, 2)
+        Me.TableLayoutPanel10.Controls.Add(Me.Label7, 2, 3)
+        Me.TableLayoutPanel10.Controls.Add(Me.DTPtimeout, 3, 3)
+        Me.TableLayoutPanel10.Controls.Add(Me.Label9, 0, 3)
+        Me.TableLayoutPanel10.Controls.Add(Me.txtdetail, 1, 3)
+        Me.TableLayoutPanel10.Controls.Add(Me.txtname, 1, 2)
+        Me.TableLayoutPanel10.Controls.Add(Me.Label8, 0, 2)
+        Me.TableLayoutPanel10.Controls.Add(Me.Label4, 0, 1)
+        Me.TableLayoutPanel10.Controls.Add(Me.Label11, 0, 0)
+        Me.TableLayoutPanel10.Controls.Add(Me.txtschedID, 1, 0)
+        Me.TableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel10.Location = New System.Drawing.Point(3, 3)
+        Me.TableLayoutPanel10.Name = "TableLayoutPanel10"
+        Me.TableLayoutPanel10.RowCount = 6
+        Me.TableLayoutPanel10.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34.0!))
+        Me.TableLayoutPanel10.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
+        Me.TableLayoutPanel10.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34.0!))
+        Me.TableLayoutPanel10.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38.0!))
+        Me.TableLayoutPanel10.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16.0!))
+        Me.TableLayoutPanel10.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel10.Size = New System.Drawing.Size(698, 141)
+        Me.TableLayoutPanel10.TabIndex = 0
+        '
+        'txtschedID
+        '
+        Me.txtschedID.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.txtschedID.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txtschedID.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtschedID.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.txtschedID.Location = New System.Drawing.Point(136, 3)
+        Me.txtschedID.Name = "txtschedID"
+        Me.txtschedID.Size = New System.Drawing.Size(266, 31)
+        Me.txtschedID.TabIndex = 30
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Bold)
+        Me.Label11.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.Label11.Location = New System.Drawing.Point(3, 0)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(127, 34)
+        Me.Label11.TabIndex = 29
+        Me.Label11.Text = "Schedule Code:"
+        Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Bold)
+        Me.Label4.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.Label4.Location = New System.Drawing.Point(3, 34)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(127, 36)
+        Me.Label4.TabIndex = 9
+        Me.Label4.Text = "Room Code:"
+        Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Bold)
+        Me.Label8.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.Label8.Location = New System.Drawing.Point(3, 70)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(127, 34)
+        Me.Label8.TabIndex = 13
+        Me.Label8.Text = "Room Name:"
+        Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'txtname
+        '
+        Me.txtname.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.txtname.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txtname.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtname.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.txtname.Location = New System.Drawing.Point(136, 73)
+        Me.txtname.Name = "txtname"
+        Me.txtname.Size = New System.Drawing.Size(266, 31)
+        Me.txtname.TabIndex = 17
+        '
+        'txtdetail
+        '
+        Me.txtdetail.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.txtdetail.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txtdetail.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtdetail.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.txtdetail.Location = New System.Drawing.Point(136, 107)
+        Me.txtdetail.Name = "txtdetail"
+        Me.txtdetail.Size = New System.Drawing.Size(266, 31)
+        Me.txtdetail.TabIndex = 19
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Bold)
+        Me.Label9.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.Label9.Location = New System.Drawing.Point(3, 104)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(127, 38)
+        Me.Label9.TabIndex = 14
+        Me.Label9.Text = "Detail:"
+        Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'DTPtimeout
+        '
+        Me.DTPtimeout.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.DTPtimeout.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DTPtimeout.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.DTPtimeout.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.DTPtimeout.Location = New System.Drawing.Point(490, 107)
+        Me.DTPtimeout.Name = "DTPtimeout"
+        Me.DTPtimeout.Size = New System.Drawing.Size(205, 30)
+        Me.DTPtimeout.TabIndex = 28
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Bold)
+        Me.Label7.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.Label7.Location = New System.Drawing.Point(408, 104)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(76, 38)
+        Me.Label7.TabIndex = 27
+        Me.Label7.Text = "Time Out:"
+        Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'DTPtimein
+        '
+        Me.DTPtimein.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.DTPtimein.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DTPtimein.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.DTPtimein.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.DTPtimein.Location = New System.Drawing.Point(490, 73)
+        Me.DTPtimein.Name = "DTPtimein"
+        Me.DTPtimein.Size = New System.Drawing.Size(205, 30)
+        Me.DTPtimein.TabIndex = 26
+        '
+        'DTPdate
+        '
+        Me.DTPdate.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.DTPdate.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DTPdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
+        Me.DTPdate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.DTPdate.Location = New System.Drawing.Point(490, 37)
+        Me.DTPdate.Name = "DTPdate"
+        Me.DTPdate.Size = New System.Drawing.Size(205, 30)
+        Me.DTPdate.TabIndex = 25
+        '
+        'cboday
+        '
+        Me.cboday.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.cboday.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.cboday.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboday.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.cboday.FormattingEnabled = True
+        Me.cboday.Items.AddRange(New Object() {"...", "Temporary", "Monday", "Tuesday", "Wednessday", "Thurday", "Friday", "Saturday"})
+        Me.cboday.Location = New System.Drawing.Point(490, 3)
+        Me.cboday.Name = "cboday"
+        Me.cboday.Size = New System.Drawing.Size(205, 33)
+        Me.cboday.TabIndex = 22
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Bold)
+        Me.Label10.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.Label10.Location = New System.Drawing.Point(408, 0)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(76, 34)
+        Me.Label10.TabIndex = 21
+        Me.Label10.Text = "Day:"
+        Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Bold)
+        Me.Label5.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.Label5.Location = New System.Drawing.Point(408, 34)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(76, 36)
+        Me.Label5.TabIndex = 23
+        Me.Label5.Text = "Date:"
+        Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Bold)
+        Me.Label6.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.Label6.Location = New System.Drawing.Point(408, 70)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(76, 34)
+        Me.Label6.TabIndex = 24
+        Me.Label6.Text = "Time In:"
+        Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'cborcode
+        '
+        Me.cborcode.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.cborcode.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.cborcode.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cborcode.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.cborcode.FormattingEnabled = True
+        Me.cborcode.Items.AddRange(New Object() {"...", "Temporary", "Monday", "Tuesday", "Wednessday", "Thurday", "Friday", "Saturday"})
+        Me.cborcode.Location = New System.Drawing.Point(136, 37)
+        Me.cborcode.Name = "cborcode"
+        Me.cborcode.Size = New System.Drawing.Size(266, 33)
+        Me.cborcode.TabIndex = 31
+        '
+        'TableLayoutPanel11
+        '
+        Me.TableLayoutPanel11.ColumnCount = 3
+        Me.TableLayoutPanel11.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.TableLayoutPanel11.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.TableLayoutPanel11.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.TableLayoutPanel11.Controls.Add(Me.btndelete, 1, 0)
+        Me.TableLayoutPanel11.Controls.Add(Me.btnselect, 0, 0)
+        Me.TableLayoutPanel11.Controls.Add(Me.btnupdate, 0, 1)
+        Me.TableLayoutPanel11.Controls.Add(Me.btnback, 2, 0)
+        Me.TableLayoutPanel11.Controls.Add(Me.btnAdd, 1, 1)
+        Me.TableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel11.Location = New System.Drawing.Point(707, 3)
+        Me.TableLayoutPanel11.Name = "TableLayoutPanel11"
+        Me.TableLayoutPanel11.RowCount = 3
+        Me.TableLayoutPanel11.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46.0!))
+        Me.TableLayoutPanel11.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel11.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 53.0!))
+        Me.TableLayoutPanel11.Size = New System.Drawing.Size(300, 141)
+        Me.TableLayoutPanel11.TabIndex = 1
+        '
+        'btnAdd
+        '
+        Me.btnAdd.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.btnAdd.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAdd.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.btnAdd.Location = New System.Drawing.Point(103, 49)
+        Me.btnAdd.Name = "btnAdd"
+        Me.btnAdd.Size = New System.Drawing.Size(94, 36)
+        Me.btnAdd.TabIndex = 17
+        Me.btnAdd.Text = "Add"
+        Me.btnAdd.UseVisualStyleBackColor = False
+        '
+        'btnback
+        '
+        Me.btnback.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.btnback.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnback.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnback.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.btnback.Location = New System.Drawing.Point(203, 3)
+        Me.btnback.Name = "btnback"
+        Me.btnback.Size = New System.Drawing.Size(94, 40)
+        Me.btnback.TabIndex = 14
+        Me.btnback.Text = "Back"
+        Me.btnback.UseVisualStyleBackColor = False
+        '
+        'btnupdate
+        '
+        Me.btnupdate.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.btnupdate.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnupdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnupdate.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.btnupdate.Location = New System.Drawing.Point(3, 49)
+        Me.btnupdate.Name = "btnupdate"
+        Me.btnupdate.Size = New System.Drawing.Size(94, 36)
+        Me.btnupdate.TabIndex = 13
+        Me.btnupdate.Text = "Update"
+        Me.btnupdate.UseVisualStyleBackColor = False
+        '
+        'btnselect
+        '
+        Me.btnselect.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.btnselect.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnselect.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnselect.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.btnselect.Location = New System.Drawing.Point(3, 3)
+        Me.btnselect.Name = "btnselect"
+        Me.btnselect.Size = New System.Drawing.Size(94, 40)
+        Me.btnselect.TabIndex = 16
+        Me.btnselect.Text = "Select"
+        Me.btnselect.UseVisualStyleBackColor = False
+        '
+        'btndelete
+        '
+        Me.btndelete.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.btndelete.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btndelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btndelete.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.btndelete.Location = New System.Drawing.Point(103, 3)
+        Me.btndelete.Name = "btndelete"
+        Me.btndelete.Size = New System.Drawing.Size(94, 40)
+        Me.btndelete.TabIndex = 15
+        Me.btndelete.Text = "Delete"
+        Me.btndelete.UseVisualStyleBackColor = False
+        '
+        'TableLayoutPanel7
+        '
+        Me.TableLayoutPanel7.ColumnCount = 2
+        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69.80198!))
+        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.19802!))
+        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel7.Controls.Add(Me.TableLayoutPanel11, 1, 0)
+        Me.TableLayoutPanel7.Controls.Add(Me.TableLayoutPanel10, 0, 0)
+        Me.TableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel7.Location = New System.Drawing.Point(23, 384)
+        Me.TableLayoutPanel7.Name = "TableLayoutPanel7"
+        Me.TableLayoutPanel7.RowCount = 1
+        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 147.0!))
+        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 147.0!))
+        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 147.0!))
+        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 147.0!))
+        Me.TableLayoutPanel7.Size = New System.Drawing.Size(1010, 147)
+        Me.TableLayoutPanel7.TabIndex = 1
+        '
         'Schedule
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -690,11 +690,11 @@ Partial Class Schedule
         Me.TableLayoutPanel8.PerformLayout()
         Me.TableLayoutPanel9.ResumeLayout(False)
         Me.TableLayoutPanel9.PerformLayout()
-        Me.TableLayoutPanel7.ResumeLayout(False)
-        Me.TableLayoutPanel11.ResumeLayout(False)
+        CType(Me.DGVschedule, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel10.ResumeLayout(False)
         Me.TableLayoutPanel10.PerformLayout()
-        CType(Me.DGVschedule, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TableLayoutPanel11.ResumeLayout(False)
+        Me.TableLayoutPanel7.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -709,30 +709,7 @@ Partial Class Schedule
     Friend WithEvents Label3 As Label
     Friend WithEvents txtsearch As TextBox
     Friend WithEvents btnsearch As Button
-    Friend WithEvents TableLayoutPanel7 As TableLayoutPanel
-    Friend WithEvents TableLayoutPanel11 As TableLayoutPanel
-    Friend WithEvents btndelete As Button
-    Friend WithEvents btnselect As Button
-    Friend WithEvents btnupdate As Button
-    Friend WithEvents btnback As Button
-    Friend WithEvents btnAdd As Button
-    Friend WithEvents TableLayoutPanel10 As TableLayoutPanel
-    Friend WithEvents txtdetail As TextBox
-    Friend WithEvents txtname As TextBox
-    Friend WithEvents Label8 As Label
-    Friend WithEvents Label4 As Label
-    Friend WithEvents Label9 As Label
-    Friend WithEvents Label6 As Label
-    Friend WithEvents Label5 As Label
-    Friend WithEvents Label10 As Label
-    Friend WithEvents cboday As ComboBox
-    Friend WithEvents DTPdate As DateTimePicker
-    Friend WithEvents DTPtimein As DateTimePicker
     Friend WithEvents DGVschedule As DataGridView
-    Friend WithEvents Label7 As Label
-    Friend WithEvents DTPtimeout As DateTimePicker
-    Friend WithEvents Label11 As Label
-    Friend WithEvents txtschedID As TextBox
     Friend WithEvents sched_code As DataGridViewTextBoxColumn
     Friend WithEvents room_code As DataGridViewTextBoxColumn
     Friend WithEvents room_name As DataGridViewTextBoxColumn
@@ -741,5 +718,28 @@ Partial Class Schedule
     Friend WithEvents s_date As DataGridViewTextBoxColumn
     Friend WithEvents time_in As DataGridViewTextBoxColumn
     Friend WithEvents time_out As DataGridViewTextBoxColumn
+    Friend WithEvents TableLayoutPanel7 As TableLayoutPanel
+    Friend WithEvents TableLayoutPanel11 As TableLayoutPanel
+    Friend WithEvents btndelete As Button
+    Friend WithEvents btnselect As Button
+    Friend WithEvents btnupdate As Button
+    Friend WithEvents btnback As Button
+    Friend WithEvents btnAdd As Button
+    Friend WithEvents TableLayoutPanel10 As TableLayoutPanel
     Friend WithEvents cborcode As ComboBox
+    Friend WithEvents Label6 As Label
+    Friend WithEvents Label5 As Label
+    Friend WithEvents Label10 As Label
+    Friend WithEvents cboday As ComboBox
+    Friend WithEvents DTPdate As DateTimePicker
+    Friend WithEvents DTPtimein As DateTimePicker
+    Friend WithEvents Label7 As Label
+    Friend WithEvents DTPtimeout As DateTimePicker
+    Friend WithEvents Label9 As Label
+    Friend WithEvents txtdetail As TextBox
+    Friend WithEvents txtname As TextBox
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label11 As Label
+    Friend WithEvents txtschedID As TextBox
 End Class

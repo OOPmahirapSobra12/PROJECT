@@ -319,11 +319,17 @@
     <EmbeddedResource Include="AdminPage2.resx">
       <DependentUpon>AdminPage2.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="adminreport.resx">
+      <DependentUpon>adminreport.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="feedbackreciever.resx">
       <DependentUpon>feedbackreciever.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Staff2.resx">
       <DependentUpon>Staff2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="staffreport.resx">
+      <DependentUpon>staffreport.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="viewreportfeedback.resx">
       <DependentUpon>viewreportfeedback.vb</DependentUpon>

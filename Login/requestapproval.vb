@@ -143,6 +143,9 @@ Public Class requestapproval
             Admin.Show()
         ElseIf access = "mid" Then
             Staff.Show()
+            Dim accountId = U_ID
+            Dim action2 = access
+            staff_requestapproval_logs(accountId, action2)
         Else
             MsgBox("Error, cant go back to the previews UI! ")
         End If

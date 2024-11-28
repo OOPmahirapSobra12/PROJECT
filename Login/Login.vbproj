@@ -168,12 +168,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="logs.vb" />
-    <Compile Include="modifyscheduleadmin.Designer.vb">
-      <DependentUpon>modifyscheduleadmin.vb</DependentUpon>
-    </Compile>
-    <Compile Include="modifyscheduleadmin.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Staffprofile.Designer.vb">
       <DependentUpon>Staffprofile.vb</DependentUpon>
     </Compile>

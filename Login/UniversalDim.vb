@@ -3,4 +3,5 @@
     Public type As String
     Public access As String
     Public M_ID As String
+    Public S_ID As String
 End Module

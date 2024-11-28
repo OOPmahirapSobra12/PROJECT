@@ -37,8 +37,8 @@ Partial Class staff_request_modify
         Me.txtsearch = New System.Windows.Forms.TextBox()
         Me.TableLayoutPanel7 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel11 = New System.Windows.Forms.TableLayoutPanel()
-        Me.btnupdate = New System.Windows.Forms.Button()
         Me.btnback = New System.Windows.Forms.Button()
+        Me.btnupdate = New System.Windows.Forms.Button()
         Me.TableLayoutPanel10 = New System.Windows.Forms.TableLayoutPanel()
         Me.cborcode = New System.Windows.Forms.ComboBox()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -266,19 +266,6 @@ Partial Class staff_request_modify
         Me.TableLayoutPanel11.Size = New System.Drawing.Size(300, 194)
         Me.TableLayoutPanel11.TabIndex = 1
         '
-        'btnupdate
-        '
-        Me.btnupdate.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.btnupdate.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnupdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnupdate.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnupdate.Location = New System.Drawing.Point(3, 3)
-        Me.btnupdate.Name = "btnupdate"
-        Me.btnupdate.Size = New System.Drawing.Size(144, 40)
-        Me.btnupdate.TabIndex = 13
-        Me.btnupdate.Text = "Modify"
-        Me.btnupdate.UseVisualStyleBackColor = False
-        '
         'btnback
         '
         Me.btnback.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
@@ -291,6 +278,19 @@ Partial Class staff_request_modify
         Me.btnback.TabIndex = 14
         Me.btnback.Text = "Back"
         Me.btnback.UseVisualStyleBackColor = False
+        '
+        'btnupdate
+        '
+        Me.btnupdate.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.btnupdate.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnupdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnupdate.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.btnupdate.Location = New System.Drawing.Point(3, 3)
+        Me.btnupdate.Name = "btnupdate"
+        Me.btnupdate.Size = New System.Drawing.Size(144, 40)
+        Me.btnupdate.TabIndex = 13
+        Me.btnupdate.Text = "Modify"
+        Me.btnupdate.UseVisualStyleBackColor = False
         '
         'TableLayoutPanel10
         '

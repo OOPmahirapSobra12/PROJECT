@@ -155,6 +155,12 @@
     <Compile Include="AdminPage2.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="adminreport.Designer.vb">
+      <DependentUpon>adminreport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="adminreport.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="feedbackreciever.Designer.vb">
       <DependentUpon>feedbackreciever.vb</DependentUpon>
     </Compile>
@@ -165,6 +171,18 @@
       <DependentUpon>Staff2.vb</DependentUpon>
     </Compile>
     <Compile Include="Staff2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="staffreport.Designer.vb">
+      <DependentUpon>staffreport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="staffreport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="staff_feedback.Designer.vb">
+      <DependentUpon>staff_feedback.vb</DependentUpon>
+    </Compile>
+    <Compile Include="staff_feedback.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="viewreportfeedback.Designer.vb">

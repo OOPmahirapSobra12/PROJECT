@@ -108,6 +108,8 @@ Public Class Login
                             txtuname.Clear()
                             access = "low"
                             logging_log(accountId, Action)
+                            coursefinder(accountId, course)
+                            sectionfinder(accountId, section)
 
                         Case "mid"
                             Dim mid As New Staff()
@@ -117,6 +119,8 @@ Public Class Login
                             txtpassword.Clear()
                             txtuname.Clear()
                             logging_log(accountId, Action)
+                            coursefinder(accountId, course)
+                            sectionfinder(accountId, section)
                             access = "mid"
 
                         Case "high"
@@ -128,6 +132,8 @@ Public Class Login
                             txtpassword.Clear()
                             txtuname.Clear()
                             logging_log(accountId, Action)
+                            coursefinder(accountId, course)
+                            sectionfinder(accountId, section)
                             access = "high"
 
                         Case Else

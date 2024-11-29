@@ -88,7 +88,7 @@ Public Class Staff
     End Sub
 
     Private Sub btnaccount_Click(sender As Object, e As EventArgs) Handles btnaccount.Click
-        Staffprofile.Show()
+        profile.Show()
         Me.Hide()
     End Sub
 
@@ -166,6 +166,11 @@ Public Class Staff
 
     Private Sub btnreport_Click(sender As Object, e As EventArgs) Handles btnreport.Click
         staffreport.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub btnfeedback_Click(sender As Object, e As EventArgs) Handles btnfeedback.Click
+        staff_feedback.Show()
         Me.Hide()
     End Sub
 End Class

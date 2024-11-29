@@ -189,6 +189,70 @@ Module logs
         End Try
     End Sub
 
+    Public course As String
+    Public section As String
+
+    Public Sub coursefinder(accountId, course)
+        course = "" ' Clear the course initially
+
+        Try
+            If conn.State <> ConnectionState.Open Then
+                DbConnect() ' Ensure the connection is open
+            End If
+
+            Dim query As String = "SELECT course FROM accounts WHERE U_ID = @U_ID LIMIT 1"
+            Dim checkCommand As New MySqlCommand(query, conn)
+            checkCommand.Parameters.AddWithValue("@U_ID", accountId)
+
+            Dim result = checkCommand.ExecuteScalar() ' Fetch the course as a single value
+
+            If result IsNot Nothing Then
+                course = result.ToString() ' Set the course value
+            Else
+                MsgBox("No course found for the given user ID.", MsgBoxStyle.Information, "Information")
+            End If
+
+        Catch ex As MySqlException
+            MsgBox("Database Error: " & ex.Message, MsgBoxStyle.Critical, "Error")
+        Catch ex As Exception
+            MsgBox("Error: " & ex.Message, MsgBoxStyle.Critical, "Error")
+        Finally
+            If conn.State = ConnectionState.Open Then
+                conn.Close() ' Ensure the connection is closed
+            End If
+        End Try
+    End Sub
+
+    Public Sub sectionfinder(accountId, section)
+        section = "" ' Clear the section initially
+
+        Try
+            If conn.State <> ConnectionState.Open Then
+                DbConnect() ' Ensure the connection is open
+            End If
+
+            Dim query As String = "SELECT section FROM accounts WHERE U_ID = @U_ID LIMIT 1"
+            Dim checkCommand As New MySqlCommand(query, conn)
+            checkCommand.Parameters.AddWithValue("@U_ID", accountId)
+
+            Dim result = checkCommand.ExecuteScalar() ' Fetch the section as a single value
+
+            If result IsNot Nothing Then
+                section = result.ToString() ' Set the section value
+            Else
+                MsgBox("No section found for the given user ID.", MsgBoxStyle.Information, "Information")
+            End If
+
+        Catch ex As MySqlException
+            MsgBox("Database Error: " & ex.Message, MsgBoxStyle.Critical, "Error")
+        Catch ex As Exception
+            MsgBox("Error: " & ex.Message, MsgBoxStyle.Critical, "Error")
+        Finally
+            If conn.State = ConnectionState.Open Then
+                conn.Close() ' Ensure the connection is closed
+            End If
+        End Try
+    End Sub
 
 
 End Module

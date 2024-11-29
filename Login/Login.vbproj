@@ -168,10 +168,10 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="logs.vb" />
-    <Compile Include="Staffprofile.Designer.vb">
-      <DependentUpon>Staffprofile.vb</DependentUpon>
+    <Compile Include="profile.Designer.vb">
+      <DependentUpon>profile.vb</DependentUpon>
     </Compile>
-    <Compile Include="Staffprofile.vb">
+    <Compile Include="profile.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="staffreport.Designer.vb">
@@ -202,6 +202,18 @@
       <DependentUpon>staff_schedule.vb</DependentUpon>
     </Compile>
     <Compile Include="staff_schedule.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="student_feedback.Designer.vb">
+      <DependentUpon>student_feedback.vb</DependentUpon>
+    </Compile>
+    <Compile Include="student_feedback.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="student_schedule.Designer.vb">
+      <DependentUpon>student_schedule.vb</DependentUpon>
+    </Compile>
+    <Compile Include="student_schedule.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="viewreportfeedback.Designer.vb">
@@ -344,8 +356,8 @@
     <EmbeddedResource Include="admin_feedback.resx">
       <DependentUpon>admin_feedback.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Staffprofile.resx">
-      <DependentUpon>Staffprofile.vb</DependentUpon>
+    <EmbeddedResource Include="profile.resx">
+      <DependentUpon>profile.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="staffreport.resx">
       <DependentUpon>staffreport.vb</DependentUpon>
@@ -361,6 +373,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="staff_schedule.resx">
       <DependentUpon>staff_schedule.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="student_feedback.resx">
+      <DependentUpon>student_feedback.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="student_schedule.resx">
+      <DependentUpon>student_schedule.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="viewreportfeedback.resx">
       <DependentUpon>viewreportfeedback.vb</DependentUpon>

@@ -2,7 +2,7 @@
 Imports System.Windows.Forms
 Imports System.Data
 
-Public Class Staffprofile
+Public Class profile
 
     Private Sub Staff2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If conn.State = ConnectionState.Open Then

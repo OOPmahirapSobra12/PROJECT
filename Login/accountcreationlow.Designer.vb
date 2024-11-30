@@ -23,28 +23,28 @@ Partial Class accountcreationlow
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.txtuname = New System.Windows.Forms.TextBox()
-        Me.password = New System.Windows.Forms.Label()
-        Me.welcome = New System.Windows.Forms.Label()
-        Me.txtpassword = New System.Windows.Forms.TextBox()
-        Me.username = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.txtID = New System.Windows.Forms.TextBox()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.txtFname = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.txtLname = New System.Windows.Forms.TextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.txtcourse = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.txtcourse = New System.Windows.Forms.TextBox()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+        Me.txtuname = New System.Windows.Forms.TextBox()
+        Me.password = New System.Windows.Forms.Label()
+        Me.welcome = New System.Windows.Forms.Label()
+        Me.txtpassword = New System.Windows.Forms.TextBox()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.txtID = New System.Windows.Forms.TextBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.username = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1.SuspendLayout()
-        Me.TableLayoutPanel2.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
+        Me.TableLayoutPanel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'TableLayoutPanel1
@@ -62,6 +62,127 @@ Partial Class accountcreationlow
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(800, 450)
         Me.TableLayoutPanel1.TabIndex = 0
+        '
+        'TableLayoutPanel3
+        '
+        Me.TableLayoutPanel3.BackColor = System.Drawing.Color.Transparent
+        Me.TableLayoutPanel3.ColumnCount = 3
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.50488!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.08187!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2.371709!))
+        Me.TableLayoutPanel3.Controls.Add(Me.Label9, 0, 1)
+        Me.TableLayoutPanel3.Controls.Add(Me.txtFname, 1, 1)
+        Me.TableLayoutPanel3.Controls.Add(Me.Label10, 0, 2)
+        Me.TableLayoutPanel3.Controls.Add(Me.txtLname, 1, 2)
+        Me.TableLayoutPanel3.Controls.Add(Me.Label4, 0, 3)
+        Me.TableLayoutPanel3.Controls.Add(Me.Label1, 0, 4)
+        Me.TableLayoutPanel3.Controls.Add(Me.txtcourse, 1, 3)
+        Me.TableLayoutPanel3.Controls.Add(Me.TextBox1, 1, 4)
+        Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel3.Location = New System.Drawing.Point(403, 3)
+        Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
+        Me.TableLayoutPanel3.RowCount = 7
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 138.0!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.08543!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.59296!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.09548!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.60804!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.61809!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 106.0!))
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(394, 444)
+        Me.TableLayoutPanel3.TabIndex = 3
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.BackColor = System.Drawing.Color.Transparent
+        Me.Label9.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.ForeColor = System.Drawing.Color.NavajoWhite
+        Me.Label9.Location = New System.Drawing.Point(3, 138)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(129, 34)
+        Me.Label9.TabIndex = 23
+        Me.Label9.Text = "First Name:"
+        Me.Label9.TextAlign = System.Drawing.ContentAlignment.TopRight
+        '
+        'txtFname
+        '
+        Me.txtFname.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txtFname.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
+        Me.txtFname.Location = New System.Drawing.Point(138, 141)
+        Me.txtFname.Name = "txtFname"
+        Me.txtFname.Size = New System.Drawing.Size(234, 32)
+        Me.txtFname.TabIndex = 24
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.BackColor = System.Drawing.Color.Transparent
+        Me.Label10.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.ForeColor = System.Drawing.Color.NavajoWhite
+        Me.Label10.Location = New System.Drawing.Point(3, 172)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(129, 37)
+        Me.Label10.TabIndex = 25
+        Me.Label10.Text = "Last Name:"
+        Me.Label10.TextAlign = System.Drawing.ContentAlignment.TopRight
+        '
+        'txtLname
+        '
+        Me.txtLname.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txtLname.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
+        Me.txtLname.Location = New System.Drawing.Point(138, 175)
+        Me.txtLname.Name = "txtLname"
+        Me.txtLname.Size = New System.Drawing.Size(234, 32)
+        Me.txtLname.TabIndex = 26
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.BackColor = System.Drawing.Color.Transparent
+        Me.Label4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.NavajoWhite
+        Me.Label4.Location = New System.Drawing.Point(3, 209)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(129, 38)
+        Me.Label4.TabIndex = 33
+        Me.Label4.Text = "Course:"
+        Me.Label4.TextAlign = System.Drawing.ContentAlignment.TopRight
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.NavajoWhite
+        Me.Label1.Location = New System.Drawing.Point(3, 247)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(129, 43)
+        Me.Label1.TabIndex = 35
+        Me.Label1.Text = "Section:"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.TopRight
+        '
+        'txtcourse
+        '
+        Me.txtcourse.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txtcourse.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
+        Me.txtcourse.Location = New System.Drawing.Point(138, 212)
+        Me.txtcourse.Name = "txtcourse"
+        Me.txtcourse.Size = New System.Drawing.Size(234, 32)
+        Me.txtcourse.TabIndex = 34
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
+        Me.TextBox1.Location = New System.Drawing.Point(138, 250)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(234, 32)
+        Me.TextBox1.TabIndex = 36
         '
         'TableLayoutPanel2
         '
@@ -140,118 +261,6 @@ Partial Class accountcreationlow
         Me.txtpassword.Size = New System.Drawing.Size(234, 32)
         Me.txtpassword.TabIndex = 18
         '
-        'username
-        '
-        Me.username.AutoSize = True
-        Me.username.BackColor = System.Drawing.Color.Transparent
-        Me.username.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.username.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.username.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.username.Location = New System.Drawing.Point(3, 136)
-        Me.username.Name = "username"
-        Me.username.Size = New System.Drawing.Size(129, 35)
-        Me.username.TabIndex = 17
-        Me.username.Text = "Username:"
-        Me.username.TextAlign = System.Drawing.ContentAlignment.TopRight
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.BackColor = System.Drawing.Color.Transparent
-        Me.Label3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.Label3.Location = New System.Drawing.Point(3, 208)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(129, 42)
-        Me.Label3.TabIndex = 27
-        Me.Label3.Text = "ID:"
-        Me.Label3.TextAlign = System.Drawing.ContentAlignment.TopRight
-        '
-        'txtID
-        '
-        Me.txtID.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txtID.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
-        Me.txtID.Location = New System.Drawing.Point(138, 211)
-        Me.txtID.Name = "txtID"
-        Me.txtID.Size = New System.Drawing.Size(234, 32)
-        Me.txtID.TabIndex = 28
-        '
-        'TableLayoutPanel3
-        '
-        Me.TableLayoutPanel3.BackColor = System.Drawing.Color.Transparent
-        Me.TableLayoutPanel3.ColumnCount = 3
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.50488!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.08187!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2.371709!))
-        Me.TableLayoutPanel3.Controls.Add(Me.Label9, 0, 1)
-        Me.TableLayoutPanel3.Controls.Add(Me.txtFname, 1, 1)
-        Me.TableLayoutPanel3.Controls.Add(Me.Label10, 0, 2)
-        Me.TableLayoutPanel3.Controls.Add(Me.txtLname, 1, 2)
-        Me.TableLayoutPanel3.Controls.Add(Me.Label4, 0, 3)
-        Me.TableLayoutPanel3.Controls.Add(Me.Label1, 0, 4)
-        Me.TableLayoutPanel3.Controls.Add(Me.txtcourse, 1, 3)
-        Me.TableLayoutPanel3.Controls.Add(Me.TextBox1, 1, 4)
-        Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel3.Location = New System.Drawing.Point(403, 3)
-        Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
-        Me.TableLayoutPanel3.RowCount = 7
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 138.0!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.08543!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.59296!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.09548!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.60804!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.61809!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 106.0!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(394, 444)
-        Me.TableLayoutPanel3.TabIndex = 3
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.BackColor = System.Drawing.Color.Transparent
-        Me.Label9.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.Label9.Location = New System.Drawing.Point(3, 138)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(129, 34)
-        Me.Label9.TabIndex = 23
-        Me.Label9.Text = "First Name:"
-        Me.Label9.TextAlign = System.Drawing.ContentAlignment.TopRight
-        '
-        'txtFname
-        '
-        Me.txtFname.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txtFname.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
-        Me.txtFname.Location = New System.Drawing.Point(138, 141)
-        Me.txtFname.Name = "txtFname"
-        Me.txtFname.Size = New System.Drawing.Size(234, 32)
-        Me.txtFname.TabIndex = 24
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.BackColor = System.Drawing.Color.Transparent
-        Me.Label10.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.Label10.Location = New System.Drawing.Point(3, 172)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(129, 37)
-        Me.Label10.TabIndex = 25
-        Me.Label10.Text = "Last Name:"
-        Me.Label10.TextAlign = System.Drawing.ContentAlignment.TopRight
-        '
-        'txtLname
-        '
-        Me.txtLname.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txtLname.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
-        Me.txtLname.Location = New System.Drawing.Point(138, 175)
-        Me.txtLname.Name = "txtLname"
-        Me.txtLname.Size = New System.Drawing.Size(234, 32)
-        Me.txtLname.TabIndex = 26
-        '
         'Button1
         '
         Me.Button1.AutoSize = True
@@ -284,51 +293,42 @@ Partial Class accountcreationlow
         Me.Button2.Text = "Create"
         Me.Button2.UseVisualStyleBackColor = False
         '
-        'txtcourse
+        'txtID
         '
-        Me.txtcourse.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txtcourse.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
-        Me.txtcourse.Location = New System.Drawing.Point(138, 212)
-        Me.txtcourse.Name = "txtcourse"
-        Me.txtcourse.Size = New System.Drawing.Size(234, 32)
-        Me.txtcourse.TabIndex = 34
+        Me.txtID.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txtID.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
+        Me.txtID.Location = New System.Drawing.Point(138, 211)
+        Me.txtID.Name = "txtID"
+        Me.txtID.Size = New System.Drawing.Size(234, 32)
+        Me.txtID.TabIndex = 28
         '
-        'Label4
+        'Label3
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.BackColor = System.Drawing.Color.Transparent
-        Me.Label4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.Label4.Location = New System.Drawing.Point(3, 209)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(129, 38)
-        Me.Label4.TabIndex = 33
-        Me.Label4.Text = "Course:"
-        Me.Label4.TextAlign = System.Drawing.ContentAlignment.TopRight
+        Me.Label3.AutoSize = True
+        Me.Label3.BackColor = System.Drawing.Color.Transparent
+        Me.Label3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.NavajoWhite
+        Me.Label3.Location = New System.Drawing.Point(3, 208)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(129, 42)
+        Me.Label3.TabIndex = 27
+        Me.Label3.Text = "ID:"
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
-        'Label1
+        'username
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.Label1.Location = New System.Drawing.Point(3, 247)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(129, 43)
-        Me.Label1.TabIndex = 35
-        Me.Label1.Text = "Section:"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.TopRight
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
-        Me.TextBox1.Location = New System.Drawing.Point(138, 250)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(234, 32)
-        Me.TextBox1.TabIndex = 36
+        Me.username.AutoSize = True
+        Me.username.BackColor = System.Drawing.Color.Transparent
+        Me.username.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.username.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.username.ForeColor = System.Drawing.Color.NavajoWhite
+        Me.username.Location = New System.Drawing.Point(3, 136)
+        Me.username.Name = "username"
+        Me.username.Size = New System.Drawing.Size(129, 35)
+        Me.username.TabIndex = 17
+        Me.username.Text = "Username:"
+        Me.username.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'accountcreationlow
         '
@@ -348,10 +348,10 @@ Partial Class accountcreationlow
         Me.Text = "Form2"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.TableLayoutPanel1.ResumeLayout(False)
-        Me.TableLayoutPanel2.ResumeLayout(False)
-        Me.TableLayoutPanel2.PerformLayout()
         Me.TableLayoutPanel3.ResumeLayout(False)
         Me.TableLayoutPanel3.PerformLayout()
+        Me.TableLayoutPanel2.ResumeLayout(False)
+        Me.TableLayoutPanel2.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub

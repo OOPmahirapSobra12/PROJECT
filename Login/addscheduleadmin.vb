@@ -24,6 +24,44 @@ Public Class addscheduleadmin
         timerefresh()
     End Sub
 
+    Private Sub courseloader()
+        Dim query As String = "SELECT course_name FROM courses ORDER BY course_name"
+
+        ' Clear the ComboBox before loading
+        cbocourse.Items.Clear()
+
+        ' Add the default "Choose" option
+        cbocourse.Items.Add("Choose")
+        cbocourse.SelectedIndex = 0
+
+        Try
+            ' Open the database connection if it is not already open
+            If conn.State = ConnectionState.Closed Then
+                conn.Open()
+            End If
+
+            ' Execute the query
+            Using command As New MySqlCommand(query, conn)
+                Using reader As MySqlDataReader = command.ExecuteReader()
+                    While reader.Read()
+                        ' Add each course name to the ComboBox
+                        cbocourse.Items.Add(reader("course_name").ToString())
+                    End While
+                End Using
+            End Using
+
+            ' Set the default selected index to "Choose"
+            cbocourse.SelectedIndex = 0
+        Catch ex As Exception
+            MessageBox.Show($"Error loading courses: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            ' Close the connection after use
+            conn.Close()
+        End Try
+    End Sub
+
+
+
     Private Sub searchcbo()
         ' Add options to ComboBox
         cbosearch.Items.Add("All")
@@ -139,6 +177,9 @@ Public Class addscheduleadmin
         cbohourin.SelectedIndex = 0
         cbominutein.SelectedIndex = 0
         cboampmin.SelectedIndex = 0
+        cbocourse.SelectedIndex = 0
+        cbosection.SelectedIndex = 0
+        cbosubject.SelectedIndex = 0
     End Sub
 
     Private Sub btnsearch_Click(sender As Object, e As EventArgs) Handles btnsearch.Click
@@ -267,7 +308,10 @@ Public Class addscheduleadmin
        String.IsNullOrEmpty(cboampmin.Text) OrElse
        String.IsNullOrEmpty(cbohourout.Text) OrElse
        String.IsNullOrEmpty(cbominuteout.Text) OrElse
-       String.IsNullOrEmpty(cboampmout.Text) Then
+       String.IsNullOrEmpty(cboampmout.Text) OrElse
+       cbocourse.SelectedIndex = 0 OrElse
+       cbosection.SelectedIndex = 0 OrElse
+       cbosubject.SelectedIndex = 0 Then
             MessageBox.Show("Please fill in all fields before confirming.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return
         End If
@@ -465,15 +509,18 @@ Public Class addscheduleadmin
     Private Sub btnaddschedule_Click(sender As Object, e As EventArgs) Handles btnaddschedule.Click
         ' Ensure all required fields are filled (textboxes and combo boxes)
         If String.IsNullOrEmpty(txtrname.Text) OrElse
-           String.IsNullOrEmpty(txtrcode.Text) OrElse
-           String.IsNullOrEmpty(txtbuilding.Text) OrElse
-           String.IsNullOrEmpty(txtrDD.Text) OrElse
-           String.IsNullOrEmpty(cbohourin.Text) OrElse
-           String.IsNullOrEmpty(cbominutein.Text) OrElse
-           String.IsNullOrEmpty(cboampmin.Text) OrElse
-           String.IsNullOrEmpty(cbohourout.Text) OrElse
-           String.IsNullOrEmpty(cbominuteout.Text) OrElse
-           String.IsNullOrEmpty(cboampmout.Text) Then
+       String.IsNullOrEmpty(txtrcode.Text) OrElse
+       String.IsNullOrEmpty(txtbuilding.Text) OrElse
+       String.IsNullOrEmpty(txtrDD.Text) OrElse
+       String.IsNullOrEmpty(cbohourin.Text) OrElse
+       String.IsNullOrEmpty(cbominutein.Text) OrElse
+       String.IsNullOrEmpty(cboampmin.Text) OrElse
+       String.IsNullOrEmpty(cbohourout.Text) OrElse
+       String.IsNullOrEmpty(cbominuteout.Text) OrElse
+       String.IsNullOrEmpty(cboampmout.Text) OrElse
+       cbosubject.SelectedIndex = 0 OrElse
+       cbocourse.SelectedIndex = 0 OrElse
+       cbosection.SelectedIndex = 0 Then
             MessageBox.Show("Please fill in all fields before confirming.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return
         End If
@@ -493,25 +540,34 @@ Public Class addscheduleadmin
         ' Get the selected date or day for the schedule
         Dim selectedDateOrDay As String = txtrDD.Text
 
+        ' Get selected course, section, and subject
+        Dim selectedCourse As String = cbocourse.SelectedItem.ToString()
+        Dim selectedSection As String = cbosection.SelectedItem.ToString()
+        Dim selectedSubject As String = cbosubject.SelectedItem.ToString()
+
         ' Use the formatted timein and timeout from the timeequation method
         Dim selectedTimeIn As String = timein ' This is the formatted time_in
         Dim selectedTimeOut As String = timeout ' This is the formatted time_out
 
+        ' Declare shed_id (assuming it's generated or set elsewhere)
+        Dim shedId As String = "Generated_Shed_Id" ' Replace with actual logic to generate/set shed_id
+
         ' Determine which table to insert into based on the selected option
         If cboDD.SelectedItem.ToString() = "Today" Or cboDD.SelectedItem.ToString() = "Date" Then
             ' Temporary schedule, insert into schedtemp table
-            Dim query As String = "INSERT INTO schedtemp (requesterID, room, request, request_d, request_t, request_t_in, request_t_out) " &
-                                  "VALUES (@requesterID, @room, @request, @request_d, @request_t, @request_t_in, @request_t_out)"
+            Dim query As String = "INSERT INTO schedtemp (room_code, room_time_in, room_time_out, room_date, shed_id, course, section, subject_name) " &
+                              "VALUES (@room_code, @room_time_in, @room_time_out, @room_date, @shed_id, @course, @section, @subject_name)"
 
             Using command As New MySqlCommand(query, conn)
                 ' Add parameters for the INSERT statement
-                command.Parameters.AddWithValue("@requesterID", requestID) ' Assuming requestID is set earlier
-                command.Parameters.AddWithValue("@room", selectedCode)
-                command.Parameters.AddWithValue("@request", "Room scheduling request")
-                command.Parameters.AddWithValue("@request_d", selectedDateOrDay)
-                command.Parameters.AddWithValue("@request_t", cboDD.SelectedItem.ToString())
-                command.Parameters.AddWithValue("@request_t_in", selectedTimeIn)
-                command.Parameters.AddWithValue("@request_t_out", selectedTimeOut)
+                command.Parameters.AddWithValue("@room_code", selectedCode)
+                command.Parameters.AddWithValue("@room_time_in", selectedTimeIn)
+                command.Parameters.AddWithValue("@room_time_out", selectedTimeOut)
+                command.Parameters.AddWithValue("@room_date", selectedDateOrDay)
+                command.Parameters.AddWithValue("@shed_id", shedId)
+                command.Parameters.AddWithValue("@course", selectedCourse)
+                command.Parameters.AddWithValue("@section", selectedSection)
+                command.Parameters.AddWithValue("@subject_name", selectedSubject)
 
                 Try
                     ' Open the database connection if it's closed
@@ -530,18 +586,20 @@ Public Class addscheduleadmin
             End Using
 
         ElseIf cboDD.SelectedItem.ToString() = "Day" Then
-            ' Permanent schedule, insert into shed table
-            Dim query As String = "INSERT INTO shed (requesterID, room, request, room_day, room_time_in, room_time_out) " &
-                                  "VALUES (@requesterID, @room, @request, @room_day, @room_time_in, @room_time_out)"
+            ' Permanent schedule, insert into sched table
+            Dim query As String = "INSERT INTO sched (room_code, room_time_in, room_time_out, room_day, shed_id, course, section, subject_name) " &
+                              "VALUES (@room_code, @room_time_in, @room_time_out, @room_day, @shed_id, @course, @section, @subject_name)"
 
             Using command As New MySqlCommand(query, conn)
                 ' Add parameters for the INSERT statement
-                command.Parameters.AddWithValue("@requesterID", requestID) ' Assuming requestID is set earlier
-                command.Parameters.AddWithValue("@room", selectedCode)
-                command.Parameters.AddWithValue("@request", "Room scheduling request")
-                command.Parameters.AddWithValue("@room_day", selectedDateOrDay)
+                command.Parameters.AddWithValue("@room_code", selectedCode)
                 command.Parameters.AddWithValue("@room_time_in", selectedTimeIn)
                 command.Parameters.AddWithValue("@room_time_out", selectedTimeOut)
+                command.Parameters.AddWithValue("@room_day", selectedDateOrDay)
+                command.Parameters.AddWithValue("@shed_id", shedId)
+                command.Parameters.AddWithValue("@course", selectedCourse)
+                command.Parameters.AddWithValue("@section", selectedSection)
+                command.Parameters.AddWithValue("@subject_name", selectedSubject)
 
                 Try
                     ' Open the database connection if it's closed
@@ -560,5 +618,115 @@ Public Class addscheduleadmin
             End Using
         End If
     End Sub
+
+
+    Private Sub cbocourse_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbocourse.SelectedIndexChanged
+        ' Ensure a course is selected and not the placeholder "Choose"
+        If cbocourse.SelectedIndex > 0 Then ' Skip if the selected index is the placeholder
+            Dim selectedCourse As String = cbocourse.SelectedItem.ToString()
+            Dim query As String = "SELECT s.sections FROM section s " &
+                                  "INNER JOIN courses c ON s.course_ID = c.course_ID " &
+                                  "WHERE c.course_name = @course_name"
+
+            ' Clear the cbosection items to avoid duplication
+            cbosection.Items.Clear()
+
+            ' Add the default "Choose" option
+            cbosection.Items.Add("Choose")
+            cbosection.SelectedIndex = 0
+
+            Try
+                ' Open the database connection if it is not already open
+                If conn.State = ConnectionState.Closed Then
+                    conn.Open()
+                End If
+
+                ' Execute the query to fetch sections related to the selected course
+                Using command As New MySqlCommand(query, conn)
+                    command.Parameters.AddWithValue("@course_name", selectedCourse)
+
+                    Using reader As MySqlDataReader = command.ExecuteReader()
+                        While reader.Read()
+                            ' Add each section name to the ComboBox
+                            cbosection.Items.Add(reader("sections").ToString())
+                        End While
+                    End Using
+                End Using
+
+                ' Set the default selected index to "Choose"
+                cbosection.SelectedIndex = 0
+
+            Catch ex As Exception
+                MessageBox.Show($"Error loading sections: {ex.Message}",
+                                "Error",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error)
+            Finally
+                ' Close the connection after use
+                conn.Close()
+            End Try
+        Else
+            ' If the user selects "Choose" in cbocourse, reset cbosection
+            cbosection.Items.Clear()
+            cbosection.Items.Add("Choose")
+            cbosection.SelectedIndex = 0
+        End If
+    End Sub
+
+    Private Sub cbosection_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbosection.SelectedIndexChanged
+        ' Ensure a valid section is selected and not the placeholder "Choose"
+        If cbosection.SelectedIndex > 0 Then ' Skip if the selected index is the placeholder
+            Dim selectedSection As String = cbosection.SelectedItem.ToString()
+            Dim selectedCourse As String = cbocourse.SelectedItem.ToString()
+            Dim query As String = "SELECT DISTINCT l.subject_code " &
+                              "FROM listofsubjects l " &
+                              "WHERE l.section = @section AND l.course = @course"
+
+            ' Clear the cbosubject items to avoid duplication
+            cbosubject.Items.Clear()
+
+            ' Add the default "Choose" option at index 0
+            cbosubject.Items.Add("Choose")
+            cbosubject.SelectedIndex = 0
+            Try
+                ' Open the database connection if it is not already open
+                If conn.State = ConnectionState.Closed Then
+                    conn.Open()
+                End If
+
+                ' Execute the query to fetch subjects related to the selected section and course
+                Using command As New MySqlCommand(query, conn)
+                    command.Parameters.AddWithValue("@section", selectedSection)
+                    command.Parameters.AddWithValue("@course", selectedCourse)
+
+                    Using reader As MySqlDataReader = command.ExecuteReader()
+                        While reader.Read()
+                            ' Add each subject code to the ComboBox, starting from index 1
+                            cbosubject.Items.Add(reader("subject_code").ToString())
+                        End While
+                    End Using
+                End Using
+
+                ' Set the default selected index to "Choose"
+                cbosubject.SelectedIndex = 0
+
+            Catch ex As Exception
+                MessageBox.Show($"Error loading subjects: {ex.Message}",
+                            "Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error)
+            Finally
+                ' Close the connection after use
+                conn.Close()
+            End Try
+        Else
+            ' If the user selects "Choose" in cbosection, reset cbosubject
+            cbosubject.Items.Clear()
+            cbosubject.Items.Add("Choose")
+            cbosubject.SelectedIndex = 0
+        End If
+    End Sub
+
+
 
 End Class

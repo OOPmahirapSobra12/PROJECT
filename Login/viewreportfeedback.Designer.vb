@@ -181,7 +181,7 @@ Partial Class viewreportfeedback
         Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.53989!))
         Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.99629!))
         Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.0!))
-        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 57.0!))
+        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60.0!))
         Me.TableLayoutPanel6.Controls.Add(Me.Label4, 1, 2)
         Me.TableLayoutPanel6.Controls.Add(Me.Label2, 1, 0)
         Me.TableLayoutPanel6.Controls.Add(Me.Label3, 1, 1)
@@ -249,7 +249,7 @@ Partial Class viewreportfeedback
         Me.txtusername.Location = New System.Drawing.Point(152, 3)
         Me.txtusername.Name = "txtusername"
         Me.txtusername.ReadOnly = True
-        Me.txtusername.Size = New System.Drawing.Size(152, 31)
+        Me.txtusername.Size = New System.Drawing.Size(151, 31)
         Me.txtusername.TabIndex = 105
         '
         'Label1
@@ -258,7 +258,7 @@ Partial Class viewreportfeedback
         Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.Label1.Location = New System.Drawing.Point(310, 0)
+        Me.Label1.Location = New System.Drawing.Point(309, 0)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(84, 33)
         Me.Label1.TabIndex = 107
@@ -271,7 +271,7 @@ Partial Class viewreportfeedback
         Me.Label5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.Label5.Location = New System.Drawing.Point(310, 33)
+        Me.Label5.Location = New System.Drawing.Point(309, 33)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(84, 33)
         Me.Label5.TabIndex = 108
@@ -284,7 +284,7 @@ Partial Class viewreportfeedback
         Me.txtdate.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!)
         Me.txtdate.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.txtdate.Location = New System.Drawing.Point(400, 3)
+        Me.txtdate.Location = New System.Drawing.Point(399, 3)
         Me.txtdate.Name = "txtdate"
         Me.txtdate.ReadOnly = True
         Me.txtdate.Size = New System.Drawing.Size(119, 31)
@@ -296,7 +296,7 @@ Partial Class viewreportfeedback
         Me.txttime.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txttime.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!)
         Me.txttime.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.txttime.Location = New System.Drawing.Point(400, 36)
+        Me.txttime.Location = New System.Drawing.Point(399, 36)
         Me.txttime.Name = "txttime"
         Me.txttime.ReadOnly = True
         Me.txttime.Size = New System.Drawing.Size(119, 31)
@@ -313,7 +313,7 @@ Partial Class viewreportfeedback
         Me.cbotype.Items.AddRange(New Object() {"Choose:", "Report", "Feedback"})
         Me.cbotype.Location = New System.Drawing.Point(152, 36)
         Me.cbotype.Name = "cbotype"
-        Me.cbotype.Size = New System.Drawing.Size(152, 33)
+        Me.cbotype.Size = New System.Drawing.Size(151, 33)
         Me.cbotype.TabIndex = 111
         '
         'viewreportfeedback

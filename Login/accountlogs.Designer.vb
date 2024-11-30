@@ -91,7 +91,7 @@ Partial Class accountlogs
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.81482!))
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.03704!))
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.14815!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 39.0!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
         Me.TableLayoutPanel3.Controls.Add(Me.cbosearch, 1, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.txtsearchbox, 2, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.btnsearch, 3, 0)
@@ -127,7 +127,7 @@ Partial Class accountlogs
         Me.txtsearchbox.ForeColor = System.Drawing.Color.MidnightBlue
         Me.txtsearchbox.Location = New System.Drawing.Point(178, 3)
         Me.txtsearchbox.Name = "txtsearchbox"
-        Me.txtsearchbox.Size = New System.Drawing.Size(240, 31)
+        Me.txtsearchbox.Size = New System.Drawing.Size(239, 31)
         Me.txtsearchbox.TabIndex = 92
         '
         'btnsearch
@@ -138,9 +138,9 @@ Partial Class accountlogs
         Me.btnsearch.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnsearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnsearch.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnsearch.Location = New System.Drawing.Point(424, 3)
+        Me.btnsearch.Location = New System.Drawing.Point(423, 3)
         Me.btnsearch.Name = "btnsearch"
-        Me.btnsearch.Size = New System.Drawing.Size(115, 41)
+        Me.btnsearch.Size = New System.Drawing.Size(114, 41)
         Me.btnsearch.TabIndex = 93
         Me.btnsearch.Text = "btnsearch"
         Me.btnsearch.UseVisualStyleBackColor = False

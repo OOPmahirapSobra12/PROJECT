@@ -2,58 +2,28 @@
 Imports ConnectionModule
 Public Class accountcreationlow
     Private Sub Form2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        ' Create a new TableLayoutPanel and set Dock to fill the form
-        Dim tableLayoutPanel As New TableLayoutPanel()
-        tableLayoutPanel.Dock = DockStyle.Fill
-
-        ' Set the number of rows and columns
-        tableLayoutPanel.RowCount = 6
-        tableLayoutPanel.ColumnCount = 5
-
-        ' Define row styles based on the percentages you provided
-        tableLayoutPanel.RowStyles.Add(New RowStyle(SizeType.Percent, 33.56F)) ' Row 1
-        tableLayoutPanel.RowStyles.Add(New RowStyle(SizeType.Percent, 7.56F))  ' Row 2
-        tableLayoutPanel.RowStyles.Add(New RowStyle(SizeType.Percent, 8.67F))  ' Row 3
-        tableLayoutPanel.RowStyles.Add(New RowStyle(SizeType.Percent, 9.56F))  ' Row 4
-        tableLayoutPanel.RowStyles.Add(New RowStyle(SizeType.Percent, 8.22F))  ' Row 5
-        tableLayoutPanel.RowStyles.Add(New RowStyle(SizeType.Percent, 33.56F)) ' Row 6
-
-        ' Define column styles based on the percentages you provided
-        tableLayoutPanel.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 33.33F)) ' Column 1
-        tableLayoutPanel.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 16.67F)) ' Column 2
-        tableLayoutPanel.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 16.67F)) ' Column 3
-        tableLayoutPanel.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 31.13F)) ' Column 4
-        tableLayoutPanel.ColumnStyles.Add(New ColumnStyle(SizeType.Percent, 2.38F))  ' Column 5
-
-        ' Optionally, add controls to specific cells
-        Dim label1 As New Label()
-        label1.Text = "Label 1"
-        label1.Dock = DockStyle.Fill
-        tableLayoutPanel.Controls.Add(label1, 0, 0) ' (column, row)
-
-        ' Add TableLayoutPanel to the form
-        Me.Controls.Add(tableLayoutPanel)
+        If conn.State = ConnectionState.Open Then
+            conn.Close()
+        End If
         DbConnect() ' Ensure the connection is established when the form loads
     End Sub
 
-    Private Sub btnexit_Click(sender As Object, e As EventArgs) Handles btnexit.Click
-        ' Ensure the connection is closed
-        If conn IsNot Nothing AndAlso conn.State = ConnectionState.Open Then
-            conn.Close()
-        End If
+    Private Sub btnexit_Click(sender As Object, e As EventArgs)
         Dim login As New Login()
         login.Show() ' Show Form1
         Me.Close() ' Hide Form2
     End Sub
 
-    Private Sub btncreate_Click(sender As Object, e As EventArgs) Handles btncreate.Click
+    Private Sub btncreate_Click(sender As Object, e As EventArgs)
         Dim username As String = txtuname.Text.Trim()
         Dim password As String = txtpassword.Text.Trim()
         Dim fname As String = txtFname.Text.Trim()
         Dim lname As String = txtLname.Text.Trim()
         Dim id As String = txtID.Text.Trim()
+        Dim section As String = TextBox1.Text.Trim()
+        Dim course As String = txtcourse.Text.Trim()
 
-        If username = "" OrElse password = "" OrElse fname = "" OrElse lname = "" OrElse id = "" Then
+        If username = "" OrElse password = "" OrElse fname = "" OrElse lname = "" OrElse id = "" OrElse section = "" OrElse course = "" Then
             MsgBox("Error! Please answer everything and don't leave any blanks")
             Return
         End If
@@ -64,7 +34,7 @@ Public Class accountcreationlow
                 DbConnect()
             End If
 
-            Dim query As String = "insert into accounts (username,pword,fname,lname,ID,accesslevel) values (@username,@pword,@fname,@lname,@ID,'Low');"
+            Dim query As String = "insert into accounts (username,pword,fname,lname,ID,course,section,accesslevel) values (@username,@pword,@fname,@lname,@ID,@course,@section,'Low');"
             Dim logging As New MySqlCommand(query, conn)
 
             ' Add parameters to the command
@@ -73,16 +43,20 @@ Public Class accountcreationlow
             logging.Parameters.AddWithValue("@fname", fname)
             logging.Parameters.AddWithValue("@lname", lname)
             logging.Parameters.AddWithValue("@ID", id)
+            logging.Parameters.AddWithValue("@course", course)
+            logging.Parameters.AddWithValue("@section", section)
 
             ' adding to mysql database
             Dim rowsAffected As Integer = logging.ExecuteNonQuery()
             If rowsAffected > 0 Then
-                MsgBox("Account created successfully! " & username & " " & password & " " & lname & "," & fname & " " & id)
+                MsgBox("Account created successfully! " & username & " " & id & password & " " & lname & "," & fname & " of " & course & "-" & " ")
                 txtuname.Clear()
                 txtpassword.Clear()
                 txtFname.Clear()
                 txtLname.Clear()
                 txtID.Clear()
+                txtcourse.Clear()
+                TextBox1.Clear()
             Else
                 MsgBox("Account creation failed!")
             End If
@@ -97,9 +71,5 @@ Public Class accountcreationlow
                 conn.Close()
             End If
         End Try
-    End Sub
-
-    Private Sub TableLayoutPanel1_Paint(sender As Object, e As PaintEventArgs) Handles TableLayoutPanel1.Paint
-
     End Sub
 End Class

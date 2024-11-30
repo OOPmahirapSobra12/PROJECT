@@ -334,7 +334,7 @@ Partial Class profile
         Me.btnpic.Text = "Update Pic:"
         Me.btnpic.UseVisualStyleBackColor = False
         '
-        'Staffprofile
+        'profile
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -343,7 +343,7 @@ Partial Class profile
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "Staffprofile"
+        Me.Name = "profile"
         Me.Text = "Form1"
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel3.ResumeLayout(False)

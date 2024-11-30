@@ -51,10 +51,10 @@ Partial Class addscheduleadmin
         Me.cbohourin = New System.Windows.Forms.ComboBox()
         Me.DGVrooms = New System.Windows.Forms.DataGridView()
         Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
-        Me.btnback = New System.Windows.Forms.Button()
         Me.btnclear = New System.Windows.Forms.Button()
         Me.btnaddschedule = New System.Windows.Forms.Button()
         Me.btnconfirm = New System.Windows.Forms.Button()
+        Me.btnback = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
@@ -503,20 +503,6 @@ Partial Class addscheduleadmin
         Me.TableLayoutPanel5.Size = New System.Drawing.Size(754, 38)
         Me.TableLayoutPanel5.TabIndex = 1
         '
-        'btnback
-        '
-        Me.btnback.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.btnback.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnback.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnback.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnback.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnback.Location = New System.Drawing.Point(567, 3)
-        Me.btnback.Name = "btnback"
-        Me.btnback.Size = New System.Drawing.Size(184, 32)
-        Me.btnback.TabIndex = 0
-        Me.btnback.Text = "Back"
-        Me.btnback.UseVisualStyleBackColor = False
-        '
         'btnclear
         '
         Me.btnclear.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
@@ -558,6 +544,20 @@ Partial Class addscheduleadmin
         Me.btnconfirm.TabIndex = 15
         Me.btnconfirm.Text = "Confirm"
         Me.btnconfirm.UseVisualStyleBackColor = False
+        '
+        'btnback
+        '
+        Me.btnback.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.btnback.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnback.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnback.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnback.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.btnback.Location = New System.Drawing.Point(567, 3)
+        Me.btnback.Name = "btnback"
+        Me.btnback.Size = New System.Drawing.Size(184, 32)
+        Me.btnback.TabIndex = 0
+        Me.btnback.Text = "Back"
+        Me.btnback.UseVisualStyleBackColor = False
         '
         'Label3
         '

@@ -2,7 +2,7 @@
 Imports System.Windows.Forms
 Imports System.Data
 
-Public Class Report_Feedbacksender
+Public Class FeedbackReport_Sender
     Dim nowdate As String
     Dim nowtime As String
 

@@ -15,7 +15,7 @@ Public Class adminreport
     End Sub
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
-        Report_Feedbacksender.Show()
+        FeedbackReport_Sender.Show()
         type = "report"
     End Sub
 

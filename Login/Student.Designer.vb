@@ -35,7 +35,6 @@ Partial Class Student
         Me.btnroomlist = New System.Windows.Forms.Button()
         Me.btnschedule = New System.Windows.Forms.Button()
         Me.btnfeedback = New System.Windows.Forms.Button()
-        Me.btnreport = New System.Windows.Forms.Button()
         Me.btnlogout = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
@@ -146,20 +145,18 @@ Partial Class Student
         Me.TableLayoutPanel2.Controls.Add(Me.btnroomlist, 0, 2)
         Me.TableLayoutPanel2.Controls.Add(Me.btnschedule, 0, 3)
         Me.TableLayoutPanel2.Controls.Add(Me.btnfeedback, 0, 4)
-        Me.TableLayoutPanel2.Controls.Add(Me.btnreport, 0, 5)
-        Me.TableLayoutPanel2.Controls.Add(Me.btnlogout, 0, 6)
+        Me.TableLayoutPanel2.Controls.Add(Me.btnlogout, 0, 5)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(456, 3)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
-        Me.TableLayoutPanel2.RowCount = 8
+        Me.TableLayoutPanel2.RowCount = 7
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 27.87234!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.80851!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.11111!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40.0!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(448, 493)
         Me.TableLayoutPanel2.TabIndex = 0
@@ -172,9 +169,9 @@ Partial Class Student
         Me.btnaccount.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnaccount.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnaccount.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.btnaccount.Location = New System.Drawing.Point(3, 134)
+        Me.btnaccount.Location = New System.Drawing.Point(3, 144)
         Me.btnaccount.Name = "btnaccount"
-        Me.btnaccount.Size = New System.Drawing.Size(442, 73)
+        Me.btnaccount.Size = New System.Drawing.Size(442, 79)
         Me.btnaccount.TabIndex = 54
         Me.btnaccount.Text = "Name (View Account)"
         Me.btnaccount.UseVisualStyleBackColor = False
@@ -187,9 +184,9 @@ Partial Class Student
         Me.btnroomlist.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnroomlist.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnroomlist.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.btnroomlist.Location = New System.Drawing.Point(3, 213)
+        Me.btnroomlist.Location = New System.Drawing.Point(3, 229)
         Me.btnroomlist.Name = "btnroomlist"
-        Me.btnroomlist.Size = New System.Drawing.Size(442, 46)
+        Me.btnroomlist.Size = New System.Drawing.Size(442, 50)
         Me.btnroomlist.TabIndex = 55
         Me.btnroomlist.Text = "Roomlist"
         Me.btnroomlist.UseVisualStyleBackColor = False
@@ -202,9 +199,9 @@ Partial Class Student
         Me.btnschedule.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnschedule.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnschedule.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.btnschedule.Location = New System.Drawing.Point(3, 265)
+        Me.btnschedule.Location = New System.Drawing.Point(3, 285)
         Me.btnschedule.Name = "btnschedule"
-        Me.btnschedule.Size = New System.Drawing.Size(442, 46)
+        Me.btnschedule.Size = New System.Drawing.Size(442, 50)
         Me.btnschedule.TabIndex = 56
         Me.btnschedule.Text = "Schedule"
         Me.btnschedule.UseVisualStyleBackColor = False
@@ -217,27 +214,12 @@ Partial Class Student
         Me.btnfeedback.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnfeedback.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnfeedback.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.btnfeedback.Location = New System.Drawing.Point(3, 317)
+        Me.btnfeedback.Location = New System.Drawing.Point(3, 341)
         Me.btnfeedback.Name = "btnfeedback"
-        Me.btnfeedback.Size = New System.Drawing.Size(442, 46)
+        Me.btnfeedback.Size = New System.Drawing.Size(442, 50)
         Me.btnfeedback.TabIndex = 57
-        Me.btnfeedback.Text = "Feedback"
+        Me.btnfeedback.Text = "Feedback / Report"
         Me.btnfeedback.UseVisualStyleBackColor = False
-        '
-        'btnreport
-        '
-        Me.btnreport.AutoSize = True
-        Me.btnreport.BackColor = System.Drawing.Color.Transparent
-        Me.btnreport.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnreport.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnreport.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnreport.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.btnreport.Location = New System.Drawing.Point(3, 369)
-        Me.btnreport.Name = "btnreport"
-        Me.btnreport.Size = New System.Drawing.Size(442, 46)
-        Me.btnreport.TabIndex = 58
-        Me.btnreport.Text = "Report"
-        Me.btnreport.UseVisualStyleBackColor = False
         '
         'btnlogout
         '
@@ -247,9 +229,9 @@ Partial Class Student
         Me.btnlogout.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnlogout.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnlogout.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.btnlogout.Location = New System.Drawing.Point(3, 421)
+        Me.btnlogout.Location = New System.Drawing.Point(3, 397)
         Me.btnlogout.Name = "btnlogout"
-        Me.btnlogout.Size = New System.Drawing.Size(442, 46)
+        Me.btnlogout.Size = New System.Drawing.Size(442, 50)
         Me.btnlogout.TabIndex = 59
         Me.btnlogout.Text = "Log-Out"
         Me.btnlogout.UseVisualStyleBackColor = False
@@ -288,7 +270,6 @@ Partial Class Student
     Friend WithEvents btnroomlist As Button
     Friend WithEvents btnschedule As Button
     Friend WithEvents btnfeedback As Button
-    Friend WithEvents btnreport As Button
     Friend WithEvents btnlogout As Button
     Friend WithEvents subject As DataGridViewTextBoxColumn
     Friend WithEvents time As DataGridViewTextBoxColumn

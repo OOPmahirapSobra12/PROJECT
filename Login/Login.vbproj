@@ -301,10 +301,10 @@
     <Compile Include="Schedule.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Report_Feedbacksender.Designer.vb">
-      <DependentUpon>Report_Feedbacksender.vb</DependentUpon>
+    <Compile Include="FeedbackReport_Sender.Designer.vb">
+      <DependentUpon>FeedbackReport_Sender.vb</DependentUpon>
     </Compile>
-    <Compile Include="Report_Feedbacksender.vb">
+    <Compile Include="FeedbackReport_Sender.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Student.Designer.vb">
@@ -428,8 +428,8 @@
     <EmbeddedResource Include="ScheduleStudent.resx">
       <DependentUpon>ScheduleStudent.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Report_Feedbacksender.resx">
-      <DependentUpon>Report_Feedbacksender.vb</DependentUpon>
+    <EmbeddedResource Include="FeedbackReport_Sender.resx">
+      <DependentUpon>FeedbackReport_Sender.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Student.resx">
       <DependentUpon>Student.vb</DependentUpon>

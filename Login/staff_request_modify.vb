@@ -3,70 +3,108 @@ Imports System.Windows.Forms
 Imports System.Data
 
 Public Class staff_request_modify
-    ' Load data into DataGridView
-    Private Sub ScheduleForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    Private Sub staff_request_modify_load(sender As Object, e As EventArgs) Handles MyBase.Load
         If conn.State <> ConnectionState.Open Then
             conn.Close()
         End If
         DbConnect()
-        loadtable()
-        datetimeformat()
         formatloader()
+        datetimeformat()
+        FillCourseComboBox()
+        FillSectionComboBox()
+        FillSubjectComboBox()
     End Sub
 
-    Public Sub formatloader()
-        DTPdate.Enabled = False
-        DTPdate.Value = DateTime.Now
-        DTPtimein.Value = DateTime.Now
-        cboType.SelectedIndex = 0
-        cborcodeloader()
-    End Sub
-
-    Public Sub cborcodeloader()
-        ' SQL Query to select room_code from roomlist
-        Dim sqlQuery As String = "SELECT room_code FROM roomlist"
-        Dim command As New MySqlCommand(sqlQuery, conn)
-
+    Public Sub schedulereciever(shedId As String, roomCode As String, roomName As String, subject As String,
+                            timeIn As String, timeOut As String, course As String, section As String,
+                            roomDay As String, roomDate As String)
         Try
-            ' Open the database connection if it's not already open
-            If conn.State <> ConnectionState.Open Then
-                conn.Open()
+            ' Populate controls with the selected row data
+            txtschedID.Text = shedId
+            cborcode.Text = roomCode
+            txtname.Text = roomName
+
+            ' Handle ComboBox for subject
+            If Not String.IsNullOrEmpty(subject) Then
+                cbosubject.SelectedItem = subject
+            Else
+                cbosubject.SelectedIndex = -1 ' No selection
             End If
 
-            ' Execute the query and read the data
-            Dim reader As MySqlDataReader = command.ExecuteReader()
+            ' Set time pickers with proper parsing and validation
+            If Not String.IsNullOrEmpty(timeIn) Then
+                DTPtimein.Value = DateTime.Parse(timeIn)
+            Else
+                DTPtimein.Value = DateTime.Now
+            End If
 
-            ' Temporarily hold room codes
-            Dim roomCodes As New List(Of String)
+            If Not String.IsNullOrEmpty(timeOut) Then
+                DTPtimeout.Value = DateTime.Parse(timeOut)
+            Else
+                DTPtimeout.Value = DateTime.Now
+            End If
 
-            ' Add the default "Choose" option at the start
-            roomCodes.Add("Choose")
+            ' Handle ComboBox for course
+            If Not String.IsNullOrEmpty(course) Then
+                cbocourse.SelectedItem = course
+            Else
+                cbocourse.SelectedIndex = -1 ' No selection
+            End If
 
-            ' Loop through the result set and add room_code to the list
-            While reader.Read()
-                roomCodes.Add(reader("room_code").ToString())
-            End While
+            ' Handle ComboBox for section
+            If Not String.IsNullOrEmpty(section) Then
+                cbosection.SelectedItem = section
+            Else
+                cbosection.SelectedIndex = -1 ' No selection
+            End If
 
-            ' Clear any existing items in the ComboBox
-            cborcode.Items.Clear()
+            ' Handle the ComboBox and DateTimePicker logic based on roomDay and roomDate
+            If String.IsNullOrEmpty(roomDay) OrElse roomDay = "N/A" Then
+                ' Enable DateTimePicker for date selection
+                cboday.SelectedIndex = 1 ' Assume "Date Selection" index is 1
+                DTPdate.Enabled = True
+                If Not String.IsNullOrEmpty(roomDate) Then
+                    DTPdate.Value = DateTime.Parse(roomDate)
+                Else
+                    DTPdate.Value = DateTime.Now
+                End If
+            ElseIf String.IsNullOrEmpty(roomDate) OrElse roomDate = "N/A" Then
+                ' Enable ComboBox for day selection
+                DTPdate.Enabled = False
+                Select Case roomDay.ToLower()
+                    Case "monday"
+                        cboday.SelectedIndex = 2
+                    Case "tuesday"
+                        cboday.SelectedIndex = 3
+                    Case "wednesday"
+                        cboday.SelectedIndex = 4
+                    Case "thursday"
+                        cboday.SelectedIndex = 5
+                    Case "friday"
+                        cboday.SelectedIndex = 6
+                    Case "saturday"
+                        cboday.SelectedIndex = 7
+                    Case Else
+                        cboday.SelectedIndex = 0 ' Default to blank or temporary
+                End Select
+            End If
 
-            ' Add the items to the ComboBox in one go
-            cborcode.Items.AddRange(roomCodes.ToArray())
-
-            ' Ensure "Choose" is selected by default
-            cborcode.SelectedIndex = 0
+            ' Optionally, disable editing of specific controls
+            txtschedID.Enabled = False
+            txtname.Enabled = False
 
         Catch ex As Exception
-            MessageBox.Show("Error loading room codes: " & ex.Message)
-        Finally
-            ' Close the reader and connection
-            If conn.State = ConnectionState.Open Then
-                conn.Close()
-            End If
+            MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
 
+    Private Sub formatloader()
+        DTPdate.Enabled = False
+        DTPdate.Value = DateTime.Now
+        DTPtimein.Value = DateTime.Now
+    End Sub
     Public Sub datetimeformat()
         ' Date-only DateTimePicker (DTPdate)
         DTPdate.Format = DateTimePickerFormat.Short  ' Displays only the date (e.g., 11/17/2024)
@@ -81,64 +119,6 @@ Public Class staff_request_modify
         DTPtimeout.CustomFormat = "HH:mm"
         DTPtimeout.ShowUpDown = True
     End Sub
-
-    Public Sub loadtable()
-        Dim sqlQuery As String = "
-        SELECT 
-            room_code, 
-            room_name, 
-            building, 
-            num_chairs, 
-            num_computers, 
-            num_laptops, 
-            room_status,
-            CASE 
-                WHEN room_status = 'Open' THEN occupancy_status 
-                ELSE 'Closed' 
-            END AS display_status
-        FROM roomlist"
-        Dim dataAdapter As New MySqlDataAdapter(sqlQuery, conn)
-        Dim dataTable As New DataTable()
-
-        Try
-            ' Ensure the connection is open
-            If conn.State <> ConnectionState.Open Then
-                conn.Open()
-            End If
-
-            dataAdapter.Fill(dataTable)
-            DGVroomlist.AutoGenerateColumns = False
-            DGVroomlist.DataSource = dataTable
-
-            ' Map data to columns
-            For Each column As DataGridViewColumn In DGVroomlist.Columns
-                Select Case column.Name
-                    Case "room_code"
-                        column.DataPropertyName = "room_code"
-                    Case "room_name"
-                        column.DataPropertyName = "room_name"
-                    Case "building"
-                        column.DataPropertyName = "building"
-                    Case "num_chairs"
-                        column.DataPropertyName = "num_chairs"
-                    Case "num_computers"
-                        column.DataPropertyName = "num_computers"
-                    Case "num_laptops"
-                        column.DataPropertyName = "num_laptops"
-                    Case "status"
-                        column.DataPropertyName = "display_status" ' Use the calculated column
-                End Select
-            Next
-        Catch ex As Exception
-            MessageBox.Show("Error loading room data: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        Finally
-            ' Always close the connection after use
-            If conn.State = ConnectionState.Open Then
-                conn.Close()
-            End If
-        End Try
-    End Sub
-
     Private Sub cboday_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboday.SelectedIndexChanged
         ' Check the selected index of the ComboBox
         If cboday.SelectedIndex = 1 Then
@@ -151,186 +131,386 @@ Public Class staff_request_modify
     End Sub
 
     Private Sub btnupdate_Click(sender As Object, e As EventArgs) Handles btnupdate.Click
-        ' Ensure that all required fields are filled before proceeding
+        ' Ensure all required fields are filled
         If String.IsNullOrEmpty(txtschedID.Text) OrElse String.IsNullOrEmpty(cborcode.Text) OrElse String.IsNullOrEmpty(txtname.Text) OrElse
-       String.IsNullOrEmpty(txtdetail.Text) OrElse String.IsNullOrEmpty(DTPtimein.Text) OrElse
-       String.IsNullOrEmpty(DTPtimeout.Text) OrElse cboday.SelectedIndex = -1 Then
-            MessageBox.Show("Please fill in all fields and select a valid option from the day/date combo box.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+       String.IsNullOrEmpty(DTPtimein.Text) OrElse String.IsNullOrEmpty(DTPtimeout.Text) OrElse cboday.SelectedIndex = -1 OrElse
+       cbocourse.SelectedIndex = -1 OrElse cbosection.SelectedIndex = -1 OrElse cbosubject.SelectedIndex = -1 Then
+            MessageBox.Show("Please fill in all fields and select valid options.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return
         End If
 
-        ' Get the selected room's shed_id and code
+        ' Get the values
         Dim shedId As String = txtschedID.Text.Trim()
         Dim roomCode As String = cborcode.Text.Trim()
+        Dim timeIn As String = DTPtimein.Value.ToString("HH:mm")
+        Dim timeOut As String = DTPtimeout.Value.ToString("HH:mm")
+        Dim course As String = cbocourse.SelectedItem.ToString()
+        Dim section As String = cbosection.SelectedItem.ToString()
+        Dim subject As String = cbosubject.SelectedItem.ToString()
+        Dim roomDay As String = If(cboday.SelectedIndex >= 2, cboday.SelectedItem.ToString(), "N/A")
+        Dim roomDate As String = If(cboday.SelectedIndex = 1, DTPdate.Value.ToString("yyyy-MM-dd"), "N/A")
 
-        ' Get the values from the controls
-        Dim roomName As String = txtname.Text.Trim()
-        Dim detail As String = txtdetail.Text.Trim()
-        Dim timeIn As String = DTPtimein.Value.ToString("HH:mm") ' Formatting the time to "HH:mm"
-        Dim timeOut As String = DTPtimeout.Value.ToString("HH:mm") ' Formatting the time to "HH:mm"
-        Dim roomDay As String = "N/A" ' Default to "N/A"
-        Dim roomDate As String = "N/A" ' Default to "N/A"
-
-        ' Check the ComboBox index and set the appropriate day/date fields
-        If cboday.SelectedIndex = 0 Then
-            MessageBox.Show("Please select a valid Day or Date option.", "Selection Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Return
-        ElseIf cboday.SelectedIndex = 1 Then
-            ' If "Date" (index = 1) is selected, update the schedtemp table
-            roomDate = DTPdate.Value.ToString("yyyy-MM-dd") ' Use the selected date for room_date
-            roomDay = "N/A" ' Set roomDay to "N/A"
-        ElseIf cboday.SelectedIndex >= 2 AndAlso cboday.SelectedIndex <= 7 Then
-            ' If "Day" (index = 2 to 7) is selected, update the sched table
-            roomDay = cboday.SelectedItem.ToString() ' Use the selected day for room_day
-            roomDate = "N/A" ' Set roomDate to "N/A"
-        End If
-
-        ' Check for existing conflicts in both tables
-        Dim conflictQuerySched As String = "
-        SELECT COUNT(*) FROM sched 
-        WHERE room_code = @room_code AND room_day = @room_day AND ((@time_in BETWEEN room_time_in AND room_time_out) OR (@time_out BETWEEN room_time_in AND room_time_out) 
-        OR (room_time_in BETWEEN @time_in AND @time_out) OR (room_time_out BETWEEN @time_in AND @time_out)) AND shed_id <> @shed_id"
-
-        Dim conflictQuerySchedTemp As String = "
+        ' Conflict check query
+        Dim conflictQuery As String = If(cboday.SelectedIndex = 1, "
         SELECT COUNT(*) FROM schedtemp 
-        WHERE room_code = @room_code AND room_date = @room_date AND ((@time_in BETWEEN room_time_in AND room_time_out) OR (@time_out BETWEEN room_time_in AND room_time_out) 
-        OR (room_time_in BETWEEN @time_in AND @time_out) OR (room_time_out BETWEEN @time_in AND @time_out)) AND shed_id <> @shed_id"
+        WHERE room_code = @room_code AND room_date = @room_date 
+        AND ((@time_in BETWEEN room_time_in AND room_time_out) OR (@time_out BETWEEN room_time_in AND room_time_out) 
+        OR (room_time_in BETWEEN @time_in AND @time_out) OR (room_time_out BETWEEN @time_in AND @time_out)) 
+        AND shed_id <> @shed_id 
+        AND course = @course AND section = @section AND subject = @subject",
+        "
+        SELECT COUNT(*) FROM sched 
+        WHERE room_code = @room_code AND room_day = @room_day 
+        AND ((@time_in BETWEEN room_time_in AND room_time_out) OR (@time_out BETWEEN room_time_in AND room_time_out) 
+        OR (room_time_in BETWEEN @time_in AND @time_out) OR (room_time_out BETWEEN @time_in AND @time_out)) 
+        AND shed_id <> @shed_id 
+        AND course = @course AND section = @section AND subject = @subject")
 
         Try
-            If conn.State <> ConnectionState.Open Then
-                conn.Open()
-            End If
-
-            ' Create commands to check for conflicts in both tables
-            Dim conflictCmdSched As New MySqlCommand(conflictQuerySched, conn)
-            conflictCmdSched.Parameters.AddWithValue("@room_code", roomCode)
-            conflictCmdSched.Parameters.AddWithValue("@room_day", roomDay)
-            conflictCmdSched.Parameters.AddWithValue("@room_date", roomDate)
-            conflictCmdSched.Parameters.AddWithValue("@time_in", timeIn)
-            conflictCmdSched.Parameters.AddWithValue("@time_out", timeOut)
-            conflictCmdSched.Parameters.AddWithValue("@shed_id", shedId)
-
-            Dim conflictCmdSchedTemp As New MySqlCommand(conflictQuerySchedTemp, conn)
-            conflictCmdSchedTemp.Parameters.AddWithValue("@room_code", roomCode)
-            conflictCmdSchedTemp.Parameters.AddWithValue("@room_date", roomDate)
-            conflictCmdSchedTemp.Parameters.AddWithValue("@time_in", timeIn)
-            conflictCmdSchedTemp.Parameters.AddWithValue("@time_out", timeOut)
-            conflictCmdSchedTemp.Parameters.AddWithValue("@shed_id", shedId)
-
             ' Check for conflicts
-            Dim conflictCountSched As Integer = Convert.ToInt32(conflictCmdSched.ExecuteScalar())
-            Dim conflictCountSchedTemp As Integer = Convert.ToInt32(conflictCmdSchedTemp.ExecuteScalar())
-            If conflictCountSched > 0 OrElse conflictCountSchedTemp > 0 Then
-                MessageBox.Show("The selected room, date, and time already conflict with an existing schedule. Please choose a different time or room.", "Conflict Detected", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            If conn.State <> ConnectionState.Open Then conn.Open()
+
+            Dim conflictCmd As New MySqlCommand(conflictQuery, conn)
+            conflictCmd.Parameters.AddWithValue("@room_code", roomCode)
+            conflictCmd.Parameters.AddWithValue("@room_day", roomDay)
+            conflictCmd.Parameters.AddWithValue("@room_date", roomDate)
+            conflictCmd.Parameters.AddWithValue("@time_in", timeIn)
+            conflictCmd.Parameters.AddWithValue("@time_out", timeOut)
+            conflictCmd.Parameters.AddWithValue("@shed_id", shedId)
+            conflictCmd.Parameters.AddWithValue("@course", course)
+            conflictCmd.Parameters.AddWithValue("@section", section)
+            conflictCmd.Parameters.AddWithValue("@subject", subject)
+
+            If Convert.ToInt32(conflictCmd.ExecuteScalar()) > 0 Then
+                MessageBox.Show("The selected room, date, and time conflict with an existing schedule.", "Conflict Detected", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 Return
             End If
         Catch ex As Exception
             MessageBox.Show("Error checking for conflicts: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return
         Finally
+            If conn.State = ConnectionState.Open Then conn.Close()
+        End Try
+
+        ' Update query
+        Dim sqlQuery As String = If(cboday.SelectedIndex = 1, "
+        UPDATE schedtemp SET 
+            room_code = @room_code, 
+            room_time_in = @room_time_in, 
+            room_time_out = @room_time_out, 
+            room_date = @room_date, 
+            course = @course, 
+            section = @section, 
+            subject = @subject 
+        WHERE shed_id = @shed_id",
+        "
+        UPDATE sched SET 
+            room_code = @room_code, 
+            room_day = @room_day, 
+            room_time_in = @room_time_in, 
+            room_time_out = @room_time_out, 
+            course = @course, 
+            section = @section, 
+            subject = @subject 
+        WHERE shed_id = @shed_id")
+
+        Try
+            If conn.State <> ConnectionState.Open Then conn.Open()
+
+            Dim cmd As New MySqlCommand(sqlQuery, conn)
+            cmd.Parameters.AddWithValue("@shed_id", shedId)
+            cmd.Parameters.AddWithValue("@room_code", roomCode)
+            cmd.Parameters.AddWithValue("@room_day", roomDay)
+            cmd.Parameters.AddWithValue("@room_date", roomDate)
+            cmd.Parameters.AddWithValue("@time_in", timeIn)
+            cmd.Parameters.AddWithValue("@time_out", timeOut)
+            cmd.Parameters.AddWithValue("@course", course)
+            cmd.Parameters.AddWithValue("@section", section)
+            cmd.Parameters.AddWithValue("@subject", subject)
+
+            cmd.ExecuteNonQuery()
+            MessageBox.Show("Schedule updated successfully!", "Update Successful", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Catch ex As Exception
+            MessageBox.Show("Error updating schedule: " & ex.Message, "Update Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            If conn.State = ConnectionState.Open Then conn.Close()
+        End Try
+    End Sub
+
+    ' Method to fill the cboSubject ComboBox with subject names from the subjects table
+    Private Sub FillSubjectComboBox()
+        ' Define the SQL query to fetch all subject names from the subjects table
+        Dim sqlQuery As String = "SELECT subject_name FROM subjects"
+
+        ' Create a new DataAdapter to fetch data from the database
+        Dim dataAdapter As New MySqlDataAdapter(sqlQuery, conn)
+        Dim dataTable As New DataTable()
+
+        Try
+            ' Open the connection if it's not already open
+            If conn.State <> ConnectionState.Open Then
+                conn.Open()
+            End If
+
+            ' Fill the DataTable with the subject names
+            dataAdapter.Fill(dataTable)
+
+            ' Clear any existing items in the ComboBox
+            cbosubject.Items.Clear()
+
+            ' Add the subject names from the DataTable to the ComboBox
+            For Each row As DataRow In dataTable.Rows
+                cbosubject.Items.Add(row("subject_name").ToString())
+            Next
+
+            ' Optionally, set the default selected item (if any)
+            If cbosubject.Items.Count > 0 Then
+                cbosubject.SelectedIndex = 0  ' Select the first item by default
+            End If
+
+        Catch ex As Exception
+            MessageBox.Show("Error loading subjects: " & ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            ' Ensure the connection is closed
             If conn.State = ConnectionState.Open Then
                 conn.Close()
             End If
         End Try
+    End Sub
 
-        ' Define SQL queries for both tables
-        Dim sqlQuery As String = "
-        UPDATE sched 
-        SET room_code = @room_code, 
-        detail = @detail, 
-        room_day = @room_day, 
-        room_time_in = @room_time_in, 
-        room_time_out = @room_time_out 
-        WHERE shed_id = @shed_id"
 
-        Dim sqlQueryTemp As String = "
-        UPDATE schedtemp 
-        SET room_code = @room_code, 
-        detail = @detail, 
-        room_time_in = @room_time_in, 
-        room_time_out = @room_time_out, 
-        room_date = @room_date 
-        WHERE shed_id = @shed_id"
+    ' Method to fill the cboCourse ComboBox with course names from the courses table
+    Private Sub FillCourseComboBox()
+        ' Define the SQL query to fetch all course names from the courses table
+        Dim sqlQuery As String = "SELECT course_name FROM courses"
 
-        ' Create the command and parameters for the scheduled update
-        Dim command As New MySqlCommand()
+        ' Create a new DataAdapter to fetch data from the database
+        Dim dataAdapter As New MySqlDataAdapter(sqlQuery, conn)
+        Dim dataTable As New DataTable()
 
-        ' Set the appropriate command and query
-        If cboday.SelectedIndex = 1 Then
-            command.CommandText = sqlQueryTemp
-        Else
-            command.CommandText = sqlQuery
+        Try
+            ' Open the connection if it's not already open
+            If conn.State <> ConnectionState.Open Then
+                conn.Open()
+            End If
+
+            ' Fill the DataTable with the course names
+            dataAdapter.Fill(dataTable)
+
+            ' Clear any existing items in the ComboBox
+            cbocourse.Items.Clear()
+
+            ' Add the course names from the DataTable to the ComboBox
+            For Each row As DataRow In dataTable.Rows
+                cbocourse.Items.Add(row("course_name").ToString())
+            Next
+
+            ' Optionally, set the default selected item (if any)
+            If cbocourse.Items.Count > 0 Then
+                cbocourse.SelectedIndex = 0  ' Select the first item by default
+            End If
+
+        Catch ex As Exception
+            MessageBox.Show("Error loading courses: " & ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            ' Ensure the connection is closed
+            If conn.State = ConnectionState.Open Then
+                conn.Close()
+            End If
+        End Try
+    End Sub
+
+    Private Sub FillSectionComboBox()
+        ' Define the SQL query to fetch all section names from the section table
+        Dim sqlQuery As String = "SELECT sections FROM section"
+
+        ' Create a new DataAdapter to fetch data from the database
+        Dim dataAdapter As New MySqlDataAdapter(sqlQuery, conn)
+        Dim dataTable As New DataTable()
+
+        Try
+            ' Open the connection if it's not already open
+            If conn.State <> ConnectionState.Open Then
+                conn.Open()
+            End If
+
+            ' Fill the DataTable with the section names
+            dataAdapter.Fill(dataTable)
+
+            ' Clear any existing items in the ComboBox
+            cbosection.Items.Clear()
+
+            ' Add the section names from the DataTable to the ComboBox
+            For Each row As DataRow In dataTable.Rows
+                cbosection.Items.Add(row("sections").ToString())
+            Next
+
+            ' Optionally, set the default selected item (if any)
+            If cbosection.Items.Count > 0 Then
+                cbosection.SelectedIndex = 0  ' Select the first item by default
+            End If
+
+        Catch ex As Exception
+            MessageBox.Show("Error loading sections: " & ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            ' Ensure the connection is closed
+            If conn.State = ConnectionState.Open Then
+                conn.Close()
+            End If
+        End Try
+    End Sub
+
+    Private Sub cbocourse_DropDown(sender As Object, e As EventArgs) Handles cbocourse.DropDown
+        ' Define the base SQL query to fetch all courses
+        Dim sqlQuery As String = "SELECT course_name FROM courses"
+
+        ' Add WHERE conditions based on the selected section and subject
+        If Not String.IsNullOrEmpty(cbosection.SelectedItem?.ToString()) AndAlso Not String.IsNullOrEmpty(cbosubject.SelectedItem?.ToString()) Then
+            ' Both section and subject selected, filter by both
+            sqlQuery &= " WHERE sections = @selectedSection AND subject_name = @selectedSubject"
+        ElseIf Not String.IsNullOrEmpty(cbosection.SelectedItem?.ToString()) Then
+            ' Only section selected, filter by section
+            sqlQuery &= " WHERE sections = @selectedSection"
+        ElseIf Not String.IsNullOrEmpty(cbosubject.SelectedItem?.ToString()) Then
+            ' Only subject selected, filter by subject
+            sqlQuery &= " WHERE subject_name = @selectedSubject"
         End If
 
-        command.Connection = conn
-        command.Parameters.AddWithValue("@shed_id", shedId)
-        command.Parameters.AddWithValue("@room_code", roomCode)
-        command.Parameters.AddWithValue("@detail", detail)
-        command.Parameters.AddWithValue("@room_day", roomDay)
-        command.Parameters.AddWithValue("@room_time_in", timeIn)
-        command.Parameters.AddWithValue("@room_time_out", timeOut)
-        command.Parameters.AddWithValue("@room_date", roomDate)
+        ' Create a new DataAdapter to fetch filtered course data
+        Dim dataAdapter As New MySqlDataAdapter(sqlQuery, conn)
 
-        ' Execute the update
+        ' Add the parameters if either section or subject is selected
+        If Not String.IsNullOrEmpty(cbosection.SelectedItem?.ToString()) Then
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@selectedSection", cbosection.SelectedItem.ToString())
+        End If
+
+        If Not String.IsNullOrEmpty(cbosubject.SelectedItem?.ToString()) Then
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@selectedSubject", cbosubject.SelectedItem.ToString())
+        End If
+
+        ' Create a DataTable to hold the result
+        Dim dataTable As New DataTable()
+
+        Try
+            If conn.State <> ConnectionState.Open Then conn.Open()
+            dataAdapter.Fill(dataTable)
+
+            ' Clear the ComboBox and add the courses
+            cbocourse.Items.Clear()
+            For Each row As DataRow In dataTable.Rows
+                cbocourse.Items.Add(row("course_name").ToString())
+            Next
+
+            ' Optionally select the first item if available
+            If cbocourse.Items.Count > 0 Then
+                cbocourse.SelectedIndex = 0
+            End If
+
+        Catch ex As Exception
+            MessageBox.Show("Error loading courses: " & ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            If conn.State = ConnectionState.Open Then conn.Close()
+        End Try
+    End Sub
+
+
+    Private Sub cbosection_DropDown(sender As Object, e As EventArgs) Handles cbosection.DropDown
+        ' Define the SQL query to fetch all sections
+        Dim sqlQuery As String = "SELECT sections FROM section"
+
+        ' Add a WHERE clause if cbosubject has a selected value
+        If Not String.IsNullOrEmpty(cbosubject.SelectedItem?.ToString()) Then
+            sqlQuery &= " WHERE course_name = @selectedSubject"
+        End If
+
+        ' Create a new DataAdapter to fetch section data
+        Dim dataAdapter As New MySqlDataAdapter(sqlQuery, conn)
+
+        ' Add the parameter if subject is selected
+        If Not String.IsNullOrEmpty(cbosubject.SelectedItem?.ToString()) Then
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@selectedSubject", cbosubject.SelectedItem.ToString())
+        End If
+
+        ' Create a DataTable to hold the result
+        Dim dataTable As New DataTable()
+
+        Try
+            If conn.State <> ConnectionState.Open Then conn.Open()
+            dataAdapter.Fill(dataTable)
+
+            ' Clear the ComboBox and add the sections
+            cbosection.Items.Clear()
+            For Each row As DataRow In dataTable.Rows
+                cbosection.Items.Add(row("sections").ToString())
+            Next
+
+            ' Optionally select the first item if available
+            If cbosection.Items.Count > 0 Then
+                cbosection.SelectedIndex = 0
+            End If
+
+        Catch ex As Exception
+            MessageBox.Show("Error loading sections: " & ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            If conn.State = ConnectionState.Open Then conn.Close()
+        End Try
+    End Sub
+
+    Private Sub HandleSubjectDropdown()
+        ' Clear the existing items in the cbosubject ComboBox
+        cbosubject.Items.Clear()
+
+        ' Start building the SQL query to get subjects from the listofsubjects table
+        Dim sqlQuery As String = "SELECT DISTINCT subject_name FROM listofsubjects WHERE 1=1"
+
+        ' Check if a section is selected in cbosection
+        If Not String.IsNullOrEmpty(cbosection.SelectedItem?.ToString()) Then
+            sqlQuery &= " AND sections = @section"
+        End If
+
+        ' Check if a course is selected in cbocourse
+        If Not String.IsNullOrEmpty(cbocourse.SelectedItem?.ToString()) Then
+            sqlQuery &= " AND course_name = @course"
+        End If
+
+        ' Prepare the command and parameters
+        Dim command As New MySqlCommand(sqlQuery, conn)
+
+        ' Add parameters for section and course if they are selected
+        If Not String.IsNullOrEmpty(cbosection.SelectedItem?.ToString()) Then
+            command.Parameters.AddWithValue("@section", cbosection.SelectedItem.ToString())
+        End If
+
+        If Not String.IsNullOrEmpty(cbocourse.SelectedItem?.ToString()) Then
+            command.Parameters.AddWithValue("@course", cbocourse.SelectedItem.ToString())
+        End If
+
+        ' Execute the query and populate cbosubject with multiple rows (if applicable)
         Try
             If conn.State <> ConnectionState.Open Then
                 conn.Open()
             End If
-            command.ExecuteNonQuery()
-            MessageBox.Show("Schedule updated successfully!", "Update Successful", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            loadtable() ' Reload the table data after update
-            txtschedID.Enabled = True
-            txtname.Enabled = True
+
+            ' Create a DataAdapter to fetch the filtered subject names
+            Dim dataAdapter As New MySqlDataAdapter(command)
+            Dim dataTable As New DataTable()
+            dataAdapter.Fill(dataTable)
+
+            ' Add all retrieved subjects to the ComboBox
+            For Each row As DataRow In dataTable.Rows
+                cbosubject.Items.Add(row("subject_name").ToString())
+            Next
+
+            ' Optionally, set the first item as selected (if needed)
+            If cbosubject.Items.Count > 0 Then
+                cbosubject.SelectedIndex = 0 ' Select the first item if there are results
+            End If
         Catch ex As Exception
-            MessageBox.Show("Error updating schedule: " & ex.Message, "Update Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Error loading subjects: " & ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
             If conn.State = ConnectionState.Open Then
                 conn.Close()
             End If
         End Try
-    End Sub
-
-
-
-    Private Sub btnback_Click(sender As Object, e As EventArgs) Handles btnback.Click
-        Me.Hide()
-    End Sub
-
-    Private Sub btnsearch_Click(sender As Object, e As EventArgs) Handles btnsearch.Click
-        Dim category As String = cboType.SelectedItem?.ToString()
-        Dim searchValue As String = txtsearch.Text.Trim()
-
-        If String.IsNullOrEmpty(category) OrElse category = "Choose" Then
-            loadtable()
-            Return
-        End If
-
-        Dim columnName As String = ""
-        Select Case category
-            Case "Room Code"
-                columnName = "room_code"
-            Case "Room Name"
-                columnName = "room_name"
-            Case "Building"
-                columnName = "building"
-            Case "Chair #"
-                columnName = "num_chairs"
-            Case "Computer #"
-                columnName = "num_computers"
-            Case "Laptop #"
-                columnName = "num_laptops"
-            Case "Availability"
-                columnName = "display_status"
-            Case Else
-                MessageBox.Show("Invalid category selected.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                Return
-        End Select
-
-        Dim dataTable As DataTable = CType(DGVroomlist.DataSource, DataTable)
-        If String.IsNullOrEmpty(searchValue) Then
-            dataTable.DefaultView.Sort = $"{columnName} ASC"
-        Else
-            dataTable.DefaultView.RowFilter = $"{columnName} LIKE '%{searchValue}%'"
-        End If
     End Sub
 End Class

@@ -42,9 +42,11 @@ Partial Class staff_schedule
         Me.btnback = New System.Windows.Forms.Button()
         Me.DGVschedule = New System.Windows.Forms.DataGridView()
         Me.sched_code = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.subject = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.course = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.section = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.room_code = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.room_name = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.detail = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.s_day = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.s_date = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.time_in = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -166,7 +168,7 @@ Partial Class staff_schedule
         Me.cboType.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboType.ForeColor = System.Drawing.Color.MidnightBlue
         Me.cboType.FormattingEnabled = True
-        Me.cboType.Items.AddRange(New Object() {"Choose", "Schedule Code", "Room Code", "Room Name", "Detail", "Day", "Date", "Time In", "Time Out"})
+        Me.cboType.Items.AddRange(New Object() {"Choose", "Schedule Code", "Subject", "Course", "Section", "Room Code", "Room Name", "Day", "Date", "Time In", "Time Out"})
         Me.cboType.Location = New System.Drawing.Point(138, 40)
         Me.cboType.Name = "cboType"
         Me.cboType.Size = New System.Drawing.Size(179, 33)
@@ -306,7 +308,7 @@ Partial Class staff_schedule
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DGVschedule.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
         Me.DGVschedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGVschedule.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.sched_code, Me.room_code, Me.room_name, Me.detail, Me.s_day, Me.s_date, Me.time_in, Me.time_out})
+        Me.DGVschedule.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.sched_code, Me.subject, Me.course, Me.section, Me.room_code, Me.room_name, Me.s_day, Me.s_date, Me.time_in, Me.time_out})
         Me.DGVschedule.Cursor = System.Windows.Forms.Cursors.Default
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
@@ -332,13 +334,34 @@ Partial Class staff_schedule
         Me.DGVschedule.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.DGVschedule.RowHeadersWidth = 62
         Me.DGVschedule.Size = New System.Drawing.Size(1010, 354)
-        Me.DGVschedule.TabIndex = 2
+        Me.DGVschedule.TabIndex = 3
         '
         'sched_code
         '
         Me.sched_code.HeaderText = "Schedule Code"
         Me.sched_code.Name = "sched_code"
         Me.sched_code.ReadOnly = True
+        '
+        'subject
+        '
+        Me.subject.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.subject.HeaderText = "Subject"
+        Me.subject.Name = "subject"
+        Me.subject.ReadOnly = True
+        '
+        'course
+        '
+        Me.course.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.course.HeaderText = "Course"
+        Me.course.Name = "course"
+        Me.course.ReadOnly = True
+        '
+        'section
+        '
+        Me.section.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.section.HeaderText = "Section"
+        Me.section.Name = "section"
+        Me.section.ReadOnly = True
         '
         'room_code
         '
@@ -353,13 +376,6 @@ Partial Class staff_schedule
         Me.room_name.HeaderText = "Room Name"
         Me.room_name.Name = "room_name"
         Me.room_name.ReadOnly = True
-        '
-        'detail
-        '
-        Me.detail.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.detail.HeaderText = "Detail"
-        Me.detail.Name = "detail"
-        Me.detail.ReadOnly = True
         '
         's_day
         '
@@ -426,15 +442,17 @@ Partial Class staff_schedule
     Friend WithEvents TableLayoutPanel7 As TableLayoutPanel
     Friend WithEvents TableLayoutPanel11 As TableLayoutPanel
     Friend WithEvents btnback As Button
+    Friend WithEvents btnrequest As Button
+    Friend WithEvents btnrequest_modify As Button
     Friend WithEvents DGVschedule As DataGridView
     Friend WithEvents sched_code As DataGridViewTextBoxColumn
+    Friend WithEvents subject As DataGridViewTextBoxColumn
+    Friend WithEvents course As DataGridViewTextBoxColumn
+    Friend WithEvents section As DataGridViewTextBoxColumn
     Friend WithEvents room_code As DataGridViewTextBoxColumn
     Friend WithEvents room_name As DataGridViewTextBoxColumn
-    Friend WithEvents detail As DataGridViewTextBoxColumn
     Friend WithEvents s_day As DataGridViewTextBoxColumn
     Friend WithEvents s_date As DataGridViewTextBoxColumn
     Friend WithEvents time_in As DataGridViewTextBoxColumn
     Friend WithEvents time_out As DataGridViewTextBoxColumn
-    Friend WithEvents btnrequest As Button
-    Friend WithEvents btnrequest_modify As Button
 End Class

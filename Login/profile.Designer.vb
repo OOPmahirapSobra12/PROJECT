@@ -24,19 +24,25 @@ Partial Class profile
     Private Sub InitializeComponent()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
+        Me.txtcode = New System.Windows.Forms.Label()
         Me.txtusername = New System.Windows.Forms.TextBox()
-        Me.txtlname = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
         Me.txtfname = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.txtlname = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.txtID = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtlevel = New System.Windows.Forms.TextBox()
-        Me.txtID = New System.Windows.Forms.TextBox()
-        Me.txtcode = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.txtcourse = New System.Windows.Forms.TextBox()
+        Me.txtsection = New System.Windows.Forms.TextBox()
+        Me.btnback = New System.Windows.Forms.Button()
         Me.btnmodify = New System.Windows.Forms.Button()
         Me.btnupdate = New System.Windows.Forms.Button()
-        Me.btnback = New System.Windows.Forms.Button()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.txtpassword = New System.Windows.Forms.TextBox()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.PBpic = New System.Windows.Forms.PictureBox()
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
@@ -69,24 +75,30 @@ Partial Class profile
         Me.TableLayoutPanel3.BackColor = System.Drawing.Color.Transparent
         Me.TableLayoutPanel3.ColumnCount = 6
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.69681!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.14894!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.89362!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.26064!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 22.0!))
-        Me.TableLayoutPanel3.Controls.Add(Me.txtusername, 3, 0)
-        Me.TableLayoutPanel3.Controls.Add(Me.txtlname, 3, 2)
-        Me.TableLayoutPanel3.Controls.Add(Me.Label5, 2, 1)
-        Me.TableLayoutPanel3.Controls.Add(Me.Label6, 2, 2)
-        Me.TableLayoutPanel3.Controls.Add(Me.txtfname, 3, 1)
-        Me.TableLayoutPanel3.Controls.Add(Me.Label4, 2, 3)
-        Me.TableLayoutPanel3.Controls.Add(Me.Label2, 2, 4)
-        Me.TableLayoutPanel3.Controls.Add(Me.txtlevel, 3, 4)
-        Me.TableLayoutPanel3.Controls.Add(Me.txtID, 3, 3)
-        Me.TableLayoutPanel3.Controls.Add(Me.txtcode, 2, 0)
-        Me.TableLayoutPanel3.Controls.Add(Me.btnmodify, 2, 5)
-        Me.TableLayoutPanel3.Controls.Add(Me.btnupdate, 3, 5)
-        Me.TableLayoutPanel3.Controls.Add(Me.btnback, 4, 5)
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.97603!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.09587!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.31292!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.06977!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.07752!))
+        Me.TableLayoutPanel3.Controls.Add(Me.txtcode, 1, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.txtusername, 2, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.Label5, 3, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.txtfname, 4, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.Label6, 3, 1)
+        Me.TableLayoutPanel3.Controls.Add(Me.txtlname, 4, 1)
+        Me.TableLayoutPanel3.Controls.Add(Me.Label4, 1, 1)
+        Me.TableLayoutPanel3.Controls.Add(Me.txtID, 2, 1)
+        Me.TableLayoutPanel3.Controls.Add(Me.Label1, 3, 2)
+        Me.TableLayoutPanel3.Controls.Add(Me.Label2, 1, 2)
+        Me.TableLayoutPanel3.Controls.Add(Me.txtlevel, 2, 2)
+        Me.TableLayoutPanel3.Controls.Add(Me.Label3, 3, 3)
+        Me.TableLayoutPanel3.Controls.Add(Me.txtcourse, 4, 2)
+        Me.TableLayoutPanel3.Controls.Add(Me.txtsection, 4, 3)
+        Me.TableLayoutPanel3.Controls.Add(Me.btnback, 5, 5)
+        Me.TableLayoutPanel3.Controls.Add(Me.btnmodify, 3, 4)
+        Me.TableLayoutPanel3.Controls.Add(Me.btnupdate, 4, 4)
+        Me.TableLayoutPanel3.Controls.Add(Me.Label7, 1, 3)
+        Me.TableLayoutPanel3.Controls.Add(Me.txtpassword, 2, 3)
         Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel3.Location = New System.Drawing.Point(3, 151)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
@@ -101,23 +113,31 @@ Partial Class profile
         Me.TableLayoutPanel3.Size = New System.Drawing.Size(794, 296)
         Me.TableLayoutPanel3.TabIndex = 5
         '
+        'txtcode
+        '
+        Me.txtcode.AutoSize = True
+        Me.txtcode.BackColor = System.Drawing.Color.Transparent
+        Me.txtcode.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txtcode.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.txtcode.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!)
+        Me.txtcode.ForeColor = System.Drawing.Color.NavajoWhite
+        Me.txtcode.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.txtcode.Location = New System.Drawing.Point(23, 0)
+        Me.txtcode.Name = "txtcode"
+        Me.txtcode.Size = New System.Drawing.Size(132, 45)
+        Me.txtcode.TabIndex = 91
+        Me.txtcode.Text = "Username:"
+        Me.txtcode.TextAlign = System.Drawing.ContentAlignment.TopRight
+        '
         'txtusername
         '
         Me.txtusername.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtusername.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.725!)
-        Me.txtusername.Location = New System.Drawing.Point(270, 3)
+        Me.txtusername.Location = New System.Drawing.Point(161, 3)
         Me.txtusername.Name = "txtusername"
-        Me.txtusername.Size = New System.Drawing.Size(294, 30)
+        Me.txtusername.ReadOnly = True
+        Me.txtusername.Size = New System.Drawing.Size(210, 30)
         Me.txtusername.TabIndex = 90
-        '
-        'txtlname
-        '
-        Me.txtlname.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txtlname.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtlname.Location = New System.Drawing.Point(270, 93)
-        Me.txtlname.Name = "txtlname"
-        Me.txtlname.Size = New System.Drawing.Size(294, 29)
-        Me.txtlname.TabIndex = 98
         '
         'Label5
         '
@@ -128,12 +148,22 @@ Partial Class profile
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.NavajoWhite
         Me.Label5.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Label5.Location = New System.Drawing.Point(126, 45)
+        Me.Label5.Location = New System.Drawing.Point(377, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(138, 45)
+        Me.Label5.Size = New System.Drawing.Size(111, 45)
         Me.Label5.TabIndex = 93
         Me.Label5.Text = "First Name:"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.TopRight
+        '
+        'txtfname
+        '
+        Me.txtfname.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txtfname.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtfname.Location = New System.Drawing.Point(494, 3)
+        Me.txtfname.Name = "txtfname"
+        Me.txtfname.ReadOnly = True
+        Me.txtfname.Size = New System.Drawing.Size(217, 29)
+        Me.txtfname.TabIndex = 97
         '
         'Label6
         '
@@ -144,21 +174,22 @@ Partial Class profile
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.NavajoWhite
         Me.Label6.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Label6.Location = New System.Drawing.Point(126, 90)
+        Me.Label6.Location = New System.Drawing.Point(377, 45)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(138, 45)
+        Me.Label6.Size = New System.Drawing.Size(111, 45)
         Me.Label6.TabIndex = 94
         Me.Label6.Text = "Last Name:"
         Me.Label6.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
-        'txtfname
+        'txtlname
         '
-        Me.txtfname.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txtfname.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtfname.Location = New System.Drawing.Point(270, 48)
-        Me.txtfname.Name = "txtfname"
-        Me.txtfname.Size = New System.Drawing.Size(294, 29)
-        Me.txtfname.TabIndex = 97
+        Me.txtlname.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txtlname.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtlname.Location = New System.Drawing.Point(494, 48)
+        Me.txtlname.Name = "txtlname"
+        Me.txtlname.ReadOnly = True
+        Me.txtlname.Size = New System.Drawing.Size(217, 29)
+        Me.txtlname.TabIndex = 98
         '
         'Label4
         '
@@ -169,12 +200,38 @@ Partial Class profile
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.NavajoWhite
         Me.Label4.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Label4.Location = New System.Drawing.Point(126, 135)
+        Me.Label4.Location = New System.Drawing.Point(23, 45)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(138, 45)
+        Me.Label4.Size = New System.Drawing.Size(132, 45)
         Me.Label4.TabIndex = 92
         Me.Label4.Text = "Account ID:"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.TopRight
+        '
+        'txtID
+        '
+        Me.txtID.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txtID.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtID.Location = New System.Drawing.Point(161, 48)
+        Me.txtID.Name = "txtID"
+        Me.txtID.ReadOnly = True
+        Me.txtID.Size = New System.Drawing.Size(210, 29)
+        Me.txtID.TabIndex = 96
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.Color.NavajoWhite
+        Me.Label1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label1.Location = New System.Drawing.Point(377, 90)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(111, 45)
+        Me.Label1.TabIndex = 103
+        Me.Label1.Text = "Course:"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'Label2
         '
@@ -185,48 +242,73 @@ Partial Class profile
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.NavajoWhite
         Me.Label2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Label2.Location = New System.Drawing.Point(126, 180)
+        Me.Label2.Location = New System.Drawing.Point(23, 90)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(138, 45)
+        Me.Label2.Size = New System.Drawing.Size(132, 45)
         Me.Label2.TabIndex = 95
         Me.Label2.Text = "Access Level:"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'txtlevel
         '
-        Me.txtlevel.Dock = System.Windows.Forms.DockStyle.Left
+        Me.txtlevel.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtlevel.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtlevel.Location = New System.Drawing.Point(270, 183)
+        Me.txtlevel.Location = New System.Drawing.Point(161, 93)
         Me.txtlevel.Name = "txtlevel"
         Me.txtlevel.ReadOnly = True
-        Me.txtlevel.Size = New System.Drawing.Size(128, 29)
+        Me.txtlevel.Size = New System.Drawing.Size(210, 29)
         Me.txtlevel.TabIndex = 99
         '
-        'txtID
+        'Label3
         '
-        Me.txtID.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txtID.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtID.Location = New System.Drawing.Point(270, 138)
-        Me.txtID.Name = "txtID"
-        Me.txtID.ReadOnly = True
-        Me.txtID.Size = New System.Drawing.Size(294, 29)
-        Me.txtID.TabIndex = 96
+        Me.Label3.AutoSize = True
+        Me.Label3.BackColor = System.Drawing.Color.Transparent
+        Me.Label3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.NavajoWhite
+        Me.Label3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label3.Location = New System.Drawing.Point(377, 135)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(111, 45)
+        Me.Label3.TabIndex = 104
+        Me.Label3.Text = "Section:"
+        Me.Label3.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
-        'txtcode
+        'txtcourse
         '
-        Me.txtcode.AutoSize = True
-        Me.txtcode.BackColor = System.Drawing.Color.Transparent
-        Me.txtcode.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txtcode.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.txtcode.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!)
-        Me.txtcode.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.txtcode.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.txtcode.Location = New System.Drawing.Point(126, 0)
-        Me.txtcode.Name = "txtcode"
-        Me.txtcode.Size = New System.Drawing.Size(138, 45)
-        Me.txtcode.TabIndex = 91
-        Me.txtcode.Text = "Username:"
-        Me.txtcode.TextAlign = System.Drawing.ContentAlignment.TopRight
+        Me.txtcourse.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txtcourse.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtcourse.Location = New System.Drawing.Point(494, 93)
+        Me.txtcourse.Name = "txtcourse"
+        Me.txtcourse.ReadOnly = True
+        Me.txtcourse.Size = New System.Drawing.Size(217, 29)
+        Me.txtcourse.TabIndex = 105
+        '
+        'txtsection
+        '
+        Me.txtsection.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txtsection.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtsection.Location = New System.Drawing.Point(494, 138)
+        Me.txtsection.Name = "txtsection"
+        Me.txtsection.ReadOnly = True
+        Me.txtsection.Size = New System.Drawing.Size(217, 29)
+        Me.txtsection.TabIndex = 106
+        '
+        'btnback
+        '
+        Me.btnback.AutoSize = True
+        Me.btnback.BackColor = System.Drawing.Color.Transparent
+        Me.btnback.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnback.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnback.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!)
+        Me.btnback.ForeColor = System.Drawing.Color.NavajoWhite
+        Me.btnback.Location = New System.Drawing.Point(717, 228)
+        Me.btnback.Name = "btnback"
+        Me.btnback.Size = New System.Drawing.Size(74, 39)
+        Me.btnback.TabIndex = 102
+        Me.btnback.Text = "Back"
+        Me.btnback.UseVisualStyleBackColor = False
         '
         'btnmodify
         '
@@ -236,9 +318,9 @@ Partial Class profile
         Me.btnmodify.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnmodify.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!)
         Me.btnmodify.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.btnmodify.Location = New System.Drawing.Point(126, 228)
+        Me.btnmodify.Location = New System.Drawing.Point(377, 183)
         Me.btnmodify.Name = "btnmodify"
-        Me.btnmodify.Size = New System.Drawing.Size(138, 39)
+        Me.btnmodify.Size = New System.Drawing.Size(111, 39)
         Me.btnmodify.TabIndex = 100
         Me.btnmodify.Text = "Modify"
         Me.btnmodify.UseVisualStyleBackColor = False
@@ -247,32 +329,44 @@ Partial Class profile
         '
         Me.btnupdate.AutoSize = True
         Me.btnupdate.BackColor = System.Drawing.Color.Transparent
-        Me.btnupdate.Dock = System.Windows.Forms.DockStyle.Left
+        Me.btnupdate.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnupdate.Enabled = False
         Me.btnupdate.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnupdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!)
         Me.btnupdate.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.btnupdate.Location = New System.Drawing.Point(270, 228)
+        Me.btnupdate.Location = New System.Drawing.Point(494, 183)
         Me.btnupdate.Name = "btnupdate"
-        Me.btnupdate.Size = New System.Drawing.Size(128, 39)
+        Me.btnupdate.Size = New System.Drawing.Size(217, 39)
         Me.btnupdate.TabIndex = 101
         Me.btnupdate.Text = "Update"
         Me.btnupdate.UseVisualStyleBackColor = False
         '
-        'btnback
+        'Label7
         '
-        Me.btnback.AutoSize = True
-        Me.btnback.BackColor = System.Drawing.Color.Transparent
-        Me.btnback.Dock = System.Windows.Forms.DockStyle.Right
-        Me.btnback.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnback.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!)
-        Me.btnback.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.btnback.Location = New System.Drawing.Point(702, 228)
-        Me.btnback.Name = "btnback"
-        Me.btnback.Size = New System.Drawing.Size(67, 39)
-        Me.btnback.TabIndex = 102
-        Me.btnback.Text = "Back"
-        Me.btnback.UseVisualStyleBackColor = False
+        Me.Label7.AutoSize = True
+        Me.Label7.BackColor = System.Drawing.Color.Transparent
+        Me.Label7.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.ForeColor = System.Drawing.Color.NavajoWhite
+        Me.Label7.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.Label7.Location = New System.Drawing.Point(23, 135)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(132, 45)
+        Me.Label7.TabIndex = 107
+        Me.Label7.Text = "Password:"
+        Me.Label7.TextAlign = System.Drawing.ContentAlignment.TopRight
+        Me.Label7.Visible = False
+        '
+        'txtpassword
+        '
+        Me.txtpassword.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txtpassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtpassword.Location = New System.Drawing.Point(161, 138)
+        Me.txtpassword.Name = "txtpassword"
+        Me.txtpassword.Size = New System.Drawing.Size(210, 29)
+        Me.txtpassword.TabIndex = 108
+        Me.txtpassword.Visible = False
         '
         'TableLayoutPanel2
         '
@@ -375,4 +469,10 @@ Partial Class profile
     Friend WithEvents PBpic As PictureBox
     Friend WithEvents TableLayoutPanel4 As TableLayoutPanel
     Friend WithEvents btnpic As Button
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents txtcourse As TextBox
+    Friend WithEvents txtsection As TextBox
+    Friend WithEvents Label7 As Label
+    Friend WithEvents txtpassword As TextBox
 End Class

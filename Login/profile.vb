@@ -20,7 +20,7 @@ Public Class profile
     End Sub
 
     Private Sub account_load()
-        Dim query As String = "SELECT username, fname, lname, ID, accesslevel, image FROM accounts WHERE ID = @U_ID"
+        Dim query As String = "SELECT username, fname, lname, ID, pword, section, course, accesslevel, image FROM accounts WHERE ID = @U_ID"
         Using command As New MySqlCommand(query, conn)
             ' Add the ID parameter to prevent SQL injection
             command.Parameters.AddWithValue("@U_ID", U_ID)
@@ -40,6 +40,9 @@ Public Class profile
                         txtlname.Text = reader("lname").ToString()
                         txtID.Text = reader("ID").ToString()
                         txtlevel.Text = reader("accesslevel").ToString()
+                        txtpassword.Text = reader("pword").ToString()
+                        txtcourse.Text = reader("course").ToString()
+                        txtsection.Text = reader("section").ToString()
 
                         ' Load the image if exists
                         If reader("image") IsNot DBNull.Value Then
@@ -131,7 +134,10 @@ Public Class profile
                                                 "username = @username, " &
                                                 "fname = @fname, " &
                                                 "lname = @lname, " &
-                                                "image = @picture " &  ' Assuming picture is stored as a binary (BLOB) field
+                                                "image = @picture " &
+                                                "pword = @pword" &
+                                                "course = @course" &
+                                                "section = @section" &
                                                 "WHERE ID = @id"
 
                     ' Execute the update query
@@ -140,6 +146,9 @@ Public Class profile
                         updateCommand.Parameters.AddWithValue("@username", txtusername.Text)
                         updateCommand.Parameters.AddWithValue("@fname", txtfname.Text)
                         updateCommand.Parameters.AddWithValue("@lname", txtlname.Text)
+                        updateCommand.Parameters.AddWithValue("@pword", txtpassword.Text)
+                        updateCommand.Parameters.AddWithValue("@course", txtcourse.Text)
+                        updateCommand.Parameters.AddWithValue("@section", txtsection.Text)
 
                         ' For the picture, we need to save the image in the database (convert it to a binary format if needed)
                         If PBpic.Image IsNot Nothing Then
@@ -188,17 +197,29 @@ Public Class profile
     Public Sub txtenabler()
         txtfname.ReadOnly = False
         txtlname.ReadOnly = False
+        txtpassword.Visible = True
+        txtcourse.ReadOnly = False
+        txtsection.ReadOnly = False
         txtusername.ReadOnly = False
     End Sub
 
     Public Sub txtdisabler()
         txtfname.ReadOnly = True
         txtlname.ReadOnly = True
+        txtsection.ReadOnly = True
+        txtcourse.ReadOnly = True
+        txtpassword.Visible = False
         txtusername.ReadOnly = True
     End Sub
 
     Private Sub btnback_Click(sender As Object, e As EventArgs) Handles btnback.Click
-        Staff.Show()
+        If access = "high" Then
+            Admin.Show()
+        ElseIf access = "mid" Then
+            Staff.Show()
+        ElseIf access = "low" Then
+            Student.Show()
+        End If
         Me.Hide()
     End Sub
 End Class

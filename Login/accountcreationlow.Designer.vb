@@ -74,7 +74,9 @@ Partial Class accountcreationlow
         Me.TableLayoutPanel3.Controls.Add(Me.txtFname, 1, 1)
         Me.TableLayoutPanel3.Controls.Add(Me.Label10, 0, 2)
         Me.TableLayoutPanel3.Controls.Add(Me.txtLname, 1, 2)
+        Me.TableLayoutPanel3.Controls.Add(Me.Button1, 1, 5)
         Me.TableLayoutPanel3.Controls.Add(Me.Label4, 0, 3)
+        Me.TableLayoutPanel3.Controls.Add(Me.Button2, 0, 5)
         Me.TableLayoutPanel3.Controls.Add(Me.Label1, 0, 4)
         Me.TableLayoutPanel3.Controls.Add(Me.txtcourse, 1, 3)
         Me.TableLayoutPanel3.Controls.Add(Me.TextBox1, 1, 4)
@@ -195,8 +197,6 @@ Partial Class accountcreationlow
         Me.TableLayoutPanel2.Controls.Add(Me.password, 0, 3)
         Me.TableLayoutPanel2.Controls.Add(Me.welcome, 1, 1)
         Me.TableLayoutPanel2.Controls.Add(Me.txtpassword, 1, 3)
-        Me.TableLayoutPanel2.Controls.Add(Me.Button1, 1, 6)
-        Me.TableLayoutPanel2.Controls.Add(Me.Button2, 1, 5)
         Me.TableLayoutPanel2.Controls.Add(Me.txtID, 1, 4)
         Me.TableLayoutPanel2.Controls.Add(Me.Label3, 0, 4)
         Me.TableLayoutPanel2.Controls.Add(Me.username, 0, 2)
@@ -270,7 +270,7 @@ Partial Class accountcreationlow
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.Button1.Location = New System.Drawing.Point(138, 296)
+        Me.Button1.Location = New System.Drawing.Point(138, 293)
         Me.Button1.MaximumSize = New System.Drawing.Size(0, 35)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(234, 35)
@@ -286,9 +286,9 @@ Partial Class accountcreationlow
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button2.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.Button2.Location = New System.Drawing.Point(138, 253)
+        Me.Button2.Location = New System.Drawing.Point(3, 293)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(234, 37)
+        Me.Button2.Size = New System.Drawing.Size(129, 41)
         Me.Button2.TabIndex = 20
         Me.Button2.Text = "Create"
         Me.Button2.UseVisualStyleBackColor = False

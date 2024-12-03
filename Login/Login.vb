@@ -79,7 +79,7 @@ Public Class Login
             End If
 
             ' Query to retrieve the ID and access level
-            Dim query As String = "SELECT ID, accesslevel FROM accounts WHERE username=@username AND pword=@pword"
+            Dim query As String = "SELECT ID, accesslevel, course, section FROM accounts WHERE username=@username AND pword=@pword"
             Dim command As New MySqlCommand(query, conn)
 
             ' Add parameters to the command
@@ -92,6 +92,8 @@ Public Class Login
                     reader.Read() ' Move to the first row
                     Dim accountId As String = reader("ID").ToString() ' Get the ID of the account as a string
                     Dim accountlevel As String = reader("accesslevel").ToString().ToLower() ' Get account level in lowercase
+                    Dim U_course As String = reader("course").ToString()
+                    Dim U_section As String = reader("section").ToString
                     Dim Action As String = "login"
                     reader.Close() ' Close the reader as it's no longer needed
 
@@ -107,6 +109,8 @@ Public Class Login
                             txtpassword.Clear()
                             txtuname.Clear()
                             access = "low"
+                            course = U_course
+                            section = U_section
                             logging_log(accountId, Action)
                             coursefinder(accountId, course)
                             sectionfinder(accountId, section)

@@ -2,7 +2,7 @@
 Imports System.Windows.Forms
 Imports System.Data
 
-Public Class FeedbackReport_sender_Student
+Public Class FeedbackReport_sender
     Public room_name As String
     Public room_ID As String
 
@@ -89,6 +89,7 @@ Public Class FeedbackReport_sender_Student
         ElseIf access = "low" Then
             Student.Show()
         End If
+        type = Nothing
         Me.Hide()
     End Sub
 

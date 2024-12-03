@@ -216,12 +216,6 @@
     <Compile Include="student_feedback.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="student_schedule.Designer.vb">
-      <DependentUpon>student_schedule.vb</DependentUpon>
-    </Compile>
-    <Compile Include="student_schedule.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="viewreportfeedback.Designer.vb">
       <DependentUpon>viewreportfeedback.vb</DependentUpon>
     </Compile>
@@ -234,10 +228,10 @@
     <Compile Include="requestapproval.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="roomliststaff.Designer.vb">
-      <DependentUpon>roomliststaff.vb</DependentUpon>
+    <Compile Include="Roomlist.Designer.vb">
+      <DependentUpon>Roomlist.vb</DependentUpon>
     </Compile>
-    <Compile Include="roomliststaff.vb">
+    <Compile Include="Roomlist.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="roomlogs.Designer.vb">
@@ -258,16 +252,10 @@
     <Compile Include="ScheduleStudent.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RoomListStudent.Designer.vb">
-      <DependentUpon>RoomListStudent.vb</DependentUpon>
+    <Compile Include="FeedbackReport_sender.Designer.vb">
+      <DependentUpon>FeedbackReport_sender.vb</DependentUpon>
     </Compile>
-    <Compile Include="RoomListStudent.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FeedbackReport_sender_Student.Designer.vb">
-      <DependentUpon>FeedbackReport_sender_Student.vb</DependentUpon>
-    </Compile>
-    <Compile Include="FeedbackReport_sender_Student.vb">
+    <Compile Include="FeedbackReport_sender.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Login.vb">
@@ -380,23 +368,17 @@
     <EmbeddedResource Include="student_feedback.resx">
       <DependentUpon>student_feedback.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="student_schedule.resx">
-      <DependentUpon>student_schedule.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="viewreportfeedback.resx">
       <DependentUpon>viewreportfeedback.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="requestapproval.resx">
       <DependentUpon>requestapproval.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="roomliststaff.resx">
-      <DependentUpon>roomliststaff.vb</DependentUpon>
+    <EmbeddedResource Include="Roomlist.resx">
+      <DependentUpon>Roomlist.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RoomListStudent.resx">
-      <DependentUpon>RoomListStudent.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FeedbackReport_sender_Student.resx">
-      <DependentUpon>FeedbackReport_sender_Student.vb</DependentUpon>
+    <EmbeddedResource Include="FeedbackReport_sender.resx">
+      <DependentUpon>FeedbackReport_sender.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.vb</DependentUpon>

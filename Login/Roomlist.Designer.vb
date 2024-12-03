@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class ScheduleStudent
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class Roomlist
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()>
+    <System.Diagnostics.DebuggerNonUserCode()> _
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class ScheduleStudent
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()>
+    <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
@@ -36,25 +36,21 @@ Partial Class ScheduleStudent
         Me.txtsearch = New System.Windows.Forms.TextBox()
         Me.btnsearch = New System.Windows.Forms.Button()
         Me.TableLayoutPanel7 = New System.Windows.Forms.TableLayoutPanel()
-        Me.TableLayoutPanel11 = New System.Windows.Forms.TableLayoutPanel()
         Me.btnback = New System.Windows.Forms.Button()
-        Me.DGVschedule = New System.Windows.Forms.DataGridView()
-        Me.sched_code = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.subject = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DGVroomlist = New System.Windows.Forms.DataGridView()
         Me.room_code = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.room_name = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.building_where = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.s_day = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.s_date = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.time_in = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.time_out = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.building = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.status = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.num_chairs = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.num_computers = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.num_laptops = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TableLayoutPanel5.SuspendLayout()
         Me.TableLayoutPanel6.SuspendLayout()
         Me.TableLayoutPanel8.SuspendLayout()
         Me.TableLayoutPanel9.SuspendLayout()
         Me.TableLayoutPanel7.SuspendLayout()
-        Me.TableLayoutPanel11.SuspendLayout()
-        CType(Me.DGVschedule, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DGVroomlist, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TableLayoutPanel5
@@ -66,18 +62,18 @@ Partial Class ScheduleStudent
         Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel5.Controls.Add(Me.TableLayoutPanel6, 1, 1)
         Me.TableLayoutPanel5.Controls.Add(Me.TableLayoutPanel7, 1, 3)
-        Me.TableLayoutPanel5.Controls.Add(Me.DGVschedule, 1, 2)
+        Me.TableLayoutPanel5.Controls.Add(Me.DGVroomlist, 1, 2)
         Me.TableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel5.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
         Me.TableLayoutPanel5.RowCount = 5
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.50973!))
-        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 72.76265!))
-        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.727627!))
+        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 72.56809!))
+        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.922179!))
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel5.Size = New System.Drawing.Size(1056, 555)
-        Me.TableLayoutPanel5.TabIndex = 5
+        Me.TableLayoutPanel5.TabIndex = 3
         '
         'TableLayoutPanel6
         '
@@ -120,7 +116,7 @@ Partial Class ScheduleStudent
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(228, 58)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Schedule"
+        Me.Label1.Text = "Room List"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.BottomRight
         '
         'TableLayoutPanel9
@@ -165,7 +161,7 @@ Partial Class ScheduleStudent
         Me.cboType.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboType.ForeColor = System.Drawing.Color.MidnightBlue
         Me.cboType.FormattingEnabled = True
-        Me.cboType.Items.AddRange(New Object() {"Choose", "Schedule Code", "Room Code", "Room Name", "Subject", "Building", "Day", "Date", "Time In", "Time Out"})
+        Me.cboType.Items.AddRange(New Object() {"Choose", "Room Code", "Room Name", "Building", "Availability", "Chair #", "Computer #", "Laptop #"})
         Me.cboType.Location = New System.Drawing.Point(138, 40)
         Me.cboType.Name = "cboType"
         Me.cboType.Size = New System.Drawing.Size(179, 33)
@@ -181,7 +177,7 @@ Partial Class ScheduleStudent
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(90, 41)
         Me.Label3.TabIndex = 10
-        Me.Label3.Text = "SEARCH :"
+        Me.Label3.Text = "SEARCH:"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'txtsearch
@@ -210,40 +206,27 @@ Partial Class ScheduleStudent
         '
         'TableLayoutPanel7
         '
-        Me.TableLayoutPanel7.ColumnCount = 1
-        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.19802!))
+        Me.TableLayoutPanel7.ColumnCount = 2
+        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 88.21782!))
+        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.78218!))
         Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel7.Controls.Add(Me.TableLayoutPanel11, 0, 0)
+        Me.TableLayoutPanel7.Controls.Add(Me.btnback, 1, 0)
         Me.TableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel7.Location = New System.Drawing.Point(23, 487)
+        Me.TableLayoutPanel7.Location = New System.Drawing.Point(23, 486)
         Me.TableLayoutPanel7.Name = "TableLayoutPanel7"
         Me.TableLayoutPanel7.RowCount = 1
         Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44.0!))
-        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44.0!))
-        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44.0!))
-        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44.0!))
-        Me.TableLayoutPanel7.Size = New System.Drawing.Size(1010, 44)
+        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45.0!))
+        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45.0!))
+        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45.0!))
+        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45.0!))
+        Me.TableLayoutPanel7.Size = New System.Drawing.Size(1010, 45)
         Me.TableLayoutPanel7.TabIndex = 1
-        '
-        'TableLayoutPanel11
-        '
-        Me.TableLayoutPanel11.ColumnCount = 2
-        Me.TableLayoutPanel11.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 87.4502!))
-        Me.TableLayoutPanel11.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5498!))
-        Me.TableLayoutPanel11.Controls.Add(Me.btnback, 1, 0)
-        Me.TableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel11.Location = New System.Drawing.Point(3, 3)
-        Me.TableLayoutPanel11.Name = "TableLayoutPanel11"
-        Me.TableLayoutPanel11.RowCount = 1
-        Me.TableLayoutPanel11.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46.0!))
-        Me.TableLayoutPanel11.Size = New System.Drawing.Size(1004, 38)
-        Me.TableLayoutPanel11.TabIndex = 1
         '
         'btnback
         '
@@ -251,20 +234,20 @@ Partial Class ScheduleStudent
         Me.btnback.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnback.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnback.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnback.Location = New System.Drawing.Point(881, 3)
+        Me.btnback.Location = New System.Drawing.Point(893, 3)
         Me.btnback.Name = "btnback"
-        Me.btnback.Size = New System.Drawing.Size(120, 40)
-        Me.btnback.TabIndex = 14
+        Me.btnback.Size = New System.Drawing.Size(114, 39)
+        Me.btnback.TabIndex = 15
         Me.btnback.Text = "Back"
         Me.btnback.UseVisualStyleBackColor = False
         '
-        'DGVschedule
+        'DGVroomlist
         '
-        Me.DGVschedule.AllowUserToAddRows = False
-        Me.DGVschedule.AllowUserToDeleteRows = False
-        Me.DGVschedule.AllowUserToResizeColumns = False
-        Me.DGVschedule.AllowUserToResizeRows = False
-        Me.DGVschedule.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.DGVroomlist.AllowUserToAddRows = False
+        Me.DGVroomlist.AllowUserToDeleteRows = False
+        Me.DGVroomlist.AllowUserToResizeColumns = False
+        Me.DGVroomlist.AllowUserToResizeRows = False
+        Me.DGVroomlist.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaption
         DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -272,10 +255,10 @@ Partial Class ScheduleStudent
         DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.GradientInactiveCaption
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DGVschedule.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
-        Me.DGVschedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGVschedule.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.sched_code, Me.subject, Me.room_code, Me.room_name, Me.building_where, Me.s_day, Me.s_date, Me.time_in, Me.time_out})
-        Me.DGVschedule.Cursor = System.Windows.Forms.Cursors.Default
+        Me.DGVroomlist.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        Me.DGVroomlist.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DGVroomlist.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.room_code, Me.room_name, Me.building, Me.status, Me.num_chairs, Me.num_computers, Me.num_laptops})
+        Me.DGVroomlist.Cursor = System.Windows.Forms.Cursors.Default
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -283,13 +266,12 @@ Partial Class ScheduleStudent
         DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DGVschedule.DefaultCellStyle = DataGridViewCellStyle2
-        Me.DGVschedule.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DGVschedule.GridColor = System.Drawing.SystemColors.HotTrack
-        Me.DGVschedule.Location = New System.Drawing.Point(23, 113)
-        Me.DGVschedule.MultiSelect = False
-        Me.DGVschedule.Name = "DGVschedule"
-        Me.DGVschedule.ReadOnly = True
+        Me.DGVroomlist.DefaultCellStyle = DataGridViewCellStyle2
+        Me.DGVroomlist.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DGVroomlist.GridColor = System.Drawing.SystemColors.HotTrack
+        Me.DGVroomlist.Location = New System.Drawing.Point(23, 113)
+        Me.DGVroomlist.Name = "DGVroomlist"
+        Me.DGVroomlist.ReadOnly = True
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -297,23 +279,10 @@ Partial Class ScheduleStudent
         DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DGVschedule.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
-        Me.DGVschedule.RowHeadersWidth = 62
-        Me.DGVschedule.Size = New System.Drawing.Size(1010, 368)
-        Me.DGVschedule.TabIndex = 2
-        '
-        'sched_code
-        '
-        Me.sched_code.HeaderText = "Schedule Code"
-        Me.sched_code.Name = "sched_code"
-        Me.sched_code.ReadOnly = True
-        '
-        'subject
-        '
-        Me.subject.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.subject.HeaderText = "Subject"
-        Me.subject.Name = "subject"
-        Me.subject.ReadOnly = True
+        Me.DGVroomlist.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
+        Me.DGVroomlist.RowHeadersWidth = 62
+        Me.DGVroomlist.Size = New System.Drawing.Size(1010, 367)
+        Me.DGVroomlist.TabIndex = 3
         '
         'room_code
         '
@@ -329,57 +298,53 @@ Partial Class ScheduleStudent
         Me.room_name.Name = "room_name"
         Me.room_name.ReadOnly = True
         '
-        'building_where
+        'building
         '
-        Me.building_where.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.building_where.HeaderText = "Building"
-        Me.building_where.Name = "building_where"
-        Me.building_where.ReadOnly = True
+        Me.building.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.building.HeaderText = "Building"
+        Me.building.Name = "building"
+        Me.building.ReadOnly = True
         '
-        's_day
+        'status
         '
-        Me.s_day.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.s_day.HeaderText = "Day"
-        Me.s_day.Name = "s_day"
-        Me.s_day.ReadOnly = True
+        Me.status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.status.HeaderText = "Availability"
+        Me.status.Name = "status"
+        Me.status.ReadOnly = True
         '
-        's_date
+        'num_chairs
         '
-        Me.s_date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.s_date.HeaderText = "Date"
-        Me.s_date.Name = "s_date"
-        Me.s_date.ReadOnly = True
+        Me.num_chairs.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.num_chairs.HeaderText = "Chair #"
+        Me.num_chairs.Name = "num_chairs"
+        Me.num_chairs.ReadOnly = True
         '
-        'time_in
+        'num_computers
         '
-        Me.time_in.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.time_in.HeaderText = "Time_In"
-        Me.time_in.Name = "time_in"
-        Me.time_in.ReadOnly = True
+        Me.num_computers.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.num_computers.HeaderText = "Computer #"
+        Me.num_computers.Name = "num_computers"
+        Me.num_computers.ReadOnly = True
         '
-        'time_out
+        'num_laptops
         '
-        Me.time_out.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.time_out.HeaderText = "Time_Out"
-        Me.time_out.Name = "time_out"
-        Me.time_out.ReadOnly = True
+        Me.num_laptops.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.num_laptops.HeaderText = "Laptop #"
+        Me.num_laptops.Name = "num_laptops"
+        Me.num_laptops.ReadOnly = True
         '
-        'ScheduleStudent
+        'Roomlist
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.BackColor = System.Drawing.SystemColors.Control
         Me.BackgroundImage = Global.Login.My.Resources.Resources._467460386_1064088022134846_6079649981189841706_n
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1056, 555)
         Me.Controls.Add(Me.TableLayoutPanel5)
-        Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Margin = New System.Windows.Forms.Padding(2)
-        Me.Name = "ScheduleStudent"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Schedule Student"
+        Me.Name = "Roomlist"
+        Me.Text = "roomliststaff"
         Me.TableLayoutPanel5.ResumeLayout(False)
         Me.TableLayoutPanel6.ResumeLayout(False)
         Me.TableLayoutPanel8.ResumeLayout(False)
@@ -387,8 +352,7 @@ Partial Class ScheduleStudent
         Me.TableLayoutPanel9.ResumeLayout(False)
         Me.TableLayoutPanel9.PerformLayout()
         Me.TableLayoutPanel7.ResumeLayout(False)
-        Me.TableLayoutPanel11.ResumeLayout(False)
-        CType(Me.DGVschedule, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DGVroomlist, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -404,16 +368,13 @@ Partial Class ScheduleStudent
     Friend WithEvents txtsearch As TextBox
     Friend WithEvents btnsearch As Button
     Friend WithEvents TableLayoutPanel7 As TableLayoutPanel
-    Friend WithEvents TableLayoutPanel11 As TableLayoutPanel
-    Friend WithEvents btnback As Button
-    Friend WithEvents DGVschedule As DataGridView
-    Friend WithEvents sched_code As DataGridViewTextBoxColumn
-    Friend WithEvents subject As DataGridViewTextBoxColumn
+    Friend WithEvents DGVroomlist As DataGridView
     Friend WithEvents room_code As DataGridViewTextBoxColumn
     Friend WithEvents room_name As DataGridViewTextBoxColumn
-    Friend WithEvents building_where As DataGridViewTextBoxColumn
-    Friend WithEvents s_day As DataGridViewTextBoxColumn
-    Friend WithEvents s_date As DataGridViewTextBoxColumn
-    Friend WithEvents time_in As DataGridViewTextBoxColumn
-    Friend WithEvents time_out As DataGridViewTextBoxColumn
+    Friend WithEvents building As DataGridViewTextBoxColumn
+    Friend WithEvents status As DataGridViewTextBoxColumn
+    Friend WithEvents num_chairs As DataGridViewTextBoxColumn
+    Friend WithEvents num_computers As DataGridViewTextBoxColumn
+    Friend WithEvents num_laptops As DataGridViewTextBoxColumn
+    Friend WithEvents btnback As Button
 End Class

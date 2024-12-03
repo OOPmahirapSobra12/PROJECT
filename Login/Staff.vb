@@ -82,7 +82,7 @@ Public Class Staff
     End Sub
 
     Private Sub btnroomlist_click(sender As Object, e As EventArgs) Handles btnroomlist.Click
-        Dim roomliststaff As New roomliststaff()
+        Dim roomliststaff As New Roomlist()
         roomliststaff.Show()
         Me.Hide()
     End Sub

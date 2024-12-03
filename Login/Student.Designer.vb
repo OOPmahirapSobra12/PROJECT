@@ -34,12 +34,15 @@ Partial Class Student
         Me.btnaccount = New System.Windows.Forms.Button()
         Me.btnroomlist = New System.Windows.Forms.Button()
         Me.btnschedule = New System.Windows.Forms.Button()
-        Me.btnfeedback = New System.Windows.Forms.Button()
         Me.btnlogout = New System.Windows.Forms.Button()
+        Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
+        Me.btnfeedback = New System.Windows.Forms.Button()
+        Me.btnreport = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
         CType(Me.DGVrooms, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel2.SuspendLayout()
+        Me.TableLayoutPanel4.SuspendLayout()
         Me.SuspendLayout()
         '
         'TableLayoutPanel1
@@ -144,8 +147,8 @@ Partial Class Student
         Me.TableLayoutPanel2.Controls.Add(Me.btnaccount, 0, 1)
         Me.TableLayoutPanel2.Controls.Add(Me.btnroomlist, 0, 2)
         Me.TableLayoutPanel2.Controls.Add(Me.btnschedule, 0, 3)
-        Me.TableLayoutPanel2.Controls.Add(Me.btnfeedback, 0, 4)
         Me.TableLayoutPanel2.Controls.Add(Me.btnlogout, 0, 5)
+        Me.TableLayoutPanel2.Controls.Add(Me.TableLayoutPanel4, 0, 4)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(456, 3)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
@@ -206,21 +209,6 @@ Partial Class Student
         Me.btnschedule.Text = "Schedule"
         Me.btnschedule.UseVisualStyleBackColor = False
         '
-        'btnfeedback
-        '
-        Me.btnfeedback.AutoSize = True
-        Me.btnfeedback.BackColor = System.Drawing.Color.Transparent
-        Me.btnfeedback.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnfeedback.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnfeedback.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnfeedback.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.btnfeedback.Location = New System.Drawing.Point(3, 341)
-        Me.btnfeedback.Name = "btnfeedback"
-        Me.btnfeedback.Size = New System.Drawing.Size(442, 50)
-        Me.btnfeedback.TabIndex = 57
-        Me.btnfeedback.Text = "Feedback / Report"
-        Me.btnfeedback.UseVisualStyleBackColor = False
-        '
         'btnlogout
         '
         Me.btnlogout.AutoSize = True
@@ -235,6 +223,51 @@ Partial Class Student
         Me.btnlogout.TabIndex = 59
         Me.btnlogout.Text = "Log-Out"
         Me.btnlogout.UseVisualStyleBackColor = False
+        '
+        'TableLayoutPanel4
+        '
+        Me.TableLayoutPanel4.ColumnCount = 2
+        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel4.Controls.Add(Me.btnreport, 0, 0)
+        Me.TableLayoutPanel4.Controls.Add(Me.btnfeedback, 0, 0)
+        Me.TableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel4.Location = New System.Drawing.Point(3, 341)
+        Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
+        Me.TableLayoutPanel4.RowCount = 1
+        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel4.Size = New System.Drawing.Size(442, 50)
+        Me.TableLayoutPanel4.TabIndex = 60
+        '
+        'btnfeedback
+        '
+        Me.btnfeedback.AutoSize = True
+        Me.btnfeedback.BackColor = System.Drawing.Color.Transparent
+        Me.btnfeedback.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnfeedback.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnfeedback.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnfeedback.ForeColor = System.Drawing.Color.NavajoWhite
+        Me.btnfeedback.Location = New System.Drawing.Point(3, 3)
+        Me.btnfeedback.Name = "btnfeedback"
+        Me.btnfeedback.Size = New System.Drawing.Size(215, 44)
+        Me.btnfeedback.TabIndex = 58
+        Me.btnfeedback.Text = "Feedback"
+        Me.btnfeedback.UseVisualStyleBackColor = False
+        '
+        'btnreport
+        '
+        Me.btnreport.AutoSize = True
+        Me.btnreport.BackColor = System.Drawing.Color.Transparent
+        Me.btnreport.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnreport.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnreport.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnreport.ForeColor = System.Drawing.Color.NavajoWhite
+        Me.btnreport.Location = New System.Drawing.Point(224, 3)
+        Me.btnreport.Name = "btnreport"
+        Me.btnreport.Size = New System.Drawing.Size(215, 44)
+        Me.btnreport.TabIndex = 59
+        Me.btnreport.Text = "Report"
+        Me.btnreport.UseVisualStyleBackColor = False
         '
         'Student
         '
@@ -257,6 +290,8 @@ Partial Class Student
         CType(Me.DGVrooms, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()
+        Me.TableLayoutPanel4.ResumeLayout(False)
+        Me.TableLayoutPanel4.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -269,10 +304,12 @@ Partial Class Student
     Friend WithEvents btnaccount As Button
     Friend WithEvents btnroomlist As Button
     Friend WithEvents btnschedule As Button
-    Friend WithEvents btnfeedback As Button
     Friend WithEvents btnlogout As Button
     Friend WithEvents subject As DataGridViewTextBoxColumn
     Friend WithEvents time As DataGridViewTextBoxColumn
     Friend WithEvents room As DataGridViewTextBoxColumn
     Friend WithEvents room_status As DataGridViewTextBoxColumn
+    Friend WithEvents TableLayoutPanel4 As TableLayoutPanel
+    Friend WithEvents btnreport As Button
+    Friend WithEvents btnfeedback As Button
 End Class

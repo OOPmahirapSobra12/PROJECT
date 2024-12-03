@@ -127,17 +127,12 @@ Public Class Student
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnroomlist.Click
-        RoomListForm.Show()
-        Me.Hide()
-    End Sub
-
-    Private Sub feedback_click(sender As Object, e As EventArgs) Handles btnfeedback.Click
-        FeedbackReport_sender_Student.Show()
+        Roomlist.Show()
         Me.Hide()
     End Sub
 
     Private Sub btnschedule_Click(sender As Object, e As EventArgs) Handles btnschedule.Click
-        student_schedule.Show()
+        ScheduleStudent.Show()
         Me.Hide()
     End Sub
 
@@ -146,7 +141,21 @@ Public Class Student
         Dim Action As String = "logout"
         logging_log(accountID, Action)
         U_ID = Nothing
+        course = Nothing
+        section = Nothing
         Login.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub btnfeedback_Click(sender As Object, e As EventArgs) Handles btnfeedback.Click
+        FeedbackReport_sender.Show()
+        type = "feedback"
+        Me.Hide()
+    End Sub
+
+    Private Sub btnreport_Click(sender As Object, e As EventArgs) Handles btnreport.Click
+        FeedbackReport_sender.Show()
+        type = "report"
         Me.Hide()
     End Sub
 End Class

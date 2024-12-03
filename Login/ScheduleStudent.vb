@@ -1,134 +1,270 @@
 ﻿Imports MySql.Data.MySqlClient
+Imports System.Windows.Forms
+Imports System.Data
+
 Public Class ScheduleStudent
-
-    Private btnsearchstud As Object
-
-
-    Private Sub ScheduleStudent_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        If conn.State = ConnectionState.Open Then
+    Public course As String
+    Public section As String
+    ' Load data into DataGridView
+    Private Sub ScheduleForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If conn.State <> ConnectionState.Open Then
             conn.Close()
-            btnsearchstud.Enabled = True
         End If
-
-        searchcbo()
+        DbConnect()
+        loadtable()
+        formatloader()
     End Sub
 
-    Private Sub searchcbo()
-        ' Add options to ComboBox
-        cboSearchStud.Items.Add("All")
-        cboSearchStud.Items.Add("Room Name")
-        cboSearchStud.Items.Add("Room Code")
-        cboSearchStud.Items.Add("Building Letter")
-
-        ' Set a default selection if desired
-        cboSearchStud.SelectedIndex = 0 ' Selects the first item (Room Name) by default
+    Public Sub formatloader()
+        cboType.SelectedIndex = 0
+        cborcodeloader()
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnback.Click
+    Public Sub cborcodeloader()
+        ' SQL Query to select room_code from roomlist
+        Dim sqlQuery As String = "SELECT room_code FROM roomlist"
+        Dim command As New MySqlCommand(sqlQuery, conn)
+
+        Try
+            ' Open the database connection if it's not already open
+            If conn.State <> ConnectionState.Open Then
+                conn.Open()
+            End If
+
+            ' Execute the query and read the data
+            Dim reader As MySqlDataReader = command.ExecuteReader()
+
+            ' Temporarily hold room codes
+            Dim roomCodes As New List(Of String)
+
+            ' Add the default "Choose" option at the start
+            roomCodes.Add("Choose")
+
+            ' Loop through the result set and add room_code to the list
+            While reader.Read()
+                roomCodes.Add(reader("room_code").ToString())
+            End While
+        Catch ex As Exception
+            MessageBox.Show("Error loading room codes: " & ex.Message)
+        Finally
+            ' Close the reader and connection
+            If conn.State = ConnectionState.Open Then
+                conn.Close()
+            End If
+        End Try
+    End Sub
+
+    Public Sub loadtable()
+        ' SQL query to fetch data from sched and schedtemp with UNION ALL, filtering by course_name and sections
+        Dim sqlQuery As String = "
+       SELECT 
+            sched.shed_id,
+            sched.room_code, 
+            NULL AS room_date, 
+            sched.room_day, 
+            sched.room_time_in, 
+            sched.room_time_out, 
+            subjects.subject_name,
+            roomlist.building
+        FROM sched
+        JOIN subjects ON sched.subject_name = subjects.subject_name
+        JOIN roomlist ON sched.room_code = roomlist.room_code
+        WHERE sched.course_name = @courseName AND sched.sections = @section
+    
+        UNION ALL
+    
+        SELECT 
+            schedtemp.shed_id,
+            schedtemp.room_code, 
+            schedtemp.room_date, 
+            NULL AS room_day, 
+            schedtemp.room_time_in, 
+            schedtemp.room_time_out, 
+            subjects.subject_name,
+            roomlist.building
+        FROM schedtemp
+        JOIN subjects ON schedtemp.subject_name = subjects.subject_name
+        JOIN roomlist ON schedtemp.room_code = roomlist.room_code
+        WHERE schedtemp.course_name = @courseName AND schedtemp.sections = @section;"
+
+        ' Create a new DataAdapter and DataTable
+        Dim dataAdapter As New MySqlDataAdapter(sqlQuery, conn)
+        Dim dataTable As New DataTable()
+
+        ' Add parameters for filtering
+        dataAdapter.SelectCommand.Parameters.AddWithValue("@courseName", course)
+        dataAdapter.SelectCommand.Parameters.AddWithValue("@section", section)
+
+        Try
+            ' Open the connection if it isn't already open
+            If conn.State <> ConnectionState.Open Then
+                conn.Open()
+            End If
+
+            ' Fill the data into the DataTable
+            dataAdapter.Fill(dataTable)
+
+            ' Add calculated columns for room_day and room_date if they don't exist
+            If Not dataTable.Columns.Contains("room_day") Then
+                dataTable.Columns.Add("room_day", GetType(String))
+            End If
+
+            If Not dataTable.Columns.Contains("room_date") Then
+                dataTable.Columns.Add("room_date", GetType(String))
+            End If
+
+            ' Process rows for `room_day` and `room_date` logic
+            For Each row As DataRow In dataTable.Rows
+                If Not String.IsNullOrEmpty(row("room_date").ToString()) Then
+                    row("room_day") = "N/A"
+                ElseIf Not String.IsNullOrEmpty(row("room_day").ToString()) Then
+                    row("room_date") = "N/A"
+                End If
+            Next
+
+            ' Configure the DataGridView for column bindings
+            DGVschedule.AutoGenerateColumns = False
+            DGVschedule.DataSource = dataTable
+
+            ' Set DataPropertyName for each DataGridView column
+            DGVschedule.Columns("sched_code").DataPropertyName = "shed_id"
+            DGVschedule.Columns("room_code").DataPropertyName = "room_code"
+            DGVschedule.Columns("s_day").DataPropertyName = "room_day"
+            DGVschedule.Columns("s_date").DataPropertyName = "room_date"
+            DGVschedule.Columns("time_in").DataPropertyName = "room_time_in"
+            DGVschedule.Columns("time_out").DataPropertyName = "room_time_out"
+            DGVschedule.Columns("building_where").DataPropertyName = "building"
+            DGVschedule.Columns("subject").DataPropertyName = "subject_name"
+
+        Catch ex As Exception
+            ' Display error message
+            MessageBox.Show("Error loading table data: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            ' Ensure the connection is closed
+            If conn.State = ConnectionState.Open Then
+                conn.Close()
+            End If
+        End Try
+    End Sub
+
+
+    Private Sub btnback_Click(sender As Object, e As EventArgs) Handles btnback.Click
         Student.Show()
         Me.Hide()
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles txtsearchsched.Click
-
-
-        If cboSearchStud.SelectedItem.ToString() = "All" Then
-            tableloader_rooms() ' Load all rooms from the roomlist
-        Else
-            tablesearcher_rooms() ' Perform search based on other criteria
+    Private Sub btnsearch_Click(sender As Object, e As EventArgs) Handles btnsearch.Click
+        ' Validate that the user has entered a search term
+        If String.IsNullOrWhiteSpace(txtsearch.Text) Then
+            MessageBox.Show("Please enter a search term.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
         End If
-    End Sub
 
-    Private Sub tableloader_rooms()
-        Dim query As String = "SELECT room_code, room_name, building_letter,room_status from roomlist" ' Use roomlist if you want to get room status from that table
-        Dim adapter As New MySqlDataAdapter(query, conn)
-        Dim table As New DataTable()
+        ' Validate that courseName and section are set
+        If String.IsNullOrEmpty(course) OrElse String.IsNullOrEmpty(section) Then
+            MessageBox.Show("Course and Section must be selected.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        ' Get the selected category and search term
+        Dim selectedCategory As String = cboType.SelectedItem.ToString()
+        Dim searchTerm As String = txtsearch.Text.Trim()
+
+        ' Construct the base SQL query with placeholder for filtering
+        Dim sqlQuery As String = "
+    SELECT 
+        sched.shed_id,
+        sched.room_code, 
+        roomlist.room_name, 
+        sched.room_day, 
+        sched.room_time_in, 
+        sched.room_time_out, 
+        NULL AS room_date, 
+        roomlist.building,
+        sched.subject_name
+    FROM sched
+    JOIN roomlist ON sched.room_code = roomlist.room_code
+    WHERE sched.course_name = @courseName AND sched.sections = @section
+
+    UNION ALL
+
+    SELECT 
+        schedtemp.shed_id,
+        schedtemp.room_code, 
+        roomlist.room_name, 
+        NULL AS room_day, 
+        schedtemp.room_time_in, 
+        schedtemp.room_time_out, 
+        schedtemp.room_date, 
+        roomlist.building,
+        schedtemp.subject_name
+    FROM schedtemp
+    JOIN roomlist ON schedtemp.room_code = roomlist.room_code
+    WHERE schedtemp.course_name = @courseName AND schedtemp.sections = @section AND {0} LIKE @searchTerm;"
+
+        ' Map categories to database columns
+        Dim columnMap As New Dictionary(Of String, String) From {
+            {"Schedule Code", "shed_id"},
+            {"Room Code", "room_code"},
+            {"Room Name", "room_name"},
+            {"Subject", "subject_name"},
+            {"Building", "building"},
+            {"Day", "room_day"},
+            {"Date", "room_date"},
+            {"Time In", "room_time_in"},
+            {"Time Out", "room_time_out"}
+        }
+
+        ' Validate the selected category
+        If Not columnMap.ContainsKey(selectedCategory) Then
+            MessageBox.Show("Invalid search category selected.", "Search Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        ' Replace placeholder with the selected column
+        sqlQuery = String.Format(sqlQuery, columnMap(selectedCategory))
+
+        ' Prepare the search term for wildcard matching
+        Dim parameterValue As String = "%" & searchTerm & "%"
+
+        ' Create a new DataAdapter to execute the query
+        Dim dataAdapter As New MySqlDataAdapter(sqlQuery, conn)
+        dataAdapter.SelectCommand.Parameters.AddWithValue("@courseName", course)
+        dataAdapter.SelectCommand.Parameters.AddWithValue("@section", section)
+        dataAdapter.SelectCommand.Parameters.AddWithValue("@searchTerm", parameterValue)
+
+        ' Create a DataTable to hold the search results
+        Dim dataTable As New DataTable()
 
         Try
-            ' Fill the DataTable with data from the sched table
-            adapter.Fill(table)
-
-            ' Bind the DataTable to the DataGridView
-            dvgsearchStud.DataSource = table
-        Catch ex As Exception
-            MessageBox.Show("Error retrieving room statuses: " & ex.Message)
-        End Try
-    End Sub
-
-    Private Sub tablesearcher_rooms()
-        Dim category As String = cboSearchStud.Text()
-        Dim search As String = txtsearchRoomStud.Text()
-
-        Dim query As String = ""
-
-        ' Construct the SQL query based on the selected category
-        Select Case category
-            Case "Room Name"
-                query = "SELECT * FROM roomlist WHERE room_name LIKE @search"
-            Case "Room Code"
-                query = "SELECT * FROM roomlist WHERE room_code LIKE @search"
-            Case "Building Letter"
-                query = "SELECT * FROM roomlist WHERE building_letter LIKE @search"
-            Case Else
-                MessageBox.Show("Please select a valid category.", "Invalid Category", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                Return
-        End Select
-
-        ' Create the MySqlCommand object
-        Dim command As New MySqlCommand(query, conn)
-
-        ' Add the parameter for the search term, using '%' for partial matching
-        command.Parameters.AddWithValue("@search", "%" & search & "%")
-
-        Dim table As New DataTable()
-
-        Try
-            If conn.State = ConnectionState.Closed Then
+            ' Open the connection if not already open
+            If conn.State <> ConnectionState.Open Then
                 conn.Open()
             End If
 
-            ' Execute the query and fill the DataTable
-            Dim adapter As New MySqlDataAdapter(command)
-            adapter.Fill(table)
+            ' Fill the DataTable with search results
+            dataAdapter.Fill(dataTable)
+
+            ' Handle room_day/room_date logic in results
+            For Each row As DataRow In dataTable.Rows
+                If Not String.IsNullOrEmpty(row("room_date").ToString()) Then
+                    row("room_day") = "N/A"
+                ElseIf Not String.IsNullOrEmpty(row("room_day").ToString()) Then
+                    row("room_date") = "N/A"
+                End If
+            Next
 
             ' Bind the DataTable to the DataGridView
-            dvgsearchStud.DataSource = table
+            DGVschedule.DataSource = dataTable
         Catch ex As Exception
-            MessageBox.Show("Error retrieving room list: " & ex.Message)
+            MessageBox.Show("Error executing search: " & ex.Message, "Search Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
-            conn.Close()
+            ' Ensure the connection is closed
+            If conn.State = ConnectionState.Open Then
+                conn.Close()
+            End If
         End Try
     End Sub
 
-    Private Sub tableroomsload()
-        ' Format the schedules DataGridView
-        If dvgsearchStud.Rows.Count > 0 Then ' Check if there are rows
-            With dvgsearchStud
-                .Columns(0).HeaderText = "Room Code"
-                .Columns(1).HeaderText = "Room Name"
-                .Columns(2).HeaderText = "Building"
-                .Columns(3).HeaderText = "Statuts"
 
-                ' First, adjust the columns based on data length
-                .AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
-
-                ' Then, set it back to Fill for a balanced layout
-                .AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-            End With
-        Else
-            With dvgsearchStud
-                .Columns(0).HeaderText = "Room Code"
-                .Columns(1).HeaderText = "Room Name"
-                .Columns(2).HeaderText = "Building"
-                .Columns(3).HeaderText = "Statuts"
-
-                ' No auto-size adjustment if no data
-                .AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-            End With
-        End If
-    End Sub
-
-    Private Sub cboSearchStud_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboSearchStud.SelectedIndexChanged
-        cboSearchStud.Width = 102
-    End Sub
 End Class

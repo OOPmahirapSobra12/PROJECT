@@ -2,40 +2,8 @@
 Imports System.Windows.Forms
 Imports System.Data
 
-Public Class FeedbackReport_RoomSelection
-    Private Sub btnsend_click(sender As Object, e As EventArgs) Handles btnselect.Click
-        ' Ensure a row is selected in the DataGridView
-        If DGVroomlist.SelectedRows.Count = 0 Then
-            MessageBox.Show("Please select a row to proceed.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Return
-        End If
-
-        Try
-            ' Get the selected row
-            Dim selectedRow As DataGridViewRow = DGVroomlist.SelectedRows(0)
-
-            ' Retrieve values from the selected row
-            Dim roomCode As String = selectedRow.Cells("room_code").Value?.ToString()
-            Dim roomName As String = selectedRow.Cells("room_name").Value?.ToString()
-
-            ' Assuming feedbackstudent is already instantiated
-            Dim parentForm As FeedbackReport_sender = CType(Application.OpenForms("feedbackstudent"), FeedbackReport_sender)
-
-            If parentForm IsNot Nothing Then
-                parentForm.room_ID = roomCode
-                parentForm.room_name = roomName
-
-                MessageBox.Show($"Room '{roomCode}' selected.", "Selection Successful", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                Me.Close() ' Close the room selection form
-            Else
-                MessageBox.Show("Parent form not found. Unable to pass data.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End If
-        Catch ex As Exception
-            MessageBox.Show("Error selecting room: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
-    End Sub
-
-
+Public Class Roomlist
+    ' Load room data into the DataGridView
     Private Sub LoadRoomData()
         Dim sqlQuery As String = "
         SELECT 
@@ -93,12 +61,25 @@ Public Class FeedbackReport_RoomSelection
         End Try
     End Sub
 
-    Private Sub Staff_report_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    ' Form Load event
+    Private Sub roomliststaff_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If conn.State = ConnectionState.Open Then
             conn.Close()
         End If
-        cboType.SelectedIndex = 0
         DbConnect()
+        LoadRoomData()
+        cboType.SelectedIndex = 0
+    End Sub
+
+    ' Back button
+    Private Sub btnback_Click(sender As Object, e As EventArgs) Handles btnback.Click
+        If access = "mid" Then
+            Staff.Show()
+        ElseIf access = "low" Then
+            Student.Show()
+        End If
+        Me.Hide()
     End Sub
 
     Private Sub btnsearch_Click(sender As Object, e As EventArgs) Handles btnsearch.Click
@@ -137,9 +118,5 @@ Public Class FeedbackReport_RoomSelection
         Else
             dataTable.DefaultView.RowFilter = $"{columnName} LIKE '%{searchValue}%'"
         End If
-    End Sub
-
-    Private Sub btnback_Click(sender As Object, e As EventArgs) Handles btnback.Click
-        Me.Hide()
     End Sub
 End Class

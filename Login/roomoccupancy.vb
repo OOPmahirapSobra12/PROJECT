@@ -10,7 +10,7 @@ Public Class roomoccupancy
 
     Private Sub btnClear_Click(sender As Object, e As EventArgs) Handles btnClear.Click
         txtpassword.Text = ""
-        txtroom.Text = ""
+        cbocodeorname.SelectedIndex = -1
         cboChoose.SelectedIndex = 0
     End Sub
 
@@ -24,7 +24,7 @@ Public Class roomoccupancy
     ' Function to search for room by code
     Private Sub roomcode()
         ' Check if any field is empty
-        If String.IsNullOrEmpty(txtID.Text) Or String.IsNullOrEmpty(txtpassword.Text) Or String.IsNullOrEmpty(txtroom.Text) Then
+        If String.IsNullOrEmpty(txtID.Text) Or String.IsNullOrEmpty(txtpassword.Text) Or cbocodeorname.SelectedIndex = -1 Then
             MsgBox("Error, please fill up all information!")
             Return
         End If
@@ -41,7 +41,7 @@ Public Class roomoccupancy
         Try
             ' Create MySQL command with parameters to avoid SQL injection
             Dim cmd As New MySqlCommand(query, conn)
-            cmd.Parameters.AddWithValue("@roomCode", txtroom.Text) ' Use the value from txtroom as room_code
+            cmd.Parameters.AddWithValue("@roomCode", cbocodeorname) ' Use the value from txtroom as room_code
 
             ' Execute the query and get the result
             Dim reader As MySqlDataReader = cmd.ExecuteReader()
@@ -73,7 +73,7 @@ Public Class roomoccupancy
     ' Function to search for room by name
     Private Sub roomname()
         ' Check if any field is empty
-        If String.IsNullOrEmpty(txtID.Text) Or String.IsNullOrEmpty(txtpassword.Text) Or String.IsNullOrEmpty(txtroom.Text) Then
+        If String.IsNullOrEmpty(txtID.Text) Or String.IsNullOrEmpty(txtpassword.Text) Or cbocodeorname.SelectedIndex = -1 Then
             MsgBox("Error, please fill up all information!")
             Return
         End If
@@ -90,7 +90,7 @@ Public Class roomoccupancy
         Try
             ' Create MySQL command with parameters to avoid SQL injection
             Dim cmd As New MySqlCommand(query, conn)
-            cmd.Parameters.AddWithValue("@roomName", txtroom.Text) ' Use the value from txtroom as room_name
+            cmd.Parameters.AddWithValue("@roomName", cbocodeorname) ' Use the value from txtroom as room_name
 
             ' Execute the query and get the result
             Dim reader As MySqlDataReader = cmd.ExecuteReader()
@@ -131,7 +131,7 @@ Public Class roomoccupancy
 
     Private Sub btnregister_Click(sender As Object, e As EventArgs) Handles btnregister.Click
         ' Check if any field is empty
-        If String.IsNullOrEmpty(txtID.Text) Or String.IsNullOrEmpty(txtpassword.Text) Or String.IsNullOrEmpty(txtroom.Text) Then
+        If String.IsNullOrEmpty(txtID.Text) Or String.IsNullOrEmpty(txtpassword.Text) Or cbocodeorname.SelectedIndex = -1 Then
             MsgBox("Error, please fill up all information!")
             Return
         End If
@@ -264,4 +264,65 @@ Public Class roomoccupancy
             MsgBox("Error: " & ex.Message)
         End Try
     End Sub
+
+    Private Sub FillComboBox(sender As Object, e As EventArgs) Handles cbocodeorname.DropDown
+        ' Ensure the connection is open before proceeding
+        If conn.State <> ConnectionState.Open Then
+            MsgBox("Database connection is not open.")
+            Return
+        End If
+
+        ' Clear previous items in the ComboBox
+        cbocodeorname.Items.Clear()
+
+        ' Check which option is selected in cboChoose
+        If cboChoose.SelectedIndex = 1 Then
+            ' If 'Code' is selected, fetch room codes excluding closed rooms
+            Dim query As String = "SELECT room_code FROM roomlist WHERE room_status <> 'Closed'"
+            Try
+                ' Create MySQL command with parameters to avoid SQL injection
+                Dim cmd As New MySqlCommand(query, conn)
+
+                ' Execute the query and get the result
+                Dim reader As MySqlDataReader = cmd.ExecuteReader()
+
+                ' Populate ComboBox with room codes (excluding closed rooms)
+                While reader.Read()
+                    cbocodeorname.Items.Add(reader("room_code").ToString())
+                End While
+
+                reader.Close()
+            Catch ex As MySqlException
+                MsgBox("MySQL Error: " & ex.Message)
+            Catch ex As Exception
+                MsgBox("Error: " & ex.Message)
+            End Try
+        ElseIf cboChoose.SelectedIndex = 2 Then
+            ' If 'Name' is selected, fetch room names excluding closed rooms
+            Dim query As String = "SELECT room_name FROM roomlist WHERE room_status <> 'Closed'"
+            Try
+                ' Create MySQL command with parameters to avoid SQL injection
+                Dim cmd As New MySqlCommand(query, conn)
+
+                ' Execute the query and get the result
+                Dim reader As MySqlDataReader = cmd.ExecuteReader()
+
+                ' Populate ComboBox with room names (excluding closed rooms)
+                While reader.Read()
+                    cbocodeorname.Items.Add(reader("room_name").ToString())
+                End While
+
+                reader.Close()
+            Catch ex As MySqlException
+                MsgBox("MySQL Error: " & ex.Message)
+            Catch ex As Exception
+                MsgBox("Error: " & ex.Message)
+            End Try
+        Else
+            ' If no valid selection is made in cboChoose, show a message
+            MsgBox("Please choose whether to search by room code or room name.")
+        End If
+    End Sub
+
+
 End Class

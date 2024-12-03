@@ -25,14 +25,17 @@ Partial Class Admin
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.btnprofile = New System.Windows.Forms.Button()
-        Me.btnlist = New System.Windows.Forms.Button()
-        Me.btnschedule = New System.Windows.Forms.Button()
         Me.btnapproval = New System.Windows.Forms.Button()
         Me.btnmanagement = New System.Windows.Forms.Button()
         Me.btnlogout = New System.Windows.Forms.Button()
         Me.btnnext = New System.Windows.Forms.Button()
+        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
+        Me.btnlist = New System.Windows.Forms.Button()
+        Me.btnschedule = New System.Windows.Forms.Button()
+        Me.btnloggin = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
+        Me.TableLayoutPanel3.SuspendLayout()
         Me.SuspendLayout()
         '
         'TableLayoutPanel1
@@ -58,12 +61,12 @@ Partial Class Admin
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 54.0!))
         Me.TableLayoutPanel2.Controls.Add(Me.btnprofile, 1, 2)
-        Me.TableLayoutPanel2.Controls.Add(Me.btnlist, 1, 3)
-        Me.TableLayoutPanel2.Controls.Add(Me.btnschedule, 1, 4)
         Me.TableLayoutPanel2.Controls.Add(Me.btnapproval, 1, 5)
         Me.TableLayoutPanel2.Controls.Add(Me.btnmanagement, 1, 6)
         Me.TableLayoutPanel2.Controls.Add(Me.btnlogout, 1, 7)
         Me.TableLayoutPanel2.Controls.Add(Me.btnnext, 2, 8)
+        Me.TableLayoutPanel2.Controls.Add(Me.TableLayoutPanel3, 1, 4)
+        Me.TableLayoutPanel2.Controls.Add(Me.btnloggin, 1, 3)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(390, 12)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
@@ -95,36 +98,6 @@ Partial Class Admin
         Me.btnprofile.TabIndex = 27
         Me.btnprofile.Text = "User (View Account)"
         Me.btnprofile.UseVisualStyleBackColor = False
-        '
-        'btnlist
-        '
-        Me.btnlist.AutoSize = True
-        Me.btnlist.BackColor = System.Drawing.Color.Transparent
-        Me.btnlist.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnlist.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnlist.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnlist.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.btnlist.Location = New System.Drawing.Point(53, 179)
-        Me.btnlist.Name = "btnlist"
-        Me.btnlist.Size = New System.Drawing.Size(297, 39)
-        Me.btnlist.TabIndex = 28
-        Me.btnlist.Text = "Room List"
-        Me.btnlist.UseVisualStyleBackColor = False
-        '
-        'btnschedule
-        '
-        Me.btnschedule.AutoSize = True
-        Me.btnschedule.BackColor = System.Drawing.Color.Transparent
-        Me.btnschedule.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnschedule.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnschedule.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnschedule.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.btnschedule.Location = New System.Drawing.Point(53, 224)
-        Me.btnschedule.Name = "btnschedule"
-        Me.btnschedule.Size = New System.Drawing.Size(297, 37)
-        Me.btnschedule.TabIndex = 29
-        Me.btnschedule.Text = "Schedule"
-        Me.btnschedule.UseVisualStyleBackColor = False
         '
         'btnapproval
         '
@@ -186,6 +159,66 @@ Partial Class Admin
         Me.btnnext.Text = "=>"
         Me.btnnext.UseVisualStyleBackColor = False
         '
+        'TableLayoutPanel3
+        '
+        Me.TableLayoutPanel3.ColumnCount = 2
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel3.Controls.Add(Me.btnschedule, 0, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.btnlist, 0, 0)
+        Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel3.Location = New System.Drawing.Point(53, 224)
+        Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
+        Me.TableLayoutPanel3.RowCount = 1
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(297, 37)
+        Me.TableLayoutPanel3.TabIndex = 36
+        '
+        'btnlist
+        '
+        Me.btnlist.AutoSize = True
+        Me.btnlist.BackColor = System.Drawing.Color.Transparent
+        Me.btnlist.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnlist.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnlist.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnlist.ForeColor = System.Drawing.Color.NavajoWhite
+        Me.btnlist.Location = New System.Drawing.Point(3, 3)
+        Me.btnlist.Name = "btnlist"
+        Me.btnlist.Size = New System.Drawing.Size(142, 31)
+        Me.btnlist.TabIndex = 31
+        Me.btnlist.Text = "Room List"
+        Me.btnlist.UseVisualStyleBackColor = False
+        '
+        'btnschedule
+        '
+        Me.btnschedule.AutoSize = True
+        Me.btnschedule.BackColor = System.Drawing.Color.Transparent
+        Me.btnschedule.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnschedule.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnschedule.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnschedule.ForeColor = System.Drawing.Color.NavajoWhite
+        Me.btnschedule.Location = New System.Drawing.Point(151, 3)
+        Me.btnschedule.Name = "btnschedule"
+        Me.btnschedule.Size = New System.Drawing.Size(143, 31)
+        Me.btnschedule.TabIndex = 32
+        Me.btnschedule.Text = "Schedule"
+        Me.btnschedule.UseVisualStyleBackColor = False
+        '
+        'btnloggin
+        '
+        Me.btnloggin.AutoSize = True
+        Me.btnloggin.BackColor = System.Drawing.Color.Transparent
+        Me.btnloggin.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnloggin.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnloggin.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnloggin.ForeColor = System.Drawing.Color.NavajoWhite
+        Me.btnloggin.Location = New System.Drawing.Point(53, 179)
+        Me.btnloggin.Name = "btnloggin"
+        Me.btnloggin.Size = New System.Drawing.Size(297, 39)
+        Me.btnloggin.TabIndex = 37
+        Me.btnloggin.Text = "Room Log-In"
+        Me.btnloggin.UseVisualStyleBackColor = False
+        '
         'Admin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -204,6 +237,8 @@ Partial Class Admin
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()
+        Me.TableLayoutPanel3.ResumeLayout(False)
+        Me.TableLayoutPanel3.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -211,10 +246,12 @@ Partial Class Admin
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents btnprofile As Button
-    Friend WithEvents btnlist As Button
-    Friend WithEvents btnschedule As Button
     Friend WithEvents btnapproval As Button
     Friend WithEvents btnmanagement As Button
     Friend WithEvents btnlogout As Button
     Friend WithEvents btnnext As Button
+    Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
+    Friend WithEvents btnschedule As Button
+    Friend WithEvents btnlist As Button
+    Friend WithEvents btnloggin As Button
 End Class

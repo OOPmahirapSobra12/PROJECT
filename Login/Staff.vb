@@ -173,4 +173,9 @@ Public Class Staff
         staff_feedback.Show()
         Me.Hide()
     End Sub
+
+    Private Sub btnloging_Click(sender As Object, e As EventArgs) Handles btnloging.Click
+        roomoccupancy.Show()
+        Me.Hide()
+    End Sub
 End Class

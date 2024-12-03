@@ -31,12 +31,12 @@ Public Class Admin
         Me.Hide()
     End Sub
 
-    Private Sub btnlist_Click(sender As Object, e As EventArgs) Handles btnlist.Click
+    Private Sub btnlist_Click(sender As Object, e As EventArgs)
         RoomListForm.Show()
 
         Me.Hide()
     End Sub
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnschedule.Click
+    Private Sub Button2_Click(sender As Object, e As EventArgs)
         Dim scheduleForm As New Schedule
 
         ' Show the Schedule form
@@ -86,6 +86,11 @@ Public Class Admin
 
     Private Sub btnprofile_Click(sender As Object, e As EventArgs) Handles btnprofile.Click
         profile.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub btnloging_Click(sender As Object, e As EventArgs) Handles btnloggin.Click
+        roomoccupancy.Show()
         Me.Hide()
     End Sub
 End Class

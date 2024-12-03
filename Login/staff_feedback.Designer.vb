@@ -101,7 +101,7 @@ Partial Class staff_feedback
         Me.TableLayoutPanel9.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.05747!))
         Me.TableLayoutPanel9.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.09579!))
         Me.TableLayoutPanel9.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.10345!))
-        Me.TableLayoutPanel9.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 53.0!))
+        Me.TableLayoutPanel9.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 56.0!))
         Me.TableLayoutPanel9.Controls.Add(Me.btnsearch, 5, 0)
         Me.TableLayoutPanel9.Controls.Add(Me.cboType, 2, 0)
         Me.TableLayoutPanel9.Controls.Add(Me.txtsearch, 4, 0)
@@ -122,7 +122,7 @@ Partial Class staff_feedback
         Me.btnsearch.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnsearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnsearch.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnsearch.Location = New System.Drawing.Point(813, 3)
+        Me.btnsearch.Location = New System.Drawing.Point(811, 3)
         Me.btnsearch.Name = "btnsearch"
         Me.btnsearch.Size = New System.Drawing.Size(172, 35)
         Me.btnsearch.TabIndex = 12
@@ -139,7 +139,7 @@ Partial Class staff_feedback
         Me.cboType.Items.AddRange(New Object() {"Choose:", "Report ID", "Sender Name", "Date Reported", "Time Reported"})
         Me.cboType.Location = New System.Drawing.Point(243, 3)
         Me.cboType.Name = "cboType"
-        Me.cboType.Size = New System.Drawing.Size(218, 33)
+        Me.cboType.Size = New System.Drawing.Size(217, 33)
         Me.cboType.TabIndex = 9
         '
         'txtsearch
@@ -148,7 +148,7 @@ Partial Class staff_feedback
         Me.txtsearch.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtsearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtsearch.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.txtsearch.Location = New System.Drawing.Point(566, 3)
+        Me.txtsearch.Location = New System.Drawing.Point(564, 3)
         Me.txtsearch.Name = "txtsearch"
         Me.txtsearch.Size = New System.Drawing.Size(241, 31)
         Me.txtsearch.TabIndex = 11
@@ -159,9 +159,9 @@ Partial Class staff_feedback
         Me.Label3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.Label3.Location = New System.Drawing.Point(467, 0)
+        Me.Label3.Location = New System.Drawing.Point(466, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(93, 41)
+        Me.Label3.Size = New System.Drawing.Size(92, 41)
         Me.Label3.TabIndex = 100
         Me.Label3.Text = "SEARCH :"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.TopRight

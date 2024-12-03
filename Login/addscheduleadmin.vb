@@ -60,8 +60,6 @@ Public Class addscheduleadmin
         End Try
     End Sub
 
-
-
     Private Sub searchcbo()
         ' Add options to ComboBox
         cbosearch.Items.Add("All")

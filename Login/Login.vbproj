@@ -228,10 +228,10 @@
     <Compile Include="viewreportfeedback.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RequestApprovalstaff.Designer.vb">
-      <DependentUpon>RequestApprovalstaff.vb</DependentUpon>
+    <Compile Include="requestapproval.Designer.vb">
+      <DependentUpon>requestapproval.vb</DependentUpon>
     </Compile>
-    <Compile Include="RequestApprovalstaff.vb">
+    <Compile Include="requestapproval.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="roomliststaff.Designer.vb">
@@ -264,10 +264,10 @@
     <Compile Include="RoomListStudent.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FeedbackStudent.Designer.vb">
-      <DependentUpon>FeedbackStudent.vb</DependentUpon>
+    <Compile Include="FeedbackReport_sender_Student.Designer.vb">
+      <DependentUpon>FeedbackReport_sender_Student.vb</DependentUpon>
     </Compile>
-    <Compile Include="FeedbackStudent.vb">
+    <Compile Include="FeedbackReport_sender_Student.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Login.vb">
@@ -283,12 +283,6 @@
     <Compile Include="accountcreationlow.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="requestapproval.Designer.vb">
-      <DependentUpon>requestapproval.vb</DependentUpon>
-    </Compile>
-    <Compile Include="requestapproval.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="RoomListForm.Designer.vb">
       <DependentUpon>RoomListForm.vb</DependentUpon>
     </Compile>
@@ -301,10 +295,10 @@
     <Compile Include="Schedule.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FeedbackReport_Sender.Designer.vb">
-      <DependentUpon>FeedbackReport_Sender.vb</DependentUpon>
+    <Compile Include="FeedbackReport_RoomSelection.Designer.vb">
+      <DependentUpon>FeedbackReport_RoomSelection.vb</DependentUpon>
     </Compile>
-    <Compile Include="FeedbackReport_Sender.vb">
+    <Compile Include="FeedbackReport_RoomSelection.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Student.Designer.vb">
@@ -392,8 +386,8 @@
     <EmbeddedResource Include="viewreportfeedback.resx">
       <DependentUpon>viewreportfeedback.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RequestApprovalstaff.resx">
-      <DependentUpon>RequestApprovalstaff.vb</DependentUpon>
+    <EmbeddedResource Include="requestapproval.resx">
+      <DependentUpon>requestapproval.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="roomliststaff.resx">
       <DependentUpon>roomliststaff.vb</DependentUpon>
@@ -401,17 +395,14 @@
     <EmbeddedResource Include="RoomListStudent.resx">
       <DependentUpon>RoomListStudent.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FeedbackStudent.resx">
-      <DependentUpon>FeedbackStudent.vb</DependentUpon>
+    <EmbeddedResource Include="FeedbackReport_sender_Student.resx">
+      <DependentUpon>FeedbackReport_sender_Student.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="accountcreationlow.resx">
       <DependentUpon>accountcreationlow.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="requestapproval.resx">
-      <DependentUpon>requestapproval.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RoomListForm.resx">
       <DependentUpon>RoomListForm.vb</DependentUpon>
@@ -428,8 +419,8 @@
     <EmbeddedResource Include="ScheduleStudent.resx">
       <DependentUpon>ScheduleStudent.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FeedbackReport_Sender.resx">
-      <DependentUpon>FeedbackReport_Sender.vb</DependentUpon>
+    <EmbeddedResource Include="FeedbackReport_RoomSelection.resx">
+      <DependentUpon>FeedbackReport_RoomSelection.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Student.resx">
       <DependentUpon>Student.vb</DependentUpon>

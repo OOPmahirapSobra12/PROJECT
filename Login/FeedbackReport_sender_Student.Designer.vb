@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class feedbackstudent
+Partial Class FeedbackReport_sender_Student
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -320,7 +320,7 @@ Partial Class feedbackstudent
         Me.btnback.Text = "Back"
         Me.btnback.UseVisualStyleBackColor = False
         '
-        'feedbackstudent
+        'FeedbackReport_sender_Student
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -332,7 +332,7 @@ Partial Class feedbackstudent
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Margin = New System.Windows.Forms.Padding(2, 1, 2, 1)
-        Me.Name = "feedbackstudent"
+        Me.Name = "FeedbackReport_sender_Student"
         Me.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Feedback Form Student"

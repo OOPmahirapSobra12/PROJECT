@@ -9,49 +9,25 @@ Public Class requestapproval
             conn.Close()
         End If
         LoadRequests()
+        cbosearch.SelectedIndex = 0
     End Sub
 
-    Private Sub btnadd_modify_Click(sender As Object, e As EventArgs) Handles btnadd.Click
-        Dim result As DialogResult = MessageBox.Show("Are you sure to proceed?", "Confirm Action", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
-
-        If result = DialogResult.Yes Then
-            ' Check if a row is selected in the DGVrequest DataGridView
-            If DGVrequest.SelectedRows.Count > 0 Then
-                Dim selectedRow As DataGridViewRow = DGVrequest.SelectedRows(0)
-
-                ' Check the value of the "type" column in the selected row
-                Dim actionType As String = selectedRow.Cells("type").Value.ToString().ToLower()
-
-                If actionType = "modify" Then
-                    ' Create an instance of the modify schedule form
-                    Dim modifyForm As New modifyscheduleadmin()
-
-                    ' Transfer the requestID to the modify schedule form
-                    modifyForm.requestID = selectedRow.Cells("requestID").Value.ToString()
-
-                    ' Show the modify schedule form
-                    modifyForm.ShowDialog()
-                    Me.Hide()
-                ElseIf actionType = "add" Then
-                    ' Create an instance of the add schedule form
-                    Dim addForm As New addscheduleadmin()
-
-                    ' Transfer the requestID to the add schedule form
-                    addForm.requestID = selectedRow.Cells("requestID").Value.ToString()
-
-                    ' Show the add schedule form
-                    addForm.ShowDialog()
-                    Me.Hide()
-                Else
-                    ' Show an error if the "type" column has an unexpected value
-                    MessageBox.Show("Invalid action type. Please check the data.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                End If
-            Else
-                ' No row selected, show a generic add form
-                Dim addForm As New addscheduleadmin()
-                addForm.ShowDialog()
-                Me.Hide()
-            End If
+    Private Sub btnadd_Click(sender As Object, e As EventArgs) Handles btnadd.Click
+        ' Check if a row is selected in the DGVrequest DataGridView
+        If DGVrequest.SelectedRows.Count > 0 Then
+            Dim selectedRow As DataGridViewRow = DGVrequest.SelectedRows(0)
+            ' Create an instance of the add schedule form
+            Dim addForm As New addscheduleadmin()
+            ' Transfer the requestID to the add schedule form
+            addForm.requestID = selectedRow.Cells("requestID").Value.ToString()
+            ' Show the add schedule form
+            addForm.ShowDialog()
+            Me.Hide()
+        Else
+            ' No row selected, show a generic add form
+            Dim addForm As New addscheduleadmin()
+            addForm.ShowDialog()
+            Me.Hide()
         End If
     End Sub
 
@@ -155,4 +131,69 @@ Public Class requestapproval
     Private Sub btnrequestreload_Click(sender As Object, e As EventArgs) Handles btnrequestreload.Click
         LoadRequests()
     End Sub
+
+    Private Sub btnsearch_Click(sender As Object, e As EventArgs) Handles btnsearch.Click
+        Dim category As String = cbosearch.SelectedItem?.ToString()
+        Dim searchValue As String = txtsearchbox.Text.Trim()
+
+        ' If "Choose:" is selected, refresh the table
+        If String.IsNullOrEmpty(category) OrElse category = "Choose:" Then
+            LoadRequests()
+            Return
+        End If
+
+        ' Map the category to database column names
+        Dim columnName As String = ""
+        Select Case category
+            Case "Request ID"
+                columnName = "requestID"
+            Case "Request Type"
+                columnName = "request_type"
+            Case "Requester"
+                columnName = "requesterID"
+            Case "Date Requested"
+                columnName = "request_d"
+            Case "Time Requested"
+                columnName = "request_t"
+            Case "Room Requested"
+                columnName = "room"
+            Case "Time-In"
+                columnName = "request_t_in"
+            Case "Time-Out"
+                columnName = "request_t_out"
+            Case "Request Message"
+                columnName = "request"
+            Case Else
+                MessageBox.Show("Please select a valid category.", "Invalid Category", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return
+        End Select
+
+        ' Ensure searchValue is not empty
+        If String.IsNullOrEmpty(searchValue) Then
+            MessageBox.Show("Please enter a search term.", "Empty Search", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        ' Construct the query with a parameter
+        Dim query As String = $"SELECT requestID, requesterID, request_d, request_t, room, request_t_in, request_t_out, request " &
+                              $"FROM requests WHERE {columnName} LIKE @search"
+        Dim table As New DataTable()
+
+        Try
+            Using command As New MySqlCommand(query, conn)
+                ' Add the search parameter
+                command.Parameters.AddWithValue("@search", "%" & searchValue & "%")
+
+                ' Execute the query and fill the DataTable
+                Dim adapter As New MySqlDataAdapter(command)
+                adapter.Fill(table)
+
+                ' Bind the DataTable to the DataGridView
+                DGVrequest.DataSource = table
+            End Using
+        Catch ex As Exception
+            MessageBox.Show("Error retrieving filtered requests: " & ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
 End Class

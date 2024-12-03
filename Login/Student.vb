@@ -132,7 +132,7 @@ Public Class Student
     End Sub
 
     Private Sub feedback_click(sender As Object, e As EventArgs) Handles btnfeedback.Click
-        student_feedback.Show()
+        FeedbackReport_sender_Student.Show()
         Me.Hide()
     End Sub
 

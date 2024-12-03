@@ -180,7 +180,7 @@ Public Class staff_feedback
     End Sub
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
-        FeedbackReport_Sender.Show()
+        FeedbackReport_RoomSelection.Show()
         type = "report"
     End Sub
 End Class

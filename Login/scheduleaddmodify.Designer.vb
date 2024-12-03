@@ -22,11 +22,6 @@ Partial Class scheduleaddmodify
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.TableLayoutPanel7 = New System.Windows.Forms.TableLayoutPanel()
-        Me.TableLayoutPanel11 = New System.Windows.Forms.TableLayoutPanel()
-        Me.btnback = New System.Windows.Forms.Button()
-        Me.btnupdate = New System.Windows.Forms.Button()
-        Me.btnAdd = New System.Windows.Forms.Button()
         Me.TableLayoutPanel10 = New System.Windows.Forms.TableLayoutPanel()
         Me.cboday = New System.Windows.Forms.ComboBox()
         Me.cborcode = New System.Windows.Forms.ComboBox()
@@ -48,83 +43,15 @@ Partial Class scheduleaddmodify
         Me.cbosection = New System.Windows.Forms.ComboBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.cbosubject = New System.Windows.Forms.ComboBox()
-        Me.TableLayoutPanel7.SuspendLayout()
-        Me.TableLayoutPanel11.SuspendLayout()
+        Me.TableLayoutPanel11 = New System.Windows.Forms.TableLayoutPanel()
+        Me.btnback = New System.Windows.Forms.Button()
+        Me.btnupdate = New System.Windows.Forms.Button()
+        Me.btnAdd = New System.Windows.Forms.Button()
+        Me.TableLayoutPanel7 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel10.SuspendLayout()
+        Me.TableLayoutPanel11.SuspendLayout()
+        Me.TableLayoutPanel7.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'TableLayoutPanel7
-        '
-        Me.TableLayoutPanel7.BackColor = System.Drawing.Color.Transparent
-        Me.TableLayoutPanel7.ColumnCount = 1
-        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel7.Controls.Add(Me.TableLayoutPanel11, 0, 1)
-        Me.TableLayoutPanel7.Controls.Add(Me.TableLayoutPanel10, 0, 0)
-        Me.TableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel7.Location = New System.Drawing.Point(0, 0)
-        Me.TableLayoutPanel7.Name = "TableLayoutPanel7"
-        Me.TableLayoutPanel7.RowCount = 2
-        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 82.15614!))
-        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.84387!))
-        Me.TableLayoutPanel7.Size = New System.Drawing.Size(850, 277)
-        Me.TableLayoutPanel7.TabIndex = 3
-        '
-        'TableLayoutPanel11
-        '
-        Me.TableLayoutPanel11.ColumnCount = 3
-        Me.TableLayoutPanel11.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel11.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel11.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel11.Controls.Add(Me.btnback, 2, 0)
-        Me.TableLayoutPanel11.Controls.Add(Me.btnupdate, 0, 0)
-        Me.TableLayoutPanel11.Controls.Add(Me.btnAdd, 1, 0)
-        Me.TableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel11.Location = New System.Drawing.Point(3, 230)
-        Me.TableLayoutPanel11.Name = "TableLayoutPanel11"
-        Me.TableLayoutPanel11.RowCount = 1
-        Me.TableLayoutPanel11.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel11.Size = New System.Drawing.Size(844, 44)
-        Me.TableLayoutPanel11.TabIndex = 2
-        '
-        'btnback
-        '
-        Me.btnback.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.btnback.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnback.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnback.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnback.Location = New System.Drawing.Point(565, 3)
-        Me.btnback.Name = "btnback"
-        Me.btnback.Size = New System.Drawing.Size(276, 38)
-        Me.btnback.TabIndex = 14
-        Me.btnback.Text = "Back"
-        Me.btnback.UseVisualStyleBackColor = False
-        '
-        'btnupdate
-        '
-        Me.btnupdate.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.btnupdate.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnupdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnupdate.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnupdate.Location = New System.Drawing.Point(3, 3)
-        Me.btnupdate.Name = "btnupdate"
-        Me.btnupdate.Size = New System.Drawing.Size(275, 38)
-        Me.btnupdate.TabIndex = 13
-        Me.btnupdate.Text = "Update"
-        Me.btnupdate.UseVisualStyleBackColor = False
-        '
-        'btnAdd
-        '
-        Me.btnAdd.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.btnAdd.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAdd.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnAdd.Location = New System.Drawing.Point(284, 3)
-        Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.Size = New System.Drawing.Size(275, 38)
-        Me.btnAdd.TabIndex = 17
-        Me.btnAdd.Text = "Add"
-        Me.btnAdd.UseVisualStyleBackColor = False
         '
         'TableLayoutPanel10
         '
@@ -416,6 +343,79 @@ Partial Class scheduleaddmodify
         Me.cbosubject.Size = New System.Drawing.Size(323, 33)
         Me.cbosubject.TabIndex = 37
         '
+        'TableLayoutPanel11
+        '
+        Me.TableLayoutPanel11.ColumnCount = 3
+        Me.TableLayoutPanel11.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.TableLayoutPanel11.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.TableLayoutPanel11.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
+        Me.TableLayoutPanel11.Controls.Add(Me.btnback, 2, 0)
+        Me.TableLayoutPanel11.Controls.Add(Me.btnupdate, 0, 0)
+        Me.TableLayoutPanel11.Controls.Add(Me.btnAdd, 1, 0)
+        Me.TableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel11.Location = New System.Drawing.Point(3, 230)
+        Me.TableLayoutPanel11.Name = "TableLayoutPanel11"
+        Me.TableLayoutPanel11.RowCount = 1
+        Me.TableLayoutPanel11.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel11.Size = New System.Drawing.Size(844, 44)
+        Me.TableLayoutPanel11.TabIndex = 2
+        '
+        'btnback
+        '
+        Me.btnback.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.btnback.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnback.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnback.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.btnback.Location = New System.Drawing.Point(565, 3)
+        Me.btnback.Name = "btnback"
+        Me.btnback.Size = New System.Drawing.Size(276, 38)
+        Me.btnback.TabIndex = 14
+        Me.btnback.Text = "Back"
+        Me.btnback.UseVisualStyleBackColor = False
+        '
+        'btnupdate
+        '
+        Me.btnupdate.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.btnupdate.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnupdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnupdate.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.btnupdate.Location = New System.Drawing.Point(3, 3)
+        Me.btnupdate.Name = "btnupdate"
+        Me.btnupdate.Size = New System.Drawing.Size(275, 38)
+        Me.btnupdate.TabIndex = 13
+        Me.btnupdate.Text = "Update"
+        Me.btnupdate.UseVisualStyleBackColor = False
+        '
+        'btnAdd
+        '
+        Me.btnAdd.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.btnAdd.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAdd.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.btnAdd.Location = New System.Drawing.Point(284, 3)
+        Me.btnAdd.Name = "btnAdd"
+        Me.btnAdd.Size = New System.Drawing.Size(275, 38)
+        Me.btnAdd.TabIndex = 17
+        Me.btnAdd.Text = "Add"
+        Me.btnAdd.UseVisualStyleBackColor = False
+        '
+        'TableLayoutPanel7
+        '
+        Me.TableLayoutPanel7.BackColor = System.Drawing.Color.Transparent
+        Me.TableLayoutPanel7.ColumnCount = 1
+        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel7.Controls.Add(Me.TableLayoutPanel11, 0, 1)
+        Me.TableLayoutPanel7.Controls.Add(Me.TableLayoutPanel10, 0, 0)
+        Me.TableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel7.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanel7.Name = "TableLayoutPanel7"
+        Me.TableLayoutPanel7.RowCount = 2
+        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 82.15614!))
+        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.84387!))
+        Me.TableLayoutPanel7.Size = New System.Drawing.Size(850, 277)
+        Me.TableLayoutPanel7.TabIndex = 3
+        '
         'scheduleaddmodify
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -427,22 +427,15 @@ Partial Class scheduleaddmodify
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "scheduleaddmodify"
         Me.Text = "scheduleaddmodify"
-        Me.TableLayoutPanel7.ResumeLayout(False)
-        Me.TableLayoutPanel11.ResumeLayout(False)
         Me.TableLayoutPanel10.ResumeLayout(False)
         Me.TableLayoutPanel10.PerformLayout()
+        Me.TableLayoutPanel11.ResumeLayout(False)
+        Me.TableLayoutPanel7.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
 
-    Friend WithEvents TableLayoutPanel7 As TableLayoutPanel
-    Friend WithEvents TableLayoutPanel11 As TableLayoutPanel
-    Friend WithEvents btnback As Button
-    Friend WithEvents btnupdate As Button
-    Friend WithEvents btnAdd As Button
     Friend WithEvents TableLayoutPanel10 As TableLayoutPanel
-    Friend WithEvents cbocourse As ComboBox
-    Friend WithEvents cbosubject As ComboBox
     Friend WithEvents cboday As ComboBox
     Friend WithEvents cborcode As ComboBox
     Friend WithEvents Label6 As Label
@@ -452,7 +445,6 @@ Partial Class scheduleaddmodify
     Friend WithEvents DTPtimein As DateTimePicker
     Friend WithEvents Label7 As Label
     Friend WithEvents DTPtimeout As DateTimePicker
-    Friend WithEvents Label9 As Label
     Friend WithEvents txtname As TextBox
     Friend WithEvents Label8 As Label
     Friend WithEvents Label4 As Label
@@ -460,5 +452,13 @@ Partial Class scheduleaddmodify
     Friend WithEvents txtschedID As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
+    Friend WithEvents cbocourse As ComboBox
     Friend WithEvents cbosection As ComboBox
+    Friend WithEvents Label9 As Label
+    Friend WithEvents cbosubject As ComboBox
+    Friend WithEvents TableLayoutPanel11 As TableLayoutPanel
+    Friend WithEvents btnback As Button
+    Friend WithEvents btnupdate As Button
+    Friend WithEvents btnAdd As Button
+    Friend WithEvents TableLayoutPanel7 As TableLayoutPanel
 End Class

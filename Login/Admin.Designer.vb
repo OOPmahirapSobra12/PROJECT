@@ -26,11 +26,11 @@ Partial Class Admin
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.btnprofile = New System.Windows.Forms.Button()
         Me.btnlist = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.btnschedule = New System.Windows.Forms.Button()
         Me.btnapproval = New System.Windows.Forms.Button()
         Me.btnmanagement = New System.Windows.Forms.Button()
         Me.btnlogout = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnnext = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.SuspendLayout()
@@ -59,11 +59,11 @@ Partial Class Admin
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 54.0!))
         Me.TableLayoutPanel2.Controls.Add(Me.btnprofile, 1, 2)
         Me.TableLayoutPanel2.Controls.Add(Me.btnlist, 1, 3)
-        Me.TableLayoutPanel2.Controls.Add(Me.Button2, 1, 4)
+        Me.TableLayoutPanel2.Controls.Add(Me.btnschedule, 1, 4)
         Me.TableLayoutPanel2.Controls.Add(Me.btnapproval, 1, 5)
         Me.TableLayoutPanel2.Controls.Add(Me.btnmanagement, 1, 6)
         Me.TableLayoutPanel2.Controls.Add(Me.btnlogout, 1, 7)
-        Me.TableLayoutPanel2.Controls.Add(Me.Button1, 2, 8)
+        Me.TableLayoutPanel2.Controls.Add(Me.btnnext, 2, 8)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(390, 12)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
@@ -111,20 +111,20 @@ Partial Class Admin
         Me.btnlist.Text = "Room List"
         Me.btnlist.UseVisualStyleBackColor = False
         '
-        'Button2
+        'btnschedule
         '
-        Me.Button2.AutoSize = True
-        Me.Button2.BackColor = System.Drawing.Color.Transparent
-        Me.Button2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.Button2.Location = New System.Drawing.Point(53, 224)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(297, 37)
-        Me.Button2.TabIndex = 29
-        Me.Button2.Text = "Schedule"
-        Me.Button2.UseVisualStyleBackColor = False
+        Me.btnschedule.AutoSize = True
+        Me.btnschedule.BackColor = System.Drawing.Color.Transparent
+        Me.btnschedule.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnschedule.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnschedule.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnschedule.ForeColor = System.Drawing.Color.NavajoWhite
+        Me.btnschedule.Location = New System.Drawing.Point(53, 224)
+        Me.btnschedule.Name = "btnschedule"
+        Me.btnschedule.Size = New System.Drawing.Size(297, 37)
+        Me.btnschedule.TabIndex = 29
+        Me.btnschedule.Text = "Schedule"
+        Me.btnschedule.UseVisualStyleBackColor = False
         '
         'btnapproval
         '
@@ -171,20 +171,20 @@ Partial Class Admin
         Me.btnlogout.Text = "Log out"
         Me.btnlogout.UseVisualStyleBackColor = False
         '
-        'Button1
+        'btnnext
         '
-        Me.Button1.AutoSize = True
-        Me.Button1.BackColor = System.Drawing.Color.Transparent
-        Me.Button1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.Button1.Location = New System.Drawing.Point(356, 401)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(48, 31)
-        Me.Button1.TabIndex = 35
-        Me.Button1.Text = "=>"
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.btnnext.AutoSize = True
+        Me.btnnext.BackColor = System.Drawing.Color.Transparent
+        Me.btnnext.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnnext.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnnext.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnnext.ForeColor = System.Drawing.Color.NavajoWhite
+        Me.btnnext.Location = New System.Drawing.Point(356, 401)
+        Me.btnnext.Name = "btnnext"
+        Me.btnnext.Size = New System.Drawing.Size(48, 31)
+        Me.btnnext.TabIndex = 35
+        Me.btnnext.Text = "=>"
+        Me.btnnext.UseVisualStyleBackColor = False
         '
         'Admin
         '
@@ -212,9 +212,9 @@ Partial Class Admin
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents btnprofile As Button
     Friend WithEvents btnlist As Button
-    Friend WithEvents Button2 As Button
+    Friend WithEvents btnschedule As Button
     Friend WithEvents btnapproval As Button
     Friend WithEvents btnmanagement As Button
     Friend WithEvents btnlogout As Button
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnnext As Button
 End Class

@@ -572,7 +572,7 @@ Public Class scheduleaddmodify
         End Try
     End Sub
 
-    Private Sub HandleSubjectDropdown()
+    Private Sub HandleSubjectDropdown() Handles cbosubject.DropDown
         ' Clear the existing items in the cbosubject ComboBox
         cbosubject.Items.Clear()
 

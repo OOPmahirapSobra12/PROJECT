@@ -2,8 +2,7 @@
 Imports System.Windows.Forms
 Imports System.Data
 
-Public Class Admin
-
+Public Class AdminPage3
     Private Sub Admin_load(sender As Object, e As EventArgs) Handles MyBase.Load
         If conn.State = ConnectionState.Open Then
             conn.Close()
@@ -12,46 +11,39 @@ Public Class Admin
         account_load()
     End Sub
 
+    Private Sub buttonback_Click(sender As Object, e As EventArgs) Handles buttonback.Click
+        AdminPage2.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub btnreport_Click(sender As Object, e As EventArgs) Handles btnreport.Click
+        adminreport.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub btnfeedback_Click(sender As Object, e As EventArgs) Handles btnfeedback.Click
+        admin_feedback.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub btnroomlogs_Click(sender As Object, e As EventArgs) Handles btnroomlogs.Click
+        roomlogs.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub btnaccountlogs_Click(sender As Object, e As EventArgs) Handles btnaccountlogs.Click
+        accountlogs.Show()
+        Me.Hide()
+    End Sub
+
     Private Sub btnlogout_Click(sender As Object, e As EventArgs) Handles btnlogout.Click
         Dim accountID As String = U_ID
         Dim Action As String = "logout"
-        logging_log(accountId, Action)
+        logging_log(accountID, Action)
         U_ID = Nothing
         Login.Show()
         Me.Hide()
     End Sub
-
-    Private Sub btnmanagement_Click(sender As Object, e As EventArgs) Handles btnmanagement.Click
-        AccountManagement.Show()
-        Me.Hide()
-    End Sub
-
-    Private Sub btnapproval_Click(sender As Object, e As EventArgs) Handles btnapproval.Click
-        requestapproval.Show()
-        Me.Hide()
-    End Sub
-
-    Private Sub btnlist_Click(sender As Object, e As EventArgs) Handles btnlist.Click
-        RoomListForm.Show()
-
-        Me.Hide()
-    End Sub
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnschedule.Click
-        Dim scheduleForm As New Schedule
-
-        ' Show the Schedule form
-        scheduleForm.Show()
-
-        ' Optionally, you can hide the current form if you don't want it to be visible
-        Me.Hide()
-    End Sub
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnnext.Click
-        AdminPage3.Show()
-        Me.Hide()
-    End Sub
-
-    'profile part
     Private Sub account_load()
         Dim query As String = "SELECT username FROM accounts WHERE ID = @U_ID"
         Using command As New MySqlCommand(query, conn)

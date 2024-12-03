@@ -3,46 +3,27 @@ Imports System.Windows.Forms
 Imports System.Data
 
 Public Class AdminPage2
-    Private Sub Admin_load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub btnback_Click(sender As Object, e As EventArgs) Handles btnback.Click
+        Admin.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub btnnext_Click(sender As Object, e As EventArgs) Handles btnnext.Click
+        AdminPage3.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub btnprofile_Click(sender As Object, e As EventArgs) Handles btnprofile.Click
+        profile.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub AdminPage2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If conn.State = ConnectionState.Open Then
             conn.Close()
         End If
         DbConnect()
         account_load()
-    End Sub
-
-    Private Sub buttonback_Click(sender As Object, e As EventArgs) Handles buttonback.Click
-        Admin.Show()
-        Me.Hide()
-    End Sub
-
-    Private Sub btnreport_Click(sender As Object, e As EventArgs) Handles btnreport.Click
-        adminreport.Show()
-        Me.Hide()
-    End Sub
-
-    Private Sub btnfeedback_Click(sender As Object, e As EventArgs) Handles btnfeedback.Click
-        admin_feedback.Show()
-        Me.Hide()
-    End Sub
-
-    Private Sub btnroomlogs_Click(sender As Object, e As EventArgs) Handles btnroomlogs.Click
-        roomlogs.Show()
-        Me.Hide()
-    End Sub
-
-    Private Sub btnaccountlogs_Click(sender As Object, e As EventArgs) Handles btnaccountlogs.Click
-        accountlogs.Show()
-        Me.Hide()
-    End Sub
-
-    Private Sub btnlogout_Click(sender As Object, e As EventArgs) Handles btnlogout.Click
-        Dim accountID As String = U_ID
-        Dim Action As String = "logout"
-        logging_log(accountID, Action)
-        U_ID = Nothing
-        Login.Show()
-        Me.Hide()
     End Sub
     Private Sub account_load()
         Dim query As String = "SELECT username FROM accounts WHERE ID = @U_ID"
@@ -76,8 +57,18 @@ Public Class AdminPage2
         End Using
     End Sub
 
-    Private Sub btnprofile_Click(sender As Object, e As EventArgs) Handles btnprofile.Click
-        profile.Show()
+    Private Sub btnsubject_Click(sender As Object, e As EventArgs) Handles btnsubject.Click
+        Subjects.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub btncourse_Click(sender As Object, e As EventArgs) Handles btncourse.Click
+        Courses.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub btnsection_Click(sender As Object, e As EventArgs) Handles btnsection.Click
+        Sections.Show()
         Me.Hide()
     End Sub
 End Class

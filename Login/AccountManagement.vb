@@ -260,9 +260,7 @@ Public Class AccountManagement
             End Try
         End Using
     End Sub
-
     Private Sub btnmodify_Click(sender As Object, e As EventArgs) Handles btnmodify.Click
-        Private Sub btnmodify_Click(sender As Object, e As EventArgs) Handles btnmodify.Click
         ' Ensure a row is selected in the DataGridView
         If DGVaccounts.SelectedRows.Count > 0 Then
             Dim selectedAccountID As String = DGVaccounts.SelectedRows(0).Cells("accountID").Value.ToString()
@@ -318,7 +316,5 @@ Public Class AccountManagement
         Else
             MessageBox.Show("Please select a row to modify.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If
-    End Sub
-
     End Sub
 End Class

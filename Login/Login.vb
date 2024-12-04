@@ -1,5 +1,8 @@
 ﻿Imports MySql.Data.MySqlClient
 Imports ConnectionModule
+Imports CrystalDecisions.CrystalReports.Engine
+Imports CrystalDecisions.Shared
+
 
 Public Class Login
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -176,5 +179,10 @@ Public Class Login
 
     Private Sub Button1_Click(sender As Object, e As EventArgs)
         requestapproval.Show()
+    End Sub
+
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
+        Form1.Show()
+        Form1.CrystalReportViewer1.ReportSource = Form1.CrystalReport11
     End Sub
 End Class

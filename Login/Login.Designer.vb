@@ -31,6 +31,7 @@ Partial Class Login
         Me.txtpassword = New System.Windows.Forms.TextBox()
         Me.btncreate = New System.Windows.Forms.Button()
         Me.btnclose = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -43,6 +44,7 @@ Partial Class Login
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.51519!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.02691!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2.373768!))
+        Me.TableLayoutPanel1.Controls.Add(Me.Button1, 0, 6)
         Me.TableLayoutPanel1.Controls.Add(Me.txtuname, 3, 2)
         Me.TableLayoutPanel1.Controls.Add(Me.username, 2, 2)
         Me.TableLayoutPanel1.Controls.Add(Me.password, 2, 3)
@@ -173,6 +175,21 @@ Partial Class Login
         Me.btnclose.Text = "Close"
         Me.btnclose.UseVisualStyleBackColor = False
         '
+        'Button1
+        '
+        Me.Button1.AutoSize = True
+        Me.Button1.BackColor = System.Drawing.Color.Transparent
+        Me.Button1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.Color.NavajoWhite
+        Me.Button1.Location = New System.Drawing.Point(3, 362)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(260, 35)
+        Me.Button1.TabIndex = 24
+        Me.Button1.Text = "LogIn"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
         'Login
         '
         Me.AccessibleRole = System.Windows.Forms.AccessibleRole.None
@@ -211,4 +228,5 @@ Partial Class Login
     Friend WithEvents btnlogin As Button
     Friend WithEvents btncreate As Button
     Friend WithEvents btnclose As Button
+    Friend WithEvents Button1 As Button
 End Class

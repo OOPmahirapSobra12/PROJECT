@@ -182,7 +182,21 @@ Public Class Login
     End Sub
 
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
-        Form1.Show()
-        Form1.CrystalReportViewer1.ReportSource = Form1.CrystalReport11
+        Try
+            ' Initialize the report
+            Dim report As New CrystalReport1() ' Replace with your actual report class name
+
+            ' Optionally set parameters for the report if needed
+            ' report.SetParameterValue("ParameterName", "Value")
+
+            ' Assign the report to the viewer
+            Form1.CrystalReportViewer1.ReportSource = report
+
+            ' Show the form
+            Form1.Show()
+        Catch ex As Exception
+            ' Handle the exception and log it for debugging
+            MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
 End Class

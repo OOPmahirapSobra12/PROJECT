@@ -224,6 +224,12 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="deniedRequest.vb" />
+    <Compile Include="reportshistory.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>reportshistory.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="roomloginhistory.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -475,6 +481,10 @@
     <EmbeddedResource Include="feedbackshistory.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>feedbackshistory.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="reportshistory.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>reportshistory.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="roomloginhistory.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

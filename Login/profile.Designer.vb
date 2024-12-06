@@ -24,7 +24,7 @@ Partial Class profile
     Private Sub InitializeComponent()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
-        Me.txtcode = New System.Windows.Forms.Label()
+        Me.labal = New System.Windows.Forms.Label()
         Me.txtusername = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtfname = New System.Windows.Forms.TextBox()
@@ -80,7 +80,7 @@ Partial Class profile
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.31292!))
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.06977!))
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.07752!))
-        Me.TableLayoutPanel3.Controls.Add(Me.txtcode, 1, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.labal, 1, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.txtusername, 2, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.Label5, 3, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.txtfname, 4, 0)
@@ -113,21 +113,21 @@ Partial Class profile
         Me.TableLayoutPanel3.Size = New System.Drawing.Size(794, 296)
         Me.TableLayoutPanel3.TabIndex = 5
         '
-        'txtcode
+        'labal
         '
-        Me.txtcode.AutoSize = True
-        Me.txtcode.BackColor = System.Drawing.Color.Transparent
-        Me.txtcode.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txtcode.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.txtcode.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!)
-        Me.txtcode.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.txtcode.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-        Me.txtcode.Location = New System.Drawing.Point(23, 0)
-        Me.txtcode.Name = "txtcode"
-        Me.txtcode.Size = New System.Drawing.Size(132, 45)
-        Me.txtcode.TabIndex = 91
-        Me.txtcode.Text = "Username:"
-        Me.txtcode.TextAlign = System.Drawing.ContentAlignment.TopRight
+        Me.labal.AutoSize = True
+        Me.labal.BackColor = System.Drawing.Color.Transparent
+        Me.labal.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.labal.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.labal.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!)
+        Me.labal.ForeColor = System.Drawing.Color.NavajoWhite
+        Me.labal.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+        Me.labal.Location = New System.Drawing.Point(23, 0)
+        Me.labal.Name = "labal"
+        Me.labal.Size = New System.Drawing.Size(132, 45)
+        Me.labal.TabIndex = 91
+        Me.labal.Text = "Username:"
+        Me.labal.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'txtusername
         '
@@ -461,7 +461,7 @@ Partial Class profile
     Friend WithEvents Label2 As Label
     Friend WithEvents txtlevel As TextBox
     Friend WithEvents txtID As TextBox
-    Friend WithEvents txtcode As Label
+    Friend WithEvents labal As Label
     Friend WithEvents btnmodify As Button
     Friend WithEvents btnupdate As Button
     Friend WithEvents btnback As Button

@@ -186,6 +186,12 @@
     <Compile Include="AdminPage3.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="AdminPage4.Designer.vb">
+      <DependentUpon>AdminPage4.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPage4.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="adminreport.Designer.vb">
       <DependentUpon>adminreport.vb</DependentUpon>
     </Compile>
@@ -296,10 +302,10 @@
       <DependentUpon>System_LogsReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="crystalreportviewer.Designer.vb">
+      <DependentUpon>crystalreportviewer.vb</DependentUpon>
     </Compile>
-    <Compile Include="Form1.vb">
+    <Compile Include="crystalreportviewer.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="logs.vb" />
@@ -498,6 +504,9 @@
     <EmbeddedResource Include="AdminPage3.resx">
       <DependentUpon>AdminPage3.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AdminPage4.resx">
+      <DependentUpon>AdminPage4.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="adminreport.resx">
       <DependentUpon>adminreport.vb</DependentUpon>
     </EmbeddedResource>
@@ -566,8 +575,8 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>System_LogsReport.vb</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <EmbeddedResource Include="crystalreportviewer.resx">
+      <DependentUpon>crystalreportviewer.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="profile.resx">
       <DependentUpon>profile.vb</DependentUpon>

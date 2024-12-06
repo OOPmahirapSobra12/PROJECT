@@ -181,7 +181,7 @@ Public Class Login
         requestapproval.Show()
     End Sub
 
-    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs)
         Try
             ' Initialize the report
             Dim report As New CrystalReport1() ' Replace with your actual report class name

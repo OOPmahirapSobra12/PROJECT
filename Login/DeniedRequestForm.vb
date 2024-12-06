@@ -18,7 +18,7 @@ Imports System
 Imports System.ComponentModel
 
 
-Public Class DeniedRequestReport
+Public Class DeniedRequestForm
     Inherits ReportClass
     
     Public Sub New()
@@ -27,7 +27,7 @@ Public Class DeniedRequestReport
     
     Public Overrides Property ResourceName() As String
         Get
-            Return "DeniedRequestReport.rpt"
+            Return "DeniedRequestForm.rpt"
         End Get
         Set
             'Do nothing
@@ -45,7 +45,7 @@ Public Class DeniedRequestReport
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "Login.DeniedRequestReport.rpt"
+            Return "Login.DeniedRequestForm.rpt"
         End Get
         Set
             'Do nothing
@@ -94,7 +94,7 @@ Public Class DeniedRequestReport
 End Class
 
 <System.Drawing.ToolboxBitmapAttribute(GetType(CrystalDecisions.[Shared].ExportOptions), "report.bmp")>  _
-Public Class CachedDeniedRequestReport
+Public Class CachedDeniedRequestForm
     Inherits Component
     Implements ICachedReport
     
@@ -136,7 +136,7 @@ Public Class CachedDeniedRequestReport
     End Property
     
     Public Overridable Function CreateReport() As CrystalDecisions.CrystalReports.Engine.ReportDocument Implements CrystalDecisions.ReportSource.ICachedReport.CreateReport
-        Dim rpt As DeniedRequestReport = New DeniedRequestReport()
+        Dim rpt As DeniedRequestForm = New DeniedRequestForm()
         rpt.Site = Me.Site
         Return rpt
     End Function

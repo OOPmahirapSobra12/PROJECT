@@ -138,10 +138,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="acceptedrequest.vb" />
-    <Compile Include="AcceptedRequestReport.vb">
+    <Compile Include="AcceptedRequest1.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AcceptedRequestReport.rpt</DependentUpon>
+      <DependentUpon>AcceptedRequest.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="accountlogs.Designer.vb">
@@ -223,16 +223,16 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="automatictemporaryscheduleexpirer.vb" />
-    <Compile Include="CurrentRequestReport.vb">
+    <Compile Include="CurrentRequests.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CurrentRequestReport.rpt</DependentUpon>
+      <DependentUpon>CurrentRequests.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="DeniedRequestReport.vb">
+    <Compile Include="DeniedRequestForm.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DeniedRequestReport.rpt</DependentUpon>
+      <DependentUpon>DeniedRequestForm.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="feedbackshistory.vb">
@@ -479,9 +479,9 @@
     <Compile Include="UniversalDim.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="AcceptedRequestReport.rpt">
+    <EmbeddedResource Include="AcceptedRequest.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>AcceptedRequestReport.vb</LastGenOutput>
+      <LastGenOutput>AcceptedRequest1.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="accountlogs.resx">
       <DependentUpon>accountlogs.vb</DependentUpon>
@@ -524,13 +524,13 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CourseSectionReport.vb</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="CurrentRequestReport.rpt">
+    <EmbeddedResource Include="CurrentRequests.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>CurrentRequestReport.vb</LastGenOutput>
+      <LastGenOutput>CurrentRequests.vb</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="DeniedRequestReport.rpt">
+    <EmbeddedResource Include="DeniedRequestForm.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>DeniedRequestReport.vb</LastGenOutput>
+      <LastGenOutput>DeniedRequestForm.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="feedbackshistory.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

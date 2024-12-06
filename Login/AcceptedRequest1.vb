@@ -18,7 +18,7 @@ Imports System
 Imports System.ComponentModel
 
 
-Public Class AcceptedRequestReport
+Public Class AcceptedRequest
     Inherits ReportClass
     
     Public Sub New()
@@ -27,7 +27,7 @@ Public Class AcceptedRequestReport
     
     Public Overrides Property ResourceName() As String
         Get
-            Return "AcceptedRequestReport.rpt"
+            Return "AcceptedRequest.rpt"
         End Get
         Set
             'Do nothing
@@ -45,7 +45,7 @@ Public Class AcceptedRequestReport
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "Login.AcceptedRequestReport.rpt"
+            Return "Login.AcceptedRequest.rpt"
         End Get
         Set
             'Do nothing
@@ -94,7 +94,7 @@ Public Class AcceptedRequestReport
 End Class
 
 <System.Drawing.ToolboxBitmapAttribute(GetType(CrystalDecisions.[Shared].ExportOptions), "report.bmp")>  _
-Public Class CachedAcceptedRequestReport
+Public Class CachedAcceptedRequest
     Inherits Component
     Implements ICachedReport
     
@@ -136,7 +136,7 @@ Public Class CachedAcceptedRequestReport
     End Property
     
     Public Overridable Function CreateReport() As CrystalDecisions.CrystalReports.Engine.ReportDocument Implements CrystalDecisions.ReportSource.ICachedReport.CreateReport
-        Dim rpt As AcceptedRequestReport = New AcceptedRequestReport()
+        Dim rpt As AcceptedRequest = New AcceptedRequest()
         rpt.Site = Me.Site
         Return rpt
     End Function

@@ -1,15 +1,12 @@
 ﻿Imports MySql.Data.MySqlClient
 
-Module AcceptedRequest
+Module AcceptedRequest_automation ' Module name should be properly capitalized (Optional but recommended)
+
     ' Method to process and transfer accepted requests
     Public Sub ProcessAcceptedRequests()
         Try
             ' Ensure the database connection is open
             ConnectionModule.DbConnect()
-
-            ' Query to select accepted requests (modify as per your condition for "accepted")
-            Dim selectQuery As String =
-                "SELECT ID, room_code, request FROM requests WHERE request_type = 'accepted'"
 
             ' Query to insert accepted requests into accepted_request
             Dim insertQuery As String =
@@ -20,32 +17,32 @@ Module AcceptedRequest
             Dim deleteQuery As String =
                 "DELETE FROM requests WHERE request_type = 'accepted'"
 
-            ' Execute the select query to check if there are any accepted requests
-            Using cmd As New MySqlCommand(selectQuery, ConnectionModule.conn)
-                Dim reader As MySqlDataReader = cmd.ExecuteReader()
+            ' Use a transaction to ensure both operations happen atomically
+            Using transaction As MySqlTransaction = ConnectionModule.conn.BeginTransaction()
 
-                If reader.HasRows Then
-                    reader.Close() ' Close the reader before executing the next queries
-
+                Try
                     ' Insert into accepted_request
-                    Using insertCmd As New MySqlCommand(insertQuery, ConnectionModule.conn)
+                    Using insertCmd As New MySqlCommand(insertQuery, ConnectionModule.conn, transaction)
                         insertCmd.ExecuteNonQuery()
                     End Using
 
                     ' Delete from requests
-                    Using deleteCmd As New MySqlCommand(deleteQuery, ConnectionModule.conn)
+                    Using deleteCmd As New MySqlCommand(deleteQuery, ConnectionModule.conn, transaction)
                         deleteCmd.ExecuteNonQuery()
                     End Using
 
+                    ' Commit the transaction
+                    transaction.Commit()
+
                     Console.WriteLine("Accepted requests moved successfully.")
-                Else
-                    reader.Close()
-                    Console.WriteLine("No accepted requests found.")
-                End If
+                Catch ex As MySqlException
+                    ' In case of error, rollback the transaction
+                    transaction.Rollback()
+                    Console.WriteLine("MySQL Error: " & ex.Message)
+                End Try
             End Using
-        Catch ex As MySqlException
-            Console.WriteLine("MySQL Error: " & ex.Message)
         Catch ex As Exception
+            ' Catch general exceptions
             Console.WriteLine("Error: " & ex.Message)
         End Try
     End Sub

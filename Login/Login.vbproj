@@ -137,7 +137,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="acceptedrequest.vb" />
+    <Compile Include="AcceptedRequest_module.vb" />
     <Compile Include="AcceptedRequest1.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -18,7 +18,7 @@ Imports System
 Imports System.ComponentModel
 
 
-Public Class AcceptedRequest
+Public Class AcceptedRequest_module
     Inherits ReportClass
     
     Public Sub New()
@@ -136,7 +136,7 @@ Public Class CachedAcceptedRequest
     End Property
     
     Public Overridable Function CreateReport() As CrystalDecisions.CrystalReports.Engine.ReportDocument Implements CrystalDecisions.ReportSource.ICachedReport.CreateReport
-        Dim rpt As AcceptedRequest = New AcceptedRequest()
+        Dim rpt As AcceptedRequest_module = New AcceptedRequest()
         rpt.Site = Me.Site
         Return rpt
     End Function

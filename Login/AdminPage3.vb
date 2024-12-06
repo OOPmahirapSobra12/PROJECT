@@ -82,7 +82,7 @@ Public Class AdminPage3
     End Sub
 
     Private Sub btnnext_Click(sender As Object, e As EventArgs) Handles btnnext.Click
-        AdminPage4.show()
+        'AdminPage4.show()
         Me.Hide()
     End Sub
 End Class

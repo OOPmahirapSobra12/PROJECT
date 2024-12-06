@@ -138,10 +138,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AcceptedRequest_module.vb" />
-    <Compile Include="AcceptedRequest1.vb">
+    <Compile Include="AcceptedRequestReport.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AcceptedRequest.rpt</DependentUpon>
+      <DependentUpon>AcceptedRequestReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="accountlogs.Designer.vb">
@@ -248,11 +248,11 @@
       <DependentUpon>reportshistory.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Roomlist1.vb">
+    <Compile Include="Roomlistreport.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Roomlist.rpt</DependentUpon>
-      <SubType>Form</SubType>
+      <DependentUpon>Roomlistreport.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="roomloginhistory.vb">
       <AutoGen>True</AutoGen>
@@ -473,9 +473,9 @@
     <Compile Include="UniversalDim.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="AcceptedRequest.rpt">
+    <EmbeddedResource Include="AcceptedRequestReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>AcceptedRequest1.vb</LastGenOutput>
+      <LastGenOutput>AcceptedRequestReport.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="accountlogs.resx">
       <DependentUpon>accountlogs.vb</DependentUpon>
@@ -534,9 +534,9 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>reportshistory.vb</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Roomlist.rpt">
+    <EmbeddedResource Include="Roomlistreport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Roomlist1.vb</LastGenOutput>
+      <LastGenOutput>Roomlistreport.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="roomloginhistory.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

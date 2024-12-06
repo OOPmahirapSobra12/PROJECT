@@ -2,6 +2,7 @@
 Imports System.Windows.Forms
 Imports System.Data
 
+
 Public Class addnewcourse
     ' Flag to determine if we are adding or modifying a course
     Public isModify As Boolean

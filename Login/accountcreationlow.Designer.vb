@@ -28,7 +28,9 @@ Partial Class accountcreationlow
         Me.txtFname = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.txtLname = New System.Windows.Forms.TextBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtcourse = New System.Windows.Forms.TextBox()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
@@ -37,8 +39,6 @@ Partial Class accountcreationlow
         Me.password = New System.Windows.Forms.Label()
         Me.welcome = New System.Windows.Forms.Label()
         Me.txtpassword = New System.Windows.Forms.TextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.txtID = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.username = New System.Windows.Forms.Label()
@@ -140,6 +140,23 @@ Partial Class accountcreationlow
         Me.txtLname.Size = New System.Drawing.Size(234, 32)
         Me.txtLname.TabIndex = 26
         '
+        'Button1
+        '
+        Me.Button1.AutoSize = True
+        Me.Button1.BackColor = System.Drawing.Color.Transparent
+        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.Color.NavajoWhite
+        Me.Button1.Location = New System.Drawing.Point(138, 293)
+        Me.Button1.MaximumSize = New System.Drawing.Size(0, 35)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(234, 35)
+        Me.Button1.TabIndex = 22
+        Me.Button1.Text = "Exit"
+        Me.Button1.UseVisualStyleBackColor = False
+        '
         'Label4
         '
         Me.Label4.AutoSize = True
@@ -153,6 +170,21 @@ Partial Class accountcreationlow
         Me.Label4.TabIndex = 33
         Me.Label4.Text = "Course:"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.TopRight
+        '
+        'Button2
+        '
+        Me.Button2.AutoSize = True
+        Me.Button2.BackColor = System.Drawing.Color.Transparent
+        Me.Button2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.ForeColor = System.Drawing.Color.NavajoWhite
+        Me.Button2.Location = New System.Drawing.Point(3, 293)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(129, 41)
+        Me.Button2.TabIndex = 20
+        Me.Button2.Text = "Create"
+        Me.Button2.UseVisualStyleBackColor = False
         '
         'Label1
         '
@@ -260,38 +292,6 @@ Partial Class accountcreationlow
         Me.txtpassword.Name = "txtpassword"
         Me.txtpassword.Size = New System.Drawing.Size(234, 32)
         Me.txtpassword.TabIndex = 18
-        '
-        'Button1
-        '
-        Me.Button1.AutoSize = True
-        Me.Button1.BackColor = System.Drawing.Color.Transparent
-        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.Button1.Location = New System.Drawing.Point(138, 293)
-        Me.Button1.MaximumSize = New System.Drawing.Size(0, 35)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(234, 35)
-        Me.Button1.TabIndex = 22
-        Me.Button1.Text = "Exit"
-        Me.Button1.UseVisualStyleBackColor = False
-        '
-        'Button2
-        '
-        Me.Button2.AutoSize = True
-        Me.Button2.BackColor = System.Drawing.Color.Transparent
-        Me.Button2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.Button2.Location = New System.Drawing.Point(3, 293)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(129, 41)
-        Me.Button2.TabIndex = 20
-        Me.Button2.Text = "Create"
-        Me.Button2.UseVisualStyleBackColor = False
         '
         'txtID
         '

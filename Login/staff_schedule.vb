@@ -126,7 +126,6 @@ Public Class staff_schedule
             sched.room_time_in, 
             sched.room_time_out, 
             NULL AS room_date, 
-            roomlist.building,
             sched.subject_code,
             sched.course,
             sched.section
@@ -144,7 +143,6 @@ Public Class staff_schedule
             schedtemp.room_time_in, 
             schedtemp.room_time_out, 
             schedtemp.room_date, 
-            roomlist.building,
             schedtemp.subject_code,
             schedtemp.course,
             schedtemp.section

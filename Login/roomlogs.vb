@@ -7,7 +7,7 @@ Public Class roomlogs
     ' Method to load room logs into the DataGridView
     Private Sub LoadRoomLogs()
         ' Query to select necessary columns from logshistory table
-        Dim query As String = "SELECT U_ID, log_in_date, log_in_time, log_out_date, log_out_time, room FROM logshistory"
+        Dim query As String = "SELECT ID, log_in_date, log_in_time, log_out_date, log_out_time, room FROM logshistory"
         Dim adapter As New MySqlDataAdapter(query, conn)
         Dim table As New DataTable()
 
@@ -29,7 +29,7 @@ Public Class roomlogs
             ' Manually map the data to the existing columns in DGVroomlogs
             For Each column As DataGridViewColumn In DGVroomlogs.Columns
                 If column.Name = "username" Then
-                    column.DataPropertyName = "U_ID"
+                    column.DataPropertyName = "ID"
                 ElseIf column.Name = "room" Then
                     column.DataPropertyName = "room"
                 ElseIf column.Name = "datein" Then
@@ -66,7 +66,7 @@ Public Class roomlogs
             ' Construct the SQL query based on the selected category
             Select Case category
                 Case "Username"
-                    query = "SELECT * FROM logshistory WHERE U_ID LIKE @search"
+                    query = "SELECT * FROM logshistory WHERE ID LIKE @search"
                 Case "Date In"
                     query = "SELECT * FROM logshistory WHERE log_in_date LIKE @search"
                 Case "Date Out"

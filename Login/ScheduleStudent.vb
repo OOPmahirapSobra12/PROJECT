@@ -147,7 +147,6 @@ Public Class ScheduleStudent
         End Try
     End Sub
 
-
     Private Sub btnback_Click(sender As Object, e As EventArgs) Handles btnback.Click
         Student.Show()
         Me.Hide()
@@ -265,6 +264,4 @@ Public Class ScheduleStudent
             End If
         End Try
     End Sub
-
-
 End Class

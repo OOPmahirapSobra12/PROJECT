@@ -30,7 +30,6 @@ Public Class AdminPage2
         Using command As New MySqlCommand(query, conn)
             ' Add the ID parameter to prevent SQL injection
             command.Parameters.AddWithValue("@U_ID", U_ID)
-
             Try
                 ' Open the connection if it's closed
                 If conn.State = ConnectionState.Closed Then

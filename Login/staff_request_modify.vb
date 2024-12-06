@@ -456,7 +456,7 @@ Public Class staff_request_modify
         End Try
     End Sub
 
-    Private Sub HandleSubjectDropdown()
+    Private Sub HandleSubjectDropdown(sender As Object, e As EventArgs) Handles cbosubject.DropDown
         ' Clear the existing items in the cbosubject ComboBox
         cbosubject.Items.Clear()
 

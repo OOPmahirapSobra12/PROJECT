@@ -358,7 +358,7 @@ Partial Class FeedbackReport_RoomSelection
         Me.num_laptops.Name = "num_laptops"
         Me.num_laptops.ReadOnly = True
         '
-        'FeedbackReport_Sender
+        'FeedbackReport_RoomSelection
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -368,7 +368,7 @@ Partial Class FeedbackReport_RoomSelection
         Me.ClientSize = New System.Drawing.Size(750, 450)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "FeedbackReport_Sender"
+        Me.Name = "FeedbackReport_RoomSelection"
         Me.Text = "Staff_report"
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel5.ResumeLayout(False)

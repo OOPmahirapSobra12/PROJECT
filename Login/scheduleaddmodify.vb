@@ -629,7 +629,4 @@ Public Class scheduleaddmodify
             End If
         End Try
     End Sub
-
-
-
 End Class

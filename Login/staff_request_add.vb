@@ -3,7 +3,6 @@ Imports System.Windows.Forms
 Imports System.Data
 
 Public Class staff_request_add
-
     Private Sub staff_request_add_load(sender As Object, e As EventArgs) Handles MyBase.Load
         If conn.State <> ConnectionState.Open Then
             conn.Close()

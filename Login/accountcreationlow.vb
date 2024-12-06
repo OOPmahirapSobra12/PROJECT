@@ -34,7 +34,8 @@ Public Class accountcreationlow
                 DbConnect()
             End If
 
-            Dim query As String = "insert into accounts (username,pword,fname,lname,ID,course,section,accesslevel) values (@username,@pword,@fname,@lname,@ID,@course,@section,'Low');"
+            Dim query As String = "INSERT INTO accounts (username, pword, fname, lname, ID, course_name, sections, accesslevel)
+                                    VALUES (@username, @pword, @fname, @lname, @ID, @course, @section, 'Low');"
             Dim logging As New MySqlCommand(query, conn)
 
             ' Add parameters to the command

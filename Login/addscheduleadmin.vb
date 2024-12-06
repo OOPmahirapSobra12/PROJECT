@@ -191,7 +191,7 @@ Public Class addscheduleadmin
 
 
     Private Sub tableloader_rooms()
-        Dim query As String = "SELECT room_code, room_name, building_letter,room_status from roomlist" ' Use roomlist if you want to get room status from that table
+        Dim query As String = "SELECT room_code, room_name, building, room_status from roomlist" ' Use roomlist if you want to get room status from that table
         Dim adapter As New MySqlDataAdapter(query, conn)
         Dim table As New DataTable()
 
@@ -220,7 +220,7 @@ Public Class addscheduleadmin
             Case "Room Code"
                 query = "SELECT * FROM roomlist WHERE room_code LIKE @search"
             Case "Building Letter"
-                query = "SELECT * FROM roomlist WHERE building_letter LIKE @search"
+                query = "SELECT * FROM roomlist WHERE building LIKE @search"
             Case Else
                 MessageBox.Show("Please select a valid category.", "Invalid Category", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 Return
@@ -289,7 +289,7 @@ Public Class addscheduleadmin
             ' Assign the values from the selected row to the text boxes
             txtrcode.Text = selectedRow.Cells("room_code").Value.ToString()   ' Assuming column name is "room_code"
             txtrname.Text = selectedRow.Cells("room_name").Value.ToString()   ' Assuming column name is "room_name"
-            txtbuilding.Text = selectedRow.Cells("building_letter").Value.ToString() ' Assuming column name is "building_letter
+            txtbuilding.Text = selectedRow.Cells("building").Value.ToString() ' Assuming column name is "building
         Else
             MessageBox.Show("Please select a room from the list.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If

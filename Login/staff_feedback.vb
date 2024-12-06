@@ -15,8 +15,11 @@ Public Class staff_feedback
     End Sub
 
     Private Sub feedback()
-        ' Query to select necessary columns (ID, d, t)
-        Dim query As String = "SELECT ID, d, t, sender FROM feedback"
+        ' Query to select necessary columns (ID, feedback date, time, feedback message, and username)
+        Dim query As String = "SELECT feedback.feedbackid, feedback.d, feedback.t, feedback.feedback, accounts.username " &
+                          "FROM feedback " &
+                          "INNER JOIN accounts ON feedback.ID = accounts.ID"
+
         Dim adapter As New MySqlDataAdapter(query, conn)
         Dim table As New DataTable()
 
@@ -33,13 +36,15 @@ Public Class staff_feedback
             ' Manually map the data to the existing columns
             For Each column As DataGridViewColumn In DGVfeedback.Columns
                 If column.Name = "FeedbackID" Then
-                    column.DataPropertyName = "ID"
+                    column.DataPropertyName = "feedbackid"
                 ElseIf column.Name = "FeedbackDate" Then
                     column.DataPropertyName = "d"
                 ElseIf column.Name = "FeedbackTime" Then
                     column.DataPropertyName = "t"
-                ElseIf column.Name = "sender" Then
-                    column.DataPropertyName = "sender"
+                ElseIf column.Name = "FeedbackMessage" Then
+                    column.DataPropertyName = "feedback"
+                ElseIf column.Name = "Username" Then
+                    column.DataPropertyName = "username"
                 End If
             Next
 
@@ -117,25 +122,29 @@ Public Class staff_feedback
         ' Check the selected combo box item
         Select Case cboType.Text
             Case "Choose:"
-                ' Search across all columns: Feedback ID, Date, and Time
-                query = "SELECT sender, ID, d, t " &
-                        "FROM feedback " &
-                        "WHERE ID LIKE @search OR d LIKE @search OR t LIKE @search"
+                ' Search across all columns: Feedback ID, Date, Time, and Username
+                query = "SELECT feedback.feedbackid, feedback.d, feedback.t, feedback.feedback, accounts.username " &
+                    "FROM feedback " &
+                    "INNER JOIN accounts ON feedback.ID = accounts.ID " &
+                    "WHERE feedback.feedbackid LIKE @search OR feedback.d LIKE @search OR feedback.t LIKE @search OR accounts.username LIKE @search"
 
             Case "Feedback ID"
-                query = "SELECT sender, ID, d, t " &
-                        "FROM feedback " &
-                        "WHERE ID LIKE @search"
+                query = "SELECT feedback.feedbackid, feedback.d, feedback.t, feedback.feedback, accounts.username " &
+                    "FROM feedback " &
+                    "INNER JOIN accounts ON feedback.ID = accounts.ID " &
+                    "WHERE feedback.feedbackid LIKE @search"
 
             Case "Date"
-                query = "SELECT sender, ID, d, t " &
-                        "FROM feedback " &
-                        "WHERE d LIKE @search"
+                query = "SELECT feedback.feedbackid, feedback.d, feedback.t, feedback.feedback, accounts.username " &
+                    "FROM feedback " &
+                    "INNER JOIN accounts ON feedback.ID = accounts.ID " &
+                    "WHERE feedback.d LIKE @search"
 
             Case "Time"
-                query = "SELECT sender, ID, d, t " &
-                        "FROM feedback " &
-                        "WHERE t LIKE @search"
+                query = "SELECT feedback.feedbackid, feedback.d, feedback.t, feedback.feedback, accounts.username " &
+                    "FROM feedback " &
+                    "INNER JOIN accounts ON feedback.ID = accounts.ID " &
+                    "WHERE feedback.t LIKE @search"
 
             Case Else
                 MessageBox.Show("Invalid category selected. Please select a valid search category.", "Invalid Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -173,6 +182,7 @@ Public Class staff_feedback
             End Try
         End Using
     End Sub
+
 
     Private Sub btnback_Click(sender As Object, e As EventArgs) Handles btnback.Click
         Staff.Show()

@@ -7,18 +7,8 @@ Public Class RoomListForm
     Private Sub LoadRoomData()
         Dim sqlQuery As String = "
         SELECT 
-            room_code, 
-            room_name, 
-            building, 
-            num_chairs, 
-            num_computers, 
-            num_laptops, 
-            room_status,
-            CASE 
-                WHEN room_status = 'Open' THEN occupancy_status 
-                ELSE 'Closed' 
-            END AS display_status
-        FROM roomlist"
+            room_code, room_name, building, num_chairs, num_computers, num_laptops, room_status, CASE WHEN room_status = 'Open' THEN occupancy_status ELSE 'Closed' 
+            END AS display_status FROM roomlist"
         Dim dataAdapter As New MySqlDataAdapter(sqlQuery, conn)
         Dim dataTable As New DataTable()
 

@@ -150,7 +150,7 @@ Public Class AccountManagement
         End If
     End Sub
 
-    Private Sub btnclear_Click_1(sender As Object, e As EventArgs)
+    Private Sub btnclear_Click_1(sender As Object, e As EventArgs) Handles btnclear.Click
         txtfname.Clear()
         txtID.Clear()
         txtlname.Clear()
@@ -167,7 +167,7 @@ Public Class AccountManagement
         Me.Hide()
     End Sub
 
-    Private Sub buttonpic_Click(sender As Object, e As EventArgs)
+    Private Sub buttonpic_Click(sender As Object, e As EventArgs) Handles buttonpic.Click
         Dim openFileDialog As New OpenFileDialog()
         openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif"
         openFileDialog.Title = "Select an Image"
@@ -316,5 +316,27 @@ Public Class AccountManagement
         Else
             MessageBox.Show("Please select a row to modify.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If
+    End Sub
+
+    Private Sub SearchAccounts()
+        Dim searchTerm As String = txtsearchbox.Text.Trim()
+        Dim query As String = "SELECT username, ID, accesslevel FROM accounts WHERE username LIKE @search OR accesslevel LIKE @search"
+
+        Using command As New MySqlCommand(query, conn)
+            command.Parameters.AddWithValue("@search", "%" & searchTerm & "%")
+            Dim adapter As New MySqlDataAdapter(command)
+            Dim table As New DataTable()
+
+            Try
+                adapter.Fill(table)
+                DGVaccounts.DataSource = table
+            Catch ex As Exception
+                MessageBox.Show("Error searching accounts: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End Try
+        End Using
+    End Sub
+
+    Private Sub btnsearch_Click(sender As Object, e As EventArgs) Handles btnsearch.Click
+        SearchAccounts()
     End Sub
 End Class

@@ -351,12 +351,6 @@
     <Compile Include="staff_schedule.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="student_feedback.Designer.vb">
-      <DependentUpon>student_feedback.vb</DependentUpon>
-    </Compile>
-    <Compile Include="student_feedback.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Subjects.Designer.vb">
       <DependentUpon>Subjects.vb</DependentUpon>
     </Compile>
@@ -598,9 +592,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="staff_schedule.resx">
       <DependentUpon>staff_schedule.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="student_feedback.resx">
-      <DependentUpon>student_feedback.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Subjects.resx">
       <DependentUpon>Subjects.vb</DependentUpon>

@@ -3,7 +3,6 @@ Imports System.Windows.Forms
 Imports System.Data
 
 Public Class addnewsection
-    ' A flag to determine whether we're adding a new section or modifying an existing one
     Public isModify As Boolean
     Private currentSection As String = String.Empty
     Private currentCourse As String = String.Empty

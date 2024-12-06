@@ -25,8 +25,10 @@ Public Class staffreport
     End Sub
 
     Private Sub tableloader()
-        ' Query to load data from both sched and schedtemp tables, including shed_id
-        Dim sqlQuery As String = "SELECT * FROM report;"
+        ' Query to load report data and join with accounts to get the username
+        Dim sqlQuery As String = "SELECT r.reportid AS report_id, a.username AS sender, r.d AS report_date, r.t AS report_time, r.report AS report_message " &
+                             "FROM report r " &
+                             "JOIN accounts a ON r.ID = a.ID"
 
         ' Create a new DataAdapter to fetch data from the database
         Dim dataAdapter As New MySqlDataAdapter(sqlQuery, conn)
@@ -47,11 +49,11 @@ Public Class staffreport
             DGVreport.DataSource = dataTable
 
             ' Set the correct data bindings for each column in the DataGridView
-            DGVreport.Columns("report_id").DataPropertyName = "ID"  ' Bind shed_id to sched_code
+            DGVreport.Columns("report_id").DataPropertyName = "report_id"
             DGVreport.Columns("sender").DataPropertyName = "sender"
-            DGVreport.Columns("report_date").DataPropertyName = "d"
-            DGVreport.Columns("report_time").DataPropertyName = "t"
-            DGVreport.Columns("report_message").DataPropertyName = "message"
+            DGVreport.Columns("report_date").DataPropertyName = "report_date"
+            DGVreport.Columns("report_time").DataPropertyName = "report_time"
+            DGVreport.Columns("report_message").DataPropertyName = "report_message"
 
         Catch ex As Exception
             MessageBox.Show("Error loading table data: " & ex.Message)
@@ -138,29 +140,36 @@ Public Class staffreport
             Return
         End If
 
-        ' Get the selected category and search term
-        Dim selectedCategory As String
-
-        ' Use Select Case to determine the selected category
-        Select Case cboType.SelectedIndex
-            Case 1
-                selectedCategory = "ID"
-            Case 2
-                selectedCategory = "sender"
-            Case 3
-                selectedCategory = "d"
-            Case 4
-                selectedCategory = "t"
-            Case Else
-                MessageBox.Show("Invalid category selected.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                Return
-        End Select
-
-
+        ' Define the base SQL query and category to search by
+        Dim sqlQuery As String = ""
         Dim searchTerm As String = txtsearch.Text.Trim()
 
-        ' Construct the SQL query based on the selected category
-        Dim sqlQuery As String = $"SELECT * FROM report WHERE {selectedCategory} LIKE @searchTerm"
+        ' Use the selected index of the dropdown to determine the search category
+        Select Case cboType.SelectedIndex
+            Case 1  ' Search by Report ID
+                sqlQuery = "SELECT r.reportid AS report_id, a.username AS sender, r.d AS report_date, r.t AS report_time, r.report AS report_message " &
+                           "FROM report r " &
+                           "JOIN accounts a ON r.ID = a.ID " &
+                           "WHERE r.reportid LIKE @searchTerm"
+            Case 2  ' Search by Username
+                sqlQuery = "SELECT r.reportid AS report_id, a.username AS sender, r.d AS report_date, r.t AS report_time, r.report AS report_message " &
+                           "FROM report r " &
+                           "JOIN accounts a ON r.ID = a.ID " &
+                           "WHERE a.username LIKE @searchTerm"
+            Case 3  ' Search by Date
+                sqlQuery = "SELECT r.reportid AS report_id, a.username AS sender, r.d AS report_date, r.t AS report_time, r.report AS report_message " &
+                           "FROM report r " &
+                           "JOIN accounts a ON r.ID = a.ID " &
+                           "WHERE r.d LIKE @searchTerm"
+            Case 4  ' Search by Time
+                sqlQuery = "SELECT r.reportid AS report_id, a.username AS sender, r.d AS report_date, r.t AS report_time, r.report AS report_message " &
+                           "FROM report r " &
+                           "JOIN accounts a ON r.ID = a.ID " &
+                           "WHERE r.t LIKE @searchTerm"
+            Case Else
+                MessageBox.Show("Please select a valid search category.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return
+        End Select
 
         ' Prepare the search term for a wildcard search
         Dim parameterValue As String = "%" & searchTerm & "%"
@@ -182,7 +191,16 @@ Public Class staffreport
             dataAdapter.Fill(dataTable)
 
             ' Bind the DataTable to the DataGridView
+            DGVreport.AutoGenerateColumns = False
             DGVreport.DataSource = dataTable
+
+            ' Rebind the DataGridView columns
+            DGVreport.Columns("report_id").DataPropertyName = "report_id"
+            DGVreport.Columns("sender").DataPropertyName = "sender"
+            DGVreport.Columns("report_date").DataPropertyName = "report_date"
+            DGVreport.Columns("report_time").DataPropertyName = "report_time"
+            DGVreport.Columns("report_message").DataPropertyName = "report_message"
+
         Catch ex As Exception
             MessageBox.Show("Error executing search: " & ex.Message, "Search Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally

@@ -23,15 +23,16 @@ Partial Class AdminPage3
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
-        Me.btnreport = New System.Windows.Forms.Button()
-        Me.btnfeedback = New System.Windows.Forms.Button()
-        Me.btnprofile = New System.Windows.Forms.Button()
-        Me.buttonback = New System.Windows.Forms.Button()
-        Me.btnlogout = New System.Windows.Forms.Button()
-        Me.btnaccountlogs = New System.Windows.Forms.Button()
         Me.btnroomlogs = New System.Windows.Forms.Button()
+        Me.btnaccountlogs = New System.Windows.Forms.Button()
+        Me.btnlogout = New System.Windows.Forms.Button()
+        Me.buttonback = New System.Windows.Forms.Button()
+        Me.btnprofile = New System.Windows.Forms.Button()
+        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
+        Me.btnfeedback = New System.Windows.Forms.Button()
+        Me.btnreport = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.btnnext = New System.Windows.Forms.Button()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -46,9 +47,10 @@ Partial Class AdminPage3
         Me.TableLayoutPanel2.Controls.Add(Me.btnroomlogs, 1, 4)
         Me.TableLayoutPanel2.Controls.Add(Me.btnaccountlogs, 1, 5)
         Me.TableLayoutPanel2.Controls.Add(Me.btnlogout, 1, 6)
-        Me.TableLayoutPanel2.Controls.Add(Me.buttonback, 2, 7)
         Me.TableLayoutPanel2.Controls.Add(Me.btnprofile, 1, 2)
         Me.TableLayoutPanel2.Controls.Add(Me.TableLayoutPanel3, 1, 3)
+        Me.TableLayoutPanel2.Controls.Add(Me.buttonback, 0, 7)
+        Me.TableLayoutPanel2.Controls.Add(Me.btnnext, 2, 7)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(390, 12)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
@@ -64,50 +66,65 @@ Partial Class AdminPage3
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(407, 435)
         Me.TableLayoutPanel2.TabIndex = 0
         '
-        'TableLayoutPanel3
+        'btnroomlogs
         '
-        Me.TableLayoutPanel3.ColumnCount = 2
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel3.Controls.Add(Me.btnfeedback, 0, 0)
-        Me.TableLayoutPanel3.Controls.Add(Me.btnreport, 0, 0)
-        Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel3.Location = New System.Drawing.Point(53, 199)
-        Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
-        Me.TableLayoutPanel3.RowCount = 1
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(297, 45)
-        Me.TableLayoutPanel3.TabIndex = 37
+        Me.btnroomlogs.AutoSize = True
+        Me.btnroomlogs.BackColor = System.Drawing.Color.Transparent
+        Me.btnroomlogs.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnroomlogs.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnroomlogs.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnroomlogs.ForeColor = System.Drawing.Color.NavajoWhite
+        Me.btnroomlogs.Location = New System.Drawing.Point(53, 250)
+        Me.btnroomlogs.Name = "btnroomlogs"
+        Me.btnroomlogs.Size = New System.Drawing.Size(297, 50)
+        Me.btnroomlogs.TabIndex = 30
+        Me.btnroomlogs.Text = "Room Logs"
+        Me.btnroomlogs.UseVisualStyleBackColor = False
         '
-        'btnreport
+        'btnaccountlogs
         '
-        Me.btnreport.AutoSize = True
-        Me.btnreport.BackColor = System.Drawing.Color.Transparent
-        Me.btnreport.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnreport.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnreport.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnreport.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.btnreport.Location = New System.Drawing.Point(3, 3)
-        Me.btnreport.Name = "btnreport"
-        Me.btnreport.Size = New System.Drawing.Size(142, 39)
-        Me.btnreport.TabIndex = 29
-        Me.btnreport.Text = "Report"
-        Me.btnreport.UseVisualStyleBackColor = False
+        Me.btnaccountlogs.AutoSize = True
+        Me.btnaccountlogs.BackColor = System.Drawing.Color.Transparent
+        Me.btnaccountlogs.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnaccountlogs.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnaccountlogs.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnaccountlogs.ForeColor = System.Drawing.Color.NavajoWhite
+        Me.btnaccountlogs.Location = New System.Drawing.Point(53, 306)
+        Me.btnaccountlogs.Name = "btnaccountlogs"
+        Me.btnaccountlogs.Size = New System.Drawing.Size(297, 41)
+        Me.btnaccountlogs.TabIndex = 32
+        Me.btnaccountlogs.Text = "Account Logs"
+        Me.btnaccountlogs.UseVisualStyleBackColor = False
         '
-        'btnfeedback
+        'btnlogout
         '
-        Me.btnfeedback.AutoSize = True
-        Me.btnfeedback.BackColor = System.Drawing.Color.Transparent
-        Me.btnfeedback.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnfeedback.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnfeedback.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnfeedback.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.btnfeedback.Location = New System.Drawing.Point(151, 3)
-        Me.btnfeedback.Name = "btnfeedback"
-        Me.btnfeedback.Size = New System.Drawing.Size(143, 39)
-        Me.btnfeedback.TabIndex = 30
-        Me.btnfeedback.Text = "Feedback"
-        Me.btnfeedback.UseVisualStyleBackColor = False
+        Me.btnlogout.AutoSize = True
+        Me.btnlogout.BackColor = System.Drawing.Color.Transparent
+        Me.btnlogout.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnlogout.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnlogout.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnlogout.ForeColor = System.Drawing.Color.NavajoWhite
+        Me.btnlogout.Location = New System.Drawing.Point(53, 353)
+        Me.btnlogout.Name = "btnlogout"
+        Me.btnlogout.Size = New System.Drawing.Size(297, 35)
+        Me.btnlogout.TabIndex = 33
+        Me.btnlogout.Text = "Log out"
+        Me.btnlogout.UseVisualStyleBackColor = False
+        '
+        'buttonback
+        '
+        Me.buttonback.AutoSize = True
+        Me.buttonback.BackColor = System.Drawing.Color.Transparent
+        Me.buttonback.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.buttonback.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.buttonback.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.buttonback.ForeColor = System.Drawing.Color.NavajoWhite
+        Me.buttonback.Location = New System.Drawing.Point(3, 401)
+        Me.buttonback.Name = "buttonback"
+        Me.buttonback.Size = New System.Drawing.Size(44, 31)
+        Me.buttonback.TabIndex = 35
+        Me.buttonback.Text = "<="
+        Me.buttonback.UseVisualStyleBackColor = False
         '
         'btnprofile
         '
@@ -125,65 +142,50 @@ Partial Class AdminPage3
         Me.btnprofile.Text = "User (View Account)"
         Me.btnprofile.UseVisualStyleBackColor = False
         '
-        'buttonback
+        'TableLayoutPanel3
         '
-        Me.buttonback.AutoSize = True
-        Me.buttonback.BackColor = System.Drawing.Color.Transparent
-        Me.buttonback.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.buttonback.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.buttonback.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.buttonback.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.buttonback.Location = New System.Drawing.Point(356, 401)
-        Me.buttonback.Name = "buttonback"
-        Me.buttonback.Size = New System.Drawing.Size(48, 31)
-        Me.buttonback.TabIndex = 35
-        Me.buttonback.Text = "<="
-        Me.buttonback.UseVisualStyleBackColor = False
+        Me.TableLayoutPanel3.ColumnCount = 2
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel3.Controls.Add(Me.btnfeedback, 0, 0)
+        Me.TableLayoutPanel3.Controls.Add(Me.btnreport, 0, 0)
+        Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel3.Location = New System.Drawing.Point(53, 199)
+        Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
+        Me.TableLayoutPanel3.RowCount = 1
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(297, 45)
+        Me.TableLayoutPanel3.TabIndex = 37
         '
-        'btnlogout
+        'btnfeedback
         '
-        Me.btnlogout.AutoSize = True
-        Me.btnlogout.BackColor = System.Drawing.Color.Transparent
-        Me.btnlogout.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnlogout.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnlogout.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnlogout.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.btnlogout.Location = New System.Drawing.Point(53, 353)
-        Me.btnlogout.Name = "btnlogout"
-        Me.btnlogout.Size = New System.Drawing.Size(297, 35)
-        Me.btnlogout.TabIndex = 33
-        Me.btnlogout.Text = "Log out"
-        Me.btnlogout.UseVisualStyleBackColor = False
+        Me.btnfeedback.AutoSize = True
+        Me.btnfeedback.BackColor = System.Drawing.Color.Transparent
+        Me.btnfeedback.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnfeedback.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnfeedback.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnfeedback.ForeColor = System.Drawing.Color.NavajoWhite
+        Me.btnfeedback.Location = New System.Drawing.Point(151, 3)
+        Me.btnfeedback.Name = "btnfeedback"
+        Me.btnfeedback.Size = New System.Drawing.Size(143, 39)
+        Me.btnfeedback.TabIndex = 30
+        Me.btnfeedback.Text = "Feedback"
+        Me.btnfeedback.UseVisualStyleBackColor = False
         '
-        'btnaccountlogs
+        'btnreport
         '
-        Me.btnaccountlogs.AutoSize = True
-        Me.btnaccountlogs.BackColor = System.Drawing.Color.Transparent
-        Me.btnaccountlogs.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnaccountlogs.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnaccountlogs.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnaccountlogs.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.btnaccountlogs.Location = New System.Drawing.Point(53, 306)
-        Me.btnaccountlogs.Name = "btnaccountlogs"
-        Me.btnaccountlogs.Size = New System.Drawing.Size(297, 41)
-        Me.btnaccountlogs.TabIndex = 32
-        Me.btnaccountlogs.Text = "Account Logs"
-        Me.btnaccountlogs.UseVisualStyleBackColor = False
-        '
-        'btnroomlogs
-        '
-        Me.btnroomlogs.AutoSize = True
-        Me.btnroomlogs.BackColor = System.Drawing.Color.Transparent
-        Me.btnroomlogs.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnroomlogs.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnroomlogs.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnroomlogs.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.btnroomlogs.Location = New System.Drawing.Point(53, 250)
-        Me.btnroomlogs.Name = "btnroomlogs"
-        Me.btnroomlogs.Size = New System.Drawing.Size(297, 50)
-        Me.btnroomlogs.TabIndex = 30
-        Me.btnroomlogs.Text = "Room Logs"
-        Me.btnroomlogs.UseVisualStyleBackColor = False
+        Me.btnreport.AutoSize = True
+        Me.btnreport.BackColor = System.Drawing.Color.Transparent
+        Me.btnreport.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnreport.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnreport.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnreport.ForeColor = System.Drawing.Color.NavajoWhite
+        Me.btnreport.Location = New System.Drawing.Point(3, 3)
+        Me.btnreport.Name = "btnreport"
+        Me.btnreport.Size = New System.Drawing.Size(142, 39)
+        Me.btnreport.TabIndex = 29
+        Me.btnreport.Text = "Report"
+        Me.btnreport.UseVisualStyleBackColor = False
         '
         'TableLayoutPanel1
         '
@@ -200,6 +202,21 @@ Partial Class AdminPage3
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 98.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(800, 450)
         Me.TableLayoutPanel1.TabIndex = 2
+        '
+        'btnnext
+        '
+        Me.btnnext.AutoSize = True
+        Me.btnnext.BackColor = System.Drawing.Color.Transparent
+        Me.btnnext.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnnext.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnnext.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnnext.ForeColor = System.Drawing.Color.NavajoWhite
+        Me.btnnext.Location = New System.Drawing.Point(356, 401)
+        Me.btnnext.Name = "btnnext"
+        Me.btnnext.Size = New System.Drawing.Size(48, 31)
+        Me.btnnext.TabIndex = 38
+        Me.btnnext.Text = "=>"
+        Me.btnnext.UseVisualStyleBackColor = False
         '
         'AdminPage3
         '
@@ -231,4 +248,5 @@ Partial Class AdminPage3
     Friend WithEvents btnfeedback As Button
     Friend WithEvents btnreport As Button
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
+    Friend WithEvents btnnext As Button
 End Class

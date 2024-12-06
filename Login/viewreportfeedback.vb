@@ -31,7 +31,7 @@ Public Class viewreportfeedback
     End Sub
 
     Public Sub loadReport(message_ID As String)
-        Dim query As String = "SELECT sender, d, t, report FROM report WHERE ID = @reportID"
+        Dim query As String = "SELECT ID, d, t, report FROM report WHERE reportid = @reportID"
         Dim adapter As New MySqlDataAdapter(query, conn)
         Dim table As New DataTable()
 
@@ -47,7 +47,7 @@ Public Class viewreportfeedback
                 Dim row As DataRow = table.Rows(0)
 
                 ' Populate the respective controls with the values from the row
-                txtusername.Text = row("sender").ToString()
+                txtusername.Text = row("ID").ToString()
                 txtdate.Text = row("d").ToString()
                 txttime.Text = row("t").ToString()
                 txtmessage.Text = row("report").ToString()
@@ -62,7 +62,7 @@ Public Class viewreportfeedback
 
     ' Separate method to load feedback data
     Public Sub loadFeedback(message_ID As String)
-        Dim query As String = "SELECT sender, d, t, feedback FROM feedback WHERE ID = @feedbackID"
+        Dim query As String = "SELECT ID, d, t, feedback FROM feedback WHERE feedbackid = @feedbackID"
         Dim adapter As New MySqlDataAdapter(query, conn)
         Dim table As New DataTable()
 
@@ -78,7 +78,7 @@ Public Class viewreportfeedback
                 Dim row As DataRow = table.Rows(0)
 
                 ' Populate the respective controls with the values from the row
-                txtusername.Text = row("sender").ToString()
+                txtusername.Text = row("ID").ToString()
                 txtdate.Text = row("d").ToString()
                 txttime.Text = row("t").ToString()
                 txtmessage.Text = row("report").ToString()

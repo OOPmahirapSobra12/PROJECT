@@ -4,7 +4,6 @@ Imports System.Data
 
 Public Class Subjects
     ' Assuming you have a DataGridView named DGVsubjects and a TextBox named txtsearch
-
     ' Load the subjects when the form loads
     Public Sub subjects_load(sender As Object, e As EventArgs) Handles MyBase.Load
         If conn.State = ConnectionState.Open Then
@@ -120,7 +119,6 @@ Public Class Subjects
                 ' Create and configure the command
                 Dim deleteCommand As New MySqlCommand(deleteQuery, conn)
                 deleteCommand.Parameters.AddWithValue("@subject_name", subjectName)
-
                 Try
                     ' Open the connection if it's not already open
                     If conn.State <> ConnectionState.Open Then

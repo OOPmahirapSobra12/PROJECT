@@ -163,7 +163,6 @@ Public Class Staff
             End If
         End Try
     End Sub
-
     Private Sub btnreport_Click(sender As Object, e As EventArgs) Handles btnreport.Click
         staffreport.Show()
         Me.Hide()

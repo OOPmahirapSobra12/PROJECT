@@ -109,7 +109,7 @@ Partial Class roomlogs
         Me.txtsearchbox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtsearchbox.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!)
         Me.txtsearchbox.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.txtsearchbox.Location = New System.Drawing.Point(202, 3)
+        Me.txtsearchbox.Location = New System.Drawing.Point(201, 3)
         Me.txtsearchbox.Name = "txtsearchbox"
         Me.txtsearchbox.Size = New System.Drawing.Size(235, 31)
         Me.txtsearchbox.TabIndex = 17
@@ -122,9 +122,9 @@ Partial Class roomlogs
         Me.btnsearch.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnsearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnsearch.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnsearch.Location = New System.Drawing.Point(443, 3)
+        Me.btnsearch.Location = New System.Drawing.Point(442, 3)
         Me.btnsearch.Name = "btnsearch"
-        Me.btnsearch.Size = New System.Drawing.Size(96, 34)
+        Me.btnsearch.Size = New System.Drawing.Size(97, 34)
         Me.btnsearch.TabIndex = 16
         Me.btnsearch.Text = "Search"
         Me.btnsearch.UseVisualStyleBackColor = False
@@ -184,7 +184,7 @@ Partial Class roomlogs
         Me.TableLayoutPanel3.ColumnCount = 3
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.14673!))
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54.85327!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 101.0!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 102.0!))
         Me.TableLayoutPanel3.Controls.Add(Me.cbosearch, 0, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.btnsearch, 2, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.txtsearchbox, 1, 0)
@@ -206,7 +206,7 @@ Partial Class roomlogs
         Me.cbosearch.Items.AddRange(New Object() {"Choose:", "Username", "Room", "Date In", "Date Out", "Time In", "Time Out"})
         Me.cbosearch.Location = New System.Drawing.Point(3, 3)
         Me.cbosearch.Name = "cbosearch"
-        Me.cbosearch.Size = New System.Drawing.Size(193, 33)
+        Me.cbosearch.Size = New System.Drawing.Size(192, 33)
         Me.cbosearch.TabIndex = 92
         '
         'TableLayoutPanel4

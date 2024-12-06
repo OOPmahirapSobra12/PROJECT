@@ -323,6 +323,4 @@ Public Class roomoccupancy
             MsgBox("Please choose whether to search by room code or room name.")
         End If
     End Sub
-
-
 End Class

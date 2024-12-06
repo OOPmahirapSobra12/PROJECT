@@ -113,10 +113,10 @@ Public Class FeedbackReport_sender
         ' Determine the table and query based on the selected message type
         If messageType = "Feedback" Then
             tableName = "feedback"
-            query = "INSERT INTO feedback (sender, ID, d, t, feedback) VALUES (@sender, @ID, @d, @t, @message)"
+            query = "INSERT INTO feedback (ID, d, t, feedback) VALUES (@ID, @d, @t, @message)"
         ElseIf messageType = "Report" Then
             tableName = "report"
-            query = "INSERT INTO report (sender, ID, d, t, report) VALUES (@sender, @ID, @d, @t, @message)"
+            query = "INSERT INTO report (ID, d, t, report) VALUES (@ID, @d, @t, @message)"
         Else
             MessageBox.Show("Please select a valid type (Feedback or Report).", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return
@@ -124,7 +124,6 @@ Public Class FeedbackReport_sender
 
         Using command As New MySqlCommand(query, conn)
             ' Add parameters to prevent SQL injection
-            command.Parameters.AddWithValue("@sender", txtuser.Text.Trim())
             command.Parameters.AddWithValue("@ID", room_ID)
             command.Parameters.AddWithValue("@d", currentDate)
             command.Parameters.AddWithValue("@t", currentTime)

@@ -80,4 +80,9 @@ Public Class AdminPage3
         profile.Show()
         Me.Hide()
     End Sub
+
+    Private Sub btnnext_Click(sender As Object, e As EventArgs) Handles btnnext.Click
+        AdminPage4.show()
+        Me.Hide()
+    End Sub
 End Class

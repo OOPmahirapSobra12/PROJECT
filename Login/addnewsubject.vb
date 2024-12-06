@@ -20,7 +20,7 @@ Public Class addnewsubject
         PopulateCourseComboBox()
 
         ' If modifying, populate the textbox with the current subject name
-        If isModify Then
+        If isModify = True Then
             txtsubject.Text = currentSubject
             btnAdd.Text = "Update"  ' Change button text to "Update"
 
@@ -29,11 +29,75 @@ Public Class addnewsubject
         End If
     End Sub
 
-    ' Event handler for the "Add" or "Update" button
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
-        ' Add the subject based on selected course and section
-        AddNewSubject()
+        If isModify = True Then
+            ModifySubject()
+        ElseIf isModify = False Then
+            AddNewSubject()
+        End If
     End Sub
+
+    Private Sub ModifySubject()
+        ' Validate if the subject name is empty
+        If String.IsNullOrWhiteSpace(txtsubject.Text) Then
+            MessageBox.Show("Please enter a subject name.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        ' Check if the modified subject name already exists in the database
+        If SubjectExists(txtsubject.Text.Trim()) AndAlso txtsubject.Text.Trim() <> currentSubject Then
+            MessageBox.Show("This subject already exists in the database.", "Duplicate Subject", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        ' Validate if a course and section are selected
+        If cbocourse.SelectedIndex = -1 Then
+            MessageBox.Show("Please select a course.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        If cbosection.SelectedIndex = -1 Then
+            MessageBox.Show("Please select a section.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        ' SQL query to update the subject details
+        Dim updateQuery As String = "UPDATE listofsubjects SET subject_name = @new_subject_name, course_name = @new_course_name, section = @new_section WHERE subject_name = @current_subject_name"
+
+        ' Create and configure the command
+        Dim updateCommand As New MySqlCommand(updateQuery, conn)
+        updateCommand.Parameters.AddWithValue("@new_subject_name", txtsubject.Text.Trim())
+        updateCommand.Parameters.AddWithValue("@new_course_name", cbocourse.SelectedItem.ToString())
+        updateCommand.Parameters.AddWithValue("@new_section", cbosection.SelectedItem.ToString())
+        updateCommand.Parameters.AddWithValue("@current_subject_name", currentSubject)
+
+        Try
+            ' Open the connection if it's not already open
+            If conn.State <> ConnectionState.Open Then
+                conn.Open()
+            End If
+
+            ' Execute the update command
+            Dim rowsAffected As Integer = updateCommand.ExecuteNonQuery()
+
+            ' Notify the user based on the result
+            If rowsAffected > 0 Then
+                MessageBox.Show("Subject successfully updated.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Me.Close()
+            Else
+                MessageBox.Show("No changes were made to the subject.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End If
+        Catch ex As Exception
+            ' Handle errors
+            MessageBox.Show("Error updating subject: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            ' Close the connection
+            If conn.State = ConnectionState.Open Then
+                conn.Close()
+            End If
+        End Try
+    End Sub
+
 
     ' Method to check if a subject already exists in the database
     Private Function SubjectExists(subjectName As String) As Boolean
@@ -216,6 +280,7 @@ Public Class addnewsubject
     ' Event handler for the "Back" button
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnback.Click
         Me.Close()
+        isModify = Nothing
     End Sub
 End Class
 

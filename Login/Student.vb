@@ -38,8 +38,7 @@ Public Class Student
             roomlist.room_status
         FROM schedtemp
         LEFT JOIN roomlist ON schedtemp.room_code = roomlist.room_code
-        WHERE schedtemp.course = @course AND schedtemp.section = @section
-    "
+        WHERE schedtemp.course = @course AND schedtemp.section = @section"
 
         Using command As New MySqlDataAdapter(query, conn)
             Dim dataTable As New DataTable()

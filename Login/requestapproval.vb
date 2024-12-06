@@ -76,7 +76,6 @@ Public Class requestapproval
         Dim query As String = "SELECT requestID, requesterID, request_d, request_t, room, request_t_in, request_t_out, request FROM requests"
         Dim adapter As New MySqlDataAdapter(query, conn)
         Dim table As New DataTable()
-
         Try
             ' Fill the DataTable with data from the requests table
             adapter.Fill(table)

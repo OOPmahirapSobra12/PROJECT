@@ -15,8 +15,10 @@ Public Class admin_feedback
     End Sub
 
     Private Sub feedback()
-        ' Query to select necessary columns (ID, d, t)
-        Dim query As String = "SELECT ID, d, t, sender FROM feedback"
+        ' Query to select feedback details along with username
+        Dim query As String = "SELECT f.feedbackid, a.username AS sender, f.d, f.t " &
+                          "FROM feedback f " &
+                          "JOIN accounts a ON f.ID = a.ID"
         Dim adapter As New MySqlDataAdapter(query, conn)
         Dim table As New DataTable()
 
@@ -33,7 +35,7 @@ Public Class admin_feedback
             ' Manually map the data to the existing columns
             For Each column As DataGridViewColumn In DGVfeedback.Columns
                 If column.Name = "FeedbackID" Then
-                    column.DataPropertyName = "ID"
+                    column.DataPropertyName = "feedbackid"
                 ElseIf column.Name = "FeedbackDate" Then
                     column.DataPropertyName = "d"
                 ElseIf column.Name = "FeedbackTime" Then
@@ -47,6 +49,7 @@ Public Class admin_feedback
             MessageBox.Show("Error retrieving feedback: " & ex.Message)
         End Try
     End Sub
+
 
     Private Sub btnview_Click(sender As Object, e As EventArgs) Handles btnview.Click
         Try
@@ -102,77 +105,89 @@ Public Class admin_feedback
             conn.Close()
         End Try
     End Sub
-
     Private Sub btnsearch_Click(sender As Object, e As EventArgs) Handles btnsearch.Click
-        ' If the textbox is empty, refresh the data
-        If String.IsNullOrEmpty(txtsearch.Text.Trim()) Then
-            feedback() ' Refresh the DataGridView by reloading all data
+        ' Validate that the user has entered a search term
+        If String.IsNullOrWhiteSpace(txtsearch.Text) Then
+            MessageBox.Show("Please enter a search term.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return
         End If
 
-        ' Get the search term from the textbox
-        Dim searchTerm As String = txtsearch.Text.Trim()
         Dim query As String = ""
+        Dim searchTerm As String = txtsearch.Text.Trim()
 
-        ' Check the selected combo box item
+        ' Select the query based on the selected search category
         Select Case cboType.Text
             Case "Choose:"
-                ' Search across all columns: Feedback ID, Date, and Time
-                query = "SELECT sender, ID, d, t " &
-                        "FROM feedback " &
-                        "WHERE ID LIKE @search OR d LIKE @search OR t LIKE @search"
-
+                query = "SELECT f.feedbackid, a.username AS sender, f.d, f.t, f.message AS feedback_message " &
+                    "FROM feedback f " &
+                    "JOIN accounts a ON f.ID = a.ID " &
+                    "WHERE a.username LIKE @search OR f.d LIKE @search OR f.t LIKE @search"
             Case "Feedback ID"
-                query = "SELECT sender, ID, d, t " &
-                        "FROM feedback " &
-                        "WHERE ID LIKE @search"
-
+                query = "SELECT f.feedbackid, a.username AS sender, f.d, f.t, f.message AS feedback_message " &
+                    "FROM feedback f " &
+                    "JOIN accounts a ON f.ID = a.ID " &
+                    "WHERE f.feedbackid LIKE @search"
+            Case "Username"
+                query = "SELECT f.feedbackid, a.username AS sender, f.d, f.t, f.message AS feedback_message " &
+                    "FROM feedback f " &
+                    "JOIN accounts a ON f.ID = a.ID " &
+                    "WHERE a.username LIKE @search"
             Case "Date"
-                query = "SELECT sender, ID, d, t " &
-                        "FROM feedback " &
-                        "WHERE d LIKE @search"
-
+                query = "SELECT f.feedbackid, a.username AS sender, f.d, f.t, f.message AS feedback_message " &
+                    "FROM feedback f " &
+                    "JOIN accounts a ON f.ID = a.ID " &
+                    "WHERE f.d LIKE @search"
             Case "Time"
-                query = "SELECT sender, ID, d, t " &
-                        "FROM feedback " &
-                        "WHERE t LIKE @search"
-
+                query = "SELECT f.feedbackid, a.username AS sender, f.d, f.t, f.message AS feedback_message " &
+                    "FROM feedback f " &
+                    "JOIN accounts a ON f.ID = a.ID " &
+                    "WHERE f.t LIKE @search"
             Case Else
                 MessageBox.Show("Invalid category selected. Please select a valid search category.", "Invalid Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 Return
         End Select
 
-        ' Execute the search query
-        Dim table As New DataTable()
-        Using command As New MySqlCommand(query, conn)
-            ' Add the search parameter with wildcard matching
-            command.Parameters.AddWithValue("@search", "%" & searchTerm & "%")
+        ' Add wildcard characters for partial matching
+        Dim parameterValue As String = "%" & searchTerm & "%"
 
-            Try
-                ' Open the connection if it is closed
-                If conn.State = ConnectionState.Closed Then
-                    conn.Open()
-                End If
+        ' Create a DataTable to hold the search results
+        Dim dataTable As New DataTable()
 
-                ' Execute the query and fill the DataTable
-                Dim adapter As New MySqlDataAdapter(command)
-                adapter.Fill(table)
+        ' Execute the query and bind the results
+        Try
+            ' Open connection if not already open
+            If conn.State <> ConnectionState.Open Then
+                conn.Open()
+            End If
 
-                ' Bind the results to the DataGridView
-                DGVfeedback.DataSource = table
+            ' Create the data adapter with the query
+            Dim dataAdapter As New MySqlDataAdapter(query, conn)
+            dataAdapter.SelectCommand.Parameters.AddWithValue("@search", parameterValue)
 
-                ' Notify the user if no results are found
-                If table.Rows.Count = 0 Then
-                    MessageBox.Show("No matching records found.", "No Results", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                End If
-            Catch ex As Exception
-                MessageBox.Show("Error executing search: " & ex.Message, "Search Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Finally
-                ' Ensure the connection is closed
+            ' Fill the DataTable with the search results
+            dataAdapter.Fill(dataTable)
+
+            ' Bind the results to the DataGridView
+            DGVfeedback.AutoGenerateColumns = False
+            DGVfeedback.DataSource = dataTable
+
+            ' Rebind the DataGridView columns (adjust column names based on your DataGridView setup)
+            DGVfeedback.Columns("feedbackid").DataPropertyName = "feedbackid"
+            DGVfeedback.Columns("sender").DataPropertyName = "sender"
+            DGVfeedback.Columns("date").DataPropertyName = "d"
+            DGVfeedback.Columns("time").DataPropertyName = "t"
+            DGVfeedback.Columns("message").DataPropertyName = "feedback_message"
+
+        Catch ex As Exception
+            MessageBox.Show("Error executing search: " & ex.Message, "Search Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            ' Ensure the connection is closed
+            If conn.State = ConnectionState.Open Then
                 conn.Close()
-            End Try
-        End Using
+            End If
+        End Try
     End Sub
+
 
     Private Sub btnback_Click(sender As Object, e As EventArgs) Handles btnback.Click
         Admin.Show()
@@ -181,6 +196,6 @@ Public Class admin_feedback
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         FeedbackReport_RoomSelection.Show()
-        type = "report"
+        type = "feedback"
     End Sub
 End Class

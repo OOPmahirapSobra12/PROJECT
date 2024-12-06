@@ -141,7 +141,6 @@ Public Class Sections
                 Dim deleteCommand As New MySqlCommand(deleteQuery, conn)
                 deleteCommand.Parameters.AddWithValue("@section", section)
                 deleteCommand.Parameters.AddWithValue("@course_name", courseName)
-
                 Try
                     ' Open the connection if it's not already open
                     If conn.State <> ConnectionState.Open Then

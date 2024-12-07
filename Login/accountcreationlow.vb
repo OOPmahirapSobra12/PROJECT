@@ -8,13 +8,13 @@ Public Class accountcreationlow
         DbConnect() ' Ensure the connection is established when the form loads
     End Sub
 
-    Private Sub btnexit_Click(sender As Object, e As EventArgs)
+    Private Sub btnexit_Click(sender As Object, e As EventArgs) Handles btnexit.Click
         Dim login As New Login()
         login.Show() ' Show Form1
         Me.Close() ' Hide Form2
     End Sub
 
-    Private Sub btncreate_Click(sender As Object, e As EventArgs)
+    Private Sub btncreate_Click(sender As Object, e As EventArgs) Handles btncreate.Click
         Dim username As String = txtuname.Text.Trim()
         Dim password As String = txtpassword.Text.Trim()
         Dim fname As String = txtFname.Text.Trim()

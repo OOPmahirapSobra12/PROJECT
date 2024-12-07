@@ -40,6 +40,8 @@ Public Class Login
 
         ' Add the TableLayoutPanel to the form
         Me.Controls.Add(tableLayoutPanel)
+        AutomaticTemporaryScheduleExpirer.Automation_IsRunning = True
+        StartExpirationCheck()
     End Sub
 
     ' Method to dynamically adjust font sizes based on the TableLayoutPanel size
@@ -174,10 +176,8 @@ Public Class Login
         Me.Hide() ' Hide Form1
     End Sub
     Private Sub btnclose_Click(sender As Object, e As EventArgs) Handles btnclose.Click
+        AutomaticTemporaryScheduleExpirer.Automation_IsRunning = False
+        StartExpirationCheck()
         Application.Exit()
-    End Sub
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs)
-        requestapproval.Show()
     End Sub
 End Class

@@ -4,20 +4,30 @@ Imports System.Timers
 Module AutomaticTemporaryScheduleExpirer
     ' Timer for periodic execution
     Private WithEvents ScheduleTimer As Timer
+    Public Automation_IsRunning As Boolean = False ' Prevent multiple starts
 
     ' Start the automatic process
     Public Sub StartExpirationCheck()
-        ' Set up the timer (e.g., every minute)
-        ScheduleTimer = New Timer(60000) ' 60000 ms = 1 minute
-        ScheduleTimer.AutoReset = True
-        ScheduleTimer.Enabled = True
+        If Not Automation_IsRunning Then
+            ' Set up the timer (e.g., every minute)
+            ScheduleTimer = New Timer(60000) ' 60000 ms = 1 minute
+            ScheduleTimer.AutoReset = True
+            ScheduleTimer.Enabled = True
+            Automation_IsRunning = True
+            Console.WriteLine("Timer started.")
+            MessageBox.Show("timer started")
+            StartExpirationCheck()
+        End If
     End Sub
 
     ' Stop the automatic process
     Public Sub StopExpirationCheck()
-        If ScheduleTimer IsNot Nothing Then
+        If Automation_IsRunning AndAlso ScheduleTimer IsNot Nothing Then
             ScheduleTimer.Stop()
             ScheduleTimer.Dispose()
+            Automation_IsRunning = False
+            Console.WriteLine("Timer stopped.")
+            MessageBox.Show("timer ended")
         End If
     End Sub
 

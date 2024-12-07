@@ -575,7 +575,8 @@ Public Class addscheduleadmin
 
                     ' Execute the insert command
                     command.ExecuteNonQuery()
-                    MessageBox.Show("Schedule has been successfully added to the temporary schedule.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    MessageBox.Show("Schedule has been successfully added to the temporary schedule. \n Removing request from the queue.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    ProcessAcceptedRequests()
                 Catch ex As Exception
                     MessageBox.Show("Error adding schedule: " & ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Finally
@@ -608,6 +609,7 @@ Public Class addscheduleadmin
                     ' Execute the insert command
                     command.ExecuteNonQuery()
                     MessageBox.Show("Schedule has been successfully added to the permanent schedule.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    ProcessAcceptedRequests()
                 Catch ex As Exception
                     MessageBox.Show("Error adding schedule: " & ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Finally

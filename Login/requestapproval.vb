@@ -62,6 +62,7 @@ Public Class requestapproval
                 cmd.ExecuteNonQuery()
                 LoadRequests()
                 MessageBox.Show("Request deleted successfully.")
+                ProcessDeniedRequests()
             Catch ex As Exception
                 MessageBox.Show("Error deleting request: " & ex.Message)
             Finally

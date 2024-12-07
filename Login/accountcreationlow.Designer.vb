@@ -28,9 +28,9 @@ Partial Class accountcreationlow
         Me.txtFname = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.txtLname = New System.Windows.Forms.TextBox()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnexit = New System.Windows.Forms.Button()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.btncreate = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtcourse = New System.Windows.Forms.TextBox()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
@@ -67,16 +67,16 @@ Partial Class accountcreationlow
         '
         Me.TableLayoutPanel3.BackColor = System.Drawing.Color.Transparent
         Me.TableLayoutPanel3.ColumnCount = 3
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.50488!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.08187!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2.371709!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.35128!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.99453!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.654201!))
         Me.TableLayoutPanel3.Controls.Add(Me.Label9, 0, 1)
         Me.TableLayoutPanel3.Controls.Add(Me.txtFname, 1, 1)
         Me.TableLayoutPanel3.Controls.Add(Me.Label10, 0, 2)
         Me.TableLayoutPanel3.Controls.Add(Me.txtLname, 1, 2)
-        Me.TableLayoutPanel3.Controls.Add(Me.Button1, 1, 5)
+        Me.TableLayoutPanel3.Controls.Add(Me.btnexit, 1, 5)
         Me.TableLayoutPanel3.Controls.Add(Me.Label4, 0, 3)
-        Me.TableLayoutPanel3.Controls.Add(Me.Button2, 0, 5)
+        Me.TableLayoutPanel3.Controls.Add(Me.btncreate, 0, 5)
         Me.TableLayoutPanel3.Controls.Add(Me.Label1, 0, 4)
         Me.TableLayoutPanel3.Controls.Add(Me.txtcourse, 1, 3)
         Me.TableLayoutPanel3.Controls.Add(Me.TextBox1, 1, 4)
@@ -84,13 +84,13 @@ Partial Class accountcreationlow
         Me.TableLayoutPanel3.Location = New System.Drawing.Point(403, 3)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
         Me.TableLayoutPanel3.RowCount = 7
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 138.0!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.08543!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.59296!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.09548!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.60804!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.61809!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 106.0!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30.18018!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.108109!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.882883!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.333333!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.783784!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.009009!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 27.47748!))
         Me.TableLayoutPanel3.Size = New System.Drawing.Size(394, 444)
         Me.TableLayoutPanel3.TabIndex = 3
         '
@@ -101,9 +101,9 @@ Partial Class accountcreationlow
         Me.Label9.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.Label9.Location = New System.Drawing.Point(3, 138)
+        Me.Label9.Location = New System.Drawing.Point(3, 134)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(129, 34)
+        Me.Label9.Size = New System.Drawing.Size(129, 36)
         Me.Label9.TabIndex = 23
         Me.Label9.Text = "First Name:"
         Me.Label9.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -112,7 +112,7 @@ Partial Class accountcreationlow
         '
         Me.txtFname.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtFname.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
-        Me.txtFname.Location = New System.Drawing.Point(138, 141)
+        Me.txtFname.Location = New System.Drawing.Point(138, 137)
         Me.txtFname.Name = "txtFname"
         Me.txtFname.Size = New System.Drawing.Size(234, 32)
         Me.txtFname.TabIndex = 24
@@ -124,9 +124,9 @@ Partial Class accountcreationlow
         Me.Label10.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.Label10.Location = New System.Drawing.Point(3, 172)
+        Me.Label10.Location = New System.Drawing.Point(3, 170)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(129, 37)
+        Me.Label10.Size = New System.Drawing.Size(129, 35)
         Me.Label10.TabIndex = 25
         Me.Label10.Text = "Last Name:"
         Me.Label10.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -135,27 +135,27 @@ Partial Class accountcreationlow
         '
         Me.txtLname.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtLname.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
-        Me.txtLname.Location = New System.Drawing.Point(138, 175)
+        Me.txtLname.Location = New System.Drawing.Point(138, 173)
         Me.txtLname.Name = "txtLname"
         Me.txtLname.Size = New System.Drawing.Size(234, 32)
         Me.txtLname.TabIndex = 26
         '
-        'Button1
+        'btnexit
         '
-        Me.Button1.AutoSize = True
-        Me.Button1.BackColor = System.Drawing.Color.Transparent
-        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.Button1.Location = New System.Drawing.Point(138, 293)
-        Me.Button1.MaximumSize = New System.Drawing.Size(0, 35)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(234, 35)
-        Me.Button1.TabIndex = 22
-        Me.Button1.Text = "Exit"
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.btnexit.AutoSize = True
+        Me.btnexit.BackColor = System.Drawing.Color.Transparent
+        Me.btnexit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.btnexit.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnexit.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btnexit.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnexit.ForeColor = System.Drawing.Color.NavajoWhite
+        Me.btnexit.Location = New System.Drawing.Point(138, 284)
+        Me.btnexit.MaximumSize = New System.Drawing.Size(0, 35)
+        Me.btnexit.Name = "btnexit"
+        Me.btnexit.Size = New System.Drawing.Size(234, 34)
+        Me.btnexit.TabIndex = 22
+        Me.btnexit.Text = "Exit"
+        Me.btnexit.UseVisualStyleBackColor = False
         '
         'Label4
         '
@@ -164,27 +164,27 @@ Partial Class accountcreationlow
         Me.Label4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.Label4.Location = New System.Drawing.Point(3, 209)
+        Me.Label4.Location = New System.Drawing.Point(3, 205)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(129, 38)
+        Me.Label4.Size = New System.Drawing.Size(129, 37)
         Me.Label4.TabIndex = 33
         Me.Label4.Text = "Course:"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
-        'Button2
+        'btncreate
         '
-        Me.Button2.AutoSize = True
-        Me.Button2.BackColor = System.Drawing.Color.Transparent
-        Me.Button2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.Button2.Location = New System.Drawing.Point(3, 293)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(129, 41)
-        Me.Button2.TabIndex = 20
-        Me.Button2.Text = "Create"
-        Me.Button2.UseVisualStyleBackColor = False
+        Me.btncreate.AutoSize = True
+        Me.btncreate.BackColor = System.Drawing.Color.Transparent
+        Me.btncreate.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btncreate.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.btncreate.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btncreate.ForeColor = System.Drawing.Color.NavajoWhite
+        Me.btncreate.Location = New System.Drawing.Point(3, 284)
+        Me.btncreate.Name = "btncreate"
+        Me.btncreate.Size = New System.Drawing.Size(129, 34)
+        Me.btncreate.TabIndex = 20
+        Me.btncreate.Text = "Create"
+        Me.btncreate.UseVisualStyleBackColor = False
         '
         'Label1
         '
@@ -193,9 +193,9 @@ Partial Class accountcreationlow
         Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.Label1.Location = New System.Drawing.Point(3, 247)
+        Me.Label1.Location = New System.Drawing.Point(3, 242)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(129, 43)
+        Me.Label1.Size = New System.Drawing.Size(129, 39)
         Me.Label1.TabIndex = 35
         Me.Label1.Text = "Section:"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -204,7 +204,7 @@ Partial Class accountcreationlow
         '
         Me.txtcourse.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtcourse.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
-        Me.txtcourse.Location = New System.Drawing.Point(138, 212)
+        Me.txtcourse.Location = New System.Drawing.Point(138, 208)
         Me.txtcourse.Name = "txtcourse"
         Me.txtcourse.Size = New System.Drawing.Size(234, 32)
         Me.txtcourse.TabIndex = 34
@@ -213,7 +213,7 @@ Partial Class accountcreationlow
         '
         Me.TextBox1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
-        Me.TextBox1.Location = New System.Drawing.Point(138, 250)
+        Me.TextBox1.Location = New System.Drawing.Point(138, 245)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(234, 32)
         Me.TextBox1.TabIndex = 36
@@ -222,9 +222,9 @@ Partial Class accountcreationlow
         '
         Me.TableLayoutPanel2.BackColor = System.Drawing.Color.Transparent
         Me.TableLayoutPanel2.ColumnCount = 3
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.50488!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.08187!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2.371709!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 34.35128!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.99452!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.654201!))
         Me.TableLayoutPanel2.Controls.Add(Me.txtuname, 1, 2)
         Me.TableLayoutPanel2.Controls.Add(Me.password, 0, 3)
         Me.TableLayoutPanel2.Controls.Add(Me.welcome, 1, 1)
@@ -236,14 +236,14 @@ Partial Class accountcreationlow
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(3, 3)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 8
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 85.0!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.07874!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.77953!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.56693!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.53543!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.92913!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.11024!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 102.0!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.01802!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.108109!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.882883!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.234234!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.41441!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5!))
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(394, 444)
         Me.TableLayoutPanel2.TabIndex = 2
         '
@@ -251,7 +251,7 @@ Partial Class accountcreationlow
         '
         Me.txtuname.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtuname.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!)
-        Me.txtuname.Location = New System.Drawing.Point(138, 139)
+        Me.txtuname.Location = New System.Drawing.Point(138, 138)
         Me.txtuname.Name = "txtuname"
         Me.txtuname.Size = New System.Drawing.Size(234, 31)
         Me.txtuname.TabIndex = 15
@@ -265,7 +265,7 @@ Partial Class accountcreationlow
         Me.password.ForeColor = System.Drawing.Color.NavajoWhite
         Me.password.Location = New System.Drawing.Point(3, 171)
         Me.password.Name = "password"
-        Me.password.Size = New System.Drawing.Size(129, 37)
+        Me.password.Size = New System.Drawing.Size(129, 35)
         Me.password.TabIndex = 19
         Me.password.Text = "Password:"
         Me.password.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -277,9 +277,9 @@ Partial Class accountcreationlow
         Me.welcome.Dock = System.Windows.Forms.DockStyle.Fill
         Me.welcome.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.welcome.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.welcome.Location = New System.Drawing.Point(138, 85)
+        Me.welcome.Location = New System.Drawing.Point(138, 55)
         Me.welcome.Name = "welcome"
-        Me.welcome.Size = New System.Drawing.Size(234, 51)
+        Me.welcome.Size = New System.Drawing.Size(234, 80)
         Me.welcome.TabIndex = 16
         Me.welcome.Text = "Account Creation"
         Me.welcome.TextAlign = System.Drawing.ContentAlignment.BottomLeft
@@ -297,7 +297,7 @@ Partial Class accountcreationlow
         '
         Me.txtID.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtID.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
-        Me.txtID.Location = New System.Drawing.Point(138, 211)
+        Me.txtID.Location = New System.Drawing.Point(138, 209)
         Me.txtID.Name = "txtID"
         Me.txtID.Size = New System.Drawing.Size(234, 32)
         Me.txtID.TabIndex = 28
@@ -309,9 +309,9 @@ Partial Class accountcreationlow
         Me.Label3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.Label3.Location = New System.Drawing.Point(3, 208)
+        Me.Label3.Location = New System.Drawing.Point(3, 206)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(129, 42)
+        Me.Label3.Size = New System.Drawing.Size(129, 41)
         Me.Label3.TabIndex = 27
         Me.Label3.Text = "ID:"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -323,9 +323,9 @@ Partial Class accountcreationlow
         Me.username.Dock = System.Windows.Forms.DockStyle.Fill
         Me.username.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.username.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.username.Location = New System.Drawing.Point(3, 136)
+        Me.username.Location = New System.Drawing.Point(3, 135)
         Me.username.Name = "username"
-        Me.username.Size = New System.Drawing.Size(129, 35)
+        Me.username.Size = New System.Drawing.Size(129, 36)
         Me.username.TabIndex = 17
         Me.username.Text = "Username:"
         Me.username.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -364,8 +364,8 @@ Partial Class accountcreationlow
     Friend WithEvents txtLname As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents txtID As TextBox
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btncreate As Button
+    Friend WithEvents btnexit As Button
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents txtuname As TextBox
     Friend WithEvents password As Label

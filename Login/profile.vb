@@ -144,59 +144,111 @@ Public Class profile
                 Dim count As Integer = Convert.ToInt32(command.ExecuteScalar())
 
                 If count = 1 Then
-                    ' If only one record is found, proceed with the update
-                    Dim updateQuery As String = "UPDATE accounts SET " &
-                                                "username = @username, " &
-                                                "fname = @fname, " &
-                                                "lname = @lname, " &
-                                                "image = @picture " &
-                                                "pword = @pword" &
-                                                "course = @course" &
-                                                "section = @section" &
-                                                "WHERE ID = @id"
+                    If access = "low" Then
+                        ' If only one record is found, proceed with the update
+                        Dim updateQuery As String = "UPDATE accounts SET " &
+                                                    "username = @username, " &
+                                                    "fname = @fname, " &
+                                                    "lname = @lname, " &
+                                                    "image = @picture " &
+                                                    "pword = @pword" &
+                                                    "course_name = @course" &
+                                                    "sections = @section" &
+                                                    "WHERE ID = @id"
 
-                    ' Execute the update query
-                    Using updateCommand As New MySqlCommand(updateQuery, conn)
-                        ' Add parameters to prevent SQL injection
-                        updateCommand.Parameters.AddWithValue("@username", txtusername.Text)
-                        updateCommand.Parameters.AddWithValue("@fname", txtfname.Text)
-                        updateCommand.Parameters.AddWithValue("@lname", txtlname.Text)
-                        updateCommand.Parameters.AddWithValue("@pword", txtpassword.Text)
-                        updateCommand.Parameters.AddWithValue("@course", txtcourse.Text)
-                        updateCommand.Parameters.AddWithValue("@section", txtsection.Text)
+                        ' Execute the update query
+                        Using updateCommand As New MySqlCommand(updateQuery, conn)
+                            ' Add parameters to prevent SQL injection
+                            updateCommand.Parameters.AddWithValue("@username", txtusername.Text)
+                            updateCommand.Parameters.AddWithValue("@fname", txtfname.Text)
+                            updateCommand.Parameters.AddWithValue("@lname", txtlname.Text)
+                            updateCommand.Parameters.AddWithValue("@pword", txtpassword.Text)
+                            updateCommand.Parameters.AddWithValue("@course", txtcourse.Text)
+                            updateCommand.Parameters.AddWithValue("@section", txtsection.Text)
 
-                        ' For the picture, we need to save the image in the database (convert it to a binary format if needed)
-                        If PBpic.Image IsNot Nothing Then
+                            ' For the picture, we need to save the image in the database (convert it to a binary format if needed)
+                            If PBpic.Image IsNot Nothing Then
+                                Try
+                                    Dim ms As New IO.MemoryStream()
+                                    PBpic.Image.Save(ms, PBpic.Image.RawFormat)
+                                    updateCommand.Parameters.AddWithValue("@picture", ms.ToArray())  ' Store the image as binary data
+                                Catch ex As Exception
+                                    MessageBox.Show("Error saving image: " & ex.Message, "Image Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                    Return
+                                End Try
+                            Else
+                                ' If no picture is selected, store a NULL or empty value (depending on your database schema)
+                                updateCommand.Parameters.AddWithValue("@picture", DBNull.Value)
+                            End If
+
+                            updateCommand.Parameters.AddWithValue("@id", selectedID)
+
                             Try
-                                Dim ms As New IO.MemoryStream()
-                                PBpic.Image.Save(ms, PBpic.Image.RawFormat)
-                                updateCommand.Parameters.AddWithValue("@picture", ms.ToArray())  ' Store the image as binary data
+                                updateCommand.ExecuteNonQuery()
+                                MessageBox.Show("Profile updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+                                ' Optionally, refresh the profile information (e.g., call account_load() to reload the data)
+                                account_load()
+
+                                ' Optionally clear fields or reset the UI state
+                                txtdisabler()
+                                buttonhidder()
+
                             Catch ex As Exception
-                                MessageBox.Show("Error saving image: " & ex.Message, "Image Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                                Return
+                                MessageBox.Show($"Error updating profile: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                             End Try
-                        Else
-                            ' If no picture is selected, store a NULL or empty value (depending on your database schema)
-                            updateCommand.Parameters.AddWithValue("@picture", DBNull.Value)
-                        End If
+                        End Using
+                    ElseIf access = "mid" Or access = "high" Then
+                        ' If only one record is found, proceed with the update
+                        Dim updateQuery As String = "UPDATE accounts SET " &
+                                                    "username = @username, " &
+                                                    "fname = @fname, " &
+                                                    "lname = @lname, " &
+                                                    "image = @picture " &
+                                                    "pword = @pword" &
+                                                    "WHERE ID = @id"
 
-                        updateCommand.Parameters.AddWithValue("@id", selectedID)
+                        ' Execute the update query
+                        Using updateCommand As New MySqlCommand(updateQuery, conn)
+                            ' Add parameters to prevent SQL injection
+                            updateCommand.Parameters.AddWithValue("@username", txtusername.Text)
+                            updateCommand.Parameters.AddWithValue("@fname", txtfname.Text)
+                            updateCommand.Parameters.AddWithValue("@lname", txtlname.Text)
+                            updateCommand.Parameters.AddWithValue("@pword", txtpassword.Text)
 
-                        Try
-                            updateCommand.ExecuteNonQuery()
-                            MessageBox.Show("Profile updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                            ' For the picture, we need to save the image in the database (convert it to a binary format if needed)
+                            If PBpic.Image IsNot Nothing Then
+                                Try
+                                    Dim ms As New IO.MemoryStream()
+                                    PBpic.Image.Save(ms, PBpic.Image.RawFormat)
+                                    updateCommand.Parameters.AddWithValue("@picture", ms.ToArray())  ' Store the image as binary data
+                                Catch ex As Exception
+                                    MessageBox.Show("Error saving image: " & ex.Message, "Image Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                                    Return
+                                End Try
+                            Else
+                                ' If no picture is selected, store a NULL or empty value (depending on your database schema)
+                                updateCommand.Parameters.AddWithValue("@picture", DBNull.Value)
+                            End If
 
-                            ' Optionally, refresh the profile information (e.g., call account_load() to reload the data)
-                            account_load()
+                            updateCommand.Parameters.AddWithValue("@id", selectedID)
 
-                            ' Optionally clear fields or reset the UI state
-                            txtdisabler()
-                            buttonhidder()
+                            Try
+                                updateCommand.ExecuteNonQuery()
+                                MessageBox.Show("Profile updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-                        Catch ex As Exception
-                            MessageBox.Show($"Error updating profile: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                        End Try
-                    End Using
+                                ' Optionally, refresh the profile information (e.g., call account_load() to reload the data)
+                                account_load()
+
+                                ' Optionally clear fields or reset the UI state
+                                txtdisabler()
+                                buttonhidder()
+
+                            Catch ex As Exception
+                                MessageBox.Show($"Error updating profile: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                            End Try
+                        End Using
+                    End If
                 Else
                     ' If more than one record is found, show an error (should not happen in your case)
                     MessageBox.Show("Multiple records found with the same ID. Update failed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)

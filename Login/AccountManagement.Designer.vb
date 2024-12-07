@@ -282,7 +282,7 @@ Partial Class AccountManagement
         Me.TableLayoutPanel5.ColumnCount = 3
         Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.54755!))
         Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69.45245!))
-        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 125.0!))
+        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 126.0!))
         Me.TableLayoutPanel5.Controls.Add(Me.btnback, 1, 0)
         Me.TableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel5.Location = New System.Drawing.Point(23, 390)
@@ -303,7 +303,7 @@ Partial Class AccountManagement
         Me.btnback.ForeColor = System.Drawing.Color.MidnightBlue
         Me.btnback.Location = New System.Drawing.Point(107, 3)
         Me.btnback.Name = "btnback"
-        Me.btnback.Size = New System.Drawing.Size(231, 32)
+        Me.btnback.Size = New System.Drawing.Size(230, 32)
         Me.btnback.TabIndex = 99
         Me.btnback.Text = "Back"
         Me.btnback.UseVisualStyleBackColor = False
@@ -579,7 +579,7 @@ Partial Class AccountManagement
         Me.cbolevel.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!)
         Me.cbolevel.ForeColor = System.Drawing.Color.MidnightBlue
         Me.cbolevel.FormattingEnabled = True
-        Me.cbolevel.Items.AddRange(New Object() {"Admin", "Teacher", "Student"})
+        Me.cbolevel.Items.AddRange(New Object() {"Choose:", "low", "mid", "high"})
         Me.cbolevel.Location = New System.Drawing.Point(136, 224)
         Me.cbolevel.Name = "cbolevel"
         Me.cbolevel.Size = New System.Drawing.Size(142, 32)
@@ -711,6 +711,7 @@ Partial Class AccountManagement
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "AccountManagement"
         Me.Text = "AccountManagement"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()

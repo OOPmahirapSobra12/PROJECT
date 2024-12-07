@@ -11,6 +11,7 @@ Public Class AccountManagement
         DbConnect()
         tableloader()
         cbosearch.SelectedIndex = 0
+        cbolevel.SelectedIndex = 0
     End Sub
 
     Public Sub tableloader()
@@ -286,9 +287,16 @@ Public Class AccountManagement
                             txtpassword.Text = reader("pword").ToString()
                             txtfname.Text = reader("fname").ToString()
                             txtlname.Text = reader("lname").ToString()
-                            txtcourse.Text = reader("course").ToString()
-                            txtsection.Text = reader("section").ToString()
+                            txtID.Text = selectedAccountID.ToString()
                             cbolevel.SelectedItem = reader("accesslevel").ToString()
+
+                            If reader("course_name").ToString = Nothing And reader("sections").ToString = Nothing Then
+                                txtcourse.Enabled = False
+                                txtsection.Enabled = False
+                            ElseIf reader("course_name").ToString = Not Nothing And reader("sections").ToString = Not Nothing Then
+                                txtcourse.Text = reader("course").ToString()
+                                txtsection.Text = reader("section").ToString()
+                            End If
 
                             ' Check if the image field is not null
                             If Not IsDBNull(reader("image")) Then

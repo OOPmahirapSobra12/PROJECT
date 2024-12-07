@@ -79,8 +79,8 @@ Module logs
 "
                             Dim updateCommand As New MySqlCommand(query, conn)
                             updateCommand.Parameters.AddWithValue("@U_ID", L_ID)
-                            updateCommand.Parameters.AddWithValue("@log_out_date", logInDate)
-                            updateCommand.Parameters.AddWithValue("@log_out_time", logInTime)
+                            updateCommand.Parameters.AddWithValue("@log_out_date", logOutDate)
+                            updateCommand.Parameters.AddWithValue("@log_out_time", logOutTime)
                             updateCommand.Parameters.AddWithValue("@log_in_date", logInTime)
                             updateCommand.Parameters.AddWithValue("@log_in_time", logInTime)
                             updateCommand.ExecuteNonQuery()
@@ -98,6 +98,8 @@ Module logs
         Catch ex As Exception
             MsgBox("Error: " & ex.Message)
         Finally
+            L_ID = Nothing
+            Action = Nothing
             If conn.State = ConnectionState.Open Then
                 conn.Close()
             End If
@@ -219,7 +221,11 @@ Module logs
             If result IsNot Nothing Then
                 course = result.ToString() ' Set the course value
             Else
-                MsgBox("No course found for the given user ID.", MsgBoxStyle.Information, "Information")
+                If access = "mid" Then
+                    course = "Staff"
+                ElseIf access = "admin" Then
+                    course = "Admin"
+                End If
             End If
 
         Catch ex As MySqlException
@@ -251,7 +257,11 @@ Module logs
             If result IsNot Nothing Then
                 section = result.ToString() ' Set the section value
             Else
-                MsgBox("No section found for the given user ID.", MsgBoxStyle.Information, "Information")
+                If access = "mid" Then
+                    section = "Staff"
+                ElseIf access = "admin" Then
+                    section = "Admin"
+                End If
             End If
 
         Catch ex As MySqlException

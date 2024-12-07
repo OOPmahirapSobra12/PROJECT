@@ -90,6 +90,7 @@ Public Class Admin
 
     Private Sub btnloging_Click(sender As Object, e As EventArgs) Handles btnloggin.Click
         roomoccupancy.Show()
+        roomoccupancy.StartPosition = FormStartPosition.CenterScreen
         Me.Hide()
     End Sub
 End Class

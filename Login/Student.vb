@@ -18,27 +18,27 @@ Public Class Student
         Dim query As String = "
         SELECT 
             sched.subject_name, 
-            sched.course, 
-            sched.section, 
+            sched.course_name, 
+            sched.sections, 
             CONCAT(sched.room_time_in, ' - ', sched.room_time_out) AS time,
             roomlist.room_name,
             roomlist.room_status
         FROM sched
         LEFT JOIN roomlist ON sched.room_code = roomlist.room_code
-        WHERE sched.course = @course AND sched.section = @section
+        WHERE sched.course_name = @course AND sched.sections = @section
 
         UNION ALL
 
         SELECT 
             schedtemp.subject_name, 
-            schedtemp.course, 
-            schedtemp.section, 
+            schedtemp.course_name, 
+            schedtemp.sections, 
             CONCAT(schedtemp.room_time_in, ' - ', schedtemp.room_time_out) AS time,
             roomlist.room_name,
             roomlist.room_status
         FROM schedtemp
         LEFT JOIN roomlist ON schedtemp.room_code = roomlist.room_code
-        WHERE schedtemp.course = @course AND schedtemp.section = @section"
+        WHERE schedtemp.course_name = @course AND schedtemp.sections = @section"
 
         Using command As New MySqlDataAdapter(query, conn)
             Dim dataTable As New DataTable()

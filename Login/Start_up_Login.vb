@@ -115,8 +115,6 @@ Public Class Start_up_Login
                             txtpassword.Clear()
                             txtuname.Clear()
                             access = "low"
-                            course = U_course
-                            section = U_section
                             logs.L_ID = ID
                             logs.Action = Action
                             logs.course = U_course
@@ -134,12 +132,10 @@ Public Class Start_up_Login
                             MsgBox("Welcome " & username)
                             txtpassword.Clear()
                             txtuname.Clear()
-                            course = "Staff"
-                            section = "Staff"
                             logs.L_ID = ID
                             logs.Action = Action
-                            logs.course = U_course
-                            logs.section = U_section
+                            logs.course = "staff"
+                            logs.section = "staff"
                             logging_log()
                             coursefinder()
                             sectionfinder()
@@ -153,13 +149,11 @@ Public Class Start_up_Login
                             MsgBox("Welcome " & username)
                             txtpassword.Clear()
                             txtuname.Clear()
-                            course = "Admin"
-                            section = "Admin"
                             access = "high"
                             logs.L_ID = ID
                             logs.Action = Action
-                            logs.course = U_course
-                            logs.section = U_section
+                            logs.course = "admin"
+                            logs.section = "admin"
                             logging_log()
                             coursefinder()
                             sectionfinder()

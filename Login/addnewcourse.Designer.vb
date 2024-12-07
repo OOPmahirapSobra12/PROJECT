@@ -141,6 +141,7 @@ Partial Class addnewcourse
         Me.Controls.Add(Me.TableLayoutPanel7)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "addnewcourse"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form1"
         Me.TableLayoutPanel7.ResumeLayout(False)
         Me.TableLayoutPanel11.ResumeLayout(False)

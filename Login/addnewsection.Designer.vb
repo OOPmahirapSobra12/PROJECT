@@ -172,6 +172,7 @@ Partial Class addnewsection
         Me.Controls.Add(Me.TableLayoutPanel7)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "addnewsection"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "addnewsection"
         Me.TableLayoutPanel7.ResumeLayout(False)
         Me.TableLayoutPanel11.ResumeLayout(False)

@@ -188,9 +188,6 @@ Public Class Sections
             addSectionForm.InitializeForModify(courseName, section)
             addSectionForm.isModify = True
             addSectionForm.Show()
-
-            ' Optionally, hide the current form
-            Me.Hide()
         Else
             ' Display a message if no row is selected
             MessageBox.Show("Please select a row to modify.", "Selection Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -203,7 +200,5 @@ Public Class Sections
         Dim addSectionForm As New addnewsection()
         addSectionForm.isModify = False
         addSectionForm.Show()
-        Me.Hide()
     End Sub
-
 End Class

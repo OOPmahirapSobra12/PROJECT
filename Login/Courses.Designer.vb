@@ -253,6 +253,7 @@ Partial Class Courses
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Courses"
         Me.Text = "Courses"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.TableLayoutPanel3.ResumeLayout(False)
         Me.TableLayoutPanel3.PerformLayout()
         CType(Me.DGVcourses, System.ComponentModel.ISupportInitialize).EndInit()

@@ -416,6 +416,7 @@ Partial Class staff_schedule
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "staff_schedule"
         Me.Text = "staff_schedule"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.TableLayoutPanel5.ResumeLayout(False)
         Me.TableLayoutPanel6.ResumeLayout(False)
         Me.TableLayoutPanel8.ResumeLayout(False)

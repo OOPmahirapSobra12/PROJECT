@@ -205,7 +205,6 @@ Partial Class AdminPage4
         Me.crystalbtnaccountlist.TabIndex = 38
         Me.crystalbtnaccountlist.Text = "Account List"
         Me.crystalbtnaccountlist.UseVisualStyleBackColor = False
-        Me.crystalbtnaccountlist.Visible = False
         '
         'buttonback
         '

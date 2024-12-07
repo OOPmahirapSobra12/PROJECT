@@ -345,6 +345,7 @@ Partial Class Roomlist
         Me.Margin = New System.Windows.Forms.Padding(2)
         Me.Name = "Roomlist"
         Me.Text = "roomliststaff"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.TableLayoutPanel5.ResumeLayout(False)
         Me.TableLayoutPanel6.ResumeLayout(False)
         Me.TableLayoutPanel8.ResumeLayout(False)

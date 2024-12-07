@@ -156,7 +156,6 @@ Public Class Subjects
         Dim addSubjectForm As New addnewsubject()
         addSubjectForm.isModify = False
         addSubjectForm.Show() ' Show the form
-        Me.Hide() ' Hide the current form
     End Sub
 
     ' Event for the "Modify" button: Opens the addnewsubject form to modify the selected subject
@@ -176,10 +175,14 @@ Public Class Subjects
             modifySubjectForm.InitializeForModify(subjectName, courseName, sectionName) ' Initialize for modification with all required values
             modifySubjectForm.isModify = True
             modifySubjectForm.Show()
-            Me.Hide() ' Optionally hide the current form
         Else
             ' Display a message if no row is selected
             MessageBox.Show("Please select a subject to modify.", "Selection Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If
+    End Sub
+
+    Private Sub btnback_Click(sender As Object, e As EventArgs) Handles btnback.Click
+        AdminPage2.Show()
+        Me.Hide()
     End Sub
 End Class

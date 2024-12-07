@@ -3,6 +3,7 @@ Imports System.Windows.Forms
 Imports System.Data
 
 Public Class accountlogs
+
     Private Sub accountlogs_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Close the connection if it is open
         If conn.State = ConnectionState.Open Then
@@ -20,22 +21,48 @@ Public Class accountlogs
     End Sub
 
     Private Sub LoadAccountLogs()
-        ' Query to select necessary columns
-        Dim query As String = "SELECT ID, log_in_date, log_in_time, log_out_date, log_out_time FROM login_history"
+        ' Modified query to join login_history and accounts tables
+        Dim query As String = "SELECT lh.ID, a.username, lh.log_in_date, lh.log_in_time, lh.log_out_date, lh.log_out_time " &
+                          "FROM login_history lh " &
+                          "JOIN accounts a ON lh.ID = a.ID"
         Dim adapter As New MySqlDataAdapter(query, conn)
         Dim table As New DataTable()
 
         Try
-            ' Fill the DataTable with data from the login_history table
+            ' Fill the DataTable with data from the login_history table (with username from accounts)
             adapter.Fill(table)
 
             ' Bind the DataTable to the DataGridView
-            DGVaccountlogs.AutoGenerateColumns = True
+            DGVaccountlogs.AutoGenerateColumns = False ' Prevent auto-generation of columns
             DGVaccountlogs.DataSource = table
+
+            ' Disable user interaction for adding new columns or rows
+            DGVaccountlogs.AllowUserToAddRows = False  ' Prevent adding new rows
+            DGVaccountlogs.AllowUserToDeleteRows = False ' Prevent deleting rows
+            DGVaccountlogs.AllowUserToOrderColumns = False ' Prevent reordering columns
+            DGVaccountlogs.AllowUserToResizeColumns = False ' Prevent resizing columns if needed
+            DGVaccountlogs.AllowUserToResizeRows = False ' Prevent resizing rows
+
+            ' Manually map the data to the existing columns in DGVaccountlogs
+            For Each column As DataGridViewColumn In DGVaccountlogs.Columns
+                If column.Name = "username" Then
+                    column.DataPropertyName = "username" ' Bind username to the column
+                ElseIf column.Name = "datein" Then
+                    column.DataPropertyName = "log_in_date"
+                ElseIf column.Name = "timein" Then
+                    column.DataPropertyName = "log_in_time"
+                ElseIf column.Name = "dateout" Then
+                    column.DataPropertyName = "log_out_date"
+                ElseIf column.Name = "timeout" Then
+                    column.DataPropertyName = "log_out_time"
+                End If
+            Next
+
         Catch ex As Exception
             MessageBox.Show("Error retrieving account logs: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
+
 
     Private Sub btnsearch_Click_1(sender As Object, e As EventArgs) Handles btnsearch.Click
         ' If the search box is empty, refresh the data
@@ -109,3 +136,4 @@ Public Class accountlogs
         Me.Close()
     End Sub
 End Class
+

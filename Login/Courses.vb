@@ -156,7 +156,6 @@ Public Class Courses
         Dim addCourseForm As New addnewcourse()
         addCourseForm.isModify = False
         addCourseForm.Show() ' Show the form
-        Me.Hide() ' Hide the current form
     End Sub
 
 
@@ -175,11 +174,15 @@ Public Class Courses
             modifyCourseForm.InitializeForModify(courseName) ' Initialize for modification
             modifyCourseForm.isModify = True
             modifyCourseForm.Show()
-            Me.Hide() ' Optionally hide the current form
         Else
             ' Display a message if no row is selected
             MessageBox.Show("Please select a course to modify.", "Selection Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If
+    End Sub
+
+    Private Sub btnback_Click(sender As Object, e As EventArgs) Handles btnback.Click
+        AdminPage2.Show()
+        Me.Hide()
     End Sub
 End Class
 

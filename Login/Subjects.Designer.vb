@@ -268,6 +268,7 @@ Partial Class Subjects
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Subjects"
         Me.Text = "Subjects"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.TableLayoutPanel3.ResumeLayout(False)
         Me.TableLayoutPanel3.PerformLayout()
         CType(Me.DGVsubjects, System.ComponentModel.ISupportInitialize).EndInit()

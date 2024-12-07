@@ -277,6 +277,7 @@ Partial Class Sections
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Sections"
         Me.Text = "Sections"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel3.ResumeLayout(False)
         Me.TableLayoutPanel3.PerformLayout()

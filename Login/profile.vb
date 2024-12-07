@@ -145,7 +145,7 @@ Public Class Profile
         txtpassword.Visible = True
         txtcourse.ReadOnly = False
         txtsection.ReadOnly = False
-        lblpassword.Visible = False
+        lblpassword.Visible = True
     End Sub
 
     Public Sub txtdisabler()
@@ -155,7 +155,7 @@ Public Class Profile
         txtpassword.Visible = False
         txtcourse.ReadOnly = True
         txtsection.ReadOnly = True
-        lblpassword.Visible = True
+        lblpassword.Visible = False
     End Sub
 
     Private Sub btnback_Click(sender As Object, e As EventArgs) Handles btnback.Click

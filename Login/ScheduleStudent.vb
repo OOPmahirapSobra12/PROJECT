@@ -17,41 +17,6 @@ Public Class ScheduleStudent
 
     Public Sub formatloader()
         cboType.SelectedIndex = 0
-        cborcodeloader()
-    End Sub
-
-    Public Sub cborcodeloader()
-        ' SQL Query to select room_code from roomlist
-        Dim sqlQuery As String = "SELECT room_code FROM roomlist"
-        Dim command As New MySqlCommand(sqlQuery, conn)
-
-        Try
-            ' Open the database connection if it's not already open
-            If conn.State <> ConnectionState.Open Then
-                conn.Open()
-            End If
-
-            ' Execute the query and read the data
-            Dim reader As MySqlDataReader = command.ExecuteReader()
-
-            ' Temporarily hold room codes
-            Dim roomCodes As New List(Of String)
-
-            ' Add the default "Choose" option at the start
-            roomCodes.Add("Choose")
-
-            ' Loop through the result set and add room_code to the list
-            While reader.Read()
-                roomCodes.Add(reader("room_code").ToString())
-            End While
-        Catch ex As Exception
-            MessageBox.Show("Error loading room codes: " & ex.Message)
-        Finally
-            ' Close the reader and connection
-            If conn.State = ConnectionState.Open Then
-                conn.Close()
-            End If
-        End Try
     End Sub
 
     Public Sub loadtable()

@@ -26,13 +26,13 @@ Partial Class AdminPage3
         Me.btnroomlogs = New System.Windows.Forms.Button()
         Me.btnaccountlogs = New System.Windows.Forms.Button()
         Me.btnlogout = New System.Windows.Forms.Button()
-        Me.buttonback = New System.Windows.Forms.Button()
         Me.btnprofile = New System.Windows.Forms.Button()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
         Me.btnfeedback = New System.Windows.Forms.Button()
         Me.btnreport = New System.Windows.Forms.Button()
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.buttonback = New System.Windows.Forms.Button()
         Me.btnnext = New System.Windows.Forms.Button()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -111,21 +111,6 @@ Partial Class AdminPage3
         Me.btnlogout.Text = "Log out"
         Me.btnlogout.UseVisualStyleBackColor = False
         '
-        'buttonback
-        '
-        Me.buttonback.AutoSize = True
-        Me.buttonback.BackColor = System.Drawing.Color.Transparent
-        Me.buttonback.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.buttonback.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.buttonback.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.buttonback.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.buttonback.Location = New System.Drawing.Point(3, 401)
-        Me.buttonback.Name = "buttonback"
-        Me.buttonback.Size = New System.Drawing.Size(44, 31)
-        Me.buttonback.TabIndex = 35
-        Me.buttonback.Text = "<="
-        Me.buttonback.UseVisualStyleBackColor = False
-        '
         'btnprofile
         '
         Me.btnprofile.AutoSize = True
@@ -187,21 +172,20 @@ Partial Class AdminPage3
         Me.btnreport.Text = "Report"
         Me.btnreport.UseVisualStyleBackColor = False
         '
-        'TableLayoutPanel1
+        'buttonback
         '
-        Me.TableLayoutPanel1.BackColor = System.Drawing.Color.Transparent
-        Me.TableLayoutPanel1.ColumnCount = 2
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.375!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.625!))
-        Me.TableLayoutPanel1.Controls.Add(Me.TableLayoutPanel2, 1, 1)
-        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
-        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 2
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 98.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(800, 450)
-        Me.TableLayoutPanel1.TabIndex = 2
+        Me.buttonback.AutoSize = True
+        Me.buttonback.BackColor = System.Drawing.Color.Transparent
+        Me.buttonback.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.buttonback.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.buttonback.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.buttonback.ForeColor = System.Drawing.Color.NavajoWhite
+        Me.buttonback.Location = New System.Drawing.Point(3, 401)
+        Me.buttonback.Name = "buttonback"
+        Me.buttonback.Size = New System.Drawing.Size(44, 31)
+        Me.buttonback.TabIndex = 35
+        Me.buttonback.Text = "<="
+        Me.buttonback.UseVisualStyleBackColor = False
         '
         'btnnext
         '
@@ -218,6 +202,22 @@ Partial Class AdminPage3
         Me.btnnext.Text = "=>"
         Me.btnnext.UseVisualStyleBackColor = False
         '
+        'TableLayoutPanel1
+        '
+        Me.TableLayoutPanel1.BackColor = System.Drawing.Color.Transparent
+        Me.TableLayoutPanel1.ColumnCount = 2
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.375!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.625!))
+        Me.TableLayoutPanel1.Controls.Add(Me.TableLayoutPanel2, 1, 1)
+        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        Me.TableLayoutPanel1.RowCount = 2
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 98.0!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(800, 450)
+        Me.TableLayoutPanel1.TabIndex = 2
+        '
         'AdminPage3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -228,7 +228,9 @@ Partial Class AdminPage3
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "AdminPage3"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "AdminPage2"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()
         Me.TableLayoutPanel3.ResumeLayout(False)

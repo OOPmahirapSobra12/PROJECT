@@ -2,12 +2,9 @@
 Imports System.Windows.Forms
 Imports System.Data
 
-Public Class profile
-
+Public Class Profile
     Private Sub Staff2_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        If conn.State = ConnectionState.Open Then
-            conn.Close()
-        End If
+        If conn.State = ConnectionState.Open Then conn.Close()
         DbConnect()
         account_load()
         buttonhidder()
@@ -22,65 +19,49 @@ Public Class profile
     Private Sub account_load()
         Dim query As String = "SELECT username, fname, lname, ID, pword, sections, course_name, accesslevel, image FROM accounts WHERE ID = @U_ID"
         Using command As New MySqlCommand(query, conn)
-            ' Add the ID parameter to prevent SQL injection
             command.Parameters.AddWithValue("@U_ID", U_ID)
-            Try
-                ' Open the connection if it's closed
-                If conn.State = ConnectionState.Closed Then
-                    conn.Open()
-                End If
 
-                ' Execute the query and read the data
+            Try
+                If conn.State = ConnectionState.Closed Then conn.Open()
+
                 Using reader As MySqlDataReader = command.ExecuteReader()
                     If reader.Read() Then
-                        ' Populate the textboxes with the data from the database
-                        If Not reader("accesslevel").ToString = "low" Then
-                            txtusername.Text = reader("username").ToString()
-                            txtfname.Text = reader("fname").ToString()
-                            txtlname.Text = reader("lname").ToString()
-                            txtID.Text = reader("ID").ToString()
-                            txtlevel.Text = reader("accesslevel").ToString()
-                            txtpassword.Text = reader("pword").ToString()
+                        txtusername.Text = reader("username").ToString()
+                        txtfname.Text = reader("fname").ToString()
+                        txtlname.Text = reader("lname").ToString()
+                        txtID.Text = reader("ID").ToString()
+                        txtpassword.Text = reader("pword").ToString()
+                        txtlevel.Text = reader("accesslevel").ToString()
+
+                        If reader("accesslevel").ToString() = "low" Then
+                            txtcourse.Text = reader("course_name").ToString()
+                            txtsection.Text = reader("sections").ToString()
+                        Else
                             txtcourse.Enabled = False
-                            txtcourse.Visible = False
                             txtsection.Enabled = False
+                            txtcourse.Visible = False
                             txtsection.Visible = False
                             lblcourse.Visible = False
                             lblsection.Visible = False
-                        Else
-                            txtusername.Text = reader("username").ToString()
-                            txtfname.Text = reader("fname").ToString()
-                            txtlname.Text = reader("lname").ToString()
-                            txtID.Text = reader("ID").ToString()
-                            txtlevel.Text = reader("accesslevel").ToString()
-                            txtpassword.Text = reader("pword").ToString()
-                            txtcourse.Text = reader("course").ToString()
-                            txtsection.Text = reader("section").ToString()
                         End If
 
-
-                        ' Load the image if exists
                         If reader("image") IsNot DBNull.Value Then
                             Dim imgData As Byte() = CType(reader("image"), Byte())
                             Using ms As New IO.MemoryStream(imgData)
                                 PBpic.Image = Image.FromStream(ms)
                             End Using
                         Else
-                            PBpic.Image = Nothing ' Set the image as null if no image is found
+                            PBpic.Image = Nothing
                         End If
-
                     Else
                         MessageBox.Show("No record found with the selected ID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     End If
                 End Using
-            Catch ex As MySqlException
-                MessageBox.Show($"Database error: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Catch ex As Exception
                 MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Finally
                 conn.Close()
             End Try
-
         End Using
     End Sub
 
@@ -99,162 +80,58 @@ Public Class profile
     End Sub
 
     Private Sub buttonpic_Click(sender As Object, e As EventArgs) Handles btnpic.Click
-        ' Create an OpenFileDialog to allow the user to select a picture
-        Dim openFileDialog As New OpenFileDialog()
+        Dim openFileDialog As New OpenFileDialog() With {
+            .Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif",
+            .Title = "Select an Image"
+        }
 
-        ' Set filter for image files (e.g., .jpg, .png, .bmp)
-        openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif"
-
-        ' Set the title of the dialog
-        openFileDialog.Title = "Select an Image"
-
-        ' Show the dialog and check if the user selected a file
         If openFileDialog.ShowDialog() = DialogResult.OK Then
-            ' Get the file path of the selected image
-            Dim filePath As String = openFileDialog.FileName
-
-            ' Load the image into the PictureBox (PBpic)
-            PBpic.Image = Image.FromFile(filePath)
+            PBpic.Image = Image.FromFile(openFileDialog.FileName)
         End If
     End Sub
 
     Private Sub btnupdate_Click(sender As Object, e As EventArgs) Handles btnupdate.Click
-        ' Ensure that username, fname, and lname fields are not empty
         If String.IsNullOrEmpty(txtusername.Text) OrElse String.IsNullOrEmpty(txtfname.Text) OrElse String.IsNullOrEmpty(txtlname.Text) Then
             MessageBox.Show("Please ensure that all fields are filled.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return
         End If
 
-        ' The ID (U_ID) and access level are not editable, so we can use the existing U_ID
-        Dim selectedID As String = U_ID
+        Dim updateQuery As String
+        If access = "low" Then
+            updateQuery = "UPDATE accounts SET username = @username, fname = @fname, lname = @lname, pword = @pword, course_name = @course, sections = @section, image = @picture WHERE ID = @id"
+        Else
+            updateQuery = "UPDATE accounts SET username = @username, fname = @fname, lname = @lname, pword = @pword, image = @picture WHERE ID = @id"
+        End If
 
-        ' Ensure only one record exists with the same ID
-        Dim query As String = "SELECT COUNT(*) FROM accounts WHERE ID = @id"
-        Using command As New MySqlCommand(query, conn)
-            command.Parameters.AddWithValue("@id", selectedID)
+        Using updateCommand As New MySqlCommand(updateQuery, conn)
+            updateCommand.Parameters.AddWithValue("@username", txtusername.Text)
+            updateCommand.Parameters.AddWithValue("@fname", txtfname.Text)
+            updateCommand.Parameters.AddWithValue("@lname", txtlname.Text)
+            updateCommand.Parameters.AddWithValue("@pword", txtpassword.Text)
+            updateCommand.Parameters.AddWithValue("@id", txtID.Text)
+
+            If access = "low" Then
+                updateCommand.Parameters.AddWithValue("@course", If(String.IsNullOrEmpty(txtcourse.Text), DBNull.Value, txtcourse.Text))
+                updateCommand.Parameters.AddWithValue("@section", If(String.IsNullOrEmpty(txtsection.Text), DBNull.Value, txtsection.Text))
+            End If
+
+            If PBpic.Image IsNot Nothing Then
+                Dim ms As New IO.MemoryStream()
+                PBpic.Image.Save(ms, PBpic.Image.RawFormat)
+                updateCommand.Parameters.AddWithValue("@picture", ms.ToArray())
+            Else
+                updateCommand.Parameters.AddWithValue("@picture", DBNull.Value)
+            End If
 
             Try
-                ' Open the connection if it's closed
-                If conn.State = ConnectionState.Closed Then
-                    conn.Open()
-                End If
-
-
-                ' Execute the query to count the matching IDs
-                Dim count As Integer = Convert.ToInt32(command.ExecuteScalar())
-
-                If count = 1 Then
-                    If access = "low" Then
-                        ' If only one record is found, proceed with the update
-                        Dim updateQuery As String = "UPDATE accounts SET " &
-                                                    "username = @username, " &
-                                                    "fname = @fname, " &
-                                                    "lname = @lname, " &
-                                                    "image = @picture " &
-                                                    "pword = @pword" &
-                                                    "course_name = @course" &
-                                                    "sections = @section" &
-                                                    "WHERE ID = @id"
-
-                        ' Execute the update query
-                        Using updateCommand As New MySqlCommand(updateQuery, conn)
-                            ' Add parameters to prevent SQL injection
-                            updateCommand.Parameters.AddWithValue("@username", txtusername.Text)
-                            updateCommand.Parameters.AddWithValue("@fname", txtfname.Text)
-                            updateCommand.Parameters.AddWithValue("@lname", txtlname.Text)
-                            updateCommand.Parameters.AddWithValue("@pword", txtpassword.Text)
-                            updateCommand.Parameters.AddWithValue("@course", txtcourse.Text)
-                            updateCommand.Parameters.AddWithValue("@section", txtsection.Text)
-
-                            ' For the picture, we need to save the image in the database (convert it to a binary format if needed)
-                            If PBpic.Image IsNot Nothing Then
-                                Try
-                                    Dim ms As New IO.MemoryStream()
-                                    PBpic.Image.Save(ms, PBpic.Image.RawFormat)
-                                    updateCommand.Parameters.AddWithValue("@picture", ms.ToArray())  ' Store the image as binary data
-                                Catch ex As Exception
-                                    MessageBox.Show("Error saving image: " & ex.Message, "Image Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                                    Return
-                                End Try
-                            Else
-                                ' If no picture is selected, store a NULL or empty value (depending on your database schema)
-                                updateCommand.Parameters.AddWithValue("@picture", DBNull.Value)
-                            End If
-
-                            updateCommand.Parameters.AddWithValue("@id", selectedID)
-
-                            Try
-                                updateCommand.ExecuteNonQuery()
-                                MessageBox.Show("Profile updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
-                                ' Optionally, refresh the profile information (e.g., call account_load() to reload the data)
-                                account_load()
-
-                                ' Optionally clear fields or reset the UI state
-                                txtdisabler()
-                                buttonhidder()
-
-                            Catch ex As Exception
-                                MessageBox.Show($"Error updating profile: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                            End Try
-                        End Using
-                    ElseIf access = "mid" Or access = "high" Then
-                        ' If only one record is found, proceed with the update
-                        Dim updateQuery As String = "UPDATE accounts SET " &
-                                                    "username = @username, " &
-                                                    "fname = @fname, " &
-                                                    "lname = @lname, " &
-                                                    "image = @picture " &
-                                                    "pword = @pword" &
-                                                    "WHERE ID = @id"
-
-                        ' Execute the update query
-                        Using updateCommand As New MySqlCommand(updateQuery, conn)
-                            ' Add parameters to prevent SQL injection
-                            updateCommand.Parameters.AddWithValue("@username", txtusername.Text)
-                            updateCommand.Parameters.AddWithValue("@fname", txtfname.Text)
-                            updateCommand.Parameters.AddWithValue("@lname", txtlname.Text)
-                            updateCommand.Parameters.AddWithValue("@pword", txtpassword.Text)
-
-                            ' For the picture, we need to save the image in the database (convert it to a binary format if needed)
-                            If PBpic.Image IsNot Nothing Then
-                                Try
-                                    Dim ms As New IO.MemoryStream()
-                                    PBpic.Image.Save(ms, PBpic.Image.RawFormat)
-                                    updateCommand.Parameters.AddWithValue("@picture", ms.ToArray())  ' Store the image as binary data
-                                Catch ex As Exception
-                                    MessageBox.Show("Error saving image: " & ex.Message, "Image Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                                    Return
-                                End Try
-                            Else
-                                ' If no picture is selected, store a NULL or empty value (depending on your database schema)
-                                updateCommand.Parameters.AddWithValue("@picture", DBNull.Value)
-                            End If
-
-                            updateCommand.Parameters.AddWithValue("@id", selectedID)
-
-                            Try
-                                updateCommand.ExecuteNonQuery()
-                                MessageBox.Show("Profile updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
-
-                                ' Optionally, refresh the profile information (e.g., call account_load() to reload the data)
-                                account_load()
-
-                                ' Optionally clear fields or reset the UI state
-                                txtdisabler()
-                                buttonhidder()
-
-                            Catch ex As Exception
-                                MessageBox.Show($"Error updating profile: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                            End Try
-                        End Using
-                    End If
-                Else
-                    ' If more than one record is found, show an error (should not happen in your case)
-                    MessageBox.Show("Multiple records found with the same ID. Update failed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                End If
+                If conn.State = ConnectionState.Closed Then conn.Open()
+                updateCommand.ExecuteNonQuery()
+                MessageBox.Show("Profile updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                account_load()
+                txtdisabler()
+                buttonhidder()
             Catch ex As Exception
-                MessageBox.Show($"Error checking record: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show($"Error updating profile: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Finally
                 conn.Close()
             End Try
@@ -264,19 +141,21 @@ Public Class profile
     Public Sub txtenabler()
         txtfname.ReadOnly = False
         txtlname.ReadOnly = False
+        txtusername.ReadOnly = False
         txtpassword.Visible = True
         txtcourse.ReadOnly = False
         txtsection.ReadOnly = False
-        txtusername.ReadOnly = False
+        lblpassword.Visible = False
     End Sub
 
     Public Sub txtdisabler()
         txtfname.ReadOnly = True
         txtlname.ReadOnly = True
-        txtsection.ReadOnly = True
-        txtcourse.ReadOnly = True
-        txtpassword.Visible = False
         txtusername.ReadOnly = True
+        txtpassword.Visible = False
+        txtcourse.ReadOnly = True
+        txtsection.ReadOnly = True
+        lblpassword.Visible = True
     End Sub
 
     Private Sub btnback_Click(sender As Object, e As EventArgs) Handles btnback.Click

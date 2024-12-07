@@ -15,48 +15,36 @@ Public Class requestapproval
     Private Sub btnadd_Click(sender As Object, e As EventArgs) Handles btnadd.Click
         AcceptedRequest_automation.R_ID = Nothing
         AcceptedRequest_automation.R_requestID = Nothing
-        ' Check if a row is selected in the DGVrequest DataGridView
+
         If DGVrequest.SelectedRows.Count > 0 Then
             Dim selectedRow As DataGridViewRow = DGVrequest.SelectedRows(0)
-            ' Create an instance of the add schedule form
             Dim addForm As New addscheduleadmin()
-            ' Transfer the requestID to the add schedule form
             addForm.requestID = selectedRow.Cells("requestID").Value.ToString()
             AcceptedRequest_automation.R_ID = selectedRow.Cells("requesterID").Value.ToString()
             AcceptedRequest_automation.R_requestID = selectedRow.Cells("requestID").Value.ToString()
-            ' Show the add schedule form
             addForm.ShowDialog()
             Me.Hide()
         Else
-            ' No row selected, show a generic add form
             Dim addForm As New addscheduleadmin()
             addForm.ShowDialog()
             Me.Hide()
         End If
     End Sub
 
-
-
     Private Sub btndelete_Click(sender As Object, e As EventArgs) Handles btndelete.Click
         DeniedRequest.R_ID = Nothing
         DeniedRequest.R_requestID = Nothing
 
-        ' Ensure a row is selected
         If DGVrequest.SelectedRows.Count > 0 Then
             Try
-                ' Get selected request details
                 Dim selectedRequestID As Integer = Convert.ToInt32(DGVrequest.SelectedRows(0).Cells("requestID").Value)
                 Dim selectedID As String = DGVrequest.SelectedRows(0).Cells("requesterID").Value.ToString()
 
-                ' Confirm deletion of request
                 Dim result As DialogResult = MessageBox.Show("Are you sure you want to delete the selected request?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
 
                 If result = DialogResult.Yes Then
-                    ' Set values for DeniedRequest
                     DeniedRequest.R_ID = selectedID
                     DeniedRequest.R_requestID = selectedRequestID
-
-                    ' Call the DeleteRequest method
                     DeleteRequest(selectedRequestID)
                     MessageBox.Show("Request deleted successfully.")
                 End If
@@ -68,8 +56,6 @@ Public Class requestapproval
         End If
     End Sub
 
-
-    ' Delete request by ID
     Private Sub DeleteRequest(requestID As Integer)
         Dim query As String = "DELETE FROM requests WHERE requestID = @requestID"
         Using cmd As New MySqlCommand(query, conn)
@@ -92,34 +78,27 @@ Public Class requestapproval
         End Using
     End Sub
 
-    ' Load requests from the database and bind to DataGridView
     Private Sub LoadRequests()
-        ' Query to select necessary columns (requestID, requesterID, request_d, request_t, room, request_t_in, request_t_out, request)
-        Dim query As String = "SELECT requestID, requesterID, request_d, request_t, room, request_t_in, request_t_out, request FROM requests"
+        Dim query As String = "SELECT r.requestID, r.ID, r.request_d, rl.room_name, r.request_t_in, r.request_t_out, r.request " &
+                              "FROM requests r " &
+                              "INNER JOIN roomlist rl ON r.room_code = rl.room_code"
         Dim adapter As New MySqlDataAdapter(query, conn)
         Dim table As New DataTable()
+
         Try
-            ' Fill the DataTable with data from the requests table
             adapter.Fill(table)
-
-            ' Set AutoGenerateColumns to False to avoid extra columns
             DGVrequest.AutoGenerateColumns = False
-
-            ' Bind the DataTable to the DataGridView
             DGVrequest.DataSource = table
 
-            ' Manually map the data to the existing columns in the DataGridView
             For Each column As DataGridViewColumn In DGVrequest.Columns
                 If column.Name = "requestID" Then
                     column.DataPropertyName = "requestID"
                 ElseIf column.Name = "requesterID" Then
-                    column.DataPropertyName = "requesterID"
+                    column.DataPropertyName = "ID"
                 ElseIf column.Name = "requestdate" Then
                     column.DataPropertyName = "request_d"
-                ElseIf column.Name = "requesttime" Then
-                    column.DataPropertyName = "request_t"
                 ElseIf column.Name = "room" Then
-                    column.DataPropertyName = "room"
+                    column.DataPropertyName = "room_name"
                 ElseIf column.Name = "timerequest_in" Then
                     column.DataPropertyName = "request_t_in"
                 ElseIf column.Name = "timerequest_out" Then
@@ -128,12 +107,10 @@ Public Class requestapproval
                     column.DataPropertyName = "request"
                 End If
             Next
-
         Catch ex As Exception
             MessageBox.Show("Error retrieving requests: " & ex.Message)
         End Try
     End Sub
-
 
     Private Sub btnback_Click(sender As Object, e As EventArgs) Handles btnback.Click
         If access = "high" Then
@@ -144,7 +121,7 @@ Public Class requestapproval
             logs.action2 = "logout"
             staff_requestapproval_logs()
         Else
-            MsgBox("Error, cant go back to the previews UI! ")
+            MsgBox("Error, can't go back to the previous UI!")
         End If
         Me.Hide()
     End Sub
@@ -157,13 +134,11 @@ Public Class requestapproval
         Dim category As String = cbosearch.SelectedItem?.ToString()
         Dim searchValue As String = txtsearchbox.Text.Trim()
 
-        ' If "Choose:" is selected, refresh the table
         If String.IsNullOrEmpty(category) OrElse category = "Choose:" Then
             LoadRequests()
             Return
         End If
 
-        ' Map the category to database column names
         Dim columnName As String = ""
         Select Case category
             Case "Request ID"
@@ -171,13 +146,11 @@ Public Class requestapproval
             Case "Request Type"
                 columnName = "request_type"
             Case "Requester"
-                columnName = "requesterID"
+                columnName = "ID"
             Case "Date Requested"
                 columnName = "request_d"
-            Case "Time Requested"
-                columnName = "request_t"
             Case "Room Requested"
-                columnName = "room"
+                columnName = "room_name"
             Case "Time-In"
                 columnName = "request_t_in"
             Case "Time-Out"
@@ -189,32 +162,25 @@ Public Class requestapproval
                 Return
         End Select
 
-        ' Ensure searchValue is not empty
         If String.IsNullOrEmpty(searchValue) Then
             MessageBox.Show("Please enter a search term.", "Empty Search", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return
         End If
 
-        ' Construct the query with a parameter
-        Dim query As String = $"SELECT requestID, requesterID, request_d, request_t, room, request_t_in, request_t_out, request " &
-                              $"FROM requests WHERE {columnName} LIKE @search"
+        Dim query As String = $"SELECT r.requestID, r.ID, r.request_d, rl.room_name, r.request_t_in, r.request_t_out, r.request " &
+                              $"FROM requests r " &
+                              $"INNER JOIN roomlist rl ON r.room_code = rl.room_code WHERE {columnName} LIKE @search"
         Dim table As New DataTable()
 
         Try
             Using command As New MySqlCommand(query, conn)
-                ' Add the search parameter
                 command.Parameters.AddWithValue("@search", "%" & searchValue & "%")
-
-                ' Execute the query and fill the DataTable
                 Dim adapter As New MySqlDataAdapter(command)
                 adapter.Fill(table)
-
-                ' Bind the DataTable to the DataGridView
                 DGVrequest.DataSource = table
             End Using
         Catch ex As Exception
             MessageBox.Show("Error retrieving filtered requests: " & ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
-
 End Class

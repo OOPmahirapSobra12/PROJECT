@@ -40,20 +40,20 @@ Partial Class profile
         Me.txtsection = New System.Windows.Forms.TextBox()
         Me.btnmodify = New System.Windows.Forms.Button()
         Me.btnupdate = New System.Windows.Forms.Button()
-        Me.Label7 = New System.Windows.Forms.Label()
+        Me.lblpassword = New System.Windows.Forms.Label()
         Me.txtpassword = New System.Windows.Forms.TextBox()
         Me.btnback = New System.Windows.Forms.Button()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
-        Me.PBpic = New System.Windows.Forms.PictureBox()
         Me.btnpic = New System.Windows.Forms.Button()
         Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
+        Me.PBpic = New System.Windows.Forms.PictureBox()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.TableLayoutPanel4.SuspendLayout()
-        CType(Me.PBpic, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel5.SuspendLayout()
+        CType(Me.PBpic, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TableLayoutPanel1
@@ -98,7 +98,7 @@ Partial Class profile
         Me.TableLayoutPanel3.Controls.Add(Me.txtsection, 4, 3)
         Me.TableLayoutPanel3.Controls.Add(Me.btnmodify, 3, 4)
         Me.TableLayoutPanel3.Controls.Add(Me.btnupdate, 4, 4)
-        Me.TableLayoutPanel3.Controls.Add(Me.Label7, 1, 3)
+        Me.TableLayoutPanel3.Controls.Add(Me.lblpassword, 1, 3)
         Me.TableLayoutPanel3.Controls.Add(Me.txtpassword, 2, 3)
         Me.TableLayoutPanel3.Controls.Add(Me.btnback, 2, 4)
         Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
@@ -328,22 +328,22 @@ Partial Class profile
         Me.btnupdate.Text = "Update"
         Me.btnupdate.UseVisualStyleBackColor = False
         '
-        'Label7
+        'lblpassword
         '
-        Me.Label7.AutoSize = True
-        Me.Label7.BackColor = System.Drawing.Color.Transparent
-        Me.Label7.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.Label7.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Label7.Location = New System.Drawing.Point(23, 123)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(132, 41)
-        Me.Label7.TabIndex = 107
-        Me.Label7.Text = "Password:"
-        Me.Label7.TextAlign = System.Drawing.ContentAlignment.TopRight
-        Me.Label7.Visible = False
+        Me.lblpassword.AutoSize = True
+        Me.lblpassword.BackColor = System.Drawing.Color.Transparent
+        Me.lblpassword.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.lblpassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.lblpassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblpassword.ForeColor = System.Drawing.Color.NavajoWhite
+        Me.lblpassword.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.lblpassword.Location = New System.Drawing.Point(23, 123)
+        Me.lblpassword.Name = "lblpassword"
+        Me.lblpassword.Size = New System.Drawing.Size(132, 41)
+        Me.lblpassword.TabIndex = 107
+        Me.lblpassword.Text = "Password:"
+        Me.lblpassword.TextAlign = System.Drawing.ContentAlignment.TopRight
+        Me.lblpassword.Visible = False
         '
         'txtpassword
         '
@@ -403,18 +403,6 @@ Partial Class profile
         Me.TableLayoutPanel4.Size = New System.Drawing.Size(600, 163)
         Me.TableLayoutPanel4.TabIndex = 52
         '
-        'PBpic
-        '
-        Me.PBpic.BackColor = System.Drawing.SystemColors.Control
-        Me.PBpic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PBpic.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PBpic.Location = New System.Drawing.Point(3, 17)
-        Me.PBpic.Name = "PBpic"
-        Me.PBpic.Size = New System.Drawing.Size(135, 143)
-        Me.PBpic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PBpic.TabIndex = 93
-        Me.PBpic.TabStop = False
-        '
         'btnpic
         '
         Me.btnpic.AutoSize = True
@@ -444,6 +432,18 @@ Partial Class profile
         Me.TableLayoutPanel5.Size = New System.Drawing.Size(141, 163)
         Me.TableLayoutPanel5.TabIndex = 53
         '
+        'PBpic
+        '
+        Me.PBpic.BackColor = System.Drawing.SystemColors.Control
+        Me.PBpic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PBpic.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PBpic.Location = New System.Drawing.Point(3, 17)
+        Me.PBpic.Name = "PBpic"
+        Me.PBpic.Size = New System.Drawing.Size(135, 143)
+        Me.PBpic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PBpic.TabIndex = 93
+        Me.PBpic.TabStop = False
+        '
         'profile
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -462,8 +462,8 @@ Partial Class profile
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel4.ResumeLayout(False)
         Me.TableLayoutPanel4.PerformLayout()
-        CType(Me.PBpic, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel5.ResumeLayout(False)
+        CType(Me.PBpic, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -490,7 +490,7 @@ Partial Class profile
     Friend WithEvents lblsection As Label
     Friend WithEvents txtcourse As TextBox
     Friend WithEvents txtsection As TextBox
-    Friend WithEvents Label7 As Label
+    Friend WithEvents lblpassword As Label
     Friend WithEvents txtpassword As TextBox
     Friend WithEvents PBpic As PictureBox
     Friend WithEvents TableLayoutPanel5 As TableLayoutPanel

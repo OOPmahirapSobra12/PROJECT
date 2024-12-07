@@ -247,7 +247,7 @@ Public Class Schedule
             sched.room_time_in, 
             sched.room_time_out, 
             NULL AS room_date, 
-            sched.subject_code,
+            sched.subject_name,
             sched.course,
             sched.section
         FROM sched
@@ -264,7 +264,7 @@ Public Class Schedule
             schedtemp.room_time_in, 
             schedtemp.room_time_out, 
             schedtemp.room_date, 
-            schedtemp.subject_code,
+            schedtemp.subject_name,
             schedtemp.course,
             schedtemp.section
         FROM schedtemp
@@ -276,7 +276,7 @@ Public Class Schedule
             {"Schedule Code", "shed_id"},
             {"Room Code", "room_code"},
             {"Room Name", "room_name"},
-            {"Subject", "subject_code"}, ' Updated for subject search
+            {"Subject", "subject_name"}, ' Updated for subject search
             {"Course", "course"},  ' Added course search
             {"Section", "section"},  ' Added section search
             {"Day", "room_day"},

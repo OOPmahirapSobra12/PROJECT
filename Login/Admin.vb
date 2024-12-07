@@ -13,11 +13,10 @@ Public Class Admin
     End Sub
 
     Private Sub btnlogout_Click(sender As Object, e As EventArgs) Handles btnlogout.Click
-        Dim accountID As String = U_ID
-        Dim Action As String = "logout"
-        logging_log(accountId, Action)
-        U_ID = Nothing
-        Login.Show()
+        logs.L_ID = U_ID
+        logs.Action = "logout"
+        logging_log()
+        Start_up_Login.Show()
         Me.Hide()
     End Sub
 

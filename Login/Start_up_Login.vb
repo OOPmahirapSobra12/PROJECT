@@ -4,7 +4,7 @@ Imports CrystalDecisions.CrystalReports.Engine
 Imports CrystalDecisions.Shared
 
 
-Public Class Login
+Public Class Start_up_Login
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ' Create a new TableLayoutPanel and set Dock to fill the form
         Dim tableLayoutPanel As New TableLayoutPanel()
@@ -31,7 +31,9 @@ Public Class Login
 
         ' Ensure the connection is established when the form loads
         DbConnect()
-
+        If conn.State = ConnectionState.Open Then
+            conn.Close()
+        End If
         ' Add a Resize event handler to adjust font size dynamically
         AddHandler tableLayoutPanel.Resize, AddressOf TableLayoutPanel_Resize
 
@@ -40,7 +42,7 @@ Public Class Login
 
         ' Add the TableLayoutPanel to the form
         Me.Controls.Add(tableLayoutPanel)
-        AutomaticTemporaryScheduleExpirer.Automation_IsRunning = True
+        AutomaticTemporaryScheduleExpirer.Automation_IsRunning = False
         StartExpirationCheck()
     End Sub
 
@@ -84,7 +86,7 @@ Public Class Login
             End If
 
             ' Query to retrieve the ID and access level
-            Dim query As String = "SELECT ID, accesslevel, course, section FROM accounts WHERE username=@username AND pword=@pword"
+            Dim query As String = "SELECT ID, accesslevel, course_name, sections FROM accounts WHERE username=@username AND pword=@pword"
             Dim command As New MySqlCommand(query, conn)
 
             ' Add parameters to the command
@@ -95,55 +97,75 @@ Public Class Login
             Using reader As MySqlDataReader = command.ExecuteReader()
                 If reader.HasRows Then
                     reader.Read() ' Move to the first row
-                    Dim accountId As String = reader("ID").ToString() ' Get the ID of the account as a string
+
+                    Dim ID As String = reader("ID").ToString() ' Get the ID of the account as a string
                     Dim accountlevel As String = reader("accesslevel").ToString().ToLower() ' Get account level in lowercase
-                    Dim U_course As String = reader("course").ToString()
-                    Dim U_section As String = reader("section").ToString
+                    Dim U_course As String = If(IsDBNull(reader("course_name")) OrElse String.IsNullOrWhiteSpace(reader("course_name").ToString()), "N/A", reader("course_name").ToString())
+                    Dim U_section As String = If(IsDBNull(reader("sections")) OrElse String.IsNullOrWhiteSpace(reader("sections").ToString()), "N/A", reader("sections").ToString())
                     Dim Action As String = "login"
                     reader.Close() ' Close the reader as it's no longer needed
 
-                    U_ID = accountId
+                    U_ID = ID
 
                     ' Open different forms based on account level and pass the ID
                     Select Case accountlevel
                         Case "low"
-                            Dim low As New Student()
-                            low.Show() ' Open Form for low-level account UI
-                            Me.Hide() ' Hide current form
+                            U_ID = ID
                             MsgBox("Welcome " & username)
                             txtpassword.Clear()
                             txtuname.Clear()
                             access = "low"
                             course = U_course
                             section = U_section
-                            logging_log(accountId, Action)
-                            coursefinder(accountId, course)
-                            sectionfinder(accountId, section)
+                            logs.L_ID = ID
+                            logs.Action = Action
+                            logs.course = U_course
+                            logs.section = U_section
+                            logging_log()
+                            coursefinder()
+                            sectionfinder()
+                            Dim low As New Student()
+                            low.Show() ' Open Form for low-level account UI
+                            Me.Hide() ' Hide current form
 
                         Case "mid"
+                            access = "mid"
+                            U_ID = ID
+                            MsgBox("Welcome " & username)
+                            txtpassword.Clear()
+                            txtuname.Clear()
+                            course = "Staff"
+                            section = "Staff"
+                            logs.L_ID = ID
+                            logs.Action = Action
+                            logs.course = U_course
+                            logs.section = U_section
+                            logging_log()
+                            coursefinder()
+                            sectionfinder()
                             Dim mid As New Staff()
                             mid.Show() ' Open Form for mid-level account UI
                             Me.Hide() ' Hide current form
-                            MsgBox("Welcome " & username)
-                            txtpassword.Clear()
-                            txtuname.Clear()
-                            logging_log(accountId, Action)
-                            coursefinder(accountId, course)
-                            sectionfinder(accountId, section)
-                            access = "mid"
 
                         Case "high"
                             ' Create the Admin form, assign U_ID and show it
-                            Dim high As New Admin()
-                            high.Show() ' Open Form for high-level account UI
-                            Me.Hide() ' Hide current form
+                            U_ID = ID
                             MsgBox("Welcome " & username)
                             txtpassword.Clear()
                             txtuname.Clear()
-                            logging_log(accountId, Action)
-                            coursefinder(accountId, course)
-                            sectionfinder(accountId, section)
+                            course = "Admin"
+                            section = "Admin"
                             access = "high"
+                            logs.L_ID = ID
+                            logs.Action = Action
+                            logs.course = U_course
+                            logs.section = U_section
+                            logging_log()
+                            coursefinder()
+                            sectionfinder()
+                            Dim high As New Admin()
+                            high.Show() ' Open Form for high-level account UI
+                            Me.Hide() ' Hide current form
 
                         Case Else
                             MsgBox("Error: Account level not recognized")
@@ -176,7 +198,7 @@ Public Class Login
         Me.Hide() ' Hide Form1
     End Sub
     Private Sub btnclose_Click(sender As Object, e As EventArgs) Handles btnclose.Click
-        AutomaticTemporaryScheduleExpirer.Automation_IsRunning = False
+        AutomaticTemporaryScheduleExpirer.Automation_IsRunning = True
         StartExpirationCheck()
         Application.Exit()
     End Sub

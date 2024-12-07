@@ -64,10 +64,9 @@ Public Class ScheduleStudent
             sched.room_day, 
             sched.room_time_in, 
             sched.room_time_out, 
-            subjects.subject_name,
+            sched.subject_name,
             roomlist.building
         FROM sched
-        JOIN subjects ON sched.subject_name = subjects.subject_name
         JOIN roomlist ON sched.room_code = roomlist.room_code
         WHERE sched.course_name = @courseName AND sched.sections = @section
     
@@ -83,7 +82,6 @@ Public Class ScheduleStudent
             subjects.subject_name,
             roomlist.building
         FROM schedtemp
-        JOIN subjects ON schedtemp.subject_name = subjects.subject_name
         JOIN roomlist ON schedtemp.room_code = roomlist.room_code
         WHERE schedtemp.course_name = @courseName AND schedtemp.sections = @section;"
 

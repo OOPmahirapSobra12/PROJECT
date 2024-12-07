@@ -7,7 +7,9 @@ Public Class roomlogs
     ' Method to load room logs into the DataGridView
     Private Sub LoadRoomLogs()
         ' Query to select necessary columns from logshistory table
-        Dim query As String = "SELECT ID, log_in_date, log_in_time, log_out_date, log_out_time, room FROM logshistory"
+        Dim query As String = "SELECT l.ID, a.username, l.log_in_date, l.log_in_time, l.log_out_date, l.log_out_time, l.room " &
+                        "FROM logshistory l " &
+                        "JOIN accounts a ON l.ID = a.ID "
         Dim adapter As New MySqlDataAdapter(query, conn)
         Dim table As New DataTable()
 
@@ -29,7 +31,7 @@ Public Class roomlogs
             ' Manually map the data to the existing columns in DGVroomlogs
             For Each column As DataGridViewColumn In DGVroomlogs.Columns
                 If column.Name = "username" Then
-                    column.DataPropertyName = "ID"
+                    column.DataPropertyName = "username"
                 ElseIf column.Name = "room" Then
                     column.DataPropertyName = "room"
                 ElseIf column.Name = "datein" Then
@@ -66,7 +68,10 @@ Public Class roomlogs
             ' Construct the SQL query based on the selected category
             Select Case category
                 Case "Username"
-                    query = "SELECT * FROM logshistory WHERE ID LIKE @search"
+                    query = "SELECT l.ID, a.username, l.log_in_date, l.log_in_time, l.log_out_date, l.log_out_time, l.room " &
+                        "FROM logshistory l " &
+                        "JOIN accounts a ON l.ID = a.ID " &
+                        "WHERE LOWER(a.username) LIKE LOWER(@search)"
                 Case "Date In"
                     query = "SELECT * FROM logshistory WHERE log_in_date LIKE @search"
                 Case "Date Out"
@@ -79,7 +84,6 @@ Public Class roomlogs
                     MessageBox.Show("Please select a valid category.", "Invalid Category", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                     Return
             End Select
-
 
             ' Create the MySqlCommand object
             Dim command As New MySqlCommand(query, conn)
@@ -107,6 +111,7 @@ Public Class roomlogs
             End Try
         End If
     End Sub
+
 
     ' Method to load the form and initialize data
     Private Sub roomlogs_Load(sender As Object, e As EventArgs) Handles MyBase.Load

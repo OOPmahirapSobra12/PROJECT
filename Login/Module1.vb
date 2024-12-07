@@ -14,6 +14,10 @@ Module ConnectionModule
             conn = New MySqlConnection() ' Create a new MySqlConnection object
         End If
 
+        If conn.State = ConnectionState.Open Then
+            conn.Close()
+        End If
+
         ' Set up the connection string
         conn.ConnectionString = $"server={server};user id={username};password={password};database={dbname}"
 

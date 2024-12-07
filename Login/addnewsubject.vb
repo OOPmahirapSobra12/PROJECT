@@ -62,7 +62,7 @@ Public Class addnewsubject
         End If
 
         ' SQL query to update the subject details
-        Dim updateQuery As String = "UPDATE listofsubjects SET subject_name = @new_subject_name, course_name = @new_course_name, section = @new_section WHERE subject_name = @current_subject_name"
+        Dim updateQuery As String = "UPDATE listofsubjects SET subject_name = @new_subject_name, course_name = @new_course_name, sections = @new_section WHERE subject_name = @current_subject_name"
 
         ' Create and configure the command
         Dim updateCommand As New MySqlCommand(updateQuery, conn)
@@ -147,7 +147,7 @@ Public Class addnewsubject
         End If
 
         ' SQL query to insert a new subject
-        Dim insertQuery As String = "INSERT INTO listofsubjects (subject_name, course_name, section) VALUES (@subject_name, @course_name, @section)"
+        Dim insertQuery As String = "INSERT INTO listofsubjects (subject_name, course_name, sections) VALUES (@subject_name, @course_name, @section)"
 
         ' Create and configure the command
         Dim insertCommand As New MySqlCommand(insertQuery, conn)

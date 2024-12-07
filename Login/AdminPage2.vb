@@ -30,6 +30,7 @@ Public Class AdminPage2
         Using command As New MySqlCommand(query, conn)
             ' Add the ID parameter to prevent SQL injection
             command.Parameters.AddWithValue("@U_ID", U_ID)
+
             Try
                 ' Open the connection if it's closed
                 If conn.State = ConnectionState.Closed Then
@@ -69,5 +70,17 @@ Public Class AdminPage2
     Private Sub btnsection_Click(sender As Object, e As EventArgs) Handles btnsection.Click
         Sections.Show()
         Me.Hide()
+    End Sub
+
+    Private Sub btnlogout_Click(sender As Object, e As EventArgs) Handles btnlogout.Click
+        logs.L_ID = U_ID
+        logs.Action = "logout"
+        logging_log()
+        Start_up_Login.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub TableLayoutPanel1_Paint(sender As Object, e As PaintEventArgs) Handles TableLayoutPanel1.Paint
+
     End Sub
 End Class

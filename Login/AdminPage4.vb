@@ -86,7 +86,7 @@ Public Class AdminPage4
             crystalreportviewer.CrystalReportViewer1.ReportSource = crystalreportviewer.StudentListReport1
         ElseIf choice = "requests" Then
             crystalreportviewer.Show()
-            crystalreportviewer.CrystalReportViewer1.ReportSource = crystalreportviewer.DeniedRequestsForm1
+            crystalreportviewer.CrystalReportViewer1.ReportSource = crystalreportviewer.DeniedRequestForm1
         ElseIf choice = "login" Then
             crystalreportviewer.Show()
             crystalreportviewer.CrystalReportViewer1.ReportSource = crystalreportviewer.StaffAccessingAdminControlLogs1

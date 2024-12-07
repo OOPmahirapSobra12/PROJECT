@@ -101,7 +101,7 @@ Partial Class admin_feedback
         Me.TableLayoutPanel9.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.05747!))
         Me.TableLayoutPanel9.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.09579!))
         Me.TableLayoutPanel9.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.10345!))
-        Me.TableLayoutPanel9.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50.0!))
+        Me.TableLayoutPanel9.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 58.0!))
         Me.TableLayoutPanel9.Controls.Add(Me.btnsearch, 5, 0)
         Me.TableLayoutPanel9.Controls.Add(Me.cboType, 2, 0)
         Me.TableLayoutPanel9.Controls.Add(Me.txtsearch, 4, 0)
@@ -122,9 +122,9 @@ Partial Class admin_feedback
         Me.btnsearch.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnsearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnsearch.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnsearch.Location = New System.Drawing.Point(815, 3)
+        Me.btnsearch.Location = New System.Drawing.Point(808, 3)
         Me.btnsearch.Name = "btnsearch"
-        Me.btnsearch.Size = New System.Drawing.Size(173, 35)
+        Me.btnsearch.Size = New System.Drawing.Size(171, 35)
         Me.btnsearch.TabIndex = 12
         Me.btnsearch.Text = "Search"
         Me.btnsearch.UseVisualStyleBackColor = False
@@ -137,9 +137,9 @@ Partial Class admin_feedback
         Me.cboType.ForeColor = System.Drawing.Color.MidnightBlue
         Me.cboType.FormattingEnabled = True
         Me.cboType.Items.AddRange(New Object() {"Choose:", "Report ID", "Sender name", "Date Reported", "Time Reported"})
-        Me.cboType.Location = New System.Drawing.Point(244, 3)
+        Me.cboType.Location = New System.Drawing.Point(242, 3)
         Me.cboType.Name = "cboType"
-        Me.cboType.Size = New System.Drawing.Size(218, 33)
+        Me.cboType.Size = New System.Drawing.Size(216, 33)
         Me.cboType.TabIndex = 9
         '
         'txtsearch
@@ -148,9 +148,9 @@ Partial Class admin_feedback
         Me.txtsearch.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtsearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtsearch.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.txtsearch.Location = New System.Drawing.Point(567, 3)
+        Me.txtsearch.Location = New System.Drawing.Point(562, 3)
         Me.txtsearch.Name = "txtsearch"
-        Me.txtsearch.Size = New System.Drawing.Size(242, 31)
+        Me.txtsearch.Size = New System.Drawing.Size(240, 31)
         Me.txtsearch.TabIndex = 11
         '
         'Label3
@@ -159,9 +159,9 @@ Partial Class admin_feedback
         Me.Label3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.Label3.Location = New System.Drawing.Point(468, 0)
+        Me.Label3.Location = New System.Drawing.Point(464, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(93, 41)
+        Me.Label3.Size = New System.Drawing.Size(92, 41)
         Me.Label3.TabIndex = 100
         Me.Label3.Text = "SEARCH :"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -174,7 +174,7 @@ Partial Class admin_feedback
         Me.Label2.ForeColor = System.Drawing.Color.MidnightBlue
         Me.Label2.Location = New System.Drawing.Point(97, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(141, 41)
+        Me.Label2.Size = New System.Drawing.Size(139, 41)
         Me.Label2.TabIndex = 8
         Me.Label2.Text = "Search for :"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.TopRight

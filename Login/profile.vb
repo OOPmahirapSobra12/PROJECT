@@ -34,14 +34,28 @@ Public Class profile
                 Using reader As MySqlDataReader = command.ExecuteReader()
                     If reader.Read() Then
                         ' Populate the textboxes with the data from the database
-                        txtusername.Text = reader("username").ToString()
-                        txtfname.Text = reader("fname").ToString()
-                        txtlname.Text = reader("lname").ToString()
-                        txtID.Text = reader("ID").ToString()
-                        txtlevel.Text = reader("accesslevel").ToString()
-                        txtpassword.Text = reader("pword").ToString()
-                        txtcourse.Text = reader("course").ToString()
-                        txtsection.Text = reader("section").ToString()
+                        If Not reader("accesslevel").ToString = "low" Then
+                            txtusername.Text = reader("username").ToString()
+                            txtfname.Text = reader("fname").ToString()
+                            txtlname.Text = reader("lname").ToString()
+                            txtID.Text = reader("ID").ToString()
+                            txtlevel.Text = reader("accesslevel").ToString()
+                            txtpassword.Text = reader("pword").ToString()
+                            txtcourse.Enabled = False
+                            txtcourse.Visible = False
+                            txtsection.Enabled = False
+                            txtsection.Visible = False
+                        Else
+                            txtusername.Text = reader("username").ToString()
+                            txtfname.Text = reader("fname").ToString()
+                            txtlname.Text = reader("lname").ToString()
+                            txtID.Text = reader("ID").ToString()
+                            txtlevel.Text = reader("accesslevel").ToString()
+                            txtpassword.Text = reader("pword").ToString()
+                            txtcourse.Text = reader("course").ToString()
+                            txtsection.Text = reader("section").ToString()
+                        End If
+
 
                         ' Load the image if exists
                         If reader("image") IsNot DBNull.Value Then
@@ -105,7 +119,7 @@ Public Class profile
     Private Sub btnupdate_Click(sender As Object, e As EventArgs) Handles btnupdate.Click
         ' Ensure that username, fname, and lname fields are not empty
         If String.IsNullOrEmpty(txtusername.Text) OrElse String.IsNullOrEmpty(txtfname.Text) OrElse String.IsNullOrEmpty(txtlname.Text) Then
-            MessageBox.Show("Please ensure that all fields (Username, First Name, Last Name) are filled.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            MessageBox.Show("Please ensure that all fields are filled.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return
         End If
 

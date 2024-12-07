@@ -111,7 +111,7 @@ Partial Class roomlogs
         Me.txtsearchbox.ForeColor = System.Drawing.Color.MidnightBlue
         Me.txtsearchbox.Location = New System.Drawing.Point(201, 3)
         Me.txtsearchbox.Name = "txtsearchbox"
-        Me.txtsearchbox.Size = New System.Drawing.Size(235, 31)
+        Me.txtsearchbox.Size = New System.Drawing.Size(234, 31)
         Me.txtsearchbox.TabIndex = 17
         '
         'btnsearch
@@ -122,9 +122,9 @@ Partial Class roomlogs
         Me.btnsearch.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnsearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnsearch.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnsearch.Location = New System.Drawing.Point(442, 3)
+        Me.btnsearch.Location = New System.Drawing.Point(441, 3)
         Me.btnsearch.Name = "btnsearch"
-        Me.btnsearch.Size = New System.Drawing.Size(97, 34)
+        Me.btnsearch.Size = New System.Drawing.Size(98, 34)
         Me.btnsearch.TabIndex = 16
         Me.btnsearch.Text = "Search"
         Me.btnsearch.UseVisualStyleBackColor = False
@@ -184,7 +184,7 @@ Partial Class roomlogs
         Me.TableLayoutPanel3.ColumnCount = 3
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.14673!))
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 54.85327!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 102.0!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 103.0!))
         Me.TableLayoutPanel3.Controls.Add(Me.cbosearch, 0, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.btnsearch, 2, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.txtsearchbox, 1, 0)

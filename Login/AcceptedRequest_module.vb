@@ -1,49 +1,70 @@
 ﻿Imports MySql.Data.MySqlClient
 
 Module AcceptedRequest_automation ' Module name should be properly capitalized (Optional but recommended)
-
+    Public R_ID As String
+    Public R_requestID As String
     ' Method to process and transfer accepted requests
     Public Sub ProcessAcceptedRequests()
         Try
             ' Ensure the database connection is open
             ConnectionModule.DbConnect()
 
+            ' Query to select accepted requests
+            Dim selectQuery As String =
+                "SELECT * FROM requests WHERE ID = @ID AND requestID = @requestID AND request_type = 'accepted'"
+
             ' Query to insert accepted requests into accepted_request
             Dim insertQuery As String =
-                "INSERT INTO accepted_request (ID, room_code, request) " &
-                "SELECT ID, room_code, request FROM requests WHERE request_type = 'accepted'"
+                "INSERT INTO accepted_request (ID, requestID, request, request_type) " &
+                "VALUES (@ID, @requestID, @request, @type)"
 
             ' Query to delete accepted requests from requests
             Dim deleteQuery As String =
-                "DELETE FROM requests WHERE request_type = 'accepted'"
+                "DELETE FROM requests WHERE ID = @ID AND requestID = @requestID AND request_type = 'accepted'"
 
-            ' Use a transaction to ensure both operations happen atomically
-            Using transaction As MySqlTransaction = ConnectionModule.conn.BeginTransaction()
+            ' Create a MySqlCommand object for the select query
+            Using selectCommand As New MySqlCommand(selectQuery, ConnectionModule.conn)
+                selectCommand.Parameters.AddWithValue("@ID", R_ID)
+                selectCommand.Parameters.AddWithValue("@requestID", R_requestID)
 
-                Try
-                    ' Insert into accepted_request
-                    Using insertCmd As New MySqlCommand(insertQuery, ConnectionModule.conn, transaction)
-                        insertCmd.ExecuteNonQuery()
-                    End Using
+                ' Execute the select query and read results
+                Using reader As MySqlDataReader = selectCommand.ExecuteReader()
+                    If reader.HasRows Then
+                        While reader.Read()
+                            Dim request As String = reader("request").ToString()
+                            Dim requestType As String = "Accepted"
 
-                    ' Delete from requests
-                    Using deleteCmd As New MySqlCommand(deleteQuery, ConnectionModule.conn, transaction)
-                        deleteCmd.ExecuteNonQuery()
-                    End Using
+                            ' Close the reader before executing another query
+                            reader.Close()
 
-                    ' Commit the transaction
-                    transaction.Commit()
+                            ' Insert the accepted request into the accepted_request table
+                            Using insertCommand As New MySqlCommand(insertQuery, ConnectionModule.conn)
+                                insertCommand.Parameters.AddWithValue("@ID", R_ID)
+                                insertCommand.Parameters.AddWithValue("@requestID", R_requestID)
+                                insertCommand.Parameters.AddWithValue("@request", request)
+                                insertCommand.Parameters.AddWithValue("@type", requestType)
+                                insertCommand.ExecuteNonQuery()
+                            End Using
 
-                    Console.WriteLine("Accepted requests moved successfully.")
-                Catch ex As MySqlException
-                    ' In case of error, rollback the transaction
-                    transaction.Rollback()
-                    Console.WriteLine("MySQL Error: " & ex.Message)
-                End Try
+                            ' Delete the request from the requests table
+                            Using deleteCommand As New MySqlCommand(deleteQuery, ConnectionModule.conn)
+                                deleteCommand.Parameters.AddWithValue("@ID", R_ID)
+                                deleteCommand.Parameters.AddWithValue("@requestID", R_requestID)
+                                deleteCommand.ExecuteNonQuery()
+                            End Using
+                        End While
+                    Else
+                        Console.WriteLine("No matching accepted request found.")
+                    End If
+                End Using
             End Using
         Catch ex As Exception
-            ' Catch general exceptions
-            Console.WriteLine("Error: " & ex.Message)
+            ' Log or display the exception details
+            Console.WriteLine("An error occurred: " & ex.Message)
+        Finally
+            ' Ensure the database connection is closed
+            ConnectionModule.DbDisconnect()
         End Try
     End Sub
+
 End Module

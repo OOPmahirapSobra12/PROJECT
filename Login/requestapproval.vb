@@ -13,6 +13,8 @@ Public Class requestapproval
     End Sub
 
     Private Sub btnadd_Click(sender As Object, e As EventArgs) Handles btnadd.Click
+        AcceptedRequest_automation.R_ID = Nothing
+        AcceptedRequest_automation.R_requestID = Nothing
         ' Check if a row is selected in the DGVrequest DataGridView
         If DGVrequest.SelectedRows.Count > 0 Then
             Dim selectedRow As DataGridViewRow = DGVrequest.SelectedRows(0)
@@ -20,6 +22,8 @@ Public Class requestapproval
             Dim addForm As New addscheduleadmin()
             ' Transfer the requestID to the add schedule form
             addForm.requestID = selectedRow.Cells("requestID").Value.ToString()
+            AcceptedRequest_automation.R_ID = selectedRow.Cells("requesterID").Value.ToString()
+            AcceptedRequest_automation.R_requestID = selectedRow.Cells("requestID").Value.ToString()
             ' Show the add schedule form
             addForm.ShowDialog()
             Me.Hide()
@@ -34,19 +38,36 @@ Public Class requestapproval
 
 
     Private Sub btndelete_Click(sender As Object, e As EventArgs) Handles btndelete.Click
+        DeniedRequest.R_ID = Nothing
+        DeniedRequest.R_requestID = Nothing
+
+        ' Ensure a row is selected
         If DGVrequest.SelectedRows.Count > 0 Then
-            Dim selectedRequestID As Integer = Convert.ToInt32(DGVrequest.SelectedRows(0).Cells("requestID").Value)
+            Try
+                ' Get selected request details
+                Dim selectedRequestID As Integer = Convert.ToInt32(DGVrequest.SelectedRows(0).Cells("requestID").Value)
+                Dim selectedID As String = DGVrequest.SelectedRows(0).Cells("requesterID").Value.ToString()
 
-            ' Confirm deletion of request
-            Dim result As DialogResult = MessageBox.Show("Are you sure you want to delete the selected request?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
+                ' Confirm deletion of request
+                Dim result As DialogResult = MessageBox.Show("Are you sure you want to delete the selected request?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning)
 
-            If result = DialogResult.Yes Then
-                DeleteRequest(selectedRequestID)
-            End If
+                If result = DialogResult.Yes Then
+                    ' Set values for DeniedRequest
+                    DeniedRequest.R_ID = selectedID
+                    DeniedRequest.R_requestID = selectedRequestID
+
+                    ' Call the DeleteRequest method
+                    DeleteRequest(selectedRequestID)
+                    MessageBox.Show("Request deleted successfully.")
+                End If
+            Catch ex As Exception
+                MessageBox.Show("An error occurred while processing the request: " & ex.Message)
+            End Try
         Else
             MessageBox.Show("Please select a row to delete.")
         End If
     End Sub
+
 
     ' Delete request by ID
     Private Sub DeleteRequest(requestID As Integer)
@@ -119,9 +140,9 @@ Public Class requestapproval
             Admin.Show()
         ElseIf access = "mid" Then
             Staff.Show()
-            Dim accountId = U_ID
-            Dim action2 = access
-            staff_requestapproval_logs(accountId, action2)
+            logs.L_ID = U_ID
+            logs.action2 = "logout"
+            staff_requestapproval_logs()
         Else
             MsgBox("Error, cant go back to the previews UI! ")
         End If

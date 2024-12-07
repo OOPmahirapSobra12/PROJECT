@@ -97,7 +97,7 @@ Public Class AccountManagement
             End Using
         End If
 
-        Dim query As String = "INSERT INTO accounts (username, pword, fname, lname, ID, course, section, accesslevel, image) " &
+        Dim query As String = "INSERT INTO accounts (username, pword, fname, lname, ID, course_name, sections, accesslevel, image) " &
                               "VALUES (@username, @pword, @fname, @lname, @id, @course, @section, @accesslevel, @image)"
 
         Using command As New MySqlCommand(query, conn)
@@ -220,7 +220,7 @@ Public Class AccountManagement
         End If
 
         ' Define the query to update the account
-        Dim query As String = "UPDATE accounts SET username = @username, pword = @pword, fname = @fname, lname = @lname,course = @course, section = @section,
+        Dim query As String = "UPDATE accounts SET username = @username, pword = @pword, fname = @fname, lname = @lname,course_name = @course, sections = @section,
                                 accesslevel = @accesslevel, image = @image WHERE ID = @id"
 
         ' Execute the update query using MySqlCommand
@@ -266,7 +266,7 @@ Public Class AccountManagement
             Dim selectedAccountID As String = DGVaccounts.SelectedRows(0).Cells("accountID").Value.ToString()
 
             ' Define the query to retrieve account data
-            Dim query As String = "SELECT username, pword, fname, lname, course, section, accesslevel, image FROM accounts WHERE ID = @id"
+            Dim query As String = "SELECT username, pword, fname, lname, course_name, sections, accesslevel, image FROM accounts WHERE ID = @id"
 
             ' Execute the query and populate the fields
             Using command As New MySqlCommand(query, conn)

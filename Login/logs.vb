@@ -1,18 +1,24 @@
 ﻿Imports MySql.Data.MySqlClient ' Ensure this is imported
 
 Module logs
-    Public Sub logging_log(accountId As String, action As String)
+    Public L_ID As String
+    Public Action As String
+    Public action2 As String
+    Public L_Course As String
+    Public L_Section As String
+
+    Public Sub logging_log()
         Try
             If conn.State <> ConnectionState.Open Then
                 DbConnect()
             End If
 
             Dim query As String = ""
-            If action = "login" Then
+            If Action = "login" Then
                 ' Check the latest entry for this user
-                query = "SELECT log_out_date, log_out_time FROM login_history WHERE U_ID=@U_ID ORDER BY log_history_code DESC LIMIT 1"
+                query = "SELECT log_out_date, log_out_time FROM login_history WHERE ID=@U_ID ORDER BY log_history_code DESC LIMIT 1"
                 Dim checkCommand As New MySqlCommand(query, conn)
-                checkCommand.Parameters.AddWithValue("@U_ID", accountId)
+                checkCommand.Parameters.AddWithValue("@U_ID", L_ID)
 
                 Using reader As MySqlDataReader = checkCommand.ExecuteReader()
                     If reader.HasRows Then
@@ -23,9 +29,9 @@ Module logs
                         If Not String.IsNullOrEmpty(logOutDate) AndAlso Not String.IsNullOrEmpty(logOutTime) Then
                             ' Proceed with a new login entry
                             reader.Close()
-                            query = "INSERT INTO login_history (U_ID, log_in_date, log_in_time) VALUES (@U_ID, @log_in_date, @log_in_time)"
+                            query = "INSERT INTO login_history (ID, log_in_date, log_in_time) VALUES (@U_ID, @log_in_date, @log_in_time)"
                             Dim insertCommand As New MySqlCommand(query, conn)
-                            insertCommand.Parameters.AddWithValue("@U_ID", accountId)
+                            insertCommand.Parameters.AddWithValue("@U_ID", L_ID)
                             insertCommand.Parameters.AddWithValue("@log_in_date", DateTime.Now.ToString("yyyy-MM-dd"))
                             insertCommand.Parameters.AddWithValue("@log_in_time", DateTime.Now.ToString("HH:mm:ss"))
                             insertCommand.ExecuteNonQuery()
@@ -37,20 +43,20 @@ Module logs
                     Else
                         ' No previous entry, insert a new login
                         reader.Close()
-                        query = "INSERT INTO login_history (U_ID, log_in_date, log_in_time) VALUES (@U_ID, @log_in_date, @log_in_time)"
+                        query = "INSERT INTO login_history (ID, log_in_date, log_in_time) VALUES (@U_ID, @log_in_date, @log_in_time)"
                         Dim insertCommand As New MySqlCommand(query, conn)
-                        insertCommand.Parameters.AddWithValue("@U_ID", accountId)
+                        insertCommand.Parameters.AddWithValue("@U_ID", L_ID)
                         insertCommand.Parameters.AddWithValue("@log_in_date", DateTime.Now.ToString("yyyy-MM-dd"))
                         insertCommand.Parameters.AddWithValue("@log_in_time", DateTime.Now.ToString("HH:mm:ss"))
                         insertCommand.ExecuteNonQuery()
                     End If
                 End Using
 
-            ElseIf action = "logout" Then
+            ElseIf Action = "logout" Then
                 ' Update the latest log entry with logout time and date
-                query = "SELECT log_in_date, log_in_time, log_out_date, log_out_time FROM login_history WHERE U_ID=@U_ID ORDER BY log_history_code DESC LIMIT 1"
+                query = "SELECT log_in_date, log_in_time, log_out_date, log_out_time FROM login_history WHERE ID=@U_ID ORDER BY log_history_code DESC LIMIT 1"
                 Dim checkCommand As New MySqlCommand(query, conn)
-                checkCommand.Parameters.AddWithValue("@U_ID", accountId)
+                checkCommand.Parameters.AddWithValue("@U_ID", L_ID)
 
                 Using reader As MySqlDataReader = checkCommand.ExecuteReader()
                     If reader.HasRows Then
@@ -68,9 +74,9 @@ Module logs
                             Dim logInTime = reader("log_in_time").ToString()
                             reader.Close()
 
-                            query = "UPDATE login_history SET log_out_date=@log_out_date, log_out_time=@log_out_time WHERE U_ID=@U_ID AND log_in_date=@log_in_date AND log_in_time=@log_in_time"
+                            query = "UPDATE login_history SET log_out_date=@log_out_date, log_out_time=@log_out_time WHERE ID=@U_ID AND log_in_date=@log_in_date AND log_in_time=@log_in_time"
                             Dim updateCommand As New MySqlCommand(query, conn)
-                            updateCommand.Parameters.AddWithValue("@U_ID", accountId)
+                            updateCommand.Parameters.AddWithValue("@U_ID", L_ID)
                             updateCommand.Parameters.AddWithValue("@log_out_date", logInDate)
                             updateCommand.Parameters.AddWithValue("@log_out_time", logInTime)
                             updateCommand.ExecuteNonQuery()
@@ -94,7 +100,7 @@ Module logs
         End Try
     End Sub
 
-    Public Sub staff_requestapproval_logs(accountId As String, action2 As String)
+    Public Sub staff_requestapproval_logs()
         Try
             If conn.State <> ConnectionState.Open Then
                 DbConnect()
@@ -103,9 +109,9 @@ Module logs
             Dim query As String = ""
             If action2 = "login" Then
                 ' Check the latest entry for this user
-                query = "SELECT log_out_date, log_out_time FROM staff_request_log WHERE U_ID=@U_ID ORDER BY log_history_code DESC LIMIT 1"
+                query = "SELECT log_out_date, log_out_time FROM staff_request_log WHERE ID=@U_ID ORDER BY log_history_code DESC LIMIT 1"
                 Dim checkCommand As New MySqlCommand(query, conn)
-                checkCommand.Parameters.AddWithValue("@U_ID", accountId)
+                checkCommand.Parameters.AddWithValue("@U_ID", L_ID)
 
                 Using reader As MySqlDataReader = checkCommand.ExecuteReader()
                     If reader.HasRows Then
@@ -116,9 +122,9 @@ Module logs
                         If Not String.IsNullOrEmpty(logOutDate) AndAlso Not String.IsNullOrEmpty(logOutTime) Then
                             ' Proceed with a new login entry
                             reader.Close()
-                            query = "INSERT INTO staff_request_log (U_ID, log_in_date, log_in_time) VALUES (@U_ID, @log_in_date, @log_in_time)"
+                            query = "INSERT INTO staff_request_log (ID, log_in_date, log_in_time) VALUES (@U_ID, @log_in_date, @log_in_time)"
                             Dim insertCommand As New MySqlCommand(query, conn)
-                            insertCommand.Parameters.AddWithValue("@U_ID", accountId)
+                            insertCommand.Parameters.AddWithValue("@U_ID", L_ID)
                             insertCommand.Parameters.AddWithValue("@log_in_date", DateTime.Now.ToString("yyyy-MM-dd"))
                             insertCommand.Parameters.AddWithValue("@log_in_time", DateTime.Now.ToString("HH:mm:ss"))
                             insertCommand.ExecuteNonQuery()
@@ -130,20 +136,20 @@ Module logs
                     Else
                         ' No previous entry, insert a new login
                         reader.Close()
-                        query = "INSERT INTO staff_request_log (U_ID, log_in_date, log_in_time) VALUES (@U_ID, @log_in_date, @log_in_time)"
+                        query = "INSERT INTO staff_request_log (ID, log_in_date, log_in_time) VALUES (@U_ID, @log_in_date, @log_in_time)"
                         Dim insertCommand As New MySqlCommand(query, conn)
-                        insertCommand.Parameters.AddWithValue("@U_ID", accountId)
+                        insertCommand.Parameters.AddWithValue("@U_ID", L_ID)
                         insertCommand.Parameters.AddWithValue("@log_in_date", DateTime.Now.ToString("yyyy-MM-dd"))
                         insertCommand.Parameters.AddWithValue("@log_in_time", DateTime.Now.ToString("HH:mm:ss"))
                         insertCommand.ExecuteNonQuery()
                     End If
                 End Using
 
-            ElseIf Action2 = "logout" Then
+            ElseIf action2 = "logout" Then
                 ' Update the latest log entry with logout time and date
-                query = "SELECT log_in_date, log_in_time, log_out_date, log_out_time FROM staff_request_log WHERE U_ID=@U_ID ORDER BY log_history_code DESC LIMIT 1"
+                query = "SELECT log_in_date, log_in_time, log_out_date, log_out_time FROM staff_request_log WHERE ID=@U_ID ORDER BY log_history_code DESC LIMIT 1"
                 Dim checkCommand As New MySqlCommand(query, conn)
-                checkCommand.Parameters.AddWithValue("@U_ID", accountId)
+                checkCommand.Parameters.AddWithValue("@U_ID", L_ID)
 
                 Using reader As MySqlDataReader = checkCommand.ExecuteReader()
                     If reader.HasRows Then
@@ -161,9 +167,9 @@ Module logs
                             Dim logInTime = reader("log_in_time").ToString()
                             reader.Close()
 
-                            query = "UPDATE staff_request_log SET log_out_date=@log_out_date, log_out_time=@log_out_time WHERE U_ID=@U_ID AND log_in_date=@log_in_date AND log_in_time=@log_in_time"
+                            query = "UPDATE staff_request_log SET log_out_date=@log_out_date, log_out_time=@log_out_time WHERE ID=@U_ID AND log_in_date=@log_in_date AND log_in_time=@log_in_time"
                             Dim updateCommand As New MySqlCommand(query, conn)
-                            updateCommand.Parameters.AddWithValue("@U_ID", accountId)
+                            updateCommand.Parameters.AddWithValue("@U_ID", L_ID)
                             updateCommand.Parameters.AddWithValue("@log_out_date", DateTime.Now.ToString("yyyy-MM-dd"))
                             updateCommand.Parameters.AddWithValue("@log_out_time", DateTime.Now.ToString("HH:mm:ss"))
                             updateCommand.Parameters.AddWithValue("@log_in_date", logInDate)
@@ -192,7 +198,7 @@ Module logs
     Public course As String
     Public section As String
 
-    Public Sub coursefinder(accountId, course)
+    Public Sub coursefinder()
         course = "" ' Clear the course initially
 
         Try
@@ -200,9 +206,9 @@ Module logs
                 DbConnect() ' Ensure the connection is open
             End If
 
-            Dim query As String = "SELECT course FROM accounts WHERE U_ID = @U_ID LIMIT 1"
+            Dim query As String = "SELECT course_name FROM accounts WHERE ID = @U_ID LIMIT 1"
             Dim checkCommand As New MySqlCommand(query, conn)
-            checkCommand.Parameters.AddWithValue("@U_ID", accountId)
+            checkCommand.Parameters.AddWithValue("@U_ID", L_ID)
 
             Dim result = checkCommand.ExecuteScalar() ' Fetch the course as a single value
 
@@ -223,7 +229,8 @@ Module logs
         End Try
     End Sub
 
-    Public Sub sectionfinder(accountId, section)
+    Public Sub sectionfinder()
+        L_ID = U_ID
         section = "" ' Clear the section initially
 
         Try
@@ -231,9 +238,9 @@ Module logs
                 DbConnect() ' Ensure the connection is open
             End If
 
-            Dim query As String = "SELECT section FROM accounts WHERE U_ID = @U_ID LIMIT 1"
+            Dim query As String = "SELECT sections FROM accounts WHERE ID = @U_ID LIMIT 1"
             Dim checkCommand As New MySqlCommand(query, conn)
-            checkCommand.Parameters.AddWithValue("@U_ID", accountId)
+            checkCommand.Parameters.AddWithValue("@U_ID", L_ID)
 
             Dim result = checkCommand.ExecuteScalar() ' Fetch the section as a single value
 
@@ -253,6 +260,4 @@ Module logs
             End If
         End Try
     End Sub
-
-
 End Module

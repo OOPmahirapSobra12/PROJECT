@@ -157,14 +157,14 @@ Public Class staff_request_modify
         AND ((@time_in BETWEEN room_time_in AND room_time_out) OR (@time_out BETWEEN room_time_in AND room_time_out) 
         OR (room_time_in BETWEEN @time_in AND @time_out) OR (room_time_out BETWEEN @time_in AND @time_out)) 
         AND shed_id <> @shed_id 
-        AND course = @course AND section = @section AND subject = @subject",
+        AND course_name = @course AND sections = @section AND subject_name = @subject",
         "
         SELECT COUNT(*) FROM sched 
         WHERE room_code = @room_code AND room_day = @room_day 
         AND ((@time_in BETWEEN room_time_in AND room_time_out) OR (@time_out BETWEEN room_time_in AND room_time_out) 
         OR (room_time_in BETWEEN @time_in AND @time_out) OR (room_time_out BETWEEN @time_in AND @time_out)) 
         AND shed_id <> @shed_id 
-        AND course = @course AND section = @section AND subject = @subject")
+        AND course_name = @course AND sections = @section AND subject_name = @subject")
 
         Try
             ' Check for conflicts
@@ -199,9 +199,9 @@ Public Class staff_request_modify
             room_time_in = @room_time_in, 
             room_time_out = @room_time_out, 
             room_date = @room_date, 
-            course = @course, 
-            section = @section, 
-            subject = @subject 
+            course_name = @course, 
+            sections = @section, 
+            subject_name = @subject 
         WHERE shed_id = @shed_id",
         "
         UPDATE sched SET 
@@ -209,9 +209,9 @@ Public Class staff_request_modify
             room_day = @room_day, 
             room_time_in = @room_time_in, 
             room_time_out = @room_time_out, 
-            course = @course, 
-            section = @section, 
-            subject = @subject 
+            course_name = @course, 
+            sections = @section, 
+            subject_name = @subject 
         WHERE shed_id = @shed_id")
 
         Try

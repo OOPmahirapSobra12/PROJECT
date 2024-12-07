@@ -25,10 +25,21 @@ Public Class adminreport
     End Sub
 
     Private Sub tableloader()
+        ' Ensure that a valid filter/category is selected before loading the data (if applicable)
+        If cboType.Text = "Choose:" OrElse String.IsNullOrWhiteSpace(cboType.Text) Then
+            MessageBox.Show("Please select a valid filter category.", "Selection Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
         ' Query to load report data and join with accounts to get the username
         Dim sqlQuery As String = "SELECT r.reportid AS report_id, a.username AS sender, r.d AS report_date, r.t AS report_time, r.report AS report_message " &
                              "FROM report r " &
                              "JOIN accounts a ON r.ID = a.ID"
+
+        ' Optionally, apply a filter if a category is selected
+        If cboType.Text <> "Choose:" Then
+            sqlQuery &= " WHERE r.report LIKE @filter"
+        End If
 
         ' Create a new DataAdapter to fetch data from the database
         Dim dataAdapter As New MySqlDataAdapter(sqlQuery, conn)
@@ -38,6 +49,12 @@ Public Class adminreport
             ' Open connection if not already open
             If conn.State <> ConnectionState.Open Then
                 conn.Open()
+            End If
+
+            ' Add parameters for filtering if applicable
+            If cboType.Text <> "Choose:" Then
+                Dim filterTerm As String = "%" & txtsearch.Text.Trim() & "%"  ' Assuming you have a textbox for the filter
+                dataAdapter.SelectCommand.Parameters.AddWithValue("@filter", filterTerm)
             End If
 
             ' Fill the data into the DataTable
@@ -64,6 +81,7 @@ Public Class adminreport
             End If
         End Try
     End Sub
+
 
 
     Private Sub btnview_Click(sender As Object, e As EventArgs) Handles btnview.Click
@@ -140,6 +158,12 @@ Public Class adminreport
             Return
         End If
 
+        ' Ensure that the user has selected a valid search category
+        If cboType.SelectedIndex <= 0 Then
+            MessageBox.Show("Please select a valid search category.", "Category Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
         ' Define the base SQL query and category to search by
         Dim sqlQuery As String = ""
         Dim searchTerm As String = txtsearch.Text.Trim()
@@ -210,6 +234,4 @@ Public Class adminreport
             End If
         End Try
     End Sub
-
-
 End Class

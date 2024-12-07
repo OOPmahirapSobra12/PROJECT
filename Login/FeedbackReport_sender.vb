@@ -124,7 +124,7 @@ Public Class FeedbackReport_sender
 
         Using command As New MySqlCommand(query, conn)
             ' Add parameters to prevent SQL injection
-            command.Parameters.AddWithValue("@ID", room_ID)
+            command.Parameters.AddWithValue("@ID", U_ID)
             command.Parameters.AddWithValue("@d", currentDate)
             command.Parameters.AddWithValue("@t", currentTime)
             command.Parameters.AddWithValue("@message", compiledMessage)

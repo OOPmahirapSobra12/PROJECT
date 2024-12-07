@@ -112,16 +112,17 @@ Public Class admin_feedback
             Return
         End If
 
+        ' Validate that the user has selected a valid search category
+        If cboType.Text = "Choose:" OrElse String.IsNullOrWhiteSpace(cboType.Text) Then
+            MessageBox.Show("Please select a valid search category.", "Selection Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
         Dim query As String = ""
         Dim searchTerm As String = txtsearch.Text.Trim()
 
         ' Select the query based on the selected search category
         Select Case cboType.Text
-            Case "Choose:"
-                query = "SELECT f.feedbackid, a.username AS sender, f.d, f.t, f.message AS feedback_message " &
-                    "FROM feedback f " &
-                    "JOIN accounts a ON f.ID = a.ID " &
-                    "WHERE a.username LIKE @search OR f.d LIKE @search OR f.t LIKE @search"
             Case "Feedback ID"
                 query = "SELECT f.feedbackid, a.username AS sender, f.d, f.t, f.message AS feedback_message " &
                     "FROM feedback f " &
@@ -187,7 +188,6 @@ Public Class admin_feedback
             End If
         End Try
     End Sub
-
 
     Private Sub btnback_Click(sender As Object, e As EventArgs) Handles btnback.Click
         Admin.Show()

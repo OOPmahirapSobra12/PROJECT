@@ -27,8 +27,8 @@ Public Class staff_schedule
             sched.room_day, 
             sched.room_time_in, 
             sched.room_time_out, 
-            sched.course, 
-            sched.section, 
+            sched.course_name, 
+            sched.sections, 
             subjects.subject_name
         FROM sched
         JOIN subjects ON sched.subject_code = subjects.subject_code
@@ -42,8 +42,8 @@ Public Class staff_schedule
             NULL AS room_day, 
             schedtemp.room_time_in, 
             schedtemp.room_time_out, 
-            schedtemp.course, 
-            schedtemp.section, 
+            schedtemp.course_name, 
+            schedtemp.sections, 
             subjects.subject_name
         FROM schedtemp
         JOIN subjects ON schedtemp.subject_code = subjects.subject_code;"
@@ -85,8 +85,8 @@ Public Class staff_schedule
             DGVschedule.Columns("s_date").DataPropertyName = "room_date"
             DGVschedule.Columns("time_in").DataPropertyName = "room_time_in"
             DGVschedule.Columns("time_out").DataPropertyName = "room_time_out"
-            DGVschedule.Columns("course").DataPropertyName = "course"
-            DGVschedule.Columns("section").DataPropertyName = "section"
+            DGVschedule.Columns("course").DataPropertyName = "course_name"
+            DGVschedule.Columns("section").DataPropertyName = "sections"
             DGVschedule.Columns("subject").DataPropertyName = "subject_name"
 
         Catch ex As Exception
@@ -127,8 +127,8 @@ Public Class staff_schedule
             sched.room_time_out, 
             NULL AS room_date, 
             sched.subject_code,
-            sched.course,
-            sched.section
+            sched.course_name,
+            sched.sections
         FROM sched
         JOIN roomlist ON sched.room_code = roomlist.room_code
 
@@ -144,8 +144,8 @@ Public Class staff_schedule
             schedtemp.room_time_out, 
             schedtemp.room_date, 
             schedtemp.subject_code,
-            schedtemp.course,
-            schedtemp.section
+            schedtemp.course_name,
+            schedtemp.sections
         FROM schedtemp
         JOIN roomlist ON schedtemp.room_code = roomlist.room_code
         WHERE {0} LIKE @searchTerm;"
@@ -156,8 +156,8 @@ Public Class staff_schedule
             {"Room Code", "room_code"},
             {"Room Name", "room_name"},
             {"Subject", "subject_code"}, ' Updated for subject search
-            {"Course", "course"},  ' Added course search
-            {"Section", "section"},  ' Added section search
+            {"Course", "course_name"},  ' Added course search
+            {"Section", "sections"},  ' Added section search
             {"Day", "room_day"},
             {"Date", "room_date"},
             {"Time In", "room_time_in"},

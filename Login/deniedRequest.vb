@@ -1,7 +1,10 @@
 ﻿Imports MySql.Data.MySqlClient
 
 Module DeniedRequest
-    ' Method to process and transfer denied requests
+    ' Variables to store request details
+    Public R_ID As String
+    Public R_requestID As String
+
     Public Sub ProcessDeniedRequests()
         Try
             ' Ensure the database connection is open
@@ -9,45 +12,61 @@ Module DeniedRequest
 
             ' Query to select denied requests
             Dim selectQuery As String =
-                "SELECT ID, room_code, request FROM requests WHERE request_type = 'denied'"
+                "SELECT * FROM requests WHERE ID = @ID AND requestID = @requestID"
 
             ' Query to insert denied requests into denied_request
             Dim insertQuery As String =
-                "INSERT INTO denied_request (ID, room_code, request) " &
-                "SELECT ID, room_code, request FROM requests WHERE request_type = 'denied'"
+                "INSERT INTO denied_request (ID, requestID, request, request_type) " &
+                "VALUES (@ID, @requestID, @request, @type)"
 
             ' Query to delete denied requests from requests
             Dim deleteQuery As String =
-                "DELETE FROM requests WHERE request_type = 'denied'"
+                "DELETE FROM requests WHERE ID = @ID AND requestID = @requestID"
 
-            ' Execute the select query to check if there are any denied requests
-            Using cmd As New MySqlCommand(selectQuery, ConnectionModule.conn)
-                Dim reader As MySqlDataReader = cmd.ExecuteReader()
+            ' Create a MySqlCommand object for the select query
+            Using selectCommand As New MySqlCommand(selectQuery, ConnectionModule.conn)
+                selectCommand.Parameters.AddWithValue("@ID", R_ID)
+                selectCommand.Parameters.AddWithValue("@requestID", R_requestID)
 
-                If reader.HasRows Then
-                    reader.Close() ' Close the reader before executing the next queries
+                ' Execute the select query and read results
+                Using reader As MySqlDataReader = selectCommand.ExecuteReader()
+                    If reader.HasRows Then
+                        While reader.Read()
+                            Dim request As String = reader("request").ToString()
+                            Dim requestType As String = "Denied"
 
-                    ' Insert into denied_request
-                    Using insertCmd As New MySqlCommand(insertQuery, ConnectionModule.conn)
-                        insertCmd.ExecuteNonQuery()
-                    End Using
+                            ' Close the reader before executing another query
+                            reader.Close()
 
-                    ' Delete from requests
-                    Using deleteCmd As New MySqlCommand(deleteQuery, ConnectionModule.conn)
-                        deleteCmd.ExecuteNonQuery()
-                    End Using
+                            ' Insert the denied request into the denied_request table
+                            Using insertCommand As New MySqlCommand(insertQuery, ConnectionModule.conn)
+                                insertCommand.Parameters.AddWithValue("@ID", R_ID)
+                                insertCommand.Parameters.AddWithValue("@requestID", R_requestID)
+                                insertCommand.Parameters.AddWithValue("@request", request)
+                                insertCommand.Parameters.AddWithValue("@type", requestType)
+                                insertCommand.ExecuteNonQuery()
+                            End Using
 
-                    Console.WriteLine("Denied requests moved successfully.")
-                Else
-                    reader.Close()
-                    Console.WriteLine("No denied requests found.")
-                End If
+                            ' Delete the request from the requests table
+                            Using deleteCommand As New MySqlCommand(deleteQuery, ConnectionModule.conn)
+                                deleteCommand.Parameters.AddWithValue("@ID", R_ID)
+                                deleteCommand.Parameters.AddWithValue("@requestID", R_requestID)
+                                deleteCommand.ExecuteNonQuery()
+                            End Using
+                        End While
+                    Else
+                        Console.WriteLine("No matching request found.")
+                    End If
+                End Using
             End Using
-        Catch ex As MySqlException
-            Console.WriteLine("MySQL Error: " & ex.Message)
         Catch ex As Exception
-            Console.WriteLine("Error: " & ex.Message)
+            ' Log or display the exception details
+            Console.WriteLine("An error occurred: " & ex.Message)
+        Finally
+            ' Ensure the database connection is closed
+            ConnectionModule.DbDisconnect()
         End Try
     End Sub
 End Module
+
 

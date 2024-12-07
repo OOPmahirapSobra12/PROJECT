@@ -93,11 +93,10 @@ Public Class Staff
     End Sub
 
     Private Sub btnlogout_Click_1(sender As Object, e As EventArgs) Handles btnlogout.Click
-        Dim accountID As String = U_ID
-        Dim Action As String = "logout"
-        logging_log(accountID, Action)
-        U_ID = Nothing
-        Login.Show()
+        logs.L_ID = U_ID
+        logs.Action = "logout"
+        logging_log()
+        Start_up_Login.Show()
         Me.Hide()
     End Sub
 
@@ -117,7 +116,7 @@ Public Class Staff
         End If
 
         ' Define the SQL query to fetch the password for the logged-in user
-        Dim sqlQuery As String = "SELECT password FROM users WHERE user_id = @user_id"
+        Dim sqlQuery As String = "SELECT pword FROM accounts WHERE ID = @user_id"
         Dim dbPassword As String = String.Empty
 
         ' Create the command to execute the query
@@ -134,7 +133,7 @@ Public Class Staff
             Dim reader As MySqlDataReader = command.ExecuteReader()
 
             If reader.Read() Then
-                dbPassword = reader("password").ToString()
+                dbPassword = reader("pword").ToString()
             Else
                 MessageBox.Show("User not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Return
@@ -145,9 +144,9 @@ Public Class Staff
             If inputPassword = dbPassword Then
                 MessageBox.Show("Password confirmed! You can now proceed.", "Access Granted", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
-                Dim accountId As String = U_ID
-                Dim action2 As String = "login"
-                staff_requestapproval_logs(accountId, action2)
+                logs.L_ID = U_ID
+                logs.action2 = "login"
+                staff_requestapproval_logs()
                 requestapproval.Show()
                 Me.Hide()
 

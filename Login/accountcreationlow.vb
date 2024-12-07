@@ -9,7 +9,7 @@ Public Class accountcreationlow
     End Sub
 
     Private Sub btnexit_Click(sender As Object, e As EventArgs) Handles btnexit.Click
-        Dim login As New Login()
+        Dim login As New Start_up_Login()
         login.Show() ' Show Form1
         Me.Close() ' Hide Form2
     End Sub

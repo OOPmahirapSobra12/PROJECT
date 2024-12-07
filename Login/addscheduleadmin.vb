@@ -553,7 +553,7 @@ Public Class addscheduleadmin
         ' Determine which table to insert into based on the selected option
         If cboDD.SelectedItem.ToString() = "Today" Or cboDD.SelectedItem.ToString() = "Date" Then
             ' Temporary schedule, insert into schedtemp table
-            Dim query As String = "INSERT INTO schedtemp (room_code, room_time_in, room_time_out, room_date, shed_id, course, section, subject_name) " &
+            Dim query As String = "INSERT INTO schedtemp (room_code, room_time_in, room_time_out, room_date, shed_id, course_name, sections, subject_name) " &
                               "VALUES (@room_code, @room_time_in, @room_time_out, @room_date, @shed_id, @course, @section, @subject_name)"
 
             Using command As New MySqlCommand(query, conn)
@@ -586,7 +586,7 @@ Public Class addscheduleadmin
 
         ElseIf cboDD.SelectedItem.ToString() = "Day" Then
             ' Permanent schedule, insert into sched table
-            Dim query As String = "INSERT INTO sched (room_code, room_time_in, room_time_out, room_day, shed_id, course, section, subject_name) " &
+            Dim query As String = "INSERT INTO sched (room_code, room_time_in, room_time_out, room_day, shed_id, course_name, sections, subject_name) " &
                               "VALUES (@room_code, @room_time_in, @room_time_out, @room_day, @shed_id, @course, @section, @subject_name)"
 
             Using command As New MySqlCommand(query, conn)
@@ -624,9 +624,9 @@ Public Class addscheduleadmin
         ' Ensure a course is selected and not the placeholder "Choose"
         If cbocourse.SelectedIndex > 0 Then ' Skip if the selected index is the placeholder
             Dim selectedCourse As String = cbocourse.SelectedItem.ToString()
-            Dim query As String = "SELECT s.sections FROM section s " &
-                                  "INNER JOIN courses c ON s.course_ID = c.course_ID " &
-                                  "WHERE c.course_name = @course_name"
+            Dim query As String = "SELECT s.section_name FROM section s " &
+                              "INNER JOIN courses c ON s.course_id = c.course_id " &
+                              "WHERE c.course_name = @course_name"
 
             ' Clear the cbosection items to avoid duplication
             cbosection.Items.Clear()
@@ -648,7 +648,7 @@ Public Class addscheduleadmin
                     Using reader As MySqlDataReader = command.ExecuteReader()
                         While reader.Read()
                             ' Add each section name to the ComboBox
-                            cbosection.Items.Add(reader("sections").ToString())
+                            cbosection.Items.Add(reader("section_name").ToString())
                         End While
                     End Using
                 End Using
@@ -658,9 +658,9 @@ Public Class addscheduleadmin
 
             Catch ex As Exception
                 MessageBox.Show($"Error loading sections: {ex.Message}",
-                                "Error",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error)
+                            "Error",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error)
             Finally
                 ' Close the connection after use
                 conn.Close()
@@ -673,14 +673,17 @@ Public Class addscheduleadmin
         End If
     End Sub
 
+
     Private Sub cbosection_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbosection.SelectedIndexChanged
         ' Ensure a valid section is selected and not the placeholder "Choose"
         If cbosection.SelectedIndex > 0 Then ' Skip if the selected index is the placeholder
             Dim selectedSection As String = cbosection.SelectedItem.ToString()
             Dim selectedCourse As String = cbocourse.SelectedItem.ToString()
-            Dim query As String = "SELECT DISTINCT l.subject_code " &
+            Dim query As String = "SELECT DISTINCT l.subject_name " &
                               "FROM listofsubjects l " &
-                              "WHERE l.section = @section AND l.course = @course"
+                              "INNER JOIN section s ON l.section_id = s.section_id " &
+                              "INNER JOIN courses c ON l.course_id = c.course_id " &
+                              "WHERE s.section_name = @section AND c.course_name = @course"
 
             ' Clear the cbosubject items to avoid duplication
             cbosubject.Items.Clear()
@@ -701,8 +704,8 @@ Public Class addscheduleadmin
 
                     Using reader As MySqlDataReader = command.ExecuteReader()
                         While reader.Read()
-                            ' Add each subject code to the ComboBox, starting from index 1
-                            cbosubject.Items.Add(reader("subject_code").ToString())
+                            ' Add each subject name to the ComboBox, starting from index 1
+                            cbosubject.Items.Add(reader("subject_name").ToString())
                         End While
                     End Using
                 End Using
@@ -726,7 +729,5 @@ Public Class addscheduleadmin
             cbosubject.SelectedIndex = 0
         End If
     End Sub
-
-
 
 End Class

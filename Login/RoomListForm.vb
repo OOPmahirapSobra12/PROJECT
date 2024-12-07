@@ -306,6 +306,4 @@ Public Class RoomListForm
             cbostatus.Enabled = True     ' Enable cbostatus if the status is not closed
         End If
     End Sub
-
-
 End Class

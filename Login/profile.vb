@@ -20,7 +20,7 @@ Public Class profile
     End Sub
 
     Private Sub account_load()
-        Dim query As String = "SELECT username, fname, lname, ID, pword, section, course, accesslevel, image FROM accounts WHERE ID = @U_ID"
+        Dim query As String = "SELECT username, fname, lname, ID, pword, sections, course_name, accesslevel, image FROM accounts WHERE ID = @U_ID"
         Using command As New MySqlCommand(query, conn)
             ' Add the ID parameter to prevent SQL injection
             command.Parameters.AddWithValue("@U_ID", U_ID)
@@ -45,6 +45,8 @@ Public Class profile
                             txtcourse.Visible = False
                             txtsection.Enabled = False
                             txtsection.Visible = False
+                            lblcourse.Visible = False
+                            lblsection.Visible = False
                         Else
                             txtusername.Text = reader("username").ToString()
                             txtfname.Text = reader("fname").ToString()

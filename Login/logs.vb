@@ -54,7 +54,7 @@ Module logs
 
             ElseIf Action = "logout" Then
                 ' Update the latest log entry with logout time and date
-                query = "SELECT log_in_date, log_in_time, log_out_date, log_out_time FROM login_history WHERE ID=@U_ID ORDER BY log_history_code DESC LIMIT 1"
+                query = "SELECT log_in_date, log_in_time, log_out_date, log_out_time FROM login_history WHERE ID = @U_ID ORDER BY log_history_code DESC LIMIT 1"
                 Dim checkCommand As New MySqlCommand(query, conn)
                 checkCommand.Parameters.AddWithValue("@U_ID", L_ID)
 
@@ -73,12 +73,16 @@ Module logs
                             Dim logInDate = reader("log_in_date").ToString()
                             Dim logInTime = reader("log_in_time").ToString()
                             reader.Close()
-
-                            query = "UPDATE login_history SET log_out_date=@log_out_date, log_out_time=@log_out_time WHERE ID=@U_ID AND log_in_date=@log_in_date AND log_in_time=@log_in_time"
+                            query = "UPDATE login_history 
+                                    SET log_out_date = @log_out_date, log_out_time = @log_out_time
+                                    WHERE ID = @U_ID AND log_in_date = @log_in_date AND log_in_time = @log_in_time;
+"
                             Dim updateCommand As New MySqlCommand(query, conn)
                             updateCommand.Parameters.AddWithValue("@U_ID", L_ID)
                             updateCommand.Parameters.AddWithValue("@log_out_date", logInDate)
                             updateCommand.Parameters.AddWithValue("@log_out_time", logInTime)
+                            updateCommand.Parameters.AddWithValue("@log_in_date", logInTime)
+                            updateCommand.Parameters.AddWithValue("@log_in_time", logInTime)
                             updateCommand.ExecuteNonQuery()
                         End If
                     Else

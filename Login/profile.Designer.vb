@@ -32,10 +32,10 @@ Partial Class profile
         Me.txtlname = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.txtID = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lblcourse = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtlevel = New System.Windows.Forms.TextBox()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.lblsection = New System.Windows.Forms.Label()
         Me.txtcourse = New System.Windows.Forms.TextBox()
         Me.txtsection = New System.Windows.Forms.TextBox()
         Me.btnback = New System.Windows.Forms.Button()
@@ -88,10 +88,10 @@ Partial Class profile
         Me.TableLayoutPanel3.Controls.Add(Me.txtlname, 4, 1)
         Me.TableLayoutPanel3.Controls.Add(Me.Label4, 1, 1)
         Me.TableLayoutPanel3.Controls.Add(Me.txtID, 2, 1)
-        Me.TableLayoutPanel3.Controls.Add(Me.Label1, 3, 2)
+        Me.TableLayoutPanel3.Controls.Add(Me.lblcourse, 3, 2)
         Me.TableLayoutPanel3.Controls.Add(Me.Label2, 1, 2)
         Me.TableLayoutPanel3.Controls.Add(Me.txtlevel, 2, 2)
-        Me.TableLayoutPanel3.Controls.Add(Me.Label3, 3, 3)
+        Me.TableLayoutPanel3.Controls.Add(Me.lblsection, 3, 3)
         Me.TableLayoutPanel3.Controls.Add(Me.txtcourse, 4, 2)
         Me.TableLayoutPanel3.Controls.Add(Me.txtsection, 4, 3)
         Me.TableLayoutPanel3.Controls.Add(Me.btnback, 5, 5)
@@ -217,21 +217,21 @@ Partial Class profile
         Me.txtID.Size = New System.Drawing.Size(210, 29)
         Me.txtID.TabIndex = 96
         '
-        'Label1
+        'lblcourse
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.Label1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Label1.Location = New System.Drawing.Point(377, 90)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(111, 45)
-        Me.Label1.TabIndex = 103
-        Me.Label1.Text = "Course:"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.TopRight
+        Me.lblcourse.AutoSize = True
+        Me.lblcourse.BackColor = System.Drawing.Color.Transparent
+        Me.lblcourse.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.lblcourse.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.lblcourse.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblcourse.ForeColor = System.Drawing.Color.NavajoWhite
+        Me.lblcourse.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.lblcourse.Location = New System.Drawing.Point(377, 90)
+        Me.lblcourse.Name = "lblcourse"
+        Me.lblcourse.Size = New System.Drawing.Size(111, 45)
+        Me.lblcourse.TabIndex = 103
+        Me.lblcourse.Text = "Course:"
+        Me.lblcourse.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'Label2
         '
@@ -259,21 +259,21 @@ Partial Class profile
         Me.txtlevel.Size = New System.Drawing.Size(210, 29)
         Me.txtlevel.TabIndex = 99
         '
-        'Label3
+        'lblsection
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.BackColor = System.Drawing.Color.Transparent
-        Me.Label3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.Label3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Label3.Location = New System.Drawing.Point(377, 135)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(111, 45)
-        Me.Label3.TabIndex = 104
-        Me.Label3.Text = "Section:"
-        Me.Label3.TextAlign = System.Drawing.ContentAlignment.TopRight
+        Me.lblsection.AutoSize = True
+        Me.lblsection.BackColor = System.Drawing.Color.Transparent
+        Me.lblsection.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.lblsection.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.lblsection.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblsection.ForeColor = System.Drawing.Color.NavajoWhite
+        Me.lblsection.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.lblsection.Location = New System.Drawing.Point(377, 135)
+        Me.lblsection.Name = "lblsection"
+        Me.lblsection.Size = New System.Drawing.Size(111, 45)
+        Me.lblsection.TabIndex = 104
+        Me.lblsection.Text = "Section:"
+        Me.lblsection.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'txtcourse
         '
@@ -469,8 +469,8 @@ Partial Class profile
     Friend WithEvents PBpic As PictureBox
     Friend WithEvents TableLayoutPanel4 As TableLayoutPanel
     Friend WithEvents btnpic As Button
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Label3 As Label
+    Friend WithEvents lblcourse As Label
+    Friend WithEvents lblsection As Label
     Friend WithEvents txtcourse As TextBox
     Friend WithEvents txtsection As TextBox
     Friend WithEvents Label7 As Label

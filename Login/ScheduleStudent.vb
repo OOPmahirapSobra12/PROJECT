@@ -86,18 +86,18 @@ Public Class ScheduleStudent
             Next
 
             ' Configure the DataGridView for column bindings
-            DGVschedule.AutoGenerateColumns = False
-            DGVschedule.DataSource = dataTable
+            DGVschedule_student.AutoGenerateColumns = False
+            DGVschedule_student.DataSource = dataTable
 
             ' Set DataPropertyName for each DataGridView column
-            DGVschedule.Columns("sched_code").DataPropertyName = "shed_id"
-            DGVschedule.Columns("room_code").DataPropertyName = "room_code"
-            DGVschedule.Columns("s_day").DataPropertyName = "room_day"
-            DGVschedule.Columns("s_date").DataPropertyName = "room_date"
-            DGVschedule.Columns("time_in").DataPropertyName = "room_time_in"
-            DGVschedule.Columns("time_out").DataPropertyName = "room_time_out"
-            DGVschedule.Columns("building_where").DataPropertyName = "building"
-            DGVschedule.Columns("subject").DataPropertyName = "subject_name"
+            DGVschedule_student.Columns("sched_code").DataPropertyName = "shed_id"
+            DGVschedule_student.Columns("room_code").DataPropertyName = "room_code"
+            DGVschedule_student.Columns("s_day").DataPropertyName = "room_day"
+            DGVschedule_student.Columns("s_date").DataPropertyName = "room_date"
+            DGVschedule_student.Columns("time_in").DataPropertyName = "room_time_in"
+            DGVschedule_student.Columns("time_out").DataPropertyName = "room_time_out"
+            DGVschedule_student.Columns("building_where").DataPropertyName = "building"
+            DGVschedule_student.Columns("subject").DataPropertyName = "subject_name"
 
         Catch ex As Exception
             ' Display error message
@@ -217,7 +217,7 @@ Public Class ScheduleStudent
             Next
 
             ' Bind the DataTable to the DataGridView
-            DGVschedule.DataSource = dataTable
+            DGVschedule_student.DataSource = dataTable
         Catch ex As Exception
             MessageBox.Show("Error executing search: " & ex.Message, "Search Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally

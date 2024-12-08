@@ -22,9 +22,9 @@ Partial Class ScheduleStudent
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel6 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel8 = New System.Windows.Forms.TableLayoutPanel()
@@ -38,7 +38,7 @@ Partial Class ScheduleStudent
         Me.TableLayoutPanel7 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel11 = New System.Windows.Forms.TableLayoutPanel()
         Me.btnback = New System.Windows.Forms.Button()
-        Me.DGVschedule = New System.Windows.Forms.DataGridView()
+        Me.DGVschedule_student = New System.Windows.Forms.DataGridView()
         Me.sched_code = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.subject = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.room_code = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -54,7 +54,7 @@ Partial Class ScheduleStudent
         Me.TableLayoutPanel9.SuspendLayout()
         Me.TableLayoutPanel7.SuspendLayout()
         Me.TableLayoutPanel11.SuspendLayout()
-        CType(Me.DGVschedule, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DGVschedule_student, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TableLayoutPanel5
@@ -66,7 +66,7 @@ Partial Class ScheduleStudent
         Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel5.Controls.Add(Me.TableLayoutPanel6, 1, 1)
         Me.TableLayoutPanel5.Controls.Add(Me.TableLayoutPanel7, 1, 3)
-        Me.TableLayoutPanel5.Controls.Add(Me.DGVschedule, 1, 2)
+        Me.TableLayoutPanel5.Controls.Add(Me.DGVschedule_student, 1, 2)
         Me.TableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel5.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
@@ -258,49 +258,49 @@ Partial Class ScheduleStudent
         Me.btnback.Text = "Back"
         Me.btnback.UseVisualStyleBackColor = False
         '
-        'DGVschedule
+        'DGVschedule_student
         '
-        Me.DGVschedule.AllowUserToAddRows = False
-        Me.DGVschedule.AllowUserToDeleteRows = False
-        Me.DGVschedule.AllowUserToResizeColumns = False
-        Me.DGVschedule.AllowUserToResizeRows = False
-        Me.DGVschedule.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ActiveCaption
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.MidnightBlue
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.GradientInactiveCaption
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DGVschedule.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
-        Me.DGVschedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGVschedule.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.sched_code, Me.subject, Me.room_code, Me.room_name, Me.building_where, Me.s_day, Me.s_date, Me.time_in, Me.time_out})
-        Me.DGVschedule.Cursor = System.Windows.Forms.Cursors.Default
-        DataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.MidnightBlue
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DGVschedule.DefaultCellStyle = DataGridViewCellStyle5
-        Me.DGVschedule.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DGVschedule.GridColor = System.Drawing.SystemColors.HotTrack
-        Me.DGVschedule.Location = New System.Drawing.Point(23, 113)
-        Me.DGVschedule.MultiSelect = False
-        Me.DGVschedule.Name = "DGVschedule"
-        Me.DGVschedule.ReadOnly = True
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.MidnightBlue
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DGVschedule.RowHeadersDefaultCellStyle = DataGridViewCellStyle6
-        Me.DGVschedule.RowHeadersWidth = 62
-        Me.DGVschedule.Size = New System.Drawing.Size(1010, 368)
-        Me.DGVschedule.TabIndex = 2
+        Me.DGVschedule_student.AllowUserToAddRows = False
+        Me.DGVschedule_student.AllowUserToDeleteRows = False
+        Me.DGVschedule_student.AllowUserToResizeColumns = False
+        Me.DGVschedule_student.AllowUserToResizeRows = False
+        Me.DGVschedule_student.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaption
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.MidnightBlue
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.GradientInactiveCaption
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DGVschedule_student.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        Me.DGVschedule_student.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DGVschedule_student.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.sched_code, Me.subject, Me.room_code, Me.room_name, Me.building_where, Me.s_day, Me.s_date, Me.time_in, Me.time_out})
+        Me.DGVschedule_student.Cursor = System.Windows.Forms.Cursors.Default
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.MidnightBlue
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DGVschedule_student.DefaultCellStyle = DataGridViewCellStyle2
+        Me.DGVschedule_student.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DGVschedule_student.GridColor = System.Drawing.SystemColors.HotTrack
+        Me.DGVschedule_student.Location = New System.Drawing.Point(23, 113)
+        Me.DGVschedule_student.MultiSelect = False
+        Me.DGVschedule_student.Name = "DGVschedule_student"
+        Me.DGVschedule_student.ReadOnly = True
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.MidnightBlue
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DGVschedule_student.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
+        Me.DGVschedule_student.RowHeadersWidth = 62
+        Me.DGVschedule_student.Size = New System.Drawing.Size(1010, 368)
+        Me.DGVschedule_student.TabIndex = 2
         '
         'sched_code
         '
@@ -388,7 +388,7 @@ Partial Class ScheduleStudent
         Me.TableLayoutPanel9.PerformLayout()
         Me.TableLayoutPanel7.ResumeLayout(False)
         Me.TableLayoutPanel11.ResumeLayout(False)
-        CType(Me.DGVschedule, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DGVschedule_student, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -406,7 +406,7 @@ Partial Class ScheduleStudent
     Friend WithEvents TableLayoutPanel7 As TableLayoutPanel
     Friend WithEvents TableLayoutPanel11 As TableLayoutPanel
     Friend WithEvents btnback As Button
-    Friend WithEvents DGVschedule As DataGridView
+    Friend WithEvents DGVschedule_student As DataGridView
     Friend WithEvents sched_code As DataGridViewTextBoxColumn
     Friend WithEvents subject As DataGridViewTextBoxColumn
     Friend WithEvents room_code As DataGridViewTextBoxColumn

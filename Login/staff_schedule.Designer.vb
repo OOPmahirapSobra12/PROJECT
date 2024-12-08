@@ -37,16 +37,16 @@ Partial Class staff_schedule
         Me.btnsearch = New System.Windows.Forms.Button()
         Me.TableLayoutPanel7 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel11 = New System.Windows.Forms.TableLayoutPanel()
+        Me.btnback = New System.Windows.Forms.Button()
         Me.btnrequest = New System.Windows.Forms.Button()
         Me.btnrequest_modify = New System.Windows.Forms.Button()
-        Me.btnback = New System.Windows.Forms.Button()
-        Me.DGVschedule = New System.Windows.Forms.DataGridView()
+        Me.DGVschedules = New System.Windows.Forms.DataGridView()
         Me.sched_code = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.subject = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.course = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.section = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.room_code = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.room_name = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.room = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.s_day = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.s_date = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.time_in = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -57,7 +57,7 @@ Partial Class staff_schedule
         Me.TableLayoutPanel9.SuspendLayout()
         Me.TableLayoutPanel7.SuspendLayout()
         Me.TableLayoutPanel11.SuspendLayout()
-        CType(Me.DGVschedule, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DGVschedules, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TableLayoutPanel5
@@ -69,7 +69,7 @@ Partial Class staff_schedule
         Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel5.Controls.Add(Me.TableLayoutPanel6, 1, 1)
         Me.TableLayoutPanel5.Controls.Add(Me.TableLayoutPanel7, 1, 3)
-        Me.TableLayoutPanel5.Controls.Add(Me.DGVschedule, 1, 2)
+        Me.TableLayoutPanel5.Controls.Add(Me.DGVschedules, 1, 2)
         Me.TableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel5.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
@@ -237,21 +237,33 @@ Partial Class staff_schedule
         'TableLayoutPanel11
         '
         Me.TableLayoutPanel11.ColumnCount = 3
+        Me.TableLayoutPanel11.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.86853!))
+        Me.TableLayoutPanel11.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.66534!))
         Me.TableLayoutPanel11.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel11.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel11.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel11.Controls.Add(Me.btnrequest, 0, 2)
-        Me.TableLayoutPanel11.Controls.Add(Me.btnrequest_modify, 0, 2)
-        Me.TableLayoutPanel11.Controls.Add(Me.btnback, 2, 0)
-        Me.TableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel11.Controls.Add(Me.btnback, 2, 1)
+        Me.TableLayoutPanel11.Controls.Add(Me.btnrequest, 1, 1)
+        Me.TableLayoutPanel11.Controls.Add(Me.btnrequest_modify, 0, 1)
+        Me.TableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Top
         Me.TableLayoutPanel11.Location = New System.Drawing.Point(3, 3)
         Me.TableLayoutPanel11.Name = "TableLayoutPanel11"
-        Me.TableLayoutPanel11.RowCount = 3
-        Me.TableLayoutPanel11.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46.0!))
+        Me.TableLayoutPanel11.RowCount = 2
         Me.TableLayoutPanel11.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel11.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 53.0!))
         Me.TableLayoutPanel11.Size = New System.Drawing.Size(1004, 52)
         Me.TableLayoutPanel11.TabIndex = 1
+        '
+        'btnback
+        '
+        Me.btnback.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.btnback.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.btnback.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnback.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.btnback.Location = New System.Drawing.Point(671, 2)
+        Me.btnback.Name = "btnback"
+        Me.btnback.Size = New System.Drawing.Size(330, 47)
+        Me.btnback.TabIndex = 19
+        Me.btnback.Text = "Back"
+        Me.btnback.UseVisualStyleBackColor = False
         '
         'btnrequest
         '
@@ -259,11 +271,11 @@ Partial Class staff_schedule
         Me.btnrequest.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnrequest.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnrequest.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnrequest.Location = New System.Drawing.Point(3, 2)
+        Me.btnrequest.Location = New System.Drawing.Point(333, 2)
         Me.btnrequest.Name = "btnrequest"
-        Me.btnrequest.Size = New System.Drawing.Size(328, 47)
-        Me.btnrequest.TabIndex = 16
-        Me.btnrequest.Text = "Request Add"
+        Me.btnrequest.Size = New System.Drawing.Size(332, 47)
+        Me.btnrequest.TabIndex = 18
+        Me.btnrequest.Text = "Add Schedule"
         Me.btnrequest.UseVisualStyleBackColor = False
         '
         'btnrequest_modify
@@ -272,33 +284,20 @@ Partial Class staff_schedule
         Me.btnrequest_modify.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnrequest_modify.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnrequest_modify.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnrequest_modify.Location = New System.Drawing.Point(337, 2)
+        Me.btnrequest_modify.Location = New System.Drawing.Point(3, 2)
         Me.btnrequest_modify.Name = "btnrequest_modify"
-        Me.btnrequest_modify.Size = New System.Drawing.Size(328, 47)
-        Me.btnrequest_modify.TabIndex = 15
-        Me.btnrequest_modify.Text = "Request Modify"
+        Me.btnrequest_modify.Size = New System.Drawing.Size(324, 47)
+        Me.btnrequest_modify.TabIndex = 21
+        Me.btnrequest_modify.Text = "Modify Schedule"
         Me.btnrequest_modify.UseVisualStyleBackColor = False
         '
-        'btnback
+        'DGVschedules
         '
-        Me.btnback.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.btnback.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnback.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnback.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnback.Location = New System.Drawing.Point(671, 3)
-        Me.btnback.Name = "btnback"
-        Me.btnback.Size = New System.Drawing.Size(330, 40)
-        Me.btnback.TabIndex = 14
-        Me.btnback.Text = "Back"
-        Me.btnback.UseVisualStyleBackColor = False
-        '
-        'DGVschedule
-        '
-        Me.DGVschedule.AllowUserToAddRows = False
-        Me.DGVschedule.AllowUserToDeleteRows = False
-        Me.DGVschedule.AllowUserToResizeColumns = False
-        Me.DGVschedule.AllowUserToResizeRows = False
-        Me.DGVschedule.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.DGVschedules.AllowUserToAddRows = False
+        Me.DGVschedules.AllowUserToDeleteRows = False
+        Me.DGVschedules.AllowUserToResizeColumns = False
+        Me.DGVschedules.AllowUserToResizeRows = False
+        Me.DGVschedules.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaption
         DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -306,10 +305,10 @@ Partial Class staff_schedule
         DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.GradientInactiveCaption
         DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DGVschedule.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
-        Me.DGVschedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGVschedule.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.sched_code, Me.subject, Me.course, Me.section, Me.room_code, Me.room_name, Me.s_day, Me.s_date, Me.time_in, Me.time_out})
-        Me.DGVschedule.Cursor = System.Windows.Forms.Cursors.Default
+        Me.DGVschedules.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        Me.DGVschedules.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DGVschedules.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.sched_code, Me.subject, Me.course, Me.section, Me.room_code, Me.room, Me.s_day, Me.s_date, Me.time_in, Me.time_out})
+        Me.DGVschedules.Cursor = System.Windows.Forms.Cursors.Default
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
         DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -317,13 +316,13 @@ Partial Class staff_schedule
         DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DGVschedule.DefaultCellStyle = DataGridViewCellStyle2
-        Me.DGVschedule.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DGVschedule.GridColor = System.Drawing.SystemColors.HotTrack
-        Me.DGVschedule.Location = New System.Drawing.Point(23, 113)
-        Me.DGVschedule.MultiSelect = False
-        Me.DGVschedule.Name = "DGVschedule"
-        Me.DGVschedule.ReadOnly = True
+        Me.DGVschedules.DefaultCellStyle = DataGridViewCellStyle2
+        Me.DGVschedules.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DGVschedules.GridColor = System.Drawing.SystemColors.HotTrack
+        Me.DGVschedules.Location = New System.Drawing.Point(23, 113)
+        Me.DGVschedules.MultiSelect = False
+        Me.DGVschedules.Name = "DGVschedules"
+        Me.DGVschedules.ReadOnly = True
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
         DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -331,10 +330,10 @@ Partial Class staff_schedule
         DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DGVschedule.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
-        Me.DGVschedule.RowHeadersWidth = 62
-        Me.DGVschedule.Size = New System.Drawing.Size(1010, 354)
-        Me.DGVschedule.TabIndex = 3
+        Me.DGVschedules.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
+        Me.DGVschedules.RowHeadersWidth = 62
+        Me.DGVschedules.Size = New System.Drawing.Size(1010, 354)
+        Me.DGVschedules.TabIndex = 3
         '
         'sched_code
         '
@@ -370,12 +369,12 @@ Partial Class staff_schedule
         Me.room_code.Name = "room_code"
         Me.room_code.ReadOnly = True
         '
-        'room_name
+        'room
         '
-        Me.room_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.room_name.HeaderText = "Room Name"
-        Me.room_name.Name = "room_name"
-        Me.room_name.ReadOnly = True
+        Me.room.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.room.HeaderText = "Room Name"
+        Me.room.Name = "room"
+        Me.room.ReadOnly = True
         '
         's_day
         '
@@ -425,7 +424,7 @@ Partial Class staff_schedule
         Me.TableLayoutPanel9.PerformLayout()
         Me.TableLayoutPanel7.ResumeLayout(False)
         Me.TableLayoutPanel11.ResumeLayout(False)
-        CType(Me.DGVschedule, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DGVschedules, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -442,18 +441,18 @@ Partial Class staff_schedule
     Friend WithEvents btnsearch As Button
     Friend WithEvents TableLayoutPanel7 As TableLayoutPanel
     Friend WithEvents TableLayoutPanel11 As TableLayoutPanel
-    Friend WithEvents btnback As Button
-    Friend WithEvents btnrequest As Button
-    Friend WithEvents btnrequest_modify As Button
-    Friend WithEvents DGVschedule As DataGridView
+    Friend WithEvents DGVschedules As DataGridView
     Friend WithEvents sched_code As DataGridViewTextBoxColumn
     Friend WithEvents subject As DataGridViewTextBoxColumn
     Friend WithEvents course As DataGridViewTextBoxColumn
     Friend WithEvents section As DataGridViewTextBoxColumn
     Friend WithEvents room_code As DataGridViewTextBoxColumn
-    Friend WithEvents room_name As DataGridViewTextBoxColumn
+    Friend WithEvents room As DataGridViewTextBoxColumn
     Friend WithEvents s_day As DataGridViewTextBoxColumn
     Friend WithEvents s_date As DataGridViewTextBoxColumn
     Friend WithEvents time_in As DataGridViewTextBoxColumn
     Friend WithEvents time_out As DataGridViewTextBoxColumn
+    Friend WithEvents btnrequest As Button
+    Friend WithEvents btnback As Button
+    Friend WithEvents btnrequest_modify As Button
 End Class

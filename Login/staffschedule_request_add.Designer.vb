@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class staff_request_add
+Partial Class staffschedule_request_add
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -36,7 +36,6 @@ Partial Class staff_request_add
         Me.DTPtimein = New System.Windows.Forms.DateTimePicker()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.DTPtimeout = New System.Windows.Forms.DateTimePicker()
-        Me.txtname = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
@@ -47,6 +46,7 @@ Partial Class staff_request_add
         Me.cbosection = New System.Windows.Forms.ComboBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.cbosubject = New System.Windows.Forms.ComboBox()
+        Me.cboroomname = New System.Windows.Forms.ComboBox()
         Me.TableLayoutPanel7.SuspendLayout()
         Me.TableLayoutPanel11.SuspendLayout()
         Me.TableLayoutPanel10.SuspendLayout()
@@ -127,7 +127,6 @@ Partial Class staff_request_add
         Me.TableLayoutPanel10.Controls.Add(Me.DTPtimein, 3, 2)
         Me.TableLayoutPanel10.Controls.Add(Me.Label7, 2, 3)
         Me.TableLayoutPanel10.Controls.Add(Me.DTPtimeout, 3, 3)
-        Me.TableLayoutPanel10.Controls.Add(Me.txtname, 1, 2)
         Me.TableLayoutPanel10.Controls.Add(Me.Label8, 0, 2)
         Me.TableLayoutPanel10.Controls.Add(Me.Label4, 0, 1)
         Me.TableLayoutPanel10.Controls.Add(Me.Label11, 0, 0)
@@ -138,6 +137,7 @@ Partial Class staff_request_add
         Me.TableLayoutPanel10.Controls.Add(Me.cbosection, 1, 4)
         Me.TableLayoutPanel10.Controls.Add(Me.Label9, 0, 5)
         Me.TableLayoutPanel10.Controls.Add(Me.cbosubject, 1, 5)
+        Me.TableLayoutPanel10.Controls.Add(Me.cboroomname, 1, 2)
         Me.TableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel10.Location = New System.Drawing.Point(3, 3)
         Me.TableLayoutPanel10.Name = "TableLayoutPanel10"
@@ -167,10 +167,10 @@ Partial Class staff_request_add
         '
         Me.cborcode.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.cborcode.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.cborcode.Enabled = False
         Me.cborcode.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cborcode.ForeColor = System.Drawing.Color.MidnightBlue
         Me.cborcode.FormattingEnabled = True
-        Me.cborcode.Items.AddRange(New Object() {"...", "Temporary", "Monday", "Tuesday", "Wednessday", "Thurday", "Friday", "Saturday"})
         Me.cborcode.Location = New System.Drawing.Point(163, 37)
         Me.cborcode.Name = "cborcode"
         Me.cborcode.Size = New System.Drawing.Size(323, 33)
@@ -261,18 +261,6 @@ Partial Class staff_request_add
         Me.DTPtimeout.Size = New System.Drawing.Size(249, 30)
         Me.DTPtimeout.TabIndex = 28
         '
-        'txtname
-        '
-        Me.txtname.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.txtname.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.txtname.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtname.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.txtname.Location = New System.Drawing.Point(163, 73)
-        Me.txtname.Name = "txtname"
-        Me.txtname.ReadOnly = True
-        Me.txtname.Size = New System.Drawing.Size(323, 31)
-        Me.txtname.TabIndex = 17
-        '
         'Label8
         '
         Me.Label8.AutoSize = True
@@ -356,7 +344,6 @@ Partial Class staff_request_add
         Me.cbocourse.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbocourse.ForeColor = System.Drawing.Color.MidnightBlue
         Me.cbocourse.FormattingEnabled = True
-        Me.cbocourse.Items.AddRange(New Object() {"...", "Temporary", "Monday", "Tuesday", "Wednessday", "Thurday", "Friday", "Saturday"})
         Me.cbocourse.Location = New System.Drawing.Point(163, 107)
         Me.cbocourse.Name = "cbocourse"
         Me.cbocourse.Size = New System.Drawing.Size(323, 33)
@@ -369,7 +356,6 @@ Partial Class staff_request_add
         Me.cbosection.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbosection.ForeColor = System.Drawing.Color.MidnightBlue
         Me.cbosection.FormattingEnabled = True
-        Me.cbosection.Items.AddRange(New Object() {"...", "Temporary", "Monday", "Tuesday", "Wednessday", "Thurday", "Friday", "Saturday"})
         Me.cbosection.Location = New System.Drawing.Point(163, 143)
         Me.cbosection.Name = "cbosection"
         Me.cbosection.Size = New System.Drawing.Size(323, 33)
@@ -395,13 +381,24 @@ Partial Class staff_request_add
         Me.cbosubject.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbosubject.ForeColor = System.Drawing.Color.MidnightBlue
         Me.cbosubject.FormattingEnabled = True
-        Me.cbosubject.Items.AddRange(New Object() {"...", "Temporary", "Monday", "Tuesday", "Wednessday", "Thurday", "Friday", "Saturday"})
         Me.cbosubject.Location = New System.Drawing.Point(163, 182)
         Me.cbosubject.Name = "cbosubject"
         Me.cbosubject.Size = New System.Drawing.Size(323, 33)
         Me.cbosubject.TabIndex = 37
         '
-        'staff_request_add
+        'cboroomname
+        '
+        Me.cboroomname.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.cboroomname.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.cboroomname.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cboroomname.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.cboroomname.FormattingEnabled = True
+        Me.cboroomname.Location = New System.Drawing.Point(163, 73)
+        Me.cboroomname.Name = "cboroomname"
+        Me.cboroomname.Size = New System.Drawing.Size(323, 33)
+        Me.cboroomname.TabIndex = 40
+        '
+        'staffschedule_request_add
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -410,7 +407,7 @@ Partial Class staff_request_add
         Me.ClientSize = New System.Drawing.Size(850, 277)
         Me.Controls.Add(Me.TableLayoutPanel7)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "staff_request_add"
+        Me.Name = "staffschedule_request_add"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "staff_request_add"
         Me.TableLayoutPanel7.ResumeLayout(False)
@@ -435,7 +432,6 @@ Partial Class staff_request_add
     Friend WithEvents DTPtimein As DateTimePicker
     Friend WithEvents Label7 As Label
     Friend WithEvents DTPtimeout As DateTimePicker
-    Friend WithEvents txtname As TextBox
     Friend WithEvents Label8 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label11 As Label
@@ -446,4 +442,5 @@ Partial Class staff_request_add
     Friend WithEvents cbosection As ComboBox
     Friend WithEvents Label9 As Label
     Friend WithEvents cbosubject As ComboBox
+    Friend WithEvents cboroomname As ComboBox
 End Class

@@ -61,16 +61,16 @@ Public Class Schedule
                                     NULL AS room_date, 
                                     sched.room_day, 
                                     sched.room_time_in, 
-                                  
-sched.room_time_out, 
+                                    sched.room_time_out, 
                                     sched.course_name, 
                                     sched.sections, 
                                     listofsubjects.subject_name
                                 FROM sched
-                                JOIN 
-                                    listofsubjects ON sched.subject_name = listofsubjects.subject_name
-                                        Join roomlist ON sched.room_code = roomlist.room_code
+                                JOIN listofsubjects ON sched.subject_name = listofsubjects.subject_name
+                                JOIN roomlist ON sched.room_code = roomlist.room_code
+
                                 UNION ALL
+
                                 SELECT 
                                     schedtemp.shed_id, 
                                     schedtemp.room_code, 
@@ -83,9 +83,8 @@ sched.room_time_out,
                                     schedtemp.sections, 
                                     listofsubjects.subject_name
                                 FROM schedtemp
-                                JOIN 
-                                    listofsubjects ON schedtemp.subject_name = listofsubjects.subject_name
-                                        Join roomlist ON schedtemp.room_code = roomlist.room_code;"
+                                JOIN listofsubjects ON schedtemp.subject_name = listofsubjects.subject_name
+                                JOIN roomlist ON schedtemp.room_code = roomlist.room_code;"
 
         ' Create a new DataAdapter to fetch data from the database
         Dim dataAdapter As New MySqlDataAdapter(sqlQuery, conn)
@@ -112,22 +111,22 @@ sched.room_time_out,
             Next
 
             ' Configure the DataGridView for proper column bindings
-            DGVschedule.AutoGenerateColumns = False
+            DGVschedules.AutoGenerateColumns = False
 
             ' Bind the populated DataTable to the DataGridView
-            DGVschedule.DataSource = dataTable
+            DGVschedules.DataSource = dataTable
 
             ' Set the correct data bindings for each column in the DataGridView
-            DGVschedule.Columns("sched_code").DataPropertyName = "shed_id"
-            DGVschedule.Columns("room_code").DataPropertyName = "room_code"
-            DGVschedule.Columns("s_day").DataPropertyName = "room_day"
-            DGVschedule.Columns("s_date").DataPropertyName = "room_date"
-            DGVschedule.Columns("time_in").DataPropertyName = "room_time_in"
-            DGVschedule.Columns("time_out").DataPropertyName = "room_time_out"
-            DGVschedule.Columns("course").DataPropertyName = "course_name"
-            DGVschedule.Columns("section").DataPropertyName = "sections"
-            DGVschedule.Columns("subject").DataPropertyName = "subject_name"
-            DGVschedule.Columns("room_name").DataPropertyName = "room_name"
+            DGVschedules.Columns("sched_code").DataPropertyName = "shed_id"
+            DGVschedules.Columns("room_code").DataPropertyName = "room_code"
+            DGVschedules.Columns("room").DataPropertyName = "room_name"
+            DGVschedules.Columns("s_day").DataPropertyName = "room_day"
+            DGVschedules.Columns("s_date").DataPropertyName = "room_date"
+            DGVschedules.Columns("time_in").DataPropertyName = "room_time_in"
+            DGVschedules.Columns("time_out").DataPropertyName = "room_time_out"
+            DGVschedules.Columns("course").DataPropertyName = "course_name"
+            DGVschedules.Columns("section").DataPropertyName = "sections"
+            DGVschedules.Columns("subject").DataPropertyName = "subject_name"
 
         Catch ex As Exception
             MessageBox.Show("Error loading table data: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -142,14 +141,14 @@ sched.room_time_out,
 
     Private Sub btnselect_Click(sender As Object, e As EventArgs) Handles btnselect.Click
         ' Check if a row is selected in DGVschedule
-        If DGVschedule.SelectedRows.Count > 0 Then
+        If DGVschedules.SelectedRows.Count > 0 Then
             Try
-                Dim selectedRow As DataGridViewRow = DGVschedule.SelectedRows(0)
+                Dim selectedRow As DataGridViewRow = DGVschedules.SelectedRows(0)
 
                 ' Safely extract values from the selected row
                 Dim shedId As String = If(selectedRow.Cells("sched_code").Value?.ToString(), String.Empty)
                 Dim roomCode As String = If(selectedRow.Cells("room_code").Value?.ToString(), String.Empty)
-                Dim roomName As String = If(selectedRow.Cells("room_name").Value?.ToString(), String.Empty)
+                Dim roomName As String = If(selectedRow.Cells("room").Value?.ToString(), String.Empty)
                 Dim detail As String = If(selectedRow.Cells("detail").Value?.ToString(), String.Empty)
                 Dim roomDay As String = If(selectedRow.Cells("s_day").Value?.ToString(), String.Empty)
                 Dim roomDate As String = If(selectedRow.Cells("s_date").Value?.ToString(), String.Empty)
@@ -179,15 +178,15 @@ sched.room_time_out,
 
     Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btndelete.Click
         ' Ensure a row is selected before proceeding
-        If DGVschedule.SelectedRows.Count = 0 Then
+        If DGVschedules.SelectedRows.Count = 0 Then
             MessageBox.Show("Please select a schedule to delete.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return
         End If
 
         ' Get the shed_id, s_date, and s_day from the selected row in the table
-        Dim shedId As String = DGVschedule.SelectedRows(0).Cells("shed_id").Value.ToString()
-        Dim sDate As Object = DGVschedule.SelectedRows(0).Cells("s_date").Value
-        Dim sDay As Object = DGVschedule.SelectedRows(0).Cells("s_day").Value
+        Dim shedId As String = DGVschedules.SelectedRows(0).Cells("shed_id").Value.ToString()
+        Dim sDate As Object = DGVschedules.SelectedRows(0).Cells("s_date").Value
+        Dim sDay As Object = DGVschedules.SelectedRows(0).Cells("s_day").Value
 
         ' Confirm with the user before deleting
         Dim result As DialogResult = MessageBox.Show("Are you sure you want to delete this schedule?", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
@@ -329,7 +328,7 @@ sched.room_time_out,
             Next
 
             ' Bind the DataTable to the DataGridView
-            DGVschedule.DataSource = dataTable
+            DGVschedules.DataSource = dataTable
         Catch ex As Exception
             MessageBox.Show("Error executing search: " & ex.Message, "Search Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally

@@ -37,27 +37,27 @@ Partial Class Schedule
         Me.btnsearch = New System.Windows.Forms.Button()
         Me.TableLayoutPanel7 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel11 = New System.Windows.Forms.TableLayoutPanel()
-        Me.DGVschedule = New System.Windows.Forms.DataGridView()
+        Me.btndelete = New System.Windows.Forms.Button()
+        Me.btnselect = New System.Windows.Forms.Button()
+        Me.btnback = New System.Windows.Forms.Button()
+        Me.DGVschedules = New System.Windows.Forms.DataGridView()
         Me.sched_code = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.subject = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.course = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.section = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.room_code = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.room_name = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.room = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.s_day = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.s_date = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.time_in = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.time_out = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.btnback = New System.Windows.Forms.Button()
-        Me.btnselect = New System.Windows.Forms.Button()
-        Me.btndelete = New System.Windows.Forms.Button()
         Me.TableLayoutPanel5.SuspendLayout()
         Me.TableLayoutPanel6.SuspendLayout()
         Me.TableLayoutPanel8.SuspendLayout()
         Me.TableLayoutPanel9.SuspendLayout()
         Me.TableLayoutPanel7.SuspendLayout()
         Me.TableLayoutPanel11.SuspendLayout()
-        CType(Me.DGVschedule, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DGVschedules, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TableLayoutPanel5
@@ -69,7 +69,7 @@ Partial Class Schedule
         Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel5.Controls.Add(Me.TableLayoutPanel6, 1, 1)
         Me.TableLayoutPanel5.Controls.Add(Me.TableLayoutPanel7, 1, 3)
-        Me.TableLayoutPanel5.Controls.Add(Me.DGVschedule, 1, 2)
+        Me.TableLayoutPanel5.Controls.Add(Me.DGVschedules, 1, 2)
         Me.TableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel5.Location = New System.Drawing.Point(0, 0)
         Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
@@ -222,15 +222,15 @@ Partial Class Schedule
         Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel7.Controls.Add(Me.TableLayoutPanel11, 0, 0)
-        Me.TableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Top
         Me.TableLayoutPanel7.Location = New System.Drawing.Point(23, 479)
         Me.TableLayoutPanel7.Name = "TableLayoutPanel7"
         Me.TableLayoutPanel7.RowCount = 1
         Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44.0!))
-        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44.0!))
-        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44.0!))
-        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44.0!))
+        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52.0!))
+        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52.0!))
+        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52.0!))
+        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52.0!))
         Me.TableLayoutPanel7.Size = New System.Drawing.Size(1010, 52)
         Me.TableLayoutPanel7.TabIndex = 1
         '
@@ -251,131 +251,18 @@ Partial Class Schedule
         Me.TableLayoutPanel11.Size = New System.Drawing.Size(1004, 46)
         Me.TableLayoutPanel11.TabIndex = 1
         '
-        'DGVschedule
+        'btndelete
         '
-        Me.DGVschedule.AllowUserToAddRows = False
-        Me.DGVschedule.AllowUserToDeleteRows = False
-        Me.DGVschedule.AllowUserToResizeColumns = False
-        Me.DGVschedule.AllowUserToResizeRows = False
-        Me.DGVschedule.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption
-        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaption
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.MidnightBlue
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.GradientInactiveCaption
-        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DGVschedule.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
-        Me.DGVschedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGVschedule.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.sched_code, Me.subject, Me.course, Me.section, Me.room_code, Me.room_name, Me.s_day, Me.s_date, Me.time_in, Me.time_out})
-        Me.DGVschedule.Cursor = System.Windows.Forms.Cursors.Default
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.MidnightBlue
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.DGVschedule.DefaultCellStyle = DataGridViewCellStyle2
-        Me.DGVschedule.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DGVschedule.GridColor = System.Drawing.SystemColors.HotTrack
-        Me.DGVschedule.Location = New System.Drawing.Point(23, 113)
-        Me.DGVschedule.MultiSelect = False
-        Me.DGVschedule.Name = "DGVschedule"
-        Me.DGVschedule.ReadOnly = True
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.MidnightBlue
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DGVschedule.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
-        Me.DGVschedule.RowHeadersWidth = 62
-        Me.DGVschedule.Size = New System.Drawing.Size(1010, 360)
-        Me.DGVschedule.TabIndex = 2
-        '
-        'sched_code
-        '
-        Me.sched_code.HeaderText = "Schedule Code"
-        Me.sched_code.Name = "sched_code"
-        Me.sched_code.ReadOnly = True
-        '
-        'subject
-        '
-        Me.subject.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.subject.HeaderText = "Subject"
-        Me.subject.Name = "subject"
-        Me.subject.ReadOnly = True
-        '
-        'course
-        '
-        Me.course.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.course.HeaderText = "Course"
-        Me.course.Name = "course"
-        Me.course.ReadOnly = True
-        '
-        'section
-        '
-        Me.section.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.section.HeaderText = "Section"
-        Me.section.Name = "section"
-        Me.section.ReadOnly = True
-        '
-        'room_code
-        '
-        Me.room_code.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.room_code.HeaderText = "Room Code"
-        Me.room_code.Name = "room_code"
-        Me.room_code.ReadOnly = True
-        '
-        'room_name
-        '
-        Me.room_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.room_name.HeaderText = "Room Name"
-        Me.room_name.Name = "room_name"
-        Me.room_name.ReadOnly = True
-        '
-        's_day
-        '
-        Me.s_day.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.s_day.HeaderText = "Day"
-        Me.s_day.Name = "s_day"
-        Me.s_day.ReadOnly = True
-        '
-        's_date
-        '
-        Me.s_date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.s_date.HeaderText = "Date"
-        Me.s_date.Name = "s_date"
-        Me.s_date.ReadOnly = True
-        '
-        'time_in
-        '
-        Me.time_in.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.time_in.HeaderText = "Time_In"
-        Me.time_in.Name = "time_in"
-        Me.time_in.ReadOnly = True
-        '
-        'time_out
-        '
-        Me.time_out.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.time_out.HeaderText = "Time_Out"
-        Me.time_out.Name = "time_out"
-        Me.time_out.ReadOnly = True
-        '
-        'btnback
-        '
-        Me.btnback.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.btnback.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btnback.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnback.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnback.Location = New System.Drawing.Point(671, 3)
-        Me.btnback.Name = "btnback"
-        Me.btnback.Size = New System.Drawing.Size(330, 40)
-        Me.btnback.TabIndex = 14
-        Me.btnback.Text = "Back"
-        Me.btnback.UseVisualStyleBackColor = False
+        Me.btndelete.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.btndelete.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btndelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btndelete.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.btndelete.Location = New System.Drawing.Point(337, 3)
+        Me.btndelete.Name = "btndelete"
+        Me.btndelete.Size = New System.Drawing.Size(328, 40)
+        Me.btndelete.TabIndex = 15
+        Me.btndelete.Text = "Delete"
+        Me.btndelete.UseVisualStyleBackColor = False
         '
         'btnselect
         '
@@ -390,18 +277,143 @@ Partial Class Schedule
         Me.btnselect.Text = "Select"
         Me.btnselect.UseVisualStyleBackColor = False
         '
-        'btndelete
+        'btnback
         '
-        Me.btndelete.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.btndelete.Dock = System.Windows.Forms.DockStyle.Top
-        Me.btndelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btndelete.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btndelete.Location = New System.Drawing.Point(337, 3)
-        Me.btndelete.Name = "btndelete"
-        Me.btndelete.Size = New System.Drawing.Size(328, 40)
-        Me.btndelete.TabIndex = 15
-        Me.btndelete.Text = "Delete"
-        Me.btndelete.UseVisualStyleBackColor = False
+        Me.btnback.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.btnback.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnback.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnback.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.btnback.Location = New System.Drawing.Point(671, 3)
+        Me.btnback.Name = "btnback"
+        Me.btnback.Size = New System.Drawing.Size(330, 40)
+        Me.btnback.TabIndex = 14
+        Me.btnback.Text = "Back"
+        Me.btnback.UseVisualStyleBackColor = False
+        '
+        'DGVschedules
+        '
+        Me.DGVschedules.AllowUserToAddRows = False
+        Me.DGVschedules.AllowUserToDeleteRows = False
+        Me.DGVschedules.AllowUserToResizeColumns = False
+        Me.DGVschedules.AllowUserToResizeRows = False
+        Me.DGVschedules.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption
+        DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ActiveCaption
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.MidnightBlue
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.GradientInactiveCaption
+        DataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DGVschedules.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        Me.DGVschedules.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DGVschedules.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.sched_code, Me.subject, Me.course, Me.section, Me.room_code, Me.room, Me.s_day, Me.s_date, Me.time_in, Me.time_out})
+        Me.DGVschedules.Cursor = System.Windows.Forms.Cursors.Default
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.MidnightBlue
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.DGVschedules.DefaultCellStyle = DataGridViewCellStyle2
+        Me.DGVschedules.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DGVschedules.GridColor = System.Drawing.SystemColors.HotTrack
+        Me.DGVschedules.Location = New System.Drawing.Point(23, 113)
+        Me.DGVschedules.MultiSelect = False
+        Me.DGVschedules.Name = "DGVschedules"
+        Me.DGVschedules.ReadOnly = True
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.MidnightBlue
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DGVschedules.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
+        Me.DGVschedules.RowHeadersWidth = 62
+        Me.DGVschedules.Size = New System.Drawing.Size(1010, 360)
+        Me.DGVschedules.TabIndex = 2
+        '
+        'sched_code
+        '
+        Me.sched_code.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.sched_code.FillWeight = 154.9795!
+        Me.sched_code.HeaderText = "Schedule Code"
+        Me.sched_code.Name = "sched_code"
+        Me.sched_code.ReadOnly = True
+        '
+        'subject
+        '
+        Me.subject.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.subject.FillWeight = 75.80521!
+        Me.subject.HeaderText = "Subject"
+        Me.subject.Name = "subject"
+        Me.subject.ReadOnly = True
+        '
+        'course
+        '
+        Me.course.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.course.FillWeight = 75.80521!
+        Me.course.HeaderText = "Course"
+        Me.course.Name = "course"
+        Me.course.ReadOnly = True
+        '
+        'section
+        '
+        Me.section.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.section.FillWeight = 75.80521!
+        Me.section.HeaderText = "Section"
+        Me.section.Name = "section"
+        Me.section.ReadOnly = True
+        '
+        'room_code
+        '
+        Me.room_code.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.room_code.FillWeight = 75.80521!
+        Me.room_code.HeaderText = "Room Code"
+        Me.room_code.Name = "room_code"
+        Me.room_code.ReadOnly = True
+        '
+        'room
+        '
+        Me.room.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.room.FillWeight = 80.0!
+        Me.room.HeaderText = "Room Name"
+        Me.room.MaxInputLength = 500000
+        Me.room.Name = "room"
+        Me.room.ReadOnly = True
+        '
+        's_day
+        '
+        Me.s_day.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.s_day.FillWeight = 75.80521!
+        Me.s_day.HeaderText = "Day"
+        Me.s_day.Name = "s_day"
+        Me.s_day.ReadOnly = True
+        '
+        's_date
+        '
+        Me.s_date.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.s_date.FillWeight = 75.80521!
+        Me.s_date.HeaderText = "Date"
+        Me.s_date.Name = "s_date"
+        Me.s_date.ReadOnly = True
+        '
+        'time_in
+        '
+        Me.time_in.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.time_in.FillWeight = 75.80521!
+        Me.time_in.HeaderText = "Time_In"
+        Me.time_in.Name = "time_in"
+        Me.time_in.ReadOnly = True
+        '
+        'time_out
+        '
+        Me.time_out.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.time_out.FillWeight = 75.80521!
+        Me.time_out.HeaderText = "Time_Out"
+        Me.time_out.Name = "time_out"
+        Me.time_out.ReadOnly = True
         '
         'Schedule
         '
@@ -424,7 +436,7 @@ Partial Class Schedule
         Me.TableLayoutPanel9.PerformLayout()
         Me.TableLayoutPanel7.ResumeLayout(False)
         Me.TableLayoutPanel11.ResumeLayout(False)
-        CType(Me.DGVschedule, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DGVschedules, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -439,20 +451,20 @@ Partial Class Schedule
     Friend WithEvents Label3 As Label
     Friend WithEvents txtsearch As TextBox
     Friend WithEvents btnsearch As Button
-    Friend WithEvents DGVschedule As DataGridView
+    Friend WithEvents DGVschedules As DataGridView
     Friend WithEvents TableLayoutPanel7 As TableLayoutPanel
     Friend WithEvents TableLayoutPanel11 As TableLayoutPanel
+    Friend WithEvents btndelete As Button
+    Friend WithEvents btnselect As Button
+    Friend WithEvents btnback As Button
     Friend WithEvents sched_code As DataGridViewTextBoxColumn
     Friend WithEvents subject As DataGridViewTextBoxColumn
     Friend WithEvents course As DataGridViewTextBoxColumn
     Friend WithEvents section As DataGridViewTextBoxColumn
     Friend WithEvents room_code As DataGridViewTextBoxColumn
-    Friend WithEvents room_name As DataGridViewTextBoxColumn
+    Friend WithEvents room As DataGridViewTextBoxColumn
     Friend WithEvents s_day As DataGridViewTextBoxColumn
     Friend WithEvents s_date As DataGridViewTextBoxColumn
     Friend WithEvents time_in As DataGridViewTextBoxColumn
     Friend WithEvents time_out As DataGridViewTextBoxColumn
-    Friend WithEvents btndelete As Button
-    Friend WithEvents btnselect As Button
-    Friend WithEvents btnback As Button
 End Class

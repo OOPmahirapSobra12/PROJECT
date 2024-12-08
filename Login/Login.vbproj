@@ -339,16 +339,16 @@
     <Compile Include="staff_feedback.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="staff_request_add.Designer.vb">
-      <DependentUpon>staff_request_add.vb</DependentUpon>
+    <Compile Include="staffschedule_request_add.Designer.vb">
+      <DependentUpon>staffschedule_request_add.vb</DependentUpon>
     </Compile>
-    <Compile Include="staff_request_add.vb">
+    <Compile Include="staffschedule_request_add.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="staff_request_modify.Designer.vb">
-      <DependentUpon>staff_request_modify.vb</DependentUpon>
+    <Compile Include="staffschedule_request_modify.Designer.vb">
+      <DependentUpon>staffschedule_request_modify.vb</DependentUpon>
     </Compile>
-    <Compile Include="staff_request_modify.vb">
+    <Compile Include="staffschedule_request_modify.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="staff_schedule.Designer.vb">
@@ -593,11 +593,11 @@
     <EmbeddedResource Include="staff_feedback.resx">
       <DependentUpon>staff_feedback.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="staff_request_add.resx">
-      <DependentUpon>staff_request_add.vb</DependentUpon>
+    <EmbeddedResource Include="staffschedule_request_add.resx">
+      <DependentUpon>staffschedule_request_add.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="staff_request_modify.resx">
-      <DependentUpon>staff_request_modify.vb</DependentUpon>
+    <EmbeddedResource Include="staffschedule_request_modify.resx">
+      <DependentUpon>staffschedule_request_modify.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="staff_schedule.resx">
       <DependentUpon>staff_schedule.vb</DependentUpon>

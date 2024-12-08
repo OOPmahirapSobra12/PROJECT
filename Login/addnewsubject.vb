@@ -5,9 +5,10 @@ Imports System.Data
 Public Class addnewsubject
     ' Flag to determine if we are adding or modifying a subject
     Public isModify As Boolean
-    Private currentSubject As String = String.Empty
-    Private currentCourse As String = String.Empty
-    Private currentSection As String = String.Empty
+    Public subject As String
+    Public course As String
+    Public section As String
+    Public subject_id As String
 
     ' Form load event: Initializes the form
     Public Sub addnewsubject_load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -21,7 +22,7 @@ Public Class addnewsubject
 
         ' If modifying, populate the textbox with the current subject name
         If isModify = True Then
-            txtsubject.Text = currentSubject
+            txtsubject.Text = subject
             btnAdd.Text = "Update"  ' Change button text to "Update"
 
             ' After populating ComboBoxes, select the corresponding course and section
@@ -44,12 +45,6 @@ Public Class addnewsubject
             Return
         End If
 
-        ' Check if the modified subject name already exists in the database
-        If SubjectExists(txtsubject.Text.Trim()) AndAlso txtsubject.Text.Trim() <> currentSubject Then
-            MessageBox.Show("This subject already exists in the database.", "Duplicate Subject", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Return
-        End If
-
         ' Validate if a course and section are selected
         If cbocourse.SelectedIndex = -1 Then
             MessageBox.Show("Please select a course.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -62,14 +57,14 @@ Public Class addnewsubject
         End If
 
         ' SQL query to update the subject details
-        Dim updateQuery As String = "UPDATE listofsubjects SET subject_name = @new_subject_name, course_name = @new_course_name, sections = @new_section WHERE subject_name = @current_subject_name"
+        Dim updateQuery As String = "UPDATE listofsubjects SET subject_name = @new_subject_name, course_name = @new_course_name, sections = @new_section WHERE subject_id = @subject_id"
 
         ' Create and configure the command
         Dim updateCommand As New MySqlCommand(updateQuery, conn)
         updateCommand.Parameters.AddWithValue("@new_subject_name", txtsubject.Text.Trim())
         updateCommand.Parameters.AddWithValue("@new_course_name", cbocourse.SelectedItem.ToString())
         updateCommand.Parameters.AddWithValue("@new_section", cbosection.SelectedItem.ToString())
-        updateCommand.Parameters.AddWithValue("@current_subject_name", currentSubject)
+        updateCommand.Parameters.AddWithValue("@subject_id", subject_id)
 
         Try
             ' Open the connection if it's not already open
@@ -249,36 +244,28 @@ Public Class addnewsubject
         End Try
     End Sub
 
-    ' Method to initialize the form for modification
-    Public Sub InitializeForModify(subject As String, course As String, section As String)
-        ' Set the current subject, course, and section to the respective fields
-        currentSubject = subject
-        currentCourse = course
-        currentSection = section
-
-        ' Set the modify flag and change the button text
-        isModify = True
-        btnAdd.Text = "Update" ' Change button text to "Update"
-    End Sub
-
     ' Select the correct course and section based on the passed values
     Private Sub SelectCorrectComboBoxData()
         ' Select course in ComboBox
-        If cbocourse.Items.Contains(currentCourse) Then
-            cbocourse.SelectedItem = currentCourse
+        If cbocourse.Items.Contains(course) Then
+            cbocourse.SelectedItem = course
         End If
 
         ' Populate sections based on the selected course
-        PopulateSectionComboBox(currentCourse)
+        PopulateSectionComboBox(course)
 
         ' Select section in ComboBox
-        If cbosection.Items.Contains(currentSection) Then
-            cbosection.SelectedItem = currentSection
+        If cbosection.Items.Contains(section) Then
+            cbosection.SelectedItem = section
         End If
     End Sub
 
     ' Event handler for the "Back" button
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnback.Click
+        subject_id = ""
+        subject = ""
+        course = ""
+        section = ""
         Me.Close()
         isModify = Nothing
     End Sub

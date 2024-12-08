@@ -71,7 +71,7 @@ Partial Class FeedbackReport_RoomSelection
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.22222!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 81.77778!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(750, 450)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(950, 550)
         Me.TableLayoutPanel1.TabIndex = 107
         '
         'TableLayoutPanel5
@@ -88,7 +88,7 @@ Partial Class FeedbackReport_RoomSelection
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 31.39535!))
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 68.60465!))
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8.0!))
-        Me.TableLayoutPanel5.Size = New System.Drawing.Size(744, 75)
+        Me.TableLayoutPanel5.Size = New System.Drawing.Size(944, 94)
         Me.TableLayoutPanel5.TabIndex = 3
         '
         'txttitle
@@ -97,9 +97,9 @@ Partial Class FeedbackReport_RoomSelection
         Me.txttitle.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txttitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txttitle.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.txttitle.Location = New System.Drawing.Point(151, 21)
+        Me.txttitle.Location = New System.Drawing.Point(191, 27)
         Me.txttitle.Name = "txttitle"
-        Me.txttitle.Size = New System.Drawing.Size(440, 45)
+        Me.txttitle.Size = New System.Drawing.Size(560, 59)
         Me.txttitle.TabIndex = 97
         Me.txttitle.Text = "Room List"
         Me.txttitle.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -112,14 +112,14 @@ Partial Class FeedbackReport_RoomSelection
         Me.TableLayoutPanel2.Controls.Add(Me.TableLayoutPanel3, 0, 2)
         Me.TableLayoutPanel2.Controls.Add(Me.TableLayoutPanel4, 0, 1)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(3, 84)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(3, 103)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 4
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.84573!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 73.27824!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.57025!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.030303!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(744, 363)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(944, 444)
         Me.TableLayoutPanel2.TabIndex = 4
         '
         'TableLayoutPanel9
@@ -139,8 +139,8 @@ Partial Class FeedbackReport_RoomSelection
         Me.TableLayoutPanel9.Location = New System.Drawing.Point(3, 3)
         Me.TableLayoutPanel9.Name = "TableLayoutPanel9"
         Me.TableLayoutPanel9.RowCount = 1
-        Me.TableLayoutPanel9.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37.0!))
-        Me.TableLayoutPanel9.Size = New System.Drawing.Size(738, 37)
+        Me.TableLayoutPanel9.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46.0!))
+        Me.TableLayoutPanel9.Size = New System.Drawing.Size(938, 46)
         Me.TableLayoutPanel9.TabIndex = 98
         '
         'Label2
@@ -151,7 +151,7 @@ Partial Class FeedbackReport_RoomSelection
         Me.Label2.ForeColor = System.Drawing.Color.MidnightBlue
         Me.Label2.Location = New System.Drawing.Point(3, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(160, 37)
+        Me.Label2.Size = New System.Drawing.Size(205, 46)
         Me.Label2.TabIndex = 8
         Me.Label2.Text = "Search for :"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -164,9 +164,9 @@ Partial Class FeedbackReport_RoomSelection
         Me.cboType.ForeColor = System.Drawing.Color.MidnightBlue
         Me.cboType.FormattingEnabled = True
         Me.cboType.Items.AddRange(New Object() {"Choose", "Room Code", "Room Name", "Building", "Availability", "Chair #", "Computer #", "Laptop #"})
-        Me.cboType.Location = New System.Drawing.Point(169, 3)
+        Me.cboType.Location = New System.Drawing.Point(214, 3)
         Me.cboType.Name = "cboType"
-        Me.cboType.Size = New System.Drawing.Size(149, 33)
+        Me.cboType.Size = New System.Drawing.Size(191, 33)
         Me.cboType.TabIndex = 9
         '
         'Label3
@@ -175,9 +175,9 @@ Partial Class FeedbackReport_RoomSelection
         Me.Label3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.Label3.Location = New System.Drawing.Point(324, 0)
+        Me.Label3.Location = New System.Drawing.Point(411, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(102, 37)
+        Me.Label3.Size = New System.Drawing.Size(131, 46)
         Me.Label3.TabIndex = 10
         Me.Label3.Text = "SEARCH:"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -188,9 +188,9 @@ Partial Class FeedbackReport_RoomSelection
         Me.txtsearch.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtsearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtsearch.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.txtsearch.Location = New System.Drawing.Point(432, 3)
+        Me.txtsearch.Location = New System.Drawing.Point(548, 3)
         Me.txtsearch.Name = "txtsearch"
-        Me.txtsearch.Size = New System.Drawing.Size(205, 31)
+        Me.txtsearch.Size = New System.Drawing.Size(263, 31)
         Me.txtsearch.TabIndex = 11
         '
         'btnsearch
@@ -199,9 +199,9 @@ Partial Class FeedbackReport_RoomSelection
         Me.btnsearch.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnsearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnsearch.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnsearch.Location = New System.Drawing.Point(643, 3)
+        Me.btnsearch.Location = New System.Drawing.Point(817, 3)
         Me.btnsearch.Name = "btnsearch"
-        Me.btnsearch.Size = New System.Drawing.Size(92, 31)
+        Me.btnsearch.Size = New System.Drawing.Size(118, 40)
         Me.btnsearch.TabIndex = 12
         Me.btnsearch.Text = "Search"
         Me.btnsearch.UseVisualStyleBackColor = False
@@ -215,11 +215,11 @@ Partial Class FeedbackReport_RoomSelection
         Me.TableLayoutPanel3.Controls.Add(Me.btnback, 0, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.btnselect, 2, 0)
         Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel3.Location = New System.Drawing.Point(3, 312)
+        Me.TableLayoutPanel3.Location = New System.Drawing.Point(3, 381)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
         Me.TableLayoutPanel3.RowCount = 1
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(738, 36)
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(938, 45)
         Me.TableLayoutPanel3.TabIndex = 99
         '
         'btnback
@@ -232,7 +232,7 @@ Partial Class FeedbackReport_RoomSelection
         Me.btnback.ForeColor = System.Drawing.Color.MidnightBlue
         Me.btnback.Location = New System.Drawing.Point(3, 3)
         Me.btnback.Name = "btnback"
-        Me.btnback.Size = New System.Drawing.Size(184, 30)
+        Me.btnback.Size = New System.Drawing.Size(236, 39)
         Me.btnback.TabIndex = 99
         Me.btnback.Text = "Back"
         Me.btnback.UseVisualStyleBackColor = False
@@ -245,9 +245,9 @@ Partial Class FeedbackReport_RoomSelection
         Me.btnselect.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnselect.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnselect.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnselect.Location = New System.Drawing.Point(568, 3)
+        Me.btnselect.Location = New System.Drawing.Point(722, 3)
         Me.btnselect.Name = "btnselect"
-        Me.btnselect.Size = New System.Drawing.Size(167, 30)
+        Me.btnselect.Size = New System.Drawing.Size(213, 39)
         Me.btnselect.TabIndex = 98
         Me.btnselect.Text = "Select"
         Me.btnselect.UseVisualStyleBackColor = False
@@ -258,12 +258,12 @@ Partial Class FeedbackReport_RoomSelection
         Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel4.Controls.Add(Me.DGVroomlist, 0, 0)
         Me.TableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel4.Location = New System.Drawing.Point(3, 46)
+        Me.TableLayoutPanel4.Location = New System.Drawing.Point(3, 55)
         Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
         Me.TableLayoutPanel4.RowCount = 1
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 260.0!))
-        Me.TableLayoutPanel4.Size = New System.Drawing.Size(738, 260)
+        Me.TableLayoutPanel4.Size = New System.Drawing.Size(938, 320)
         Me.TableLayoutPanel4.TabIndex = 100
         '
         'DGVroomlist
@@ -306,7 +306,7 @@ Partial Class FeedbackReport_RoomSelection
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DGVroomlist.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.DGVroomlist.RowHeadersWidth = 62
-        Me.DGVroomlist.Size = New System.Drawing.Size(732, 254)
+        Me.DGVroomlist.Size = New System.Drawing.Size(932, 314)
         Me.DGVroomlist.TabIndex = 4
         '
         'room_code
@@ -365,10 +365,11 @@ Partial Class FeedbackReport_RoomSelection
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.BackgroundImage = Global.Login.My.Resources.Resources._467460386_1064088022134846_6079649981189841706_n
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(750, 450)
+        Me.ClientSize = New System.Drawing.Size(950, 550)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "FeedbackReport_RoomSelection"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Staff_report"
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel5.ResumeLayout(False)

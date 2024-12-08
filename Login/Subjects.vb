@@ -3,6 +3,7 @@ Imports System.Windows.Forms
 Imports System.Data
 
 Public Class Subjects
+    Dim sb_id As String
     ' Assuming you have a DataGridView named DGVsubjects and a TextBox named txtsearch
     ' Load the subjects when the form loads
     Public Sub subjects_load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -16,45 +17,41 @@ Public Class Subjects
     ' Method to load subjects into the DataGridView
     Private Sub tableloader()
         ' SQL query to fetch all subject details including course name and section
-        Dim sqlQuery As String = "SELECT subject_name, sections, course_name FROM listofsubjects;"
+        Dim sqlQuery As String = "SELECT subject_id, subject_name, sections, course_name FROM listofsubjects;"
 
         ' Create a new DataAdapter and DataTable
         Dim dataAdapter As New MySqlDataAdapter(sqlQuery, conn)
         Dim dataTable As New DataTable()
 
         Try
-            ' Open the connection if it's not already open
+            ' Open the database connection
             If conn.State <> ConnectionState.Open Then
                 conn.Open()
             End If
 
-            ' Fill the DataTable with data from the database
+            ' Load data into the DataTable
             dataAdapter.Fill(dataTable)
 
             ' Bind the DataTable to the DataGridView
-            DGVsubjects.AutoGenerateColumns = True
+            DGVsubjects.AutoGenerateColumns = False
             DGVsubjects.DataSource = dataTable
 
-            ' Set DataGridView column headers
-            DGVsubjects.Columns("subject_name").HeaderText = "Subject Name"
-            DGVsubjects.Columns("sections").HeaderText = "Section"
-            DGVsubjects.Columns("course_name").HeaderText = "Course Name"
-
-            ' Additional configuration (optional)
-            DGVsubjects.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-            DGVsubjects.ReadOnly = True
-            DGVsubjects.AllowUserToAddRows = False
+            ' Map DataGridView columns to data source fields
+            DGVsubjects.Columns("subject").DataPropertyName = "subject_name"
+            DGVsubjects.Columns("s_course").DataPropertyName = "course_name"
+            DGVsubjects.Columns("s_section").DataPropertyName = "sections"
+            DGVsubjects.Columns("s_ID").DataPropertyName = "subject_id"
 
         Catch ex As Exception
-            ' Handle any errors that occur during data loading
-            MessageBox.Show("Error loading subjects: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Error loading room data: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
-            ' Ensure the connection is closed
+            ' Always close the connection
             If conn.State = ConnectionState.Open Then
                 conn.Close()
             End If
         End Try
     End Sub
+
 
     ' Search functionality to filter subjects by name
     Private Sub btnsearch_Click(sender As Object, e As EventArgs) Handles btnsearch.Click
@@ -166,15 +163,13 @@ Public Class Subjects
             Dim selectedRow As DataGridViewRow = DGVsubjects.SelectedRows(0)
 
             ' Get the subject name, course, and section from the selected row
-            Dim subjectName As String = selectedRow.Cells("subject_name").Value.ToString()
-            Dim courseName As String = selectedRow.Cells("course_name").Value.ToString() ' Assuming you have a column named "course_name"
-            Dim sectionName As String = selectedRow.Cells("section").Value.ToString() ' Assuming you have a column named "section"
+            addnewsubject.subject = selectedRow.Cells("subject").Value.ToString()
+            addnewsubject.course = selectedRow.Cells("s_course").Value.ToString() ' Assuming you have a column named "course_name"
+            addnewsubject.section = selectedRow.Cells("s_section").Value.ToString() ' Assuming you have a column named "section"
+            addnewsubject.subject_id = selectedRow.Cells("s_ID").Value.ToString()
 
-            ' Pass the subject, course, and section to the addnewsubject form for modification
-            Dim modifySubjectForm As New addnewsubject()
-            modifySubjectForm.InitializeForModify(subjectName, courseName, sectionName) ' Initialize for modification with all required values
-            modifySubjectForm.isModify = True
-            modifySubjectForm.Show()
+            addnewsubject.isModify = True
+            addnewsubject.Show()
         Else
             ' Display a message if no row is selected
             MessageBox.Show("Please select a subject to modify.", "Selection Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)

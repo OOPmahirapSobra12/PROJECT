@@ -26,17 +26,41 @@ Public Class staff_schedule
     ' Load schedule data into DataGridView
     Public Sub loadtable()
         ' SQL query to load data from both `sched` and `schedtemp` tables
-        Dim sqlQuery As String = "SELECT sched.shed_id, sched.room_code, NULL AS room_date, " &
-                                 "sched.room_day, sched.room_time_in, sched.room_time_out, " &
-                                 "sched.course_name, sched.sections, listofsubjects.subject_name " &
-                                 "FROM sched " &
-                                 "JOIN listofsubjects ON sched.subject_code = listofsubjects.subject_code " &
-                                 "UNION ALL " &
-                                 "SELECT schedtemp.shed_id, schedtemp.room_code, schedtemp.room_date, " &
-                                 "NULL AS room_day, schedtemp.room_time_in, schedtemp.room_time_out, " &
-                                 "schedtemp.course_name, schedtemp.sections, listofsubjects.subject_name " &
-                                 "FROM schedtemp " &
-                                 "JOIN listofsubjects ON schedtemp.subject_code = listofsubjects.subject_code"
+        Dim sqlQuery As String = "SELECT 
+                                    sched.shed_id, 
+                                    sched.room_code, 
+                                    roomlist.room_name, 
+                                    NULL AS room_date, 
+                                    sched.room_day, 
+                                    sched.room_time_in, 
+                                    sched.room_time_out, 
+                                    sched.course_name, 
+                                    sched.sections, 
+                                    listofsubjects.subject_name
+                                FROM 
+                                    sched
+                                JOIN 
+                                    listofsubjects ON sched.subject_name = listofsubjects.subject_name
+                                JOIN 
+                                    roomlist ON sched.room_code = roomlist.room_code
+                                UNION ALL
+                                SELECT 
+                                    schedtemp.shed_id, 
+                                    schedtemp.room_code, 
+                                    roomlist.room_name, 
+                                    schedtemp.room_date, 
+                                    NULL AS room_day, 
+                                    schedtemp.room_time_in, 
+                                    schedtemp.room_time_out, 
+                                    schedtemp.course_name, 
+                                    schedtemp.sections, 
+                                    listofsubjects.subject_name
+                                FROM 
+                                    schedtemp
+                                JOIN 
+                                    listofsubjects ON schedtemp.subject_name = listofsubjects.subject_name
+                                JOIN 
+                                    roomlist ON schedtemp.room_code = roomlist.room_code;"
 
         Dim dataAdapter As New MySqlDataAdapter(sqlQuery, conn)
         Dim dataTable As New DataTable()
@@ -107,7 +131,7 @@ Public Class staff_schedule
             {"Schedule Code", "shed_id"},
             {"Room Code", "room_code"},
             {"Room Name", "room_name"},
-            {"Subject", "subject_code"},
+            {"Subject", "subject_name"},
             {"Course", "course_name"},
             {"Section", "sections"},
             {"Day", "room_day"},
@@ -122,18 +146,35 @@ Public Class staff_schedule
         End If
 
         ' Construct SQL query with search filter
-        Dim sqlQuery As String = "SELECT sched.shed_id, sched.room_code, roomlist.room_name, sched.room_day, " &
-                                 "sched.room_time_in, sched.room_time_out, NULL AS room_date, sched.subject_code, " &
-                                 "sched.course_name, sched.sections " &
-                                 "FROM sched " &
-                                 "JOIN roomlist ON sched.room_code = roomlist.room_code " &
-                                 "UNION ALL " &
-                                 "SELECT schedtemp.shed_id, schedtemp.room_code, roomlist.room_name, NULL AS room_day, " &
-                                 "schedtemp.room_time_in, schedtemp.room_time_out, schedtemp.room_date, schedtemp.subject_code, " &
-                                 "schedtemp.course_name, schedtemp.sections " &
-                                 "FROM schedtemp " &
-                                 "JOIN roomlist ON schedtemp.room_code = roomlist.room_code " &
-                                 $"WHERE {columnMap(selectedCategory)} LIKE @searchTerm"
+        Dim sqlQuery As String = "SELECT 
+                                    sched.shed_id, 
+                                    sched.room_code, 
+                                    roomlist.room_name, 
+                                    sched.room_day, " &
+                                    "sched.room_time_in, 
+                                    sched.room_time_out, 
+                                    NULL AS room_date, 
+                                    sched.subject_name, " &
+                                    "sched.course_name, 
+                                    sched.sections " &
+                                "FROM sched " &
+                                "JOIN roomlist ON sched.room_code = roomlist.room_code " &
+                                "WHERE " & columnMap(selectedCategory) & " LIKE @searchTerm " &
+                                "UNION ALL " &
+                                "SELECT 
+                                    schedtemp.shed_id, 
+                                    schedtemp.room_code, 
+                                    roomlist.room_name, 
+                                    NULL AS room_day, " &
+                                    "schedtemp.room_time_in, 
+                                    schedtemp.room_time_out, 
+                                    schedtemp.room_date, 
+                                    schedtemp.subject_name, " &
+                                    "schedtemp.course_name, 
+                                    schedtemp.sections " &
+                                "FROM schedtemp " &
+                                "JOIN roomlist ON schedtemp.room_code = roomlist.room_code " &
+                                "WHERE " & columnMap(selectedCategory) & " LIKE @searchTerm;"
 
         Dim dataAdapter As New MySqlDataAdapter(sqlQuery, conn)
         dataAdapter.SelectCommand.Parameters.AddWithValue("@searchTerm", "%" & searchTerm & "%")

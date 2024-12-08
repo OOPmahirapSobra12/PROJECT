@@ -62,11 +62,9 @@ Public Class admin_feedback
             ' Get the ID of the selected row
             Dim id As String = DGVfeedback.SelectedRows(0).Cells("FeedbackID").Value.ToString()
 
-            ' Open the ViewFeedbackReport form and pass the ID
-            Dim viewForm As New viewreportfeedback()
-            M_ID = id
-            type = "feedback"
-            viewForm.Show()
+            viewreportfeedback.M_ID = id
+            viewreportfeedback.type = "feedback"
+            viewreportfeedback.Show()
         Catch ex As Exception
             MessageBox.Show("Error retrieving feedback record: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
@@ -86,7 +84,7 @@ Public Class admin_feedback
             ' Confirm deletion
             If MessageBox.Show($"Are you sure you want to delete feedback ID {id}?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = DialogResult.Yes Then
                 ' Execute the delete query
-                Dim query As String = "DELETE FROM feedback WHERE ID = @id"
+                Dim query As String = "DELETE FROM feedback WHERE feedbackid = @id"
                 Using command As New MySqlCommand(query, conn)
                     command.Parameters.AddWithValue("@id", id)
                     If conn.State = ConnectionState.Closed Then
@@ -190,12 +188,12 @@ Public Class admin_feedback
     End Sub
 
     Private Sub btnback_Click(sender As Object, e As EventArgs) Handles btnback.Click
-        Admin.Show()
+        AdminPage3.Show()
         Me.Hide()
     End Sub
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         FeedbackReport_RoomSelection.Show()
-        type = "feedback"
+        FeedbackReport_sender.type = "feedback"
     End Sub
 End Class

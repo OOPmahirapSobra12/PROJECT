@@ -16,11 +16,11 @@ Public Class adminreport
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
         FeedbackReport_RoomSelection.Show()
-        type = "report"
+        FeedbackReport_sender.type = "report"
     End Sub
 
     Private Sub btnback_Click(sender As Object, e As EventArgs) Handles btnback.Click
-        Admin.Show()
+        AdminPage3.Show()
         Me.Hide()
     End Sub
 
@@ -95,11 +95,9 @@ Public Class adminreport
             ' Get the ID of the selected row
             Dim id As String = DGVreport.SelectedRows(0).Cells("FeedbackID").Value.ToString()
 
-            ' Open the ViewFeedbackReport form and pass the ID
-            Dim viewForm As New viewreportfeedback()
-            M_ID = id
-            type = "report"
-            viewForm.Show()
+            viewreportfeedback.M_ID = id
+            viewreportfeedback.type = "report"
+            viewreportfeedback.Show()
         Catch ex As Exception
             MessageBox.Show("Error retrieving feedback record: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
@@ -122,7 +120,7 @@ Public Class adminreport
         End If
 
         ' Define the SQL query for deleting the report
-        Dim sqlDeleteReport As String = "DELETE FROM report WHERE report_id = @report_id"
+        Dim sqlDeleteReport As String = "DELETE FROM report WHERE reportid = @report_id"
 
         ' Create the command for deleting the report
         Dim command As New MySqlCommand(sqlDeleteReport, conn)

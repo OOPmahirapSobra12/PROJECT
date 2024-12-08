@@ -24,7 +24,6 @@ Partial Class Courses
     Private Sub InitializeComponent()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
         Me.DGVcourses = New System.Windows.Forms.DataGridView()
-        Me.course = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtsearch = New System.Windows.Forms.TextBox()
@@ -35,6 +34,8 @@ Partial Class Courses
         Me.btnmodify = New System.Windows.Forms.Button()
         Me.btnback = New System.Windows.Forms.Button()
         Me.btndelete = New System.Windows.Forms.Button()
+        Me.c_id = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.course = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TableLayoutPanel3.SuspendLayout()
         CType(Me.DGVcourses, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel4.SuspendLayout()
@@ -72,7 +73,7 @@ Partial Class Courses
         Me.DGVcourses.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.DGVcourses.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken
         Me.DGVcourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGVcourses.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.course})
+        Me.DGVcourses.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.c_id, Me.course})
         Me.DGVcourses.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DGVcourses.GridColor = System.Drawing.SystemColors.HotTrack
         Me.DGVcourses.Location = New System.Drawing.Point(23, 121)
@@ -80,13 +81,6 @@ Partial Class Courses
         Me.DGVcourses.ReadOnly = True
         Me.DGVcourses.Size = New System.Drawing.Size(754, 258)
         Me.DGVcourses.TabIndex = 89
-        '
-        'course
-        '
-        Me.course.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.course.HeaderText = "Course"
-        Me.course.Name = "course"
-        Me.course.ReadOnly = True
         '
         'TableLayoutPanel4
         '
@@ -242,6 +236,23 @@ Partial Class Courses
         Me.btndelete.Text = "Delete"
         Me.btndelete.UseVisualStyleBackColor = False
         '
+        'c_id
+        '
+        Me.c_id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        Me.c_id.HeaderText = "Course ID"
+        Me.c_id.Name = "c_id"
+        Me.c_id.ReadOnly = True
+        Me.c_id.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.c_id.Width = 79
+        '
+        'course
+        '
+        Me.course.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.course.HeaderText = "Course"
+        Me.course.Name = "course"
+        Me.course.ReadOnly = True
+        Me.course.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        '
         'Courses
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -277,5 +288,6 @@ Partial Class Courses
     Friend WithEvents btnback As Button
     Friend WithEvents btndelete As Button
     Friend WithEvents Label1 As Label
+    Friend WithEvents c_id As DataGridViewTextBoxColumn
     Friend WithEvents course As DataGridViewTextBoxColumn
 End Class

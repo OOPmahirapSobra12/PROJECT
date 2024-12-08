@@ -411,6 +411,7 @@ Partial Class staff_request_modify
         Me.Controls.Add(Me.TableLayoutPanel7)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "staff_request_modify"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "staff_request_modify"
         Me.TableLayoutPanel7.ResumeLayout(False)
         Me.TableLayoutPanel11.ResumeLayout(False)

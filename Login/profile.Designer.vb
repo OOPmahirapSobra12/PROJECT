@@ -444,7 +444,7 @@ Partial Class Profile
         Me.PBpic.TabIndex = 93
         Me.PBpic.TabStop = False
         '
-        'profile
+        'Profile
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -453,7 +453,7 @@ Partial Class Profile
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "profile"
+        Me.Name = "Profile"
         Me.Text = "Form1"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.TableLayoutPanel1.ResumeLayout(False)

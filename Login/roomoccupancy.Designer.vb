@@ -30,7 +30,6 @@ Partial Class roomoccupancy
         Me.txtID = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.btnconfirm = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -55,7 +54,7 @@ Partial Class roomoccupancy
         Me.cboChoose.Items.AddRange(New Object() {"Choose:", "Room Code", "Room Name"})
         Me.cboChoose.Location = New System.Drawing.Point(3, 71)
         Me.cboChoose.Name = "cboChoose"
-        Me.cboChoose.Size = New System.Drawing.Size(120, 32)
+        Me.cboChoose.Size = New System.Drawing.Size(147, 32)
         Me.cboChoose.TabIndex = 106
         '
         'btnback
@@ -67,7 +66,7 @@ Partial Class roomoccupancy
         Me.btnback.ForeColor = System.Drawing.Color.MidnightBlue
         Me.btnback.Location = New System.Drawing.Point(3, 104)
         Me.btnback.Name = "btnback"
-        Me.btnback.Size = New System.Drawing.Size(120, 34)
+        Me.btnback.Size = New System.Drawing.Size(147, 34)
         Me.btnback.TabIndex = 105
         Me.btnback.Text = "Back"
         Me.btnback.UseVisualStyleBackColor = False
@@ -81,7 +80,7 @@ Partial Class roomoccupancy
         Me.btnClear.ForeColor = System.Drawing.Color.MidnightBlue
         Me.btnClear.Location = New System.Drawing.Point(3, 14)
         Me.btnClear.Name = "btnClear"
-        Me.btnClear.Size = New System.Drawing.Size(127, 32)
+        Me.btnClear.Size = New System.Drawing.Size(86, 32)
         Me.btnClear.TabIndex = 104
         Me.btnClear.Text = "Clear"
         Me.btnClear.UseVisualStyleBackColor = False
@@ -93,9 +92,9 @@ Partial Class roomoccupancy
         Me.btnregister.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnregister.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnregister.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnregister.Location = New System.Drawing.Point(129, 104)
+        Me.btnregister.Location = New System.Drawing.Point(156, 104)
         Me.btnregister.Name = "btnregister"
-        Me.btnregister.Size = New System.Drawing.Size(214, 34)
+        Me.btnregister.Size = New System.Drawing.Size(228, 34)
         Me.btnregister.TabIndex = 103
         Me.btnregister.Text = "Register"
         Me.btnregister.UseVisualStyleBackColor = False
@@ -106,9 +105,9 @@ Partial Class roomoccupancy
         Me.txtpassword.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtpassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtpassword.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.txtpassword.Location = New System.Drawing.Point(129, 37)
+        Me.txtpassword.Location = New System.Drawing.Point(156, 37)
         Me.txtpassword.Name = "txtpassword"
-        Me.txtpassword.Size = New System.Drawing.Size(214, 29)
+        Me.txtpassword.Size = New System.Drawing.Size(228, 29)
         Me.txtpassword.TabIndex = 102
         '
         'txtID
@@ -117,10 +116,10 @@ Partial Class roomoccupancy
         Me.txtID.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtID.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtID.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.txtID.Location = New System.Drawing.Point(129, 3)
+        Me.txtID.Location = New System.Drawing.Point(156, 3)
         Me.txtID.Name = "txtID"
         Me.txtID.ReadOnly = True
-        Me.txtID.Size = New System.Drawing.Size(214, 29)
+        Me.txtID.Size = New System.Drawing.Size(228, 29)
         Me.txtID.TabIndex = 101
         '
         'Label4
@@ -134,7 +133,7 @@ Partial Class roomoccupancy
         Me.Label4.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Label4.Location = New System.Drawing.Point(3, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(120, 34)
+        Me.Label4.Size = New System.Drawing.Size(147, 34)
         Me.Label4.TabIndex = 100
         Me.Label4.Text = "Account ID:"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -150,24 +149,10 @@ Partial Class roomoccupancy
         Me.Label2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Label2.Location = New System.Drawing.Point(3, 34)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(120, 34)
+        Me.Label2.Size = New System.Drawing.Size(147, 34)
         Me.Label2.TabIndex = 99
         Me.Label2.Text = "Password:"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.TopRight
-        '
-        'btnconfirm
-        '
-        Me.btnconfirm.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.btnconfirm.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnconfirm.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnconfirm.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnconfirm.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnconfirm.Location = New System.Drawing.Point(3, 67)
-        Me.btnconfirm.Name = "btnconfirm"
-        Me.btnconfirm.Size = New System.Drawing.Size(127, 31)
-        Me.btnconfirm.TabIndex = 98
-        Me.btnconfirm.Text = "Confirm"
-        Me.btnconfirm.UseVisualStyleBackColor = False
         '
         'TableLayoutPanel1
         '
@@ -220,8 +205,8 @@ Partial Class roomoccupancy
         'TableLayoutPanel3
         '
         Me.TableLayoutPanel3.ColumnCount = 2
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.69043!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.30957!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80.04073!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.95927!))
         Me.TableLayoutPanel3.Controls.Add(Me.TableLayoutPanel4, 0, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.TableLayoutPanel5, 1, 0)
         Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
@@ -235,8 +220,8 @@ Partial Class roomoccupancy
         'TableLayoutPanel4
         '
         Me.TableLayoutPanel4.ColumnCount = 2
-        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.7052!))
-        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.2948!))
+        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.79328!))
+        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.20672!))
         Me.TableLayoutPanel4.Controls.Add(Me.btnregister, 1, 3)
         Me.TableLayoutPanel4.Controls.Add(Me.cboChoose, 0, 2)
         Me.TableLayoutPanel4.Controls.Add(Me.Label4, 0, 0)
@@ -254,7 +239,7 @@ Partial Class roomoccupancy
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.47826!))
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.28261!))
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.82609!))
-        Me.TableLayoutPanel4.Size = New System.Drawing.Size(346, 183)
+        Me.TableLayoutPanel4.Size = New System.Drawing.Size(387, 183)
         Me.TableLayoutPanel4.TabIndex = 0
         '
         'cbocodeorname
@@ -264,9 +249,9 @@ Partial Class roomoccupancy
         Me.cbocodeorname.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!)
         Me.cbocodeorname.ForeColor = System.Drawing.Color.MidnightBlue
         Me.cbocodeorname.FormattingEnabled = True
-        Me.cbocodeorname.Location = New System.Drawing.Point(129, 71)
+        Me.cbocodeorname.Location = New System.Drawing.Point(156, 71)
         Me.cbocodeorname.Name = "cbocodeorname"
-        Me.cbocodeorname.Size = New System.Drawing.Size(214, 32)
+        Me.cbocodeorname.Size = New System.Drawing.Size(228, 32)
         Me.cbocodeorname.TabIndex = 107
         '
         'TableLayoutPanel5
@@ -274,9 +259,8 @@ Partial Class roomoccupancy
         Me.TableLayoutPanel5.ColumnCount = 1
         Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel5.Controls.Add(Me.btnClear, 0, 1)
-        Me.TableLayoutPanel5.Controls.Add(Me.btnconfirm, 0, 3)
         Me.TableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel5.Location = New System.Drawing.Point(355, 3)
+        Me.TableLayoutPanel5.Location = New System.Drawing.Point(396, 3)
         Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
         Me.TableLayoutPanel5.RowCount = 5
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.978261!))
@@ -284,7 +268,7 @@ Partial Class roomoccupancy
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.152174!))
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.65217!))
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 43.47826!))
-        Me.TableLayoutPanel5.Size = New System.Drawing.Size(133, 183)
+        Me.TableLayoutPanel5.Size = New System.Drawing.Size(92, 183)
         Me.TableLayoutPanel5.TabIndex = 1
         '
         'roomoccupancy
@@ -297,6 +281,7 @@ Partial Class roomoccupancy
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "roomoccupancy"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "roomoccupancy"
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel2.ResumeLayout(False)
@@ -317,7 +302,6 @@ Partial Class roomoccupancy
     Friend WithEvents txtID As TextBox
     Friend WithEvents Label4 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents btnconfirm As Button
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
     Friend WithEvents TableLayoutPanel3 As TableLayoutPanel

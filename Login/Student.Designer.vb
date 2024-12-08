@@ -37,7 +37,6 @@ Partial Class Student
         Me.btnlogout = New System.Windows.Forms.Button()
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
         Me.btnfeedback = New System.Windows.Forms.Button()
-        Me.btnreport = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
         CType(Me.DGVrooms, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -226,10 +225,8 @@ Partial Class Student
         '
         'TableLayoutPanel4
         '
-        Me.TableLayoutPanel4.ColumnCount = 2
+        Me.TableLayoutPanel4.ColumnCount = 1
         Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel4.Controls.Add(Me.btnreport, 0, 0)
         Me.TableLayoutPanel4.Controls.Add(Me.btnfeedback, 0, 0)
         Me.TableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel4.Location = New System.Drawing.Point(3, 341)
@@ -249,25 +246,10 @@ Partial Class Student
         Me.btnfeedback.ForeColor = System.Drawing.Color.NavajoWhite
         Me.btnfeedback.Location = New System.Drawing.Point(3, 3)
         Me.btnfeedback.Name = "btnfeedback"
-        Me.btnfeedback.Size = New System.Drawing.Size(215, 44)
+        Me.btnfeedback.Size = New System.Drawing.Size(436, 44)
         Me.btnfeedback.TabIndex = 58
-        Me.btnfeedback.Text = "Feedback"
+        Me.btnfeedback.Text = "Feedback / Report   Center"
         Me.btnfeedback.UseVisualStyleBackColor = False
-        '
-        'btnreport
-        '
-        Me.btnreport.AutoSize = True
-        Me.btnreport.BackColor = System.Drawing.Color.Transparent
-        Me.btnreport.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnreport.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.btnreport.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnreport.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.btnreport.Location = New System.Drawing.Point(224, 3)
-        Me.btnreport.Name = "btnreport"
-        Me.btnreport.Size = New System.Drawing.Size(215, 44)
-        Me.btnreport.TabIndex = 59
-        Me.btnreport.Text = "Report"
-        Me.btnreport.UseVisualStyleBackColor = False
         '
         'Student
         '
@@ -284,6 +266,7 @@ Partial Class Student
         Me.Name = "Student"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "student"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel3.ResumeLayout(False)
         Me.TableLayoutPanel3.PerformLayout()
@@ -310,6 +293,5 @@ Partial Class Student
     Friend WithEvents room As DataGridViewTextBoxColumn
     Friend WithEvents room_status As DataGridViewTextBoxColumn
     Friend WithEvents TableLayoutPanel4 As TableLayoutPanel
-    Friend WithEvents btnreport As Button
     Friend WithEvents btnfeedback As Button
 End Class

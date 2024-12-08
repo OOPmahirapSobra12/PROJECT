@@ -13,48 +13,39 @@ Public Class Sections
 
     Private Sub tableloader()
         ' SQL query to fetch all sections and their associated courses
-        Dim sqlQuery As String = "
-        SELECT 
-            sections, 
-            course_name 
-        FROM section;"
+        Dim sqlQuery As String = " SELECT sections, course_name FROM section;"
 
         ' Create a new DataAdapter and DataTable
         Dim dataAdapter As New MySqlDataAdapter(sqlQuery, conn)
         Dim dataTable As New DataTable()
 
+
         Try
-            ' Open the connection if it's not already open
+            ' Open the database connection
             If conn.State <> ConnectionState.Open Then
                 conn.Open()
             End If
 
-            ' Fill the DataTable with data from the database
+            ' Load data into the DataTable
             dataAdapter.Fill(dataTable)
 
             ' Bind the DataTable to the DataGridView
-            DGVsections.AutoGenerateColumns = True
+            DGVsections.AutoGenerateColumns = False
             DGVsections.DataSource = dataTable
 
-            ' Set DataGridView column headers if necessary
-            DGVsections.Columns("sections").HeaderText = "Section"
-            DGVsections.Columns("course_name").HeaderText = "Course"
-
-            ' Additional configuration (optional)
-            DGVsections.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-            DGVsections.ReadOnly = True
-            DGVsections.AllowUserToAddRows = False
+            DGVsections.Columns("course").DataPropertyName = "course_name"
+            DGVsections.Columns("section").DataPropertyName = "sections"
 
         Catch ex As Exception
-            ' Handle any errors that occur during data loading
-            MessageBox.Show("Error loading sections: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Error loading room data: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
-            ' Ensure the connection is closed
+            ' Always close the connection
             If conn.State = ConnectionState.Open Then
                 conn.Close()
             End If
         End Try
     End Sub
+
 
 
     Private Sub btnback_Click(sender As Object, e As EventArgs) Handles btnback.Click
@@ -180,14 +171,11 @@ Public Class Sections
             Dim selectedRow As DataGridViewRow = DGVsections.SelectedRows(0)
 
             ' Get the course and section values from the selected row
-            Dim courseName As String = selectedRow.Cells("course_name").Value.ToString()
-            Dim section As String = selectedRow.Cells("sections").Value.ToString()
+            addnewsection.course = selectedRow.Cells("course").Value.ToString()
+            addnewsection.section = selectedRow.Cells("section").Value.ToString()
 
-            ' Pass the course and section values to the AddNewSection form for modification
-            Dim addSectionForm As New addnewsection()
-            addSectionForm.InitializeForModify(courseName, section)
-            addSectionForm.isModify = True
-            addSectionForm.Show()
+            addnewsection.isModify = True
+            addnewsection.Show()
         Else
             ' Display a message if no row is selected
             MessageBox.Show("Please select a row to modify.", "Selection Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)

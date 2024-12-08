@@ -14,7 +14,8 @@ Public Class Staff
     End Sub
 
     Private Sub tableloader()
-        Dim query As String = "SELECT room_name, occupancy_status, room_status CASE WHEN room_status = 'Open' THEN occupancy_status ELSE 'Closed' END AS display_status FROM roomlist"
+        Dim query As String = "SELECT room_name, occupancy_status, room_status, 
+                                CASE WHEN room_status = 'Open' THEN occupancy_status ELSE 'Closed' END AS display_status FROM roomlist;"
         Using command As New MySqlDataAdapter(query, conn)
             Dim dataTable As New DataTable()
 
@@ -174,6 +175,5 @@ Public Class Staff
 
     Private Sub btnloging_Click(sender As Object, e As EventArgs) Handles btnloging.Click
         roomoccupancy.Show()
-        Me.Hide()
     End Sub
 End Class

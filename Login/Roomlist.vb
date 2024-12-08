@@ -86,6 +86,7 @@ Public Class Roomlist
         Dim category As String = cboType.SelectedItem?.ToString()
         Dim searchValue As String = txtsearch.Text.Trim()
 
+        ' Check if category is valid
         If String.IsNullOrEmpty(category) OrElse category = "Choose" Then
             LoadRoomData()
             Return
@@ -113,10 +114,27 @@ Public Class Roomlist
         End Select
 
         Dim dataTable As DataTable = CType(DGVroomlist.DataSource, DataTable)
-        If String.IsNullOrEmpty(searchValue) Then
-            dataTable.DefaultView.Sort = $"{columnName} ASC"
-        Else
-            dataTable.DefaultView.RowFilter = $"{columnName} LIKE '%{searchValue}%'"
-        End If
+
+        Try
+            ' Handle numeric filtering for specific columns
+            If category = "Chair #" OrElse category = "Computer #" OrElse category = "Laptop #" Then
+                ' Ensure the input is numeric
+                If Not Integer.TryParse(searchValue, Nothing) Then
+                    MessageBox.Show($"Please enter a valid number for '{category}'.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    Return
+                End If
+                dataTable.DefaultView.RowFilter = $"{columnName} = {searchValue}"
+            Else
+                ' Default string-based filtering
+                If String.IsNullOrEmpty(searchValue) Then
+                    dataTable.DefaultView.Sort = $"{columnName} ASC"
+                Else
+                    dataTable.DefaultView.RowFilter = $"{columnName} LIKE '%{searchValue}%'"
+                End If
+            End If
+        Catch ex As Exception
+            MessageBox.Show("Error applying filter: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
     End Sub
+
 End Class

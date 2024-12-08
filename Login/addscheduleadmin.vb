@@ -10,7 +10,7 @@ Public Class addscheduleadmin
             conn.Close()
         End If
 
-        If requestID.Length = 0 Then
+        If requestID.Length <> 0 Then
             requestloader()
         Else
             MsgBox("no code recieved: " & requestID)

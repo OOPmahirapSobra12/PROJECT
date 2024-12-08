@@ -45,7 +45,7 @@ Public Class requestapproval
                 If result = DialogResult.Yes Then
                     DeniedRequest.R_ID = selectedID
                     DeniedRequest.R_requestID = selectedRequestID
-                    DeleteRequest(selectedRequestID)
+                    ProcessDeniedRequests()
                     MessageBox.Show("Request deleted successfully.")
                 End If
             Catch ex As Exception

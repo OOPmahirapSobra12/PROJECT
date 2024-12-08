@@ -53,27 +53,6 @@ Public Class staff_feedback
         End Try
     End Sub
 
-    Private Sub btnview_Click(sender As Object, e As EventArgs) Handles btnview.Click
-        Try
-            ' Ensure that a row is selected in the DataGridView
-            If DGVfeedback.SelectedRows.Count = 0 Then
-                MessageBox.Show("Please select a record to view.", "Selection Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                Return
-            End If
-
-            ' Get the ID of the selected row
-            Dim id As String = DGVfeedback.SelectedRows(0).Cells("FeedbackID").Value.ToString()
-
-            ' Open the ViewFeedbackReport form and pass the ID
-            Dim viewForm As New viewreportfeedback()
-            M_ID = id
-            type = "feedback"
-            viewForm.Show()
-        Catch ex As Exception
-            MessageBox.Show("Error retrieving feedback record: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        End Try
-    End Sub
-
     Private Sub btndelete_Click(sender As Object, e As EventArgs) Handles btndelete.Click
         Try
             ' Ensure that a row is selected in the DataGridView
@@ -88,7 +67,7 @@ Public Class staff_feedback
             ' Confirm deletion
             If MessageBox.Show($"Are you sure you want to delete feedback ID {id}?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = DialogResult.Yes Then
                 ' Execute the delete query
-                Dim query As String = "DELETE FROM feedback WHERE ID = @id"
+                Dim query As String = "DELETE FROM feedback WHERE feedbackid = @id"
                 Using command As New MySqlCommand(query, conn)
                     command.Parameters.AddWithValue("@id", id)
                     If conn.State = ConnectionState.Closed Then
@@ -190,7 +169,35 @@ Public Class staff_feedback
     End Sub
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
-        FeedbackReport_RoomSelection.Show()
-        type = "report"
+        FeedbackReport_sender.Show()
+        FeedbackReport_sender.type = "report"
     End Sub
+
+    Private Sub btnview_Click(sender As Object, e As EventArgs) Handles btnview.Click
+        Try
+            ' Ensure that a row is selected in the DataGridView
+            If DGVfeedback.SelectedRows.Count = 0 Then
+                MessageBox.Show("Please select a record to view.", "Selection Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return
+            End If
+
+            ' Get the ID of the selected row safely
+            Dim selectedRow As DataGridViewRow = DGVfeedback.SelectedRows(0)
+            Dim feedbackID As String = selectedRow.Cells("FeedbackID")?.Value?.ToString()
+
+            If String.IsNullOrEmpty(feedbackID) Then
+                MessageBox.Show("Invalid Feedback ID. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return
+            End If
+
+            viewreportfeedback.M_ID = feedbackID ' Assuming M_ID is a public property in the viewreportfeedback form
+            viewreportfeedback.type = "feedback"  ' Assuming type is a public property in the viewreportfeedback form
+
+            ' Show the view report feedback form
+            viewreportfeedback.Show() ' Using ShowDialog for modal behavior
+        Catch ex As Exception
+            MessageBox.Show("Error retrieving feedback record: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+    End Sub
+
 End Class

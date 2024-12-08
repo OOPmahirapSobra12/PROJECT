@@ -9,6 +9,8 @@ Public Class Profile
         account_load()
         buttonhidder()
         txtdisabler()
+        txtdisabler_withcondition()
+        txtenabler_withcondition()
     End Sub
 
     Private Sub btnmodify_Click(sender As Object, e As EventArgs) Handles btnmodify.Click
@@ -33,10 +35,10 @@ Public Class Profile
                         txtpassword.Text = reader("pword").ToString()
                         txtlevel.Text = reader("accesslevel").ToString()
 
-                        If reader("accesslevel").ToString() = "low" Then
+                        If reader("accesslevel").ToString().ToLower() = "low" Then
                             txtcourse.Text = reader("course_name").ToString()
                             txtsection.Text = reader("sections").ToString()
-                        Else
+                        ElseIf Not reader("accesslevel").ToString.ToLower() = "low" Then
                             txtcourse.Enabled = False
                             txtsection.Enabled = False
                             txtcourse.Visible = False
@@ -143,9 +145,14 @@ Public Class Profile
         txtlname.ReadOnly = False
         txtusername.ReadOnly = False
         txtpassword.Visible = True
-        txtcourse.ReadOnly = False
-        txtsection.ReadOnly = False
         lblpassword.Visible = True
+    End Sub
+
+    Public Sub txtenabler_withcondition()
+        If access = "low" Then
+            txtcourse.ReadOnly = False
+            txtsection.ReadOnly = False
+        End If
     End Sub
 
     Public Sub txtdisabler()
@@ -153,9 +160,14 @@ Public Class Profile
         txtlname.ReadOnly = True
         txtusername.ReadOnly = True
         txtpassword.Visible = False
-        txtcourse.ReadOnly = True
-        txtsection.ReadOnly = True
         lblpassword.Visible = False
+    End Sub
+
+    Public Sub txtdisabler_withcondition()
+        If Not access = "low" Then
+            txtcourse.ReadOnly = True
+            txtsection.ReadOnly = True
+        End If
     End Sub
 
     Private Sub btnback_Click(sender As Object, e As EventArgs) Handles btnback.Click

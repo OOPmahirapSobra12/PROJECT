@@ -145,13 +145,5 @@ Public Class Student
 
     Private Sub btnfeedback_Click(sender As Object, e As EventArgs) Handles btnfeedback.Click
         FeedbackReport_sender.Show()
-        type = "feedback"
-        Me.Hide()
-    End Sub
-
-    Private Sub btnreport_Click(sender As Object, e As EventArgs) Handles btnreport.Click
-        FeedbackReport_sender.Show()
-        type = "report"
-        Me.Hide()
     End Sub
 End Class

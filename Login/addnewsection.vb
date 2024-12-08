@@ -4,8 +4,8 @@ Imports System.Data
 
 Public Class addnewsection
     Public isModify As Boolean
-    Private currentSection As String = String.Empty
-    Private currentCourse As String = String.Empty
+    Public section As String
+    Public course As String
 
     Public Sub addnewsection_load(sender As Object, e As EventArgs) Handles MyBase.Load
         If conn.State = ConnectionState.Open Then
@@ -15,9 +15,9 @@ Public Class addnewsection
         cbocourseloader()
 
         ' If we are modifying an existing section, populate the fields
-        If isModify Then
-            txtsection.Text = currentSection
-            cbocourse.SelectedItem = currentCourse
+        If isModify = True Then
+            txtsection.Text = section
+            cbocourse.SelectedItem = course
             btnAdd.Text = "Update"  ' Change the button text to "Update"
         End If
     End Sub
@@ -41,8 +41,8 @@ Public Class addnewsection
             End While
 
             ' If modifying, select the correct course in the ComboBox
-            If isModify AndAlso Not String.IsNullOrEmpty(currentCourse) Then
-                cbocourse.SelectedItem = currentCourse
+            If isModify AndAlso Not String.IsNullOrEmpty(course) Then
+                cbocourse.SelectedItem = course
             End If
 
         Catch ex As Exception
@@ -66,11 +66,11 @@ Public Class addnewsection
     End Sub
 
     ' Method to check if a section already exists
-    Private Function SectionExists(courseName As String, sectionName As String) As Boolean
+    Private Function SectionExists() As Boolean
         Dim query As String = "SELECT COUNT(*) FROM section WHERE course_name = @course_name AND sections = @section"
         Dim cmd As New MySqlCommand(query, conn)
-        cmd.Parameters.AddWithValue("@course_name", courseName)
-        cmd.Parameters.AddWithValue("@section", sectionName)
+        cmd.Parameters.AddWithValue("@course_name", cbocourse.Text)
+        cmd.Parameters.AddWithValue("@section", txtsection.Text)
 
         Try
             If conn.State <> ConnectionState.Open Then
@@ -91,12 +91,6 @@ Public Class addnewsection
     Private Sub UpdateSection()
         If cbocourse.SelectedItem Is Nothing Then
             MessageBox.Show("Please select a valid course.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Return
-        End If
-
-        ' Check if the section already exists in the database (excluding the current section if modifying)
-        If SectionExists(cbocourse.SelectedItem.ToString(), txtsection.Text.Trim()) AndAlso txtsection.Text.Trim() <> currentSection Then
-            MessageBox.Show("This section already exists for the selected course.", "Duplicate Section", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return
         End If
 
@@ -142,7 +136,7 @@ Public Class addnewsection
         End If
 
         ' Check if the section already exists
-        If SectionExists(cbocourse.SelectedItem.ToString(), txtsection.Text.Trim()) Then
+        If SectionExists() = True Then
             MessageBox.Show("This section already exists for the selected course.", "Duplicate Section", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return
         End If
@@ -180,19 +174,5 @@ Public Class addnewsection
     ' Event handler for the "Back" button
     Private Sub btnback_Click(sender As Object, e As EventArgs) Handles btnback.Click
         Me.Close()
-    End Sub
-
-    ' Method to initialize the form in modify mode
-    Public Sub InitializeForModify(course As String, section As String)
-        ' Load the courses first
-        cbocourseloader()
-
-        ' Set the current section and course to the fields
-        txtsection.Text = section
-        cbocourse.SelectedItem = course ' Make sure cbocourse is loaded before selecting the course
-
-        ' Set the modify flag and change the button text
-        isModify = True
-        btnAdd.Text = "Update" ' Change button text to "Update"
     End Sub
 End Class

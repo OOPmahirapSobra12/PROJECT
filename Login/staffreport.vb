@@ -15,8 +15,8 @@ Public Class staffreport
     End Sub
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
-        FeedbackReport_RoomSelection.Show()
-        type = "report"
+        FeedbackReport_sender.Show()
+        FeedbackReport_sender.type = "report"
     End Sub
 
     Private Sub btnback_Click(sender As Object, e As EventArgs) Handles btnback.Click
@@ -73,19 +73,23 @@ Public Class staffreport
                 Return
             End If
 
-            ' Get the ID of the selected row
-            Dim id As String = DGVreport.SelectedRows(0).Cells("FeedbackID").Value.ToString()
+            ' Get the ID of the selected row safely
+            Dim selectedRow As DataGridViewRow = DGVreport.SelectedRows(0)
+            Dim reportID As String = selectedRow.Cells("report_id")?.Value?.ToString()
 
-            ' Open the ViewFeedbackReport form and pass the ID
-            Dim viewForm As New viewreportfeedback()
-            M_ID = id
-            type = "report"
-            viewForm.Show()
+            If String.IsNullOrEmpty(reportID) Then
+                MessageBox.Show("Invalid Feedback ID. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return
+            End If
+            viewreportfeedback.M_ID = reportID ' Assuming M_ID is a public property in the viewreportfeedback form
+            viewreportfeedback.type = "report"  ' Assuming type is a public property in the viewreportfeedback form
+
+            ' Show the view report feedback form
+            viewreportfeedback.Show() ' Using ShowDialog for modal behavior
         Catch ex As Exception
             MessageBox.Show("Error retrieving feedback record: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
-
 
     Private Sub btndelete_Click(sender As Object, e As EventArgs) Handles btndelete.Click
         ' Ensure a row is selected before proceeding
@@ -94,37 +98,49 @@ Public Class staffreport
             Return
         End If
 
-        ' Get the report_id from the selected row in the table
-        Dim reportId As String = DGVreport.SelectedRows(0).Cells("report_id").Value.ToString()
-
-        ' Confirm with the user before deleting
-        Dim result As DialogResult = MessageBox.Show("Are you sure you want to delete this report?", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-        If result = DialogResult.No Then
-            Return
-        End If
-
-        ' Define the SQL query for deleting the report
-        Dim sqlDeleteReport As String = "DELETE FROM report WHERE report_id = @report_id"
-
-        ' Create the command for deleting the report
-        Dim command As New MySqlCommand(sqlDeleteReport, conn)
-        command.Parameters.AddWithValue("@report_id", reportId)
-
-        ' Execute the delete
         Try
-            ' Open connection if not already open
-            If conn.State <> ConnectionState.Open Then
-                conn.Open()
+            ' Retrieve the report ID from the selected row safely
+            Dim selectedRow As DataGridViewRow = DGVreport.SelectedRows(0)
+            Dim reportId As String = selectedRow.Cells("report_id")?.Value?.ToString()
+
+            If String.IsNullOrWhiteSpace(reportId) Then
+                MessageBox.Show("Invalid report ID. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Return
             End If
 
-            ' Execute the delete command
-            command.ExecuteNonQuery()
-            MessageBox.Show("Report deleted successfully!", "Delete Successful", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            ' Confirm with the user before deleting
+            Dim result As DialogResult = MessageBox.Show($"Are you sure you want to delete report ID '{reportId}'?", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            If result = DialogResult.No Then
+                Return
+            End If
 
-            ' Reload the table data after deletion
-            tableloader()
+            ' Define the SQL query for deleting the report
+            Dim sqlDeleteReport As String = "DELETE FROM report WHERE reportid = @report_id"
+
+            ' Create the command for deleting the report
+            Using command As New MySqlCommand(sqlDeleteReport, conn)
+                command.Parameters.AddWithValue("@report_id", reportId)
+
+                ' Open the connection if not already open
+                If conn.State <> ConnectionState.Open Then
+                    conn.Open()
+                End If
+
+                ' Execute the delete command
+                Dim rowsAffected As Integer = command.ExecuteNonQuery()
+
+                If rowsAffected > 0 Then
+                    MessageBox.Show("Report deleted successfully!", "Delete Successful", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    ' Reload the table data after successful deletion
+                    tableloader()
+                Else
+                    MessageBox.Show("No report found with the provided ID.", "Delete Failed", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                End If
+            End Using
+        Catch ex As MySqlException
+            MessageBox.Show("Database error: " & ex.Message, "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Catch ex As Exception
-            MessageBox.Show("Error deleting report: " & ex.Message, "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Unexpected error: " & ex.Message, "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
             ' Ensure the connection is closed after the operation
             If conn.State = ConnectionState.Open Then

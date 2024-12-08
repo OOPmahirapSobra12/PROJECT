@@ -3,19 +3,20 @@ Imports System.Windows.Forms
 Imports System.Data
 
 Public Class viewreportfeedback
-    Public message_ID As String = M_ID
+    Public M_ID As String
+    Public type As String
     Private Sub viewreportfeedback_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If conn.State = ConnectionState.Open Then
             conn.Close()
         End If
         ' Check if report_ID is not empty, if so, load report data
         If type = "report" Then
-            loadReport(message_ID)
+            loadReport(M_ID)
             cbotype.SelectedIndex = 1
             lbltitle.Text = "Report"
             ' Check if feedback_ID is not empty, if so, load feedback data
         ElseIf type = "feedback" Then
-            loadFeedback(message_ID)
+            loadFeedback(M_ID)
             cbotype.SelectedIndex = 2
             lbltitle.Text = "Feedback"
         Else
@@ -26,17 +27,16 @@ Public Class viewreportfeedback
     End Sub
 
     Private Sub btnback_Click(sender As Object, e As EventArgs) Handles btnback.Click
-        M_ID = ""
-        Me.Hide()
+        Me.Close()
     End Sub
 
-    Public Sub loadReport(message_ID As String)
+    Public Sub loadReport(M_ID As String)
         Dim query As String = "SELECT ID, d, t, report FROM report WHERE reportid = @reportID"
         Dim adapter As New MySqlDataAdapter(query, conn)
         Dim table As New DataTable()
 
         ' Add parameter to prevent SQL injection
-        adapter.SelectCommand.Parameters.AddWithValue("@reportID", message_ID)
+        adapter.SelectCommand.Parameters.AddWithValue("@reportID", M_ID)
 
         Try
             ' Fill the DataTable with data from the report table
@@ -61,13 +61,13 @@ Public Class viewreportfeedback
     End Sub
 
     ' Separate method to load feedback data
-    Public Sub loadFeedback(message_ID As String)
+    Public Sub loadFeedback(M_ID As String)
         Dim query As String = "SELECT ID, d, t, feedback FROM feedback WHERE feedbackid = @feedbackID"
         Dim adapter As New MySqlDataAdapter(query, conn)
         Dim table As New DataTable()
 
         ' Add parameter to prevent SQL injection
-        adapter.SelectCommand.Parameters.AddWithValue("@feedbackID", message_ID)
+        adapter.SelectCommand.Parameters.AddWithValue("@feedbackID", M_ID)
 
         Try
             ' Fill the DataTable with data from the feedback table

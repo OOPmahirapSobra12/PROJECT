@@ -24,9 +24,6 @@ Partial Class Subjects
     Private Sub InitializeComponent()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
         Me.DGVsubjects = New System.Windows.Forms.DataGridView()
-        Me.subject = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.s_course = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.s_section = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtsearch = New System.Windows.Forms.TextBox()
@@ -37,6 +34,10 @@ Partial Class Subjects
         Me.btnmodify = New System.Windows.Forms.Button()
         Me.btnback = New System.Windows.Forms.Button()
         Me.btndelete = New System.Windows.Forms.Button()
+        Me.s_ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.subject = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.s_course = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.s_section = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TableLayoutPanel3.SuspendLayout()
         CType(Me.DGVsubjects, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel4.SuspendLayout()
@@ -74,7 +75,7 @@ Partial Class Subjects
         Me.DGVsubjects.BackgroundColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.DGVsubjects.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Sunken
         Me.DGVsubjects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGVsubjects.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.subject, Me.s_course, Me.s_section})
+        Me.DGVsubjects.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.s_ID, Me.subject, Me.s_course, Me.s_section})
         Me.DGVsubjects.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DGVsubjects.GridColor = System.Drawing.SystemColors.HotTrack
         Me.DGVsubjects.Location = New System.Drawing.Point(23, 121)
@@ -82,26 +83,6 @@ Partial Class Subjects
         Me.DGVsubjects.ReadOnly = True
         Me.DGVsubjects.Size = New System.Drawing.Size(754, 258)
         Me.DGVsubjects.TabIndex = 89
-        '
-        'subject
-        '
-        Me.subject.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.subject.HeaderText = "Subject"
-        Me.subject.Name = "subject"
-        Me.subject.ReadOnly = True
-        '
-        's_course
-        '
-        Me.s_course.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.s_course.HeaderText = "Course"
-        Me.s_course.Name = "s_course"
-        Me.s_course.ReadOnly = True
-        '
-        's_section
-        '
-        Me.s_section.HeaderText = "Section"
-        Me.s_section.Name = "s_section"
-        Me.s_section.ReadOnly = True
         '
         'TableLayoutPanel4
         '
@@ -257,6 +238,39 @@ Partial Class Subjects
         Me.btndelete.Text = "Delete"
         Me.btndelete.UseVisualStyleBackColor = False
         '
+        's_ID
+        '
+        Me.s_ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        Me.s_ID.HeaderText = "Subject ID"
+        Me.s_ID.Name = "s_ID"
+        Me.s_ID.ReadOnly = True
+        Me.s_ID.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.s_ID.Width = 82
+        '
+        'subject
+        '
+        Me.subject.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.subject.HeaderText = "Subject"
+        Me.subject.Name = "subject"
+        Me.subject.ReadOnly = True
+        Me.subject.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        '
+        's_course
+        '
+        Me.s_course.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.s_course.HeaderText = "Course"
+        Me.s_course.Name = "s_course"
+        Me.s_course.ReadOnly = True
+        Me.s_course.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        '
+        's_section
+        '
+        Me.s_section.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.s_section.HeaderText = "Section"
+        Me.s_section.Name = "s_section"
+        Me.s_section.ReadOnly = True
+        Me.s_section.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
+        '
         'Subjects
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -292,6 +306,7 @@ Partial Class Subjects
     Friend WithEvents btnmodify As Button
     Friend WithEvents btnback As Button
     Friend WithEvents btndelete As Button
+    Friend WithEvents s_ID As DataGridViewTextBoxColumn
     Friend WithEvents subject As DataGridViewTextBoxColumn
     Friend WithEvents s_course As DataGridViewTextBoxColumn
     Friend WithEvents s_section As DataGridViewTextBoxColumn

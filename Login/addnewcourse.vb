@@ -6,7 +6,8 @@ Imports System.Data
 Public Class addnewcourse
     ' Flag to determine if we are adding or modifying a course
     Public isModify As Boolean
-    Private currentCourse As String = String.Empty
+    Public course As String
+    Public course_id As String
 
     ' Form load event: Initializes the form based on whether we're modifying or adding a new course
     Public Sub addnewcourse_load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -16,8 +17,8 @@ Public Class addnewcourse
         DbConnect() ' Ensure DbConnect is defined elsewhere in your project
 
         ' If modifying, populate the textbox with the current course name
-        If isModify Then
-            txtcourse.Text = currentCourse
+        If isModify = True Then
+            txtcourse.Text = course
             btnAdd.Text = "Update"  ' Change button text to "Update"
         End If
     End Sub
@@ -34,10 +35,10 @@ Public Class addnewcourse
     End Sub
 
     ' Method to check if a course already exists in the database
-    Private Function CourseExists(courseName As String) As Boolean
+    Private Function CourseExists() As Boolean
         Dim query As String = "SELECT COUNT(*) FROM courses WHERE course_name = @course_name"
         Dim cmd As New MySqlCommand(query, conn)
-        cmd.Parameters.AddWithValue("@course_name", courseName)
+        cmd.Parameters.AddWithValue("@course_name", txtcourse.Text)
 
         Try
             If conn.State <> ConnectionState.Open Then
@@ -64,7 +65,7 @@ Public Class addnewcourse
         End If
 
         ' Check if the course already exists in the database
-        If CourseExists(txtcourse.Text.Trim()) Then
+        If CourseExists() = True Then
             MessageBox.Show("This course already exists in the database.", "Duplicate Course", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return
         End If
@@ -107,19 +108,13 @@ Public Class addnewcourse
             Return
         End If
 
-        ' Check if the course already exists in the database (except the current course)
-        If CourseExists(txtcourse.Text.Trim()) AndAlso txtcourse.Text.Trim() <> currentCourse Then
-            MessageBox.Show("This course already exists in the database.", "Duplicate Course", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Return
-        End If
-
         ' SQL query to update an existing course
-        Dim updateQuery As String = "UPDATE courses SET course_name = @course_name WHERE course_name = @current_course"
+        Dim updateQuery As String = "UPDATE courses SET course_name = @course_name WHERE course_id  = @course_id"
 
         ' Create and configure the command
         Dim updateCommand As New MySqlCommand(updateQuery, conn)
         updateCommand.Parameters.AddWithValue("@course_name", txtcourse.Text.Trim())
-        updateCommand.Parameters.AddWithValue("@current_course", currentCourse)
+        updateCommand.Parameters.AddWithValue("@current_course", course_id)
 
         Try
             ' Open the connection if it's not already open
@@ -147,16 +142,5 @@ Public Class addnewcourse
     ' Event handler for the "Back" button
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnback.Click
         Me.Close()
-    End Sub
-
-    ' Method to initialize the form for modification
-    Public Sub InitializeForModify(course As String)
-        ' Set the current course to the field
-        currentCourse = course
-        txtcourse.Text = course ' Populate the textbox with the existing course name
-
-        ' Set the modify flag and change the button text
-        isModify = True
-        btnAdd.Text = "Update" ' Change button text to "Update"
     End Sub
 End Class

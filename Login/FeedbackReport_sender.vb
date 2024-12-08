@@ -5,6 +5,7 @@ Imports System.Data
 Public Class FeedbackReport_sender
     Public room_name As String
     Public room_ID As String
+    Public type As String
 
     Private Sub feedbackstudent_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If conn.State = ConnectionState.Open Then
@@ -12,7 +13,19 @@ Public Class FeedbackReport_sender
         End If
         DbConnect()
         usernameloader()
-        cbotype.SelectedIndex = 0
+        If type = "report" Then
+            cbotype.SelectedIndex = 1
+            If Not String.IsNullOrEmpty(room_name) And Not String.IsNullOrEmpty(room_ID) Then
+                cboWHAT.SelectedIndex = 1
+            End If
+        ElseIf type = "feedback" Then
+            cbotype.SelectedIndex = 2
+            If Not String.IsNullOrEmpty(room_name) And Not String.IsNullOrEmpty(room_ID) Then
+                cboWHAT.SelectedIndex = 1
+            End If
+        Else
+            cbotype.SelectedIndex = 0
+        End If
     End Sub
 
     Public Sub usernameloader()
@@ -63,7 +76,7 @@ Public Class FeedbackReport_sender
         End If
     End Sub
 
-    Private Sub btnclear_Click(sender As Object, e As EventArgs) Handles btnclear.Click
+    Private Sub clear(sender As Object, e As EventArgs) Handles btnclear.Click
         txtmessage.Text = ""
         cbotype.SelectedIndex = 0
         cboWHAT.SelectedIndex = 0
@@ -84,26 +97,32 @@ Public Class FeedbackReport_sender
     End Sub
 
     Private Sub btnback_Click(sender As Object, e As EventArgs) Handles btnback.Click
-        If access = "mid" Then
-            Staff.Show()
-        ElseIf access = "low" Then
+        If access = "low" Then
             Student.Show()
         End If
-        type = Nothing
-        Me.Hide()
+        Me.Close()
     End Sub
 
     Private Sub btnselect_Click(sender As Object, e As EventArgs) Handles btnselect.Click
         FeedbackReport_RoomSelection.Show()
     End Sub
 
-    Private Sub btnsend_Click(sender As Object, e As EventArgs) Handles btnsend.Click
-        Dim compiledMessage As String = String.Empty
-        messagecompiler(room_name, room_ID, compiledMessage)
-        messagesender(compiledMessage)
+    Private Sub messagesending(sender As Object, e As EventArgs) Handles btnsend.Click
+        messageediting = ""
+        messagecompiler()
+        messagetosend = ""
     End Sub
 
-    Public Sub messagesender(compiledMessage As String)
+    Public messagetosend As String
+    Public messageediting As String
+
+    Public Sub messagesender()
+        If String.IsNullOrEmpty(messageediting) Then
+            MessageBox.Show("Error retrieving message")
+        Else
+            messagetosend = messageediting
+        End If
+
         Dim tableName As String
         Dim messageType As String = cbotype.SelectedItem?.ToString()
         Dim query As String = ""
@@ -127,7 +146,7 @@ Public Class FeedbackReport_sender
             command.Parameters.AddWithValue("@ID", U_ID)
             command.Parameters.AddWithValue("@d", currentDate)
             command.Parameters.AddWithValue("@t", currentTime)
-            command.Parameters.AddWithValue("@message", compiledMessage)
+            command.Parameters.AddWithValue("@message", messagetosend)
 
             Try
                 ' Open the connection if it is closed
@@ -139,6 +158,10 @@ Public Class FeedbackReport_sender
                 Dim result As Integer = command.ExecuteNonQuery()
                 If result > 0 Then
                     MessageBox.Show("Message sent successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    txtmessage.Clear()
+                    cboWHAT.SelectedIndex = 0
+                    room_ID = ""
+                    room_name = ""
                 Else
                     MessageBox.Show("Failed to send the message.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 End If
@@ -156,15 +179,23 @@ Public Class FeedbackReport_sender
     End Sub
 
 
-    Public Sub messagecompiler(room_name As String, room_ID As String, ByRef message As String)
-        If String.IsNullOrEmpty(room_ID) AndAlso String.IsNullOrEmpty(room_name) Then
-            message = txtmessage.Text.Trim()
-        ElseIf Not String.IsNullOrEmpty(room_ID) AndAlso Not String.IsNullOrEmpty(room_name) Then
-            message = "Room Name: " & room_name & vbCrLf & "Room ID: " & room_ID & vbCrLf & txtmessage.Text.Trim()
+    Public Sub messagecompiler()
+        If Not String.IsNullOrEmpty(txtuser.Text) And Not String.IsNullOrEmpty(txtmessage.Text()) And cbotype.SelectedIndex > 0 Then
+            messageediting = "Room Name: " & room_name & vbCrLf & "Room ID: " & room_ID & vbCrLf & txtmessage.Text.Trim()
+            messagesender()
         Else
-            message = "Incomplete room details: " & vbCrLf & txtmessage.Text.Trim()
+            MessageBox.Show("Incomplete " & cbotype.Text.ToString() & "!")
         End If
     End Sub
 
+    Public Sub cboWHAT_change(sender As Object, e As EventArgs) Handles cboWHAT.SelectedIndexChanged
+        If cboWHAT.SelectedIndex = 1 Then
+            btnselect.Visible = True
+            btnselect.Enabled = True
+        ElseIf Not cboWHAT.SelectedIndex = 1 Then
+            btnselect.Visible = False
+            btnselect.Enabled = False
+        End If
+    End Sub
 
 End Class

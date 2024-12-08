@@ -16,7 +16,6 @@ Public Class roomoccupancy
         DbConnect()
         txtID.Text = U_ID
         cboChoose.SelectedIndex = 0
-        btnregister.Enabled = False
     End Sub
 
     Private Sub btnregister_Click(sender As Object, e As EventArgs) Handles btnregister.Click
@@ -223,6 +222,6 @@ Public Class roomoccupancy
     End Sub
 
     Private Sub btnback_Click(sender As Object, e As EventArgs) Handles btnback.Click
-        Me.Hide()
+        Me.Close()
     End Sub
 End Class

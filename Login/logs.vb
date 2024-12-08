@@ -164,11 +164,11 @@ Module logs
                 Using reader As MySqlDataReader = checkCommand.ExecuteReader()
                     If reader.HasRows Then
                         reader.Read()
-                        logHistoryCode = reader("log_history_code")
+                        logHistoryCode = Convert.ToInt32(reader("log_history_code"))
                         Dim logOutDate = reader("log_out_date").ToString()
                         Dim logOutTime = reader("log_out_time").ToString()
-                        reader.Close()
 
+                        ' Check if the log entry already has a logout date/time
                         If Not String.IsNullOrEmpty(logOutDate) AndAlso Not String.IsNullOrEmpty(logOutTime) Then
                             MsgBox("Error: User is already logged out.")
                             Return
@@ -179,8 +179,8 @@ Module logs
                     End If
                 End Using
 
+                ' Proceed to update the logout details for the identified log entry
                 If logHistoryCode <> -1 Then
-                    ' Update the latest log entry with logout details
                     query = "UPDATE staff_request_log SET log_out_date=@log_out_date, log_out_time=@log_out_time WHERE log_history_code=@log_history_code"
                     Dim updateCommand As New MySqlCommand(query, conn)
                     updateCommand.Parameters.AddWithValue("@log_out_date", DateTime.Now.ToString("yyyy-MM-dd"))

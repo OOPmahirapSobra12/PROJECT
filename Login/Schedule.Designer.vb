@@ -37,9 +37,6 @@ Partial Class Schedule
         Me.btnsearch = New System.Windows.Forms.Button()
         Me.TableLayoutPanel7 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel11 = New System.Windows.Forms.TableLayoutPanel()
-        Me.btndelete = New System.Windows.Forms.Button()
-        Me.btnselect = New System.Windows.Forms.Button()
-        Me.btnback = New System.Windows.Forms.Button()
         Me.DGVschedule = New System.Windows.Forms.DataGridView()
         Me.sched_code = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.subject = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -51,6 +48,9 @@ Partial Class Schedule
         Me.s_date = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.time_in = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.time_out = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.btnback = New System.Windows.Forms.Button()
+        Me.btnselect = New System.Windows.Forms.Button()
+        Me.btndelete = New System.Windows.Forms.Button()
         Me.TableLayoutPanel5.SuspendLayout()
         Me.TableLayoutPanel6.SuspendLayout()
         Me.TableLayoutPanel8.SuspendLayout()
@@ -76,8 +76,8 @@ Partial Class Schedule
         Me.TableLayoutPanel5.RowCount = 5
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.50973!))
-        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 72.76265!))
-        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.727627!))
+        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 71.20622!))
+        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.28405!))
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel5.Size = New System.Drawing.Size(1056, 555)
         Me.TableLayoutPanel5.TabIndex = 4
@@ -223,7 +223,7 @@ Partial Class Schedule
         Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel7.Controls.Add(Me.TableLayoutPanel11, 0, 0)
         Me.TableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel7.Location = New System.Drawing.Point(23, 487)
+        Me.TableLayoutPanel7.Location = New System.Drawing.Point(23, 479)
         Me.TableLayoutPanel7.Name = "TableLayoutPanel7"
         Me.TableLayoutPanel7.RowCount = 1
         Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
@@ -231,7 +231,7 @@ Partial Class Schedule
         Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44.0!))
         Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44.0!))
         Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44.0!))
-        Me.TableLayoutPanel7.Size = New System.Drawing.Size(1010, 44)
+        Me.TableLayoutPanel7.Size = New System.Drawing.Size(1010, 52)
         Me.TableLayoutPanel7.TabIndex = 1
         '
         'TableLayoutPanel11
@@ -248,47 +248,8 @@ Partial Class Schedule
         Me.TableLayoutPanel11.Name = "TableLayoutPanel11"
         Me.TableLayoutPanel11.RowCount = 1
         Me.TableLayoutPanel11.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46.0!))
-        Me.TableLayoutPanel11.Size = New System.Drawing.Size(1004, 38)
+        Me.TableLayoutPanel11.Size = New System.Drawing.Size(1004, 46)
         Me.TableLayoutPanel11.TabIndex = 1
-        '
-        'btndelete
-        '
-        Me.btndelete.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.btndelete.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btndelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btndelete.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btndelete.Location = New System.Drawing.Point(337, 3)
-        Me.btndelete.Name = "btndelete"
-        Me.btndelete.Size = New System.Drawing.Size(328, 40)
-        Me.btndelete.TabIndex = 15
-        Me.btndelete.Text = "Delete"
-        Me.btndelete.UseVisualStyleBackColor = False
-        '
-        'btnselect
-        '
-        Me.btnselect.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.btnselect.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnselect.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnselect.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnselect.Location = New System.Drawing.Point(3, 3)
-        Me.btnselect.Name = "btnselect"
-        Me.btnselect.Size = New System.Drawing.Size(328, 40)
-        Me.btnselect.TabIndex = 16
-        Me.btnselect.Text = "Select"
-        Me.btnselect.UseVisualStyleBackColor = False
-        '
-        'btnback
-        '
-        Me.btnback.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.btnback.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.btnback.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnback.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnback.Location = New System.Drawing.Point(671, 3)
-        Me.btnback.Name = "btnback"
-        Me.btnback.Size = New System.Drawing.Size(330, 40)
-        Me.btnback.TabIndex = 14
-        Me.btnback.Text = "Back"
-        Me.btnback.UseVisualStyleBackColor = False
         '
         'DGVschedule
         '
@@ -331,7 +292,7 @@ Partial Class Schedule
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DGVschedule.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.DGVschedule.RowHeadersWidth = 62
-        Me.DGVschedule.Size = New System.Drawing.Size(1010, 368)
+        Me.DGVschedule.Size = New System.Drawing.Size(1010, 360)
         Me.DGVschedule.TabIndex = 2
         '
         'sched_code
@@ -403,6 +364,45 @@ Partial Class Schedule
         Me.time_out.Name = "time_out"
         Me.time_out.ReadOnly = True
         '
+        'btnback
+        '
+        Me.btnback.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.btnback.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnback.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnback.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.btnback.Location = New System.Drawing.Point(671, 3)
+        Me.btnback.Name = "btnback"
+        Me.btnback.Size = New System.Drawing.Size(330, 40)
+        Me.btnback.TabIndex = 14
+        Me.btnback.Text = "Back"
+        Me.btnback.UseVisualStyleBackColor = False
+        '
+        'btnselect
+        '
+        Me.btnselect.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.btnselect.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnselect.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnselect.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.btnselect.Location = New System.Drawing.Point(3, 3)
+        Me.btnselect.Name = "btnselect"
+        Me.btnselect.Size = New System.Drawing.Size(328, 40)
+        Me.btnselect.TabIndex = 16
+        Me.btnselect.Text = "Select"
+        Me.btnselect.UseVisualStyleBackColor = False
+        '
+        'btndelete
+        '
+        Me.btndelete.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.btndelete.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btndelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btndelete.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.btndelete.Location = New System.Drawing.Point(337, 3)
+        Me.btndelete.Name = "btndelete"
+        Me.btndelete.Size = New System.Drawing.Size(328, 40)
+        Me.btndelete.TabIndex = 15
+        Me.btndelete.Text = "Delete"
+        Me.btndelete.UseVisualStyleBackColor = False
+        '
         'Schedule
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -442,9 +442,6 @@ Partial Class Schedule
     Friend WithEvents DGVschedule As DataGridView
     Friend WithEvents TableLayoutPanel7 As TableLayoutPanel
     Friend WithEvents TableLayoutPanel11 As TableLayoutPanel
-    Friend WithEvents btndelete As Button
-    Friend WithEvents btnselect As Button
-    Friend WithEvents btnback As Button
     Friend WithEvents sched_code As DataGridViewTextBoxColumn
     Friend WithEvents subject As DataGridViewTextBoxColumn
     Friend WithEvents course As DataGridViewTextBoxColumn
@@ -455,4 +452,7 @@ Partial Class Schedule
     Friend WithEvents s_date As DataGridViewTextBoxColumn
     Friend WithEvents time_in As DataGridViewTextBoxColumn
     Friend WithEvents time_out As DataGridViewTextBoxColumn
+    Friend WithEvents btndelete As Button
+    Friend WithEvents btnselect As Button
+    Friend WithEvents btnback As Button
 End Class

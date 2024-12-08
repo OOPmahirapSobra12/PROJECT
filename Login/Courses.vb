@@ -17,43 +17,38 @@ Public Class Courses
     ' Method to load courses into the DataGridView
     Private Sub tableloader()
         ' SQL query to fetch all course names
-        Dim sqlQuery As String = "SELECT course_name FROM courses;"
+        Dim sqlQuery As String = "SELECT course_id, course_name FROM courses;"
 
         ' Create a new DataAdapter and DataTable
         Dim dataAdapter As New MySqlDataAdapter(sqlQuery, conn)
         Dim dataTable As New DataTable()
 
         Try
-            ' Open the connection if it's not already open
+            ' Open the database connection
             If conn.State <> ConnectionState.Open Then
                 conn.Open()
             End If
 
-            ' Fill the DataTable with data from the database
+            ' Load data into the DataTable
             dataAdapter.Fill(dataTable)
 
             ' Bind the DataTable to the DataGridView
-            DGVcourses.AutoGenerateColumns = True
+            DGVcourses.AutoGenerateColumns = False
             DGVcourses.DataSource = dataTable
 
-            ' Set DataGridView column headers if necessary
-            DGVcourses.Columns("course_name").HeaderText = "Course Name"
-
-            ' Additional configuration (optional)
-            DGVcourses.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-            DGVcourses.ReadOnly = True
-            DGVcourses.AllowUserToAddRows = False
+            DGVcourses.Columns("course").DataPropertyName = "course_name"
+            DGVcourses.Columns("c_id").DataPropertyName = "course_id"
 
         Catch ex As Exception
-            ' Handle any errors that occur during data loading
-            MessageBox.Show("Error loading courses: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Error loading room data: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
-            ' Ensure the connection is closed
+            ' Always close the connection
             If conn.State = ConnectionState.Open Then
                 conn.Close()
             End If
         End Try
     End Sub
+
 
     ' Search functionality to filter courses by name
     Private Sub btnsearch_Click(sender As Object, e As EventArgs) Handles btnsearch.Click
@@ -167,13 +162,11 @@ Public Class Courses
             Dim selectedRow As DataGridViewRow = DGVcourses.SelectedRows(0)
 
             ' Get the course name from the selected row
-            Dim courseName As String = selectedRow.Cells("course_name").Value.ToString()
+            addnewcourse.course = selectedRow.Cells("course").Value.ToString()
+            addnewcourse.course_id = selectedRow.Cells("c_id").Value.ToString()
 
-            ' Pass the course name to the addnewcourse form for modification
-            Dim modifyCourseForm As New addnewcourse()
-            modifyCourseForm.InitializeForModify(courseName) ' Initialize for modification
-            modifyCourseForm.isModify = True
-            modifyCourseForm.Show()
+            addnewcourse.isModify = True
+            addnewcourse.Show()
         Else
             ' Display a message if no row is selected
             MessageBox.Show("Please select a course to modify.", "Selection Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)

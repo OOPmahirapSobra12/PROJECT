@@ -18,20 +18,19 @@ Public Class FeedbackReport_RoomSelection
             Dim roomCode As String = selectedRow.Cells("room_code").Value?.ToString()
             Dim roomName As String = selectedRow.Cells("room_name").Value?.ToString()
 
-            ' Locate the parent form and pass data
-            Dim parentForm As FeedbackReport_sender = CType(Application.OpenForms("FeedbackReport_sender"), FeedbackReport_sender)
-            If parentForm IsNot Nothing Then
-                parentForm.room_ID = roomCode
-                parentForm.room_name = roomName
-                MessageBox.Show($"Room '{roomCode}' selected.", "Selection Successful", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                Me.Close() ' Close the selection form
-            Else
-                MessageBox.Show("Parent form not found. Unable to pass data.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            End If
+            ' Pass data to the parent form
+            FeedbackReport_sender.room_ID = roomCode
+            FeedbackReport_sender.room_name = roomName
+
+            MessageBox.Show($"Room '{roomCode}' selected.", "Selection Successful", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            FeedbackReport_sender.Show()
+            Me.Close() ' Close the current form
+
         Catch ex As Exception
             MessageBox.Show("Error selecting room: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
+
 
     ' Loads room data into the DataGridView
     Private Sub LoadRoomData()
@@ -120,7 +119,26 @@ Public Class FeedbackReport_RoomSelection
             If String.IsNullOrEmpty(searchValue) Then
                 dataTable.DefaultView.Sort = $"{columnName} ASC"
             Else
-                dataTable.DefaultView.RowFilter = $"{columnName} LIKE '%{searchValue}%'"
+                Try
+                    ' Handle numeric filtering for specific columns
+                    If category = "Chair #" OrElse category = "Computer #" OrElse category = "Laptop #" Then
+                        ' Ensure the input is numeric
+                        If Not Integer.TryParse(searchValue, Nothing) Then
+                            MessageBox.Show($"Please enter a valid number for '{category}'.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                            Return
+                        End If
+                        dataTable.DefaultView.RowFilter = $"{columnName} = {searchValue}"
+                    Else
+                        ' Default string-based filtering
+                        If String.IsNullOrEmpty(searchValue) Then
+                            dataTable.DefaultView.Sort = $"{columnName} ASC"
+                        Else
+                            dataTable.DefaultView.RowFilter = $"{columnName} LIKE '%{searchValue}%'"
+                        End If
+                    End If
+                Catch ex As Exception
+                    MessageBox.Show("Error applying filter: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End Try
             End If
         Catch ex As Exception
             MessageBox.Show("Error filtering room data: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)

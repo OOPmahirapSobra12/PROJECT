@@ -104,6 +104,7 @@ Partial Class Sections
         Me.course.HeaderText = "Course"
         Me.course.Name = "course"
         Me.course.ReadOnly = True
+        Me.course.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         '
         'section
         '
@@ -111,6 +112,7 @@ Partial Class Sections
         Me.section.HeaderText = "Sections"
         Me.section.Name = "section"
         Me.section.ReadOnly = True
+        Me.section.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         '
         'TableLayoutPanel4
         '
@@ -293,8 +295,6 @@ Partial Class Sections
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
     Friend WithEvents DGVsections As DataGridView
-    Friend WithEvents course As DataGridViewTextBoxColumn
-    Friend WithEvents section As DataGridViewTextBoxColumn
     Friend WithEvents TableLayoutPanel4 As TableLayoutPanel
     Friend WithEvents cbotype As ComboBox
     Friend WithEvents txtsearch As TextBox
@@ -305,4 +305,6 @@ Partial Class Sections
     Friend WithEvents btnback As Button
     Friend WithEvents btndelete As Button
     Friend WithEvents btnadd As Button
+    Friend WithEvents course As DataGridViewTextBoxColumn
+    Friend WithEvents section As DataGridViewTextBoxColumn
 End Class

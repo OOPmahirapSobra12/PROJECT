@@ -54,34 +54,38 @@ Public Class Schedule
 
     Public Sub loadtable()
         ' Query to load data from both sched and schedtemp tables, joining with the subjects table to get subject_name
-        Dim sqlQuery As String = "
-       SELECT 
-            sched.shed_id,
-            sched.room_code, 
-            NULL AS room_date, 
-            sched.room_day, 
-            sched.room_time_in, 
-            sched.room_time_out, 
-            sched.course_name, 
-            sched.sections, 
-            listofsubjects.subject_name
-        FROM sched
-        JOIN listofsubjects ON sched.subject_name = listofsubjects.subject_name
-    
-        UNION ALL
-    
-        SELECT 
-            schedtemp.shed_id,
-            schedtemp.room_code, 
-            schedtemp.room_date, 
-            NULL AS room_day, 
-            schedtemp.room_time_in, 
-            schedtemp.room_time_out, 
-            schedtemp.course_name, 
-            schedtemp.sections, 
-            listofsubjects.subject_name
-        FROM schedtemp
-        JOIN listofsubjects ON schedtemp.subject_name = listofsubjects.subject_name;"
+        Dim sqlQuery As String = " SELECT 
+                                    sched.shed_id, 
+                                    sched.room_code, 
+                                    roomlist.room_name, 
+                                    NULL AS room_date, 
+                                    sched.room_day, 
+                                    sched.room_time_in, 
+                                  
+sched.room_time_out, 
+                                    sched.course_name, 
+                                    sched.sections, 
+                                    listofsubjects.subject_name
+                                FROM sched
+                                JOIN 
+                                    listofsubjects ON sched.subject_name = listofsubjects.subject_name
+                                        Join roomlist ON sched.room_code = roomlist.room_code
+                                UNION ALL
+                                SELECT 
+                                    schedtemp.shed_id, 
+                                    schedtemp.room_code, 
+                                    roomlist.room_name, 
+                                    schedtemp.room_date, 
+                                    NULL AS room_day, 
+                                    schedtemp.room_time_in, 
+                                    schedtemp.room_time_out, 
+                                    schedtemp.course_name, 
+                                    schedtemp.sections, 
+                                    listofsubjects.subject_name
+                                FROM schedtemp
+                                JOIN 
+                                    listofsubjects ON schedtemp.subject_name = listofsubjects.subject_name
+                                        Join roomlist ON schedtemp.room_code = roomlist.room_code;"
 
         ' Create a new DataAdapter to fetch data from the database
         Dim dataAdapter As New MySqlDataAdapter(sqlQuery, conn)
@@ -123,6 +127,7 @@ Public Class Schedule
             DGVschedule.Columns("course").DataPropertyName = "course_name"
             DGVschedule.Columns("section").DataPropertyName = "sections"
             DGVschedule.Columns("subject").DataPropertyName = "subject_name"
+            DGVschedule.Columns("room_name").DataPropertyName = "room_name"
 
         Catch ex As Exception
             MessageBox.Show("Error loading table data: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -251,7 +256,8 @@ Public Class Schedule
             sched.course_name,
             sched.sections
         FROM sched
-        JOIN roomlist ON sched.room_code = roomlist.room_code
+        JOIN roomlist ON sched.room_code = roomlist.room_code 
+                and listofsubjects ON sched.subject_name = listofsubjects.subject_name
 
         UNION ALL
 
@@ -268,7 +274,8 @@ Public Class Schedule
             schedtemp.course_name,
             schedtemp.sections
         FROM schedtemp
-        JOIN roomlist ON schedtemp.room_code = roomlist.room_code
+        JOIN roomlist ON schedtemp.room_code = roomlist.room_code 
+                and listofsubjects ON sched.subject_name = listofsubjects.subject_name
         WHERE {0} LIKE @searchTerm;"
 
         ' Add WHERE clause for filtering based on the selected category

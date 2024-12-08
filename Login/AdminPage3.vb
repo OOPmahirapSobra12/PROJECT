@@ -28,7 +28,6 @@ Public Class AdminPage3
 
     Private Sub btnroomlogs_Click(sender As Object, e As EventArgs) Handles btnroomlogs.Click
         roomlogs.Show()
-
     End Sub
 
     Private Sub btnaccountlogs_Click(sender As Object, e As EventArgs) Handles btnaccountlogs.Click

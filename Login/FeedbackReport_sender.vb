@@ -101,7 +101,7 @@ Public Class FeedbackReport_sender
             Student.Show()
         ElseIf access = "mid" Then
             staffreport.tableloader()
-            staff_feedback.FeedbackDate()
+            staff_feedback.feedback()
         End If
         Me.Close()
     End Sub

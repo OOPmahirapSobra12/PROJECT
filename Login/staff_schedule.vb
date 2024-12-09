@@ -120,7 +120,7 @@ Public Class staff_schedule
     Private Sub btnsearch_Click(sender As Object, e As EventArgs) Handles btnsearch.Click
         ' Validate search term
         If String.IsNullOrWhiteSpace(txtsearch.Text) Then
-            MessageBox.Show("Please enter a search term.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            loadtable()
             Return
         End If
 
@@ -164,7 +164,7 @@ Public Class staff_schedule
                                 "WHERE " & columnMap(selectedCategory) & " LIKE @searchTerm " &
                                 "UNION ALL " &
                                 "SELECT 
-                                    schedtemp.schedtemp_id as shed_id, 
+                                    schedtemp.shedtemp_id as shed_id, 
                                     schedtemp.room_code, 
                                     roomlist.room_name, 
                                     NULL AS room_day, " &

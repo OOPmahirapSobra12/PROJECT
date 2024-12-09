@@ -24,6 +24,15 @@ Public Class staffschedule_request_add
 
     End Sub
 
+    Public Sub Clear()
+        cbocourse.Text = ""
+        cboday.Text = ""
+        cboroomname.Text = ""
+        cbosection.Text = ""
+        cbosubject.Text = ""
+        txtschedID.Text = ""
+        cborcode.Text = ""
+    End Sub
     Private Sub formatloader()
         DTPdate.Enabled = False
         DTPdate.Value = DateTime.Now
@@ -129,11 +138,11 @@ Public Class staffschedule_request_add
         If cboday.SelectedIndex = 1 Then
             sqlQuery = "
         INSERT INTO schedtemp (room_code, room_time_in, room_time_out, room_date, subject_name, sections, course_name) 
-        VALUES (@room_code, @room_time_in, @room_time_out, @room_date, @shed_id, @subject_name, @sections, @course_name)"
+        VALUES (@room_code, @room_time_in, @room_time_out, @room_date, @subject_name, @sections, @course_name)"
         Else
             sqlQuery = "
         INSERT INTO sched (room_code, room_time_in, room_time_out, room_day, subject_name, sections, course_name) 
-        VALUES (@room_code, @room_time_in, @room_time_out, @room_day, @shed_id, @subject_name, @sections, @course_name)"
+        VALUES (@room_code, @room_time_in, @room_time_out, @room_day, @subject_name, @sections, @course_name)"
         End If
 
         Try
@@ -151,6 +160,7 @@ Public Class staffschedule_request_add
 
             cmd.ExecuteNonQuery()
             MessageBox.Show("Schedule added successfully!", "Add Successful", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Clear()
         Catch ex As Exception
             MessageBox.Show("Error adding schedule: " & ex.Message, "Add Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
@@ -445,6 +455,7 @@ Public Class staffschedule_request_add
 
 
     Private Sub btnback_Click(sender As Object, e As EventArgs) Handles btnback.Click
+        staff_schedule.loadtable()
         Me.Close()
     End Sub
 End Class

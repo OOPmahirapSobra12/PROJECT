@@ -137,8 +137,17 @@ Public Class staffschedule_request_modify
         End If
     End Sub
 
-    Private Sub btnupdate_Click(sender As Object, e As EventArgs) Handles btnupdate.Click
-        ' Ensure all required fields are filled
+    Public Sub Clear()
+        cbocourse.Text = ""
+        cboday.Text = ""
+        cboroomname.Text = ""
+        cbosection.Text = ""
+        cbosubject.Text = ""
+        txtschedID.Text = ""
+        cborcode.Text = ""
+    End Sub
+
+    Public Sub conflicfinder()
         If String.IsNullOrEmpty(txtschedID.Text) OrElse cboroomname.SelectedIndex < 0 OrElse
        String.IsNullOrEmpty(DTPtimein.Text) OrElse String.IsNullOrEmpty(DTPtimeout.Text) OrElse cboday.SelectedIndex = -1 OrElse
        cbocourse.SelectedIndex = -1 OrElse cbosection.SelectedIndex = -1 OrElse cbosubject.SelectedIndex = -1 Then
@@ -147,8 +156,8 @@ Public Class staffschedule_request_modify
         End If
 
         ' Get the values
-        Dim shedId As String = txtschedID.Text.Trim()
-        Dim roomCode As String = cborcode.Text.Trim()
+        Dim shedId As String = txtschedID.Text.Trim.ToString()
+        Dim roomCode As String = cborcode.Text.Trim.ToString()
         Dim timeIn As String = DTPtimein.Value.ToString("HH:mm")
         Dim timeOut As String = DTPtimeout.Value.ToString("HH:mm")
         Dim course As String = cbocourse.SelectedItem.ToString()
@@ -191,6 +200,8 @@ Public Class staffschedule_request_modify
             If Convert.ToInt32(conflictCmd.ExecuteScalar()) > 0 Then
                 MessageBox.Show("The selected room, date, and time conflict with an existing schedule.", "Conflict Detected", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 Return
+            Else
+                updater()
             End If
         Catch ex As Exception
             MessageBox.Show("Error checking for conflicts: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -198,10 +209,37 @@ Public Class staffschedule_request_modify
         Finally
             If conn.State = ConnectionState.Open Then conn.Close()
         End Try
+    End Sub
+
+    Public Sub updater()
 
         ' Update query
-        Dim sqlQuery As String = If(cboday.SelectedIndex = 1, "
-        UPDATE schedtemp SET 
+        Dim sqlmodify As String = ""
+        If changed = False Then
+            If (cboday.SelectedIndex = 1) Then
+                sqlmodify = "UPDATE schedtemp SET " &
+                           "room_code = @room_code, " &
+                           "room_time_in = @room_time_in, " &
+                           "room_time_out = @room_time_out, " &
+                           "room_date = @room_date, " &
+                           "course_name = @course, " &
+                           "sections = @section, " &
+                           "subject_name = @subject " &
+                           "WHERE shedtemp_id = @shed_id"
+            Else
+                sqlmodify = "UPDATE sched SET " &
+                           "room_code = @room_code, " &
+                           "room_day = @room_day, " &
+                           "room_time_in = @room_time_in, " &
+                           "room_time_out = @room_time_out, " &
+                           "course_name = @course, " &
+                           "sections = @section, " &
+                           "subject_name = @subject " &
+                           "WHERE shed_id = @shed_id"
+            End If
+        Else
+            If (cboday.SelectedIndex = 1) Then
+                sqlmodify = "INSERT schedtemp SET 
             room_code = @room_code, 
             room_time_in = @room_time_in, 
             room_time_out = @room_time_out, 
@@ -209,9 +247,9 @@ Public Class staffschedule_request_modify
             course_name = @course, 
             sections = @section, 
             subject_name = @subject 
-        WHERE shedtemp_id = @shed_id",
-        "
-        UPDATE sched SET 
+            WHERE shedtemp_id = @shed_id"
+            Else
+                sqlmodify = "INSERT sched SET 
             room_code = @room_code, 
             room_day = @room_day, 
             room_time_in = @room_time_in, 
@@ -219,29 +257,45 @@ Public Class staffschedule_request_modify
             course_name = @course, 
             sections = @section, 
             subject_name = @subject 
-        WHERE shed_id = @shed_id")
+            WHERE shed_id = @shed_id"
+            End If
+        End If
 
         Try
             If conn.State <> ConnectionState.Open Then conn.Open()
 
-            Dim cmd As New MySqlCommand(sqlQuery, conn)
-            cmd.Parameters.AddWithValue("@shed_id", shedId)
-            cmd.Parameters.AddWithValue("@room_code", roomCode)
+            Dim roomDay As String = If(cboday.SelectedIndex >= 2, cboday.SelectedItem.ToString(), "N/A")
+            Dim roomDate As String = If(cboday.SelectedIndex = 1, DTPdate.Value.ToString("yyyy-MM-dd"), "N/A")
+
+            Dim cmd As New MySqlCommand(sqlmodify, conn)
+            cmd.Parameters.AddWithValue("@shed_id", txtschedID.Text.Trim())
+            cmd.Parameters.AddWithValue("@room_code", cborcode.Text())
             cmd.Parameters.AddWithValue("@room_day", roomDay)
             cmd.Parameters.AddWithValue("@room_date", roomDate)
-            cmd.Parameters.AddWithValue("@time_in", timeIn)
-            cmd.Parameters.AddWithValue("@time_out", timeOut)
-            cmd.Parameters.AddWithValue("@course", course)
-            cmd.Parameters.AddWithValue("@section", section)
-            cmd.Parameters.AddWithValue("@subject", subject)
+            cmd.Parameters.AddWithValue("@time_in", DTPtimein.Value.ToString("HH:mm"))
+            cmd.Parameters.AddWithValue("@time_out", DTPtimeout.Value.ToString("HH:mm"))
+            cmd.Parameters.AddWithValue("@course", cbocourse)
+            cmd.Parameters.AddWithValue("@section", cbosection)
+            cmd.Parameters.AddWithValue("@subject", cbosection)
 
             cmd.ExecuteNonQuery()
             MessageBox.Show("Schedule updated successfully!", "Update Successful", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Clear()
         Catch ex As Exception
             MessageBox.Show("Error updating schedule: " & ex.Message, "Update Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
             If conn.State = ConnectionState.Open Then conn.Close()
         End Try
+    End Sub
+
+    Private Sub btnupdate_Click(sender As Object, e As EventArgs) Handles btnupdate.Click
+        conflicfinder()
+
+    End Sub
+
+    Dim changed As Boolean
+    Public Sub cboday_status_scanner() Handles cboday.SelectedIndexChanged
+        changed = True
     End Sub
 
     ' Method to fill the cboSubject ComboBox with subject names from the subjects table
@@ -531,6 +585,7 @@ Public Class staffschedule_request_modify
     End Sub
 
     Private Sub btnback_Click(sender As Object, e As EventArgs) Handles btnback.Click
+        staff_schedule.loadtable()
         Me.Close()
     End Sub
 End Class

@@ -24,7 +24,7 @@ Public Class staffreport
         Me.Hide()
     End Sub
 
-    Private Sub tableloader()
+    Public Sub tableloader()
         ' Query to load report data and join with accounts to get the username
         Dim sqlQuery As String = "SELECT r.reportid AS report_id, a.username AS sender, r.d AS report_date, r.t AS report_time, r.report AS report_message " &
                              "FROM report r " &
@@ -152,7 +152,7 @@ Public Class staffreport
     Private Sub btnsearch_Click(sender As Object, e As EventArgs) Handles btnsearch.Click
         ' Validate that the user has entered a search term
         If String.IsNullOrWhiteSpace(txtsearch.Text) Then
-            MessageBox.Show("Please enter a search term.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            tableloader()
             Return
         End If
 

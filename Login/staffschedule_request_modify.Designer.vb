@@ -28,7 +28,7 @@ Partial Class staffschedule_request_modify
         Me.btnupdate = New System.Windows.Forms.Button()
         Me.TableLayoutPanel10 = New System.Windows.Forms.TableLayoutPanel()
         Me.cboday = New System.Windows.Forms.ComboBox()
-        Me.cborcode = New System.Windows.Forms.ComboBox()
+        Me.txtrcode = New System.Windows.Forms.ComboBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -57,17 +57,16 @@ Partial Class staffschedule_request_modify
         Me.TableLayoutPanel7.BackColor = System.Drawing.Color.Transparent
         Me.TableLayoutPanel7.ColumnCount = 1
         Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27.0!))
+        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel7.Controls.Add(Me.TableLayoutPanel11, 0, 1)
         Me.TableLayoutPanel7.Controls.Add(Me.TableLayoutPanel10, 0, 0)
         Me.TableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel7.Location = New System.Drawing.Point(0, 0)
-        Me.TableLayoutPanel7.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TableLayoutPanel7.Name = "TableLayoutPanel7"
         Me.TableLayoutPanel7.RowCount = 2
         Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 82.15614!))
         Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.84387!))
-        Me.TableLayoutPanel7.Size = New System.Drawing.Size(1133, 341)
+        Me.TableLayoutPanel7.Size = New System.Drawing.Size(850, 277)
         Me.TableLayoutPanel7.TabIndex = 4
         '
         'TableLayoutPanel11
@@ -79,12 +78,11 @@ Partial Class staffschedule_request_modify
         Me.TableLayoutPanel11.Controls.Add(Me.btnback, 2, 0)
         Me.TableLayoutPanel11.Controls.Add(Me.btnupdate, 1, 0)
         Me.TableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel11.Location = New System.Drawing.Point(4, 284)
-        Me.TableLayoutPanel11.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TableLayoutPanel11.Location = New System.Drawing.Point(3, 230)
         Me.TableLayoutPanel11.Name = "TableLayoutPanel11"
         Me.TableLayoutPanel11.RowCount = 1
         Me.TableLayoutPanel11.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel11.Size = New System.Drawing.Size(1125, 53)
+        Me.TableLayoutPanel11.Size = New System.Drawing.Size(844, 44)
         Me.TableLayoutPanel11.TabIndex = 2
         '
         'btnback
@@ -93,10 +91,9 @@ Partial Class staffschedule_request_modify
         Me.btnback.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnback.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnback.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnback.Location = New System.Drawing.Point(754, 4)
-        Me.btnback.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnback.Location = New System.Drawing.Point(565, 3)
         Me.btnback.Name = "btnback"
-        Me.btnback.Size = New System.Drawing.Size(367, 45)
+        Me.btnback.Size = New System.Drawing.Size(276, 38)
         Me.btnback.TabIndex = 14
         Me.btnback.Text = "Back"
         Me.btnback.UseVisualStyleBackColor = False
@@ -107,10 +104,9 @@ Partial Class staffschedule_request_modify
         Me.btnupdate.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnupdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnupdate.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnupdate.Location = New System.Drawing.Point(379, 4)
-        Me.btnupdate.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnupdate.Location = New System.Drawing.Point(284, 3)
         Me.btnupdate.Name = "btnupdate"
-        Me.btnupdate.Size = New System.Drawing.Size(367, 45)
+        Me.btnupdate.Size = New System.Drawing.Size(275, 38)
         Me.btnupdate.TabIndex = 13
         Me.btnupdate.Text = "Update"
         Me.btnupdate.UseVisualStyleBackColor = False
@@ -123,7 +119,7 @@ Partial Class staffschedule_request_modify
         Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.85185!))
         Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.07407!))
         Me.TableLayoutPanel10.Controls.Add(Me.cboday, 3, 0)
-        Me.TableLayoutPanel10.Controls.Add(Me.cborcode, 1, 1)
+        Me.TableLayoutPanel10.Controls.Add(Me.txtrcode, 1, 1)
         Me.TableLayoutPanel10.Controls.Add(Me.Label6, 2, 2)
         Me.TableLayoutPanel10.Controls.Add(Me.Label5, 2, 1)
         Me.TableLayoutPanel10.Controls.Add(Me.Label10, 2, 0)
@@ -143,17 +139,16 @@ Partial Class staffschedule_request_modify
         Me.TableLayoutPanel10.Controls.Add(Me.cbosubject, 1, 5)
         Me.TableLayoutPanel10.Controls.Add(Me.cboroomname, 1, 2)
         Me.TableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel10.Location = New System.Drawing.Point(4, 4)
-        Me.TableLayoutPanel10.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TableLayoutPanel10.Location = New System.Drawing.Point(3, 3)
         Me.TableLayoutPanel10.Name = "TableLayoutPanel10"
         Me.TableLayoutPanel10.RowCount = 6
-        Me.TableLayoutPanel10.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42.0!))
-        Me.TableLayoutPanel10.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44.0!))
-        Me.TableLayoutPanel10.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42.0!))
-        Me.TableLayoutPanel10.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44.0!))
-        Me.TableLayoutPanel10.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48.0!))
+        Me.TableLayoutPanel10.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34.0!))
+        Me.TableLayoutPanel10.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
+        Me.TableLayoutPanel10.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34.0!))
+        Me.TableLayoutPanel10.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
+        Me.TableLayoutPanel10.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 39.0!))
         Me.TableLayoutPanel10.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel10.Size = New System.Drawing.Size(1125, 272)
+        Me.TableLayoutPanel10.Size = New System.Drawing.Size(844, 221)
         Me.TableLayoutPanel10.TabIndex = 0
         '
         'cboday
@@ -163,25 +158,23 @@ Partial Class staffschedule_request_modify
         Me.cboday.ForeColor = System.Drawing.Color.MidnightBlue
         Me.cboday.FormattingEnabled = True
         Me.cboday.Items.AddRange(New Object() {"...", "Temporary", "Monday", "Tuesday", "Wednessday", "Thurday", "Friday", "Saturday"})
-        Me.cboday.Location = New System.Drawing.Point(789, 4)
-        Me.cboday.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cboday.Location = New System.Drawing.Point(592, 3)
         Me.cboday.Name = "cboday"
-        Me.cboday.Size = New System.Drawing.Size(213, 38)
+        Me.cboday.Size = New System.Drawing.Size(161, 33)
         Me.cboday.TabIndex = 36
         '
-        'cborcode
+        'txtrcode
         '
-        Me.cborcode.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.cborcode.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.cborcode.Enabled = False
-        Me.cborcode.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cborcode.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.cborcode.FormattingEnabled = True
-        Me.cborcode.Location = New System.Drawing.Point(218, 46)
-        Me.cborcode.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
-        Me.cborcode.Name = "cborcode"
-        Me.cborcode.Size = New System.Drawing.Size(430, 38)
-        Me.cborcode.TabIndex = 31
+        Me.txtrcode.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.txtrcode.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.txtrcode.Enabled = False
+        Me.txtrcode.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtrcode.ForeColor = System.Drawing.Color.MidnightBlue
+        Me.txtrcode.FormattingEnabled = True
+        Me.txtrcode.Location = New System.Drawing.Point(163, 37)
+        Me.txtrcode.Name = "txtrcode"
+        Me.txtrcode.Size = New System.Drawing.Size(323, 33)
+        Me.txtrcode.TabIndex = 31
         '
         'Label6
         '
@@ -189,10 +182,9 @@ Partial Class staffschedule_request_modify
         Me.Label6.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Bold)
         Me.Label6.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.Label6.Location = New System.Drawing.Point(656, 86)
-        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label6.Location = New System.Drawing.Point(492, 70)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(125, 42)
+        Me.Label6.Size = New System.Drawing.Size(94, 34)
         Me.Label6.TabIndex = 24
         Me.Label6.Text = "Time In:"
         Me.Label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -203,10 +195,9 @@ Partial Class staffschedule_request_modify
         Me.Label5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Bold)
         Me.Label5.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.Label5.Location = New System.Drawing.Point(656, 42)
-        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label5.Location = New System.Drawing.Point(492, 34)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(125, 44)
+        Me.Label5.Size = New System.Drawing.Size(94, 36)
         Me.Label5.TabIndex = 23
         Me.Label5.Text = "Date:"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -217,10 +208,9 @@ Partial Class staffschedule_request_modify
         Me.Label10.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Bold)
         Me.Label10.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.Label10.Location = New System.Drawing.Point(656, 0)
-        Me.Label10.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label10.Location = New System.Drawing.Point(492, 0)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(125, 42)
+        Me.Label10.Size = New System.Drawing.Size(94, 34)
         Me.Label10.TabIndex = 21
         Me.Label10.Text = "Day:"
         Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -231,10 +221,9 @@ Partial Class staffschedule_request_modify
         Me.DTPdate.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DTPdate.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
         Me.DTPdate.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
-        Me.DTPdate.Location = New System.Drawing.Point(789, 46)
-        Me.DTPdate.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.DTPdate.Location = New System.Drawing.Point(592, 37)
         Me.DTPdate.Name = "DTPdate"
-        Me.DTPdate.Size = New System.Drawing.Size(332, 36)
+        Me.DTPdate.Size = New System.Drawing.Size(249, 30)
         Me.DTPdate.TabIndex = 25
         '
         'DTPtimein
@@ -243,10 +232,9 @@ Partial Class staffschedule_request_modify
         Me.DTPtimein.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DTPtimein.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
         Me.DTPtimein.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.DTPtimein.Location = New System.Drawing.Point(789, 90)
-        Me.DTPtimein.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.DTPtimein.Location = New System.Drawing.Point(592, 73)
         Me.DTPtimein.Name = "DTPtimein"
-        Me.DTPtimein.Size = New System.Drawing.Size(332, 36)
+        Me.DTPtimein.Size = New System.Drawing.Size(249, 30)
         Me.DTPtimein.TabIndex = 26
         '
         'Label7
@@ -255,10 +243,9 @@ Partial Class staffschedule_request_modify
         Me.Label7.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Bold)
         Me.Label7.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.Label7.Location = New System.Drawing.Point(656, 128)
-        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label7.Location = New System.Drawing.Point(492, 104)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(125, 44)
+        Me.Label7.Size = New System.Drawing.Size(94, 36)
         Me.Label7.TabIndex = 27
         Me.Label7.Text = "Time Out:"
         Me.Label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -269,10 +256,9 @@ Partial Class staffschedule_request_modify
         Me.DTPtimeout.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DTPtimeout.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!)
         Me.DTPtimeout.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.DTPtimeout.Location = New System.Drawing.Point(789, 132)
-        Me.DTPtimeout.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.DTPtimeout.Location = New System.Drawing.Point(592, 107)
         Me.DTPtimeout.Name = "DTPtimeout"
-        Me.DTPtimeout.Size = New System.Drawing.Size(332, 36)
+        Me.DTPtimeout.Size = New System.Drawing.Size(249, 30)
         Me.DTPtimeout.TabIndex = 28
         '
         'Label8
@@ -281,10 +267,9 @@ Partial Class staffschedule_request_modify
         Me.Label8.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Bold)
         Me.Label8.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.Label8.Location = New System.Drawing.Point(4, 86)
-        Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label8.Location = New System.Drawing.Point(3, 70)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(206, 42)
+        Me.Label8.Size = New System.Drawing.Size(154, 34)
         Me.Label8.TabIndex = 13
         Me.Label8.Text = "Room Name:"
         Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -295,10 +280,9 @@ Partial Class staffschedule_request_modify
         Me.Label4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Bold)
         Me.Label4.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.Label4.Location = New System.Drawing.Point(4, 42)
-        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label4.Location = New System.Drawing.Point(3, 34)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(206, 44)
+        Me.Label4.Size = New System.Drawing.Size(154, 36)
         Me.Label4.TabIndex = 9
         Me.Label4.Text = "Room Code:"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -309,10 +293,9 @@ Partial Class staffschedule_request_modify
         Me.Label11.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Bold)
         Me.Label11.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.Label11.Location = New System.Drawing.Point(4, 0)
-        Me.Label11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label11.Location = New System.Drawing.Point(3, 0)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(206, 42)
+        Me.Label11.Size = New System.Drawing.Size(154, 34)
         Me.Label11.TabIndex = 29
         Me.Label11.Text = "Schedule Code:"
         Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -323,10 +306,10 @@ Partial Class staffschedule_request_modify
         Me.txtschedID.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtschedID.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtschedID.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.txtschedID.Location = New System.Drawing.Point(218, 4)
-        Me.txtschedID.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtschedID.Location = New System.Drawing.Point(163, 3)
         Me.txtschedID.Name = "txtschedID"
-        Me.txtschedID.Size = New System.Drawing.Size(430, 37)
+        Me.txtschedID.ReadOnly = True
+        Me.txtschedID.Size = New System.Drawing.Size(323, 31)
         Me.txtschedID.TabIndex = 30
         '
         'Label1
@@ -335,10 +318,9 @@ Partial Class staffschedule_request_modify
         Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Bold)
         Me.Label1.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.Label1.Location = New System.Drawing.Point(4, 128)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label1.Location = New System.Drawing.Point(3, 104)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(206, 44)
+        Me.Label1.Size = New System.Drawing.Size(154, 36)
         Me.Label1.TabIndex = 32
         Me.Label1.Text = "Course:"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -349,10 +331,9 @@ Partial Class staffschedule_request_modify
         Me.Label2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Bold)
         Me.Label2.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.Label2.Location = New System.Drawing.Point(4, 172)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label2.Location = New System.Drawing.Point(3, 140)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(206, 48)
+        Me.Label2.Size = New System.Drawing.Size(154, 39)
         Me.Label2.TabIndex = 35
         Me.Label2.Text = "Section:"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -364,10 +345,9 @@ Partial Class staffschedule_request_modify
         Me.cbocourse.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbocourse.ForeColor = System.Drawing.Color.MidnightBlue
         Me.cbocourse.FormattingEnabled = True
-        Me.cbocourse.Location = New System.Drawing.Point(218, 132)
-        Me.cbocourse.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cbocourse.Location = New System.Drawing.Point(163, 107)
         Me.cbocourse.Name = "cbocourse"
-        Me.cbocourse.Size = New System.Drawing.Size(430, 38)
+        Me.cbocourse.Size = New System.Drawing.Size(323, 33)
         Me.cbocourse.TabIndex = 38
         '
         'cbosection
@@ -377,10 +357,9 @@ Partial Class staffschedule_request_modify
         Me.cbosection.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbosection.ForeColor = System.Drawing.Color.MidnightBlue
         Me.cbosection.FormattingEnabled = True
-        Me.cbosection.Location = New System.Drawing.Point(218, 176)
-        Me.cbosection.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cbosection.Location = New System.Drawing.Point(163, 143)
         Me.cbosection.Name = "cbosection"
-        Me.cbosection.Size = New System.Drawing.Size(430, 38)
+        Me.cbosection.Size = New System.Drawing.Size(323, 33)
         Me.cbosection.TabIndex = 39
         '
         'Label9
@@ -389,10 +368,9 @@ Partial Class staffschedule_request_modify
         Me.Label9.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Bold)
         Me.Label9.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.Label9.Location = New System.Drawing.Point(4, 220)
-        Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label9.Location = New System.Drawing.Point(3, 179)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(206, 52)
+        Me.Label9.Size = New System.Drawing.Size(154, 42)
         Me.Label9.TabIndex = 14
         Me.Label9.Text = "Subject:"
         Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -404,10 +382,9 @@ Partial Class staffschedule_request_modify
         Me.cbosubject.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbosubject.ForeColor = System.Drawing.Color.MidnightBlue
         Me.cbosubject.FormattingEnabled = True
-        Me.cbosubject.Location = New System.Drawing.Point(218, 224)
-        Me.cbosubject.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cbosubject.Location = New System.Drawing.Point(163, 182)
         Me.cbosubject.Name = "cbosubject"
-        Me.cbosubject.Size = New System.Drawing.Size(430, 38)
+        Me.cbosubject.Size = New System.Drawing.Size(323, 33)
         Me.cbosubject.TabIndex = 37
         '
         'cboroomname
@@ -417,22 +394,20 @@ Partial Class staffschedule_request_modify
         Me.cboroomname.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboroomname.ForeColor = System.Drawing.Color.MidnightBlue
         Me.cboroomname.FormattingEnabled = True
-        Me.cboroomname.Location = New System.Drawing.Point(218, 90)
-        Me.cboroomname.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cboroomname.Location = New System.Drawing.Point(163, 73)
         Me.cboroomname.Name = "cboroomname"
-        Me.cboroomname.Size = New System.Drawing.Size(430, 38)
+        Me.cboroomname.Size = New System.Drawing.Size(323, 33)
         Me.cboroomname.TabIndex = 40
         '
         'staffschedule_request_modify
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.Login.My.Resources.Resources._467460386_1064088022134846_6079649981189841706_n
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1133, 341)
+        Me.ClientSize = New System.Drawing.Size(850, 277)
         Me.Controls.Add(Me.TableLayoutPanel7)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "staffschedule_request_modify"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "staff_request_modify"
@@ -450,7 +425,7 @@ Partial Class staffschedule_request_modify
     Friend WithEvents btnupdate As Button
     Friend WithEvents TableLayoutPanel10 As TableLayoutPanel
     Friend WithEvents cboday As ComboBox
-    Friend WithEvents cborcode As ComboBox
+    Friend WithEvents txtrcode As ComboBox
     Friend WithEvents Label6 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents Label10 As Label

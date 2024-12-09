@@ -74,8 +74,8 @@ Public Class staffschedule_request_add
         ' Get input values
         Dim roomCode As String = cborcode.Text.Trim()
         Dim roomName As String = cboroomname.Text.Trim()
-        Dim timeIn As String = DTPtimein.Value.ToString("HH:mm")
-        Dim timeOut As String = DTPtimeout.Value.ToString("HH:mm")
+        Dim timeIn As String = DTPtimein.Value.ToString("hh:mm:tt")
+        Dim timeOut As String = DTPtimeout.Value.ToString("hh:mm:tt")
         Dim course As String = cbocourse.SelectedItem.ToString()
         Dim section As String = cbosection.SelectedItem.ToString()
         Dim subject As String = cbosubject.SelectedItem.ToString()
@@ -88,7 +88,7 @@ Public Class staffschedule_request_add
             MessageBox.Show("Please select a valid Day or Date option.", "Selection Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return
         ElseIf cboday.SelectedIndex = 1 Then
-            roomDate = DTPdate.Value.ToString("yyyy-MM-dd")
+            roomDate = DTPdate.Value.ToString("MM-dd-yyyy")
             roomDay = "N/A"
         Else
             roomDay = cboday.SelectedItem.ToString()

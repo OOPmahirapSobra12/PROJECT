@@ -14,7 +14,7 @@ Public Class staff_feedback
         txtsearch.Text = ""
     End Sub
 
-    Private Sub feedback()
+    Public Sub feedback()
         ' Query to select necessary columns (ID, feedback date, time, feedback message, and username)
         Dim query As String = "SELECT feedback.feedbackid, feedback.d, feedback.t, feedback.feedback, accounts.username " &
                           "FROM feedback " &
@@ -88,56 +88,58 @@ Public Class staff_feedback
     End Sub
 
     Private Sub btnsearch_Click(sender As Object, e As EventArgs) Handles btnsearch.Click
-        ' If the textbox is empty, refresh the data
-        If String.IsNullOrEmpty(txtsearch.Text.Trim()) Then
-            feedback() ' Refresh the DataGridView by reloading all data
+        ' Validate that the search term is not empty
+        If String.IsNullOrWhiteSpace(txtsearch.Text) Then
+            feedback() ' Reload all data if no search term is provided
             Return
         End If
 
-        ' Get the search term from the textbox
-        Dim searchTerm As String = txtsearch.Text.Trim()
+        ' Define the SQL query based on the selected search type
         Dim query As String = ""
+        Dim searchTerm As String = "%" & txtsearch.Text.Trim() & "%" ' Add wildcards for flexible matching
 
-        ' Check the selected combo box item
         Select Case cboType.Text
-            Case "Choose:"
-                ' Search across all columns: Feedback ID, Date, Time, and Username
-                query = "SELECT feedback.feedbackid, feedback.d, feedback.t, feedback.feedback, accounts.username " &
-                    "FROM feedback " &
-                    "INNER JOIN accounts ON feedback.ID = accounts.ID " &
-                    "WHERE feedback.feedbackid LIKE @search OR feedback.d LIKE @search OR feedback.t LIKE @search OR accounts.username LIKE @search"
-
             Case "Feedback ID"
+                ' Search by Feedback ID
                 query = "SELECT feedback.feedbackid, feedback.d, feedback.t, feedback.feedback, accounts.username " &
                     "FROM feedback " &
                     "INNER JOIN accounts ON feedback.ID = accounts.ID " &
-                    "WHERE feedback.feedbackid LIKE @search"
+                    "WHERE feedback.feedbackid LIKE @searchTerm"
 
-            Case "Date"
+            Case "Sender Name"
+                ' Search by Sender Name (Username)
                 query = "SELECT feedback.feedbackid, feedback.d, feedback.t, feedback.feedback, accounts.username " &
                     "FROM feedback " &
                     "INNER JOIN accounts ON feedback.ID = accounts.ID " &
-                    "WHERE feedback.d LIKE @search"
+                    "WHERE accounts.username LIKE @searchTerm"
 
-            Case "Time"
+            Case "Date Reported"
+                ' Search by Date Reported
                 query = "SELECT feedback.feedbackid, feedback.d, feedback.t, feedback.feedback, accounts.username " &
                     "FROM feedback " &
                     "INNER JOIN accounts ON feedback.ID = accounts.ID " &
-                    "WHERE feedback.t LIKE @search"
+                    "WHERE feedback.d LIKE @searchTerm"
+
+            Case "Time Reported"
+                ' Search by Time Reported
+                query = "SELECT feedback.feedbackid, feedback.d, feedback.t, feedback.feedback, accounts.username " &
+                    "FROM feedback " &
+                    "INNER JOIN accounts ON feedback.ID = accounts.ID " &
+                    "WHERE feedback.t LIKE @searchTerm"
 
             Case Else
-                MessageBox.Show("Invalid category selected. Please select a valid search category.", "Invalid Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                ' Handle invalid selection
+                MessageBox.Show("Please select a valid search category.", "Invalid Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                 Return
         End Select
 
         ' Execute the search query
         Dim table As New DataTable()
         Using command As New MySqlCommand(query, conn)
-            ' Add the search parameter with wildcard matching
-            command.Parameters.AddWithValue("@search", "%" & searchTerm & "%")
+            command.Parameters.AddWithValue("@searchTerm", searchTerm)
 
             Try
-                ' Open the connection if it is closed
+                ' Open the connection if closed
                 If conn.State = ConnectionState.Closed Then
                     conn.Open()
                 End If
@@ -149,7 +151,7 @@ Public Class staff_feedback
                 ' Bind the results to the DataGridView
                 DGVfeedback.DataSource = table
 
-                ' Notify the user if no results are found
+                ' Notify if no results are found
                 If table.Rows.Count = 0 Then
                     MessageBox.Show("No matching records found.", "No Results", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 End If
@@ -157,10 +159,13 @@ Public Class staff_feedback
                 MessageBox.Show("Error executing search: " & ex.Message, "Search Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Finally
                 ' Ensure the connection is closed
-                conn.Close()
+                If conn.State = ConnectionState.Open Then
+                    conn.Close()
+                End If
             End Try
         End Using
     End Sub
+
 
 
     Private Sub btnback_Click(sender As Object, e As EventArgs) Handles btnback.Click

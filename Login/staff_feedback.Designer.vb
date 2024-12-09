@@ -32,6 +32,10 @@ Partial Class staff_feedback
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
         Me.DGVfeedback = New System.Windows.Forms.DataGridView()
+        Me.FeedbackID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Username = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FeedbackDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FeedbackTime = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TableLayoutPanel7 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel11 = New System.Windows.Forms.TableLayoutPanel()
@@ -41,10 +45,6 @@ Partial Class staff_feedback
         Me.btnAdd = New System.Windows.Forms.Button()
         Me.TableLayoutPanel5 = New System.Windows.Forms.TableLayoutPanel()
         Me.lbltitle = New System.Windows.Forms.Label()
-        Me.FeedbackID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Username = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FeedbackDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FeedbackTime = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.TableLayoutPanel9.SuspendLayout()
@@ -101,7 +101,7 @@ Partial Class staff_feedback
         Me.TableLayoutPanel9.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.05747!))
         Me.TableLayoutPanel9.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.09579!))
         Me.TableLayoutPanel9.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.10345!))
-        Me.TableLayoutPanel9.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 81.0!))
+        Me.TableLayoutPanel9.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 85.0!))
         Me.TableLayoutPanel9.Controls.Add(Me.btnsearch, 5, 0)
         Me.TableLayoutPanel9.Controls.Add(Me.cboType, 2, 0)
         Me.TableLayoutPanel9.Controls.Add(Me.txtsearch, 4, 0)
@@ -122,9 +122,9 @@ Partial Class staff_feedback
         Me.btnsearch.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnsearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnsearch.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnsearch.Location = New System.Drawing.Point(789, 3)
+        Me.btnsearch.Location = New System.Drawing.Point(786, 3)
         Me.btnsearch.Name = "btnsearch"
-        Me.btnsearch.Size = New System.Drawing.Size(167, 35)
+        Me.btnsearch.Size = New System.Drawing.Size(166, 35)
         Me.btnsearch.TabIndex = 12
         Me.btnsearch.Text = "Search"
         Me.btnsearch.UseVisualStyleBackColor = False
@@ -137,9 +137,9 @@ Partial Class staff_feedback
         Me.cboType.ForeColor = System.Drawing.Color.MidnightBlue
         Me.cboType.FormattingEnabled = True
         Me.cboType.Items.AddRange(New Object() {"Choose:", "Feedback ID", "Sender Name", "Date Reported", "Time Reported"})
-        Me.cboType.Location = New System.Drawing.Point(236, 3)
+        Me.cboType.Location = New System.Drawing.Point(235, 3)
         Me.cboType.Name = "cboType"
-        Me.cboType.Size = New System.Drawing.Size(211, 33)
+        Me.cboType.Size = New System.Drawing.Size(210, 33)
         Me.cboType.TabIndex = 9
         '
         'txtsearch
@@ -148,9 +148,9 @@ Partial Class staff_feedback
         Me.txtsearch.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtsearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtsearch.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.txtsearch.Location = New System.Drawing.Point(549, 3)
+        Me.txtsearch.Location = New System.Drawing.Point(547, 3)
         Me.txtsearch.Name = "txtsearch"
-        Me.txtsearch.Size = New System.Drawing.Size(234, 31)
+        Me.txtsearch.Size = New System.Drawing.Size(233, 31)
         Me.txtsearch.TabIndex = 11
         '
         'Label3
@@ -159,7 +159,7 @@ Partial Class staff_feedback
         Me.Label3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.Label3.Location = New System.Drawing.Point(453, 0)
+        Me.Label3.Location = New System.Drawing.Point(451, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(90, 41)
         Me.Label3.TabIndex = 100
@@ -174,7 +174,7 @@ Partial Class staff_feedback
         Me.Label2.ForeColor = System.Drawing.Color.MidnightBlue
         Me.Label2.Location = New System.Drawing.Point(94, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(136, 41)
+        Me.Label2.Size = New System.Drawing.Size(135, 41)
         Me.Label2.TabIndex = 8
         Me.Label2.Text = "Search for :"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -212,6 +212,34 @@ Partial Class staff_feedback
         Me.DGVfeedback.ReadOnly = True
         Me.DGVfeedback.Size = New System.Drawing.Size(1038, 316)
         Me.DGVfeedback.TabIndex = 115
+        '
+        'FeedbackID
+        '
+        Me.FeedbackID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.FeedbackID.HeaderText = "Feedback ID"
+        Me.FeedbackID.Name = "FeedbackID"
+        Me.FeedbackID.ReadOnly = True
+        '
+        'Username
+        '
+        Me.Username.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.Username.HeaderText = "Sender"
+        Me.Username.Name = "Username"
+        Me.Username.ReadOnly = True
+        '
+        'FeedbackDate
+        '
+        Me.FeedbackDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.FeedbackDate.HeaderText = "Feedback Date"
+        Me.FeedbackDate.Name = "FeedbackDate"
+        Me.FeedbackDate.ReadOnly = True
+        '
+        'FeedbackTime
+        '
+        Me.FeedbackTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.FeedbackTime.HeaderText = "Feedback Time"
+        Me.FeedbackTime.Name = "FeedbackTime"
+        Me.FeedbackTime.ReadOnly = True
         '
         'TableLayoutPanel7
         '
@@ -350,34 +378,6 @@ Partial Class staff_feedback
         Me.lbltitle.TabIndex = 98
         Me.lbltitle.Text = "Feedback"
         Me.lbltitle.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        '
-        'FeedbackID
-        '
-        Me.FeedbackID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.FeedbackID.HeaderText = "Feedback ID"
-        Me.FeedbackID.Name = "FeedbackID"
-        Me.FeedbackID.ReadOnly = True
-        '
-        'Username
-        '
-        Me.Username.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.Username.HeaderText = "Sender"
-        Me.Username.Name = "Username"
-        Me.Username.ReadOnly = True
-        '
-        'FeedbackDate
-        '
-        Me.FeedbackDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.FeedbackDate.HeaderText = "Feedback Date"
-        Me.FeedbackDate.Name = "FeedbackDate"
-        Me.FeedbackDate.ReadOnly = True
-        '
-        'FeedbackTime
-        '
-        Me.FeedbackTime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.FeedbackTime.HeaderText = "Feedback Time"
-        Me.FeedbackTime.Name = "FeedbackTime"
-        Me.FeedbackTime.ReadOnly = True
         '
         'staff_feedback
         '

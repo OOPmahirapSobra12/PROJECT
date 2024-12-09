@@ -25,10 +25,6 @@ Partial Class Student
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
         Me.DGVrooms = New System.Windows.Forms.DataGridView()
-        Me.subject = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.time = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.room = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.room_status = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.btnaccount = New System.Windows.Forms.Button()
@@ -37,6 +33,11 @@ Partial Class Student
         Me.btnlogout = New System.Windows.Forms.Button()
         Me.TableLayoutPanel4 = New System.Windows.Forms.TableLayoutPanel()
         Me.btnfeedback = New System.Windows.Forms.Button()
+        Me.subject = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.time = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.room = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.building = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.room_status = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
         CType(Me.DGVrooms, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -87,7 +88,7 @@ Partial Class Student
         Me.DGVrooms.AllowUserToDeleteRows = False
         Me.DGVrooms.BackgroundColor = System.Drawing.Color.DodgerBlue
         Me.DGVrooms.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DGVrooms.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.subject, Me.time, Me.room, Me.room_status})
+        Me.DGVrooms.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.subject, Me.time, Me.room, Me.building, Me.room_status})
         Me.DGVrooms.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DGVrooms.GridColor = System.Drawing.Color.NavajoWhite
         Me.DGVrooms.Location = New System.Drawing.Point(23, 138)
@@ -96,34 +97,6 @@ Partial Class Student
         Me.DGVrooms.RowHeadersWidth = 51
         Me.DGVrooms.Size = New System.Drawing.Size(421, 330)
         Me.DGVrooms.TabIndex = 53
-        '
-        'subject
-        '
-        Me.subject.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.subject.HeaderText = "Subject"
-        Me.subject.Name = "subject"
-        Me.subject.ReadOnly = True
-        '
-        'time
-        '
-        Me.time.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.time.HeaderText = "Time"
-        Me.time.Name = "time"
-        Me.time.ReadOnly = True
-        '
-        'room
-        '
-        Me.room.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.room.HeaderText = "Room"
-        Me.room.Name = "room"
-        Me.room.ReadOnly = True
-        '
-        'room_status
-        '
-        Me.room_status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.room_status.HeaderText = "Room Status"
-        Me.room_status.Name = "room_status"
-        Me.room_status.ReadOnly = True
         '
         'Label2
         '
@@ -251,6 +224,40 @@ Partial Class Student
         Me.btnfeedback.Text = "Feedback / Report   Center"
         Me.btnfeedback.UseVisualStyleBackColor = False
         '
+        'subject
+        '
+        Me.subject.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.subject.HeaderText = "Subject"
+        Me.subject.Name = "subject"
+        Me.subject.ReadOnly = True
+        '
+        'time
+        '
+        Me.time.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.time.HeaderText = "Time"
+        Me.time.Name = "time"
+        Me.time.ReadOnly = True
+        '
+        'room
+        '
+        Me.room.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.room.HeaderText = "Room"
+        Me.room.Name = "room"
+        Me.room.ReadOnly = True
+        '
+        'building
+        '
+        Me.building.HeaderText = "Building"
+        Me.building.Name = "building"
+        Me.building.ReadOnly = True
+        '
+        'room_status
+        '
+        Me.room_status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.room_status.HeaderText = "Room Status"
+        Me.room_status.Name = "room_status"
+        Me.room_status.ReadOnly = True
+        '
         'Student
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -288,10 +295,11 @@ Partial Class Student
     Friend WithEvents btnroomlist As Button
     Friend WithEvents btnschedule As Button
     Friend WithEvents btnlogout As Button
+    Friend WithEvents TableLayoutPanel4 As TableLayoutPanel
+    Friend WithEvents btnfeedback As Button
     Friend WithEvents subject As DataGridViewTextBoxColumn
     Friend WithEvents time As DataGridViewTextBoxColumn
     Friend WithEvents room As DataGridViewTextBoxColumn
+    Friend WithEvents building As DataGridViewTextBoxColumn
     Friend WithEvents room_status As DataGridViewTextBoxColumn
-    Friend WithEvents TableLayoutPanel4 As TableLayoutPanel
-    Friend WithEvents btnfeedback As Button
 End Class

@@ -6,33 +6,38 @@ Module AutomaticTemporaryScheduleExpirer
     Private WithEvents ScheduleTimer As Timer
     Public Automation_IsRunning As Boolean = False ' Prevent multiple starts
 
-    ' Start the automatic process
+    ' Start the automatic expiration process
     Public Sub StartExpirationCheck()
         If Not Automation_IsRunning Then
             ' Set up the timer (e.g., every minute)
             ScheduleTimer = New Timer(60000) ' 60000 ms = 1 minute
             ScheduleTimer.AutoReset = True
+            AddHandler ScheduleTimer.Elapsed, AddressOf ScheduleTimer_Elapsed
             ScheduleTimer.Enabled = True
+
             Automation_IsRunning = True
             Console.WriteLine("Timer started.")
-            MessageBox.Show("timer started")
-            StartExpirationCheck()
+            MessageBox.Show("Automatic schedule expiration has started.")
+        Else
+            Console.WriteLine("Automation is already running.")
         End If
     End Sub
 
-    ' Stop the automatic process
+    ' Stop the automatic expiration process
     Public Sub StopExpirationCheck()
         If Automation_IsRunning AndAlso ScheduleTimer IsNot Nothing Then
             ScheduleTimer.Stop()
             ScheduleTimer.Dispose()
             Automation_IsRunning = False
             Console.WriteLine("Timer stopped.")
-            MessageBox.Show("timer ended")
+            MessageBox.Show("Automatic schedule expiration has stopped.")
+        Else
+            Console.WriteLine("Automation is not running or has already stopped.")
         End If
     End Sub
 
     ' Event handler for the timer
-    Private Sub ScheduleTimer_Elapsed(sender As Object, e As ElapsedEventArgs) Handles ScheduleTimer.Elapsed
+    Private Sub ScheduleTimer_Elapsed(sender As Object, e As ElapsedEventArgs)
         CheckAndExpireSchedules()
     End Sub
 
@@ -59,9 +64,9 @@ Module AutomaticTemporaryScheduleExpirer
             Dim deleteQuery As String =
                 "DELETE FROM schedtemp WHERE CONCAT(room_date, ' ', room_time_out) <= @CurrentDateTime"
 
-            ' Execute the queries
             Using cmd As New MySqlCommand(selectQuery, ConnectionModule.conn)
                 cmd.Parameters.AddWithValue("@CurrentDateTime", currentDateTime)
+
                 Dim reader As MySqlDataReader = cmd.ExecuteReader()
 
                 ' If there are expired schedules
@@ -90,6 +95,11 @@ Module AutomaticTemporaryScheduleExpirer
             Console.WriteLine("MySQL Error: " & ex.Message)
         Catch ex As Exception
             Console.WriteLine("Error: " & ex.Message)
+        Finally
+            ' Ensure the database connection is closed
+            If ConnectionModule.conn.State = ConnectionState.Open Then
+                ConnectionModule.conn.Close()
+            End If
         End Try
     End Sub
 End Module

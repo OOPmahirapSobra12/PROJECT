@@ -29,7 +29,7 @@ Public Class ScheduleStudent
             sched.room_day, 
             sched.room_time_in, 
             sched.room_time_out, 
-            sched.subject_name,
+            listofsubjects.subject_name,
             roomlist.building
         FROM sched
         JOIN roomlist ON sched.room_code = roomlist.room_code
@@ -44,7 +44,7 @@ Public Class ScheduleStudent
             NULL AS room_day, 
             schedtemp.room_time_in, 
             schedtemp.room_time_out, 
-            subjects.subject_name,
+            listofsubjects.subject_name,
             roomlist.building
         FROM schedtemp
         JOIN roomlist ON schedtemp.room_code = roomlist.room_code

@@ -99,6 +99,9 @@ Public Class FeedbackReport_sender
     Private Sub btnback_Click(sender As Object, e As EventArgs) Handles btnback.Click
         If access = "low" Then
             Student.Show()
+        ElseIf access = "mid" Then
+            staffreport.tableloader()
+            staff_feedback.FeedbackDate()
         End If
         Me.Close()
     End Sub
@@ -181,10 +184,15 @@ Public Class FeedbackReport_sender
 
     Public Sub messagecompiler()
         If Not String.IsNullOrEmpty(txtuser.Text) And Not String.IsNullOrEmpty(txtmessage.Text()) And cbotype.SelectedIndex > 0 Then
-            messageediting = "Room Name: " & room_name & vbCrLf & "Room ID: " & room_ID & vbCrLf & txtmessage.Text.Trim()
-            messagesender()
+            If cboWHAT.SelectedIndex = 1 Then
+                messageediting = "Room Name: " & room_name & vbCrLf & "Room ID: " & room_ID & vbCrLf & txtmessage.Text.Trim()
+                messagesender()
+            ElseIf cboWHAT.SelectedIndex > 1 Then
+                messageediting = txtmessage.Text.Trim()
+                messagesender()
+            End If
         Else
-            MessageBox.Show("Incomplete " & cbotype.Text.ToString() & "!")
+                MessageBox.Show("Incomplete " & cbotype.Text.ToString() & "!")
         End If
     End Sub
 

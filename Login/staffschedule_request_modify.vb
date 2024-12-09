@@ -5,7 +5,7 @@ Imports System.Data
 Public Class staffschedule_request_modify
 
     Private Sub staff_request_modify_load(sender As Object, e As EventArgs) Handles MyBase.Load
-        cborcode.Items.Clear()
+        txtrcode.Items.Clear()
         cboroomname.Items.Clear()
         cbocourse.Items.Clear()
         cbosection.Items.Clear()
@@ -30,7 +30,7 @@ Public Class staffschedule_request_modify
         Try
             ' Populate controls with the selected row data
             txtschedID.Text = shedId
-            cborcode.Text = roomCode
+            txtrcode.Text = roomCode
             cboroomname.Text = roomName
 
             ' Handle ComboBox for subject
@@ -144,7 +144,7 @@ Public Class staffschedule_request_modify
         cbosection.Text = ""
         cbosubject.Text = ""
         txtschedID.Text = ""
-        cborcode.Text = ""
+        txtrcode.Text = ""
     End Sub
 
     Public Sub conflicfinder()
@@ -157,7 +157,7 @@ Public Class staffschedule_request_modify
 
         ' Get the values
         Dim shedId As String = txtschedID.Text.Trim.ToString()
-        Dim roomCode As String = cborcode.Text.Trim.ToString()
+        Dim roomCode As String = txtrcode.Text.Trim.ToString()
         Dim timeIn As String = DTPtimein.Value.ToString("HH:mm")
         Dim timeOut As String = DTPtimeout.Value.ToString("HH:mm")
         Dim course As String = cbocourse.SelectedItem.ToString()
@@ -212,75 +212,80 @@ Public Class staffschedule_request_modify
     End Sub
 
     Public Sub updater()
-
-        ' Update query
         Dim sqlmodify As String = ""
+        Dim sqldelete As String = ""
+        Dim deletechoice As Boolean
+        Dim todelete As String = txtschedID.Text.Trim()
+        MessageBox.Show(todelete)
         If changed = False Then
+            ' Update logic
             If (cboday.SelectedIndex = 1) Then
                 sqlmodify = "UPDATE schedtemp SET " &
-                           "room_code = @room_code, " &
-                           "room_time_in = @room_time_in, " &
-                           "room_time_out = @room_time_out, " &
-                           "room_date = @room_date, " &
-                           "course_name = @course, " &
-                           "sections = @section, " &
-                           "subject_name = @subject " &
-                           "WHERE shedtemp_id = @shed_id"
+                        "room_code = @room_code, " &
+                        "room_time_in = @room_time_in, " &
+                        "room_time_out = @room_time_out, " &
+                        "room_date = @room_date, " &
+                        "course_name = @course, " &
+                        "sections = @section, " &
+                        "subject_name = @subject " &
+                        "WHERE shedtemp_id = @shed_id"
             Else
                 sqlmodify = "UPDATE sched SET " &
-                           "room_code = @room_code, " &
-                           "room_day = @room_day, " &
-                           "room_time_in = @room_time_in, " &
-                           "room_time_out = @room_time_out, " &
-                           "course_name = @course, " &
-                           "sections = @section, " &
-                           "subject_name = @subject " &
-                           "WHERE shed_id = @shed_id"
+                        "room_code = @room_code, " &
+                        "room_day = @room_day, " &
+                        "room_time_in = @room_time_in, " &
+                        "room_time_out = @room_time_out, " &
+                        "course_name = @course, " &
+                        "sections = @section, " &
+                        "subject_name = @subject " &
+                        "WHERE shed_id = @shed_id"
             End If
+            deletechoice = True
         Else
+            ' Insert logic
             If (cboday.SelectedIndex = 1) Then
-                sqlmodify = "INSERT schedtemp SET 
-            room_code = @room_code, 
-            room_time_in = @room_time_in, 
-            room_time_out = @room_time_out, 
-            room_date = @room_date, 
-            course_name = @course, 
-            sections = @section, 
-            subject_name = @subject 
-            WHERE shedtemp_id = @shed_id"
+                sqlmodify = "INSERT INTO schedtemp (room_code, room_time_in, room_time_out, room_date, course_name, sections, subject_name) " &
+                        "VALUES (@room_code, @room_time_in, @room_time_out, @room_date, @course, @section, @subject)"
             Else
-                sqlmodify = "INSERT sched SET 
-            room_code = @room_code, 
-            room_day = @room_day, 
-            room_time_in = @room_time_in, 
-            room_time_out = @room_time_out, 
-            course_name = @course, 
-            sections = @section, 
-            subject_name = @subject 
-            WHERE shed_id = @shed_id"
+                sqlmodify = "INSERT INTO sched (room_code, room_day, room_time_in, room_time_out, course_name, sections, subject_name) " &
+                        "VALUES (@room_code, @room_day, @room_time_in, @room_time_out, @course, @section, @subject)"
             End If
+            deletechoice = False
         End If
 
         Try
             If conn.State <> ConnectionState.Open Then conn.Open()
 
-            Dim roomDay As String = If(cboday.SelectedIndex >= 2, cboday.SelectedItem.ToString(), "N/A")
-            Dim roomDate As String = If(cboday.SelectedIndex = 1, DTPdate.Value.ToString("yyyy-MM-dd"), "N/A")
-
+            ' Execute SQL query (Update or Insert)
             Dim cmd As New MySqlCommand(sqlmodify, conn)
             cmd.Parameters.AddWithValue("@shed_id", txtschedID.Text.Trim())
-            cmd.Parameters.AddWithValue("@room_code", cborcode.Text())
-            cmd.Parameters.AddWithValue("@room_day", roomDay)
-            cmd.Parameters.AddWithValue("@room_date", roomDate)
-            cmd.Parameters.AddWithValue("@time_in", DTPtimein.Value.ToString("HH:mm"))
-            cmd.Parameters.AddWithValue("@time_out", DTPtimeout.Value.ToString("HH:mm"))
-            cmd.Parameters.AddWithValue("@course", cbocourse)
-            cmd.Parameters.AddWithValue("@section", cbosection)
-            cmd.Parameters.AddWithValue("@subject", cbosection)
-
+            cmd.Parameters.AddWithValue("@room_code", txtrcode.Text())
+            cmd.Parameters.AddWithValue("@room_day", If(cboday.SelectedIndex >= 2, cboday.SelectedItem.ToString(), "N/A"))
+            cmd.Parameters.AddWithValue("@room_date", If(cboday.SelectedIndex = 1, DTPdate.Value.ToString("MM-dd-yyyy"), "N/A"))
+            cmd.Parameters.AddWithValue("@room_time_in", DTPtimein.Value.ToString("hh:mm:tt"))
+            cmd.Parameters.AddWithValue("@room_time_out", DTPtimeout.Value.ToString("hh:mm:tt"))
+            cmd.Parameters.AddWithValue("@course", cbocourse.SelectedItem?.ToString())
+            cmd.Parameters.AddWithValue("@section", cbosection.SelectedItem?.ToString())
+            cmd.Parameters.AddWithValue("@subject", cbosubject.SelectedItem?.ToString())
             cmd.ExecuteNonQuery()
-            MessageBox.Show("Schedule updated successfully!", "Update Successful", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+            ' Delete logic if `changed = True`
+            If deletechoice = False Then
+                If cboday.SelectedIndex = 1 Then
+                    sqldelete = "DELETE FROM sched WHERE shed_id = @id"
+                ElseIf cboday.SelectedIndex > 1 Then
+                    sqldelete = "DELETE FROM schedtemp WHERE shedtemp_id = @id"
+                End If
+
+                Dim deleteCmd As New MySqlCommand(sqldelete, conn)
+                deleteCmd.Parameters.AddWithValue("@id", todelete)
+                deleteCmd.ExecuteNonQuery()
+            End If
+
+            MessageBox.Show("Schedule updated successfully! deleted" & todelete, "Update Successful", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Clear()
+            todelete = ""
+
         Catch ex As Exception
             MessageBox.Show("Error updating schedule: " & ex.Message, "Update Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
@@ -292,6 +297,7 @@ Public Class staffschedule_request_modify
         conflicfinder()
 
     End Sub
+
 
     Dim changed As Boolean
     Public Sub cboday_status_scanner() Handles cboday.SelectedIndexChanged
@@ -567,13 +573,13 @@ Public Class staffschedule_request_modify
                 dataAdapter.SelectCommand.Parameters.AddWithValue("@roomname", cboroomname.SelectedItem.ToString())
                 dataAdapter.Fill(roomcode_choosertable)
 
-                cborcode.Items.Clear()
+                txtrcode.Items.Clear()
                 For Each row As DataRow In roomcode_choosertable.Rows
-                    cborcode.Items.Add(row("room_code").ToString())
+                    txtrcode.Items.Add(row("room_code").ToString())
                 Next
 
-                If cborcode.Items.Count > 0 Then
-                    cborcode.SelectedIndex = 0
+                If txtrcode.Items.Count > 0 Then
+                    txtrcode.SelectedIndex = 0
                 End If
 
             Catch ex As Exception

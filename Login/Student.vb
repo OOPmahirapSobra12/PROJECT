@@ -15,14 +15,14 @@ Public Class Student
     End Sub
 
     Private Sub tableloader()
+        ' Define the SQL query with UNION to combine data from `sched` and `schedtemp`
         Dim query As String = "
         SELECT 
-            sched.subject_name, 
-            sched.course_name, 
-            sched.sections, 
+            sched.subject_name AS subject, 
             CONCAT(sched.room_time_in, ' - ', sched.room_time_out) AS time,
-            roomlist.room_name,
-            roomlist.room_status
+            roomlist.room_name AS room,
+            roomlist.building AS building,
+            roomlist.room_status AS room_status
         FROM sched
         LEFT JOIN roomlist ON sched.room_code = roomlist.room_code
         WHERE sched.course_name = @course AND sched.sections = @section
@@ -30,23 +30,23 @@ Public Class Student
         UNION ALL
 
         SELECT 
-            schedtemp.subject_name, 
-            schedtemp.course_name, 
-            schedtemp.sections, 
+            schedtemp.subject_name AS subject, 
             CONCAT(schedtemp.room_time_in, ' - ', schedtemp.room_time_out) AS time,
-            roomlist.room_name,
-            roomlist.room_status
+            roomlist.room_name AS room,
+            roomlist.building AS building,
+            roomlist.room_status AS room_status
         FROM schedtemp
         LEFT JOIN roomlist ON schedtemp.room_code = roomlist.room_code
         WHERE schedtemp.course_name = @course AND schedtemp.sections = @section"
 
-        Using command As New MySqlDataAdapter(query, conn)
+        ' Initialize the DataAdapter
+        Using adapter As New MySqlDataAdapter(query, conn)
             Dim dataTable As New DataTable()
 
             Try
                 ' Add filtering parameters for course and section
-                command.SelectCommand.Parameters.AddWithValue("@course", course)
-                command.SelectCommand.Parameters.AddWithValue("@section", section)
+                adapter.SelectCommand.Parameters.AddWithValue("@course", course)
+                adapter.SelectCommand.Parameters.AddWithValue("@section", section)
 
                 ' Ensure the connection is open
                 If conn.State <> ConnectionState.Open Then
@@ -54,29 +54,30 @@ Public Class Student
                 End If
 
                 ' Fill the data table with the query result
-                command.Fill(dataTable)
+                adapter.Fill(dataTable)
+
+                ' Configure the DataGridView
                 DGVrooms.AutoGenerateColumns = False
                 DGVrooms.DataSource = dataTable
 
-                ' Map data to columns
+                ' Ensure the columns in the DataGridView are mapped correctly
                 For Each column As DataGridViewColumn In DGVrooms.Columns
                     Select Case column.Name
-                        Case "subject_name"
-                            column.DataPropertyName = "subject_name"
-                        Case "course"
-                            column.DataPropertyName = "course"
-                        Case "section"
-                            column.DataPropertyName = "section"
+                        Case "subject"
+                            column.DataPropertyName = "subject"
                         Case "time"
-                            column.DataPropertyName = "time" ' Concatenated time
-                        Case "room_name"
-                            column.DataPropertyName = "room_name"
+                            column.DataPropertyName = "time"
+                        Case "room"
+                            column.DataPropertyName = "room"
+                        Case "building"
+                            column.DataPropertyName = "building"
                         Case "room_status"
                             column.DataPropertyName = "room_status"
                     End Select
                 Next
+
             Catch ex As Exception
-                MessageBox.Show("Error loading room data: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show("Error loading table data: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Finally
                 ' Always close the connection after use
                 If conn.State = ConnectionState.Open Then
@@ -85,6 +86,7 @@ Public Class Student
             End Try
         End Using
     End Sub
+
 
 
     Private Sub Nameloader()

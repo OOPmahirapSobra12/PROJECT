@@ -19,6 +19,8 @@ Public Class staffschedule_request_modify
         formatloader()
         datetimeformat()
         FillCourseComboBox()
+        FillSubjectComboBox()
+        FillSectionComboBox()
         roomname_filler()
     End Sub
 
@@ -161,7 +163,7 @@ Public Class staffschedule_request_modify
         WHERE room_code = @room_code AND room_date = @room_date 
         AND ((@time_in BETWEEN room_time_in AND room_time_out) OR (@time_out BETWEEN room_time_in AND room_time_out) 
         OR (room_time_in BETWEEN @time_in AND @time_out) OR (room_time_out BETWEEN @time_in AND @time_out)) 
-        AND shed_id <> @shed_id 
+        AND shedtemp_id <> @shed_id 
         AND course_name = @course AND sections = @section AND subject_name = @subject",
         "
         SELECT COUNT(*) FROM sched 
@@ -207,7 +209,7 @@ Public Class staffschedule_request_modify
             course_name = @course, 
             sections = @section, 
             subject_name = @subject 
-        WHERE shed_id = @shed_id",
+        WHERE shedtemp_id = @shed_id",
         "
         UPDATE sched SET 
             room_code = @room_code, 

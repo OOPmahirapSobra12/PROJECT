@@ -72,7 +72,7 @@ Public Class Schedule
                                 UNION ALL
 
                                 SELECT 
-                                    schedtemp.shed_id, 
+                                    schedtemp.shedtemp_id as shed_id, 
                                     schedtemp.room_code, 
                                     roomlist.room_name, 
                                     schedtemp.room_date, 
@@ -261,7 +261,7 @@ Public Class Schedule
         UNION ALL
 
         SELECT 
-            schedtemp.shed_id,
+            schedtemp.shedtemp_id as shed_id,
             schedtemp.room_code, 
             roomlist.room_name, 
             schedtemp.detail, 

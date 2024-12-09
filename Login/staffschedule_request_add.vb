@@ -128,11 +128,11 @@ Public Class staffschedule_request_add
         Dim sqlQuery As String
         If cboday.SelectedIndex = 1 Then
             sqlQuery = "
-        INSERT INTO schedtemp (room_code, room_time_in, room_time_out, room_date, shed_id, subject_name, sections, course_name) 
+        INSERT INTO schedtemp (room_code, room_time_in, room_time_out, room_date, subject_name, sections, course_name) 
         VALUES (@room_code, @room_time_in, @room_time_out, @room_date, @shed_id, @subject_name, @sections, @course_name)"
         Else
             sqlQuery = "
-        INSERT INTO sched (room_code, room_time_in, room_time_out, room_day, shed_id, subject_name, sections, course_name) 
+        INSERT INTO sched (room_code, room_time_in, room_time_out, room_day, subject_name, sections, course_name) 
         VALUES (@room_code, @room_time_in, @room_time_out, @room_day, @shed_id, @subject_name, @sections, @course_name)"
         End If
 
@@ -145,7 +145,6 @@ Public Class staffschedule_request_add
             cmd.Parameters.AddWithValue("@room_time_out", timeOut)
             cmd.Parameters.AddWithValue("@room_day", roomDay)
             cmd.Parameters.AddWithValue("@room_date", roomDate)
-            cmd.Parameters.AddWithValue("@shed_id", shedID)
             cmd.Parameters.AddWithValue("@subject_name", subject)
             cmd.Parameters.AddWithValue("@sections", section)
             cmd.Parameters.AddWithValue("@course_name", course)

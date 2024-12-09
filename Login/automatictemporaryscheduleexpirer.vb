@@ -51,8 +51,8 @@ Module AutomaticTemporaryScheduleExpirer
 
             ' Query to insert into past_schedtemp
             Dim insertQuery As String =
-                "INSERT INTO past_schedtemp (room_code, room_time_in, room_time_out, room_date, shed_id, subject_name, sections, course_name) " &
-                "SELECT room_code, room_time_in, room_time_out, room_date, shed_id, subject_name, sections, course_name " &
+                "INSERT INTO past_schedtemp (room_code, room_time_in, room_time_out, room_date, shedtemp_id, subject_name, sections, course_name) " &
+                "SELECT room_code, room_time_in, room_time_out, room_date, shedtemp_id, subject_name, sections, course_name " &
                 "FROM schedtemp WHERE CONCAT(room_date, ' ', room_time_out) <= @CurrentDateTime"
 
             ' Query to delete expired schedules from schedtemp

@@ -44,7 +44,7 @@ Public Class staff_schedule
                                 UNION ALL
 
                                 SELECT 
-                                    schedtemp.shed_id, 
+                                    schedtemp.shedtemp_id as shed_id, 
                                     schedtemp.room_code, 
                                     roomlist.room_name, 
                                     schedtemp.room_date, 
@@ -164,7 +164,7 @@ Public Class staff_schedule
                                 "WHERE " & columnMap(selectedCategory) & " LIKE @searchTerm " &
                                 "UNION ALL " &
                                 "SELECT 
-                                    schedtemp.shed_id, 
+                                    schedtemp.schedtemp_id as shed_id, 
                                     schedtemp.room_code, 
                                     roomlist.room_name, 
                                     NULL AS room_day, " &

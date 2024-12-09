@@ -164,7 +164,7 @@ Public Class scheduleaddmodify
         WHERE room_code = @room_code AND room_date = @room_date 
         AND ((@time_in BETWEEN room_time_in AND room_time_out) OR (@time_out BETWEEN room_time_in AND room_time_out) 
         OR (room_time_in BETWEEN @time_in AND @time_out) OR (room_time_out BETWEEN @time_in AND @time_out)) 
-        AND shed_id <> @shed_id 
+        AND shedtemp_id <> @shed_id 
         AND course_name = @course AND sections = @section AND subject_name = @subject",
         "
         SELECT COUNT(*) FROM sched 
@@ -210,7 +210,7 @@ Public Class scheduleaddmodify
             course_name = @course, 
             sections = @section, 
             subject_name = @subject 
-        WHERE shed_id = @shed_id",
+        WHERE shedtemp_id = @shed_id",
         "
         UPDATE sched SET 
             room_code = @room_code, 
@@ -321,12 +321,12 @@ Public Class scheduleaddmodify
         Dim sqlQuery As String
         If cboday.SelectedIndex = 1 Then
             sqlQuery = "
-        INSERT INTO schedtemp (room_code, room_time_in, room_time_out, room_date, shed_id, subject_name, sections, course_name) 
-        VALUES (@room_code, @room_time_in, @room_time_out, @room_date, @shed_id, @subject_name, @sections, @course_name)"
+        INSERT INTO schedtemp (room_code, room_time_in, room_time_out, room_date, subject_name, sections, course_name) 
+        VALUES (@room_code, @room_time_in, @room_time_out, @room_date, @subject_name, @sections, @course_name)"
         Else
             sqlQuery = "
-        INSERT INTO sched (room_code, room_time_in, room_time_out, room_day, shed_id, subject_name, sections, course_name) 
-        VALUES (@room_code, @room_time_in, @room_time_out, @room_day, @shed_id, @subject_name, @sections, @course_name)"
+        INSERT INTO sched (room_code, room_time_in, room_time_out, room_day, subject_name, sections, course_name) 
+        VALUES (@room_code, @room_time_in, @room_time_out, @room_day, @subject_name, @sections, @course_name)"
         End If
 
         Try
@@ -338,7 +338,6 @@ Public Class scheduleaddmodify
             cmd.Parameters.AddWithValue("@room_time_out", timeOut)
             cmd.Parameters.AddWithValue("@room_day", roomDay)
             cmd.Parameters.AddWithValue("@room_date", roomDate)
-            cmd.Parameters.AddWithValue("@shed_id", shedID)
             cmd.Parameters.AddWithValue("@subject_name", subject)
             cmd.Parameters.AddWithValue("@sections", section)
             cmd.Parameters.AddWithValue("@course_name", course)

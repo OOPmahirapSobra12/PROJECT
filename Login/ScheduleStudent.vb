@@ -20,10 +20,10 @@ Public Class ScheduleStudent
     End Sub
 
     Public Sub loadtable()
-        ' SQL query to fetch data from sched and schedtemp with UNION ALL, filtering by course_name and sections
+        ' SQL query to fetch data from sched and schedtemp
         Dim sqlQuery As String = "
        SELECT 
-            sched.shed_id,
+            sched.shed_id AS sched_code,
             sched.room_code, 
             NULL AS room_date, 
             sched.room_day, 
@@ -38,7 +38,7 @@ Public Class ScheduleStudent
         UNION ALL
     
         SELECT 
-            schedtemp.shed_id,
+            schedtemp.shedtemp_id AS sched_code,
             schedtemp.room_code, 
             schedtemp.room_date, 
             NULL AS room_day, 
@@ -50,16 +50,15 @@ Public Class ScheduleStudent
         JOIN roomlist ON schedtemp.room_code = roomlist.room_code
         WHERE schedtemp.course_name = @courseName AND schedtemp.sections = @section;"
 
-        ' Create a new DataAdapter and DataTable
         Dim dataAdapter As New MySqlDataAdapter(sqlQuery, conn)
         Dim dataTable As New DataTable()
 
-        ' Add parameters for filtering
+        ' Add parameters
         dataAdapter.SelectCommand.Parameters.AddWithValue("@courseName", course)
         dataAdapter.SelectCommand.Parameters.AddWithValue("@section", section)
 
         Try
-            ' Open the connection if it isn't already open
+            ' Ensure the connection is open
             If conn.State <> ConnectionState.Open Then
                 conn.Open()
             End If
@@ -67,30 +66,12 @@ Public Class ScheduleStudent
             ' Fill the data into the DataTable
             dataAdapter.Fill(dataTable)
 
-            ' Add calculated columns for room_day and room_date if they don't exist
-            If Not dataTable.Columns.Contains("room_day") Then
-                dataTable.Columns.Add("room_day", GetType(String))
-            End If
-
-            If Not dataTable.Columns.Contains("room_date") Then
-                dataTable.Columns.Add("room_date", GetType(String))
-            End If
-
-            ' Process rows for `room_day` and `room_date` logic
-            For Each row As DataRow In dataTable.Rows
-                If Not String.IsNullOrEmpty(row("room_date").ToString()) Then
-                    row("room_day") = "N/A"
-                ElseIf Not String.IsNullOrEmpty(row("room_day").ToString()) Then
-                    row("room_date") = "N/A"
-                End If
-            Next
-
-            ' Configure the DataGridView for column bindings
+            ' Configure the DataGridView
             DGVschedule_student.AutoGenerateColumns = False
             DGVschedule_student.DataSource = dataTable
 
-            ' Set DataPropertyName for each DataGridView column
-            DGVschedule_student.Columns("sched_code").DataPropertyName = "shed_id"
+            ' Bind columns to their respective data fields
+            DGVschedule_student.Columns("sched_code").DataPropertyName = "sched_code"
             DGVschedule_student.Columns("room_code").DataPropertyName = "room_code"
             DGVschedule_student.Columns("s_day").DataPropertyName = "room_day"
             DGVschedule_student.Columns("s_date").DataPropertyName = "room_date"
@@ -109,6 +90,7 @@ Public Class ScheduleStudent
             End If
         End Try
     End Sub
+
 
     Private Sub btnback_Click(sender As Object, e As EventArgs) Handles btnback.Click
         Student.Show()

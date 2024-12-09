@@ -262,6 +262,7 @@ Partial Class scheduleaddmodify
         Me.txtschedID.ForeColor = System.Drawing.Color.MidnightBlue
         Me.txtschedID.Location = New System.Drawing.Point(163, 3)
         Me.txtschedID.Name = "txtschedID"
+        Me.txtschedID.ReadOnly = True
         Me.txtschedID.Size = New System.Drawing.Size(323, 31)
         Me.txtschedID.TabIndex = 30
         '

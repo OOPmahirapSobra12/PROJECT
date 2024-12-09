@@ -547,14 +547,11 @@ Public Class addscheduleadmin
         Dim selectedTimeIn As String = timein ' This is the formatted time_in
         Dim selectedTimeOut As String = timeout ' This is the formatted time_out
 
-        ' Declare shed_id (assuming it's generated or set elsewhere)
-        Dim shedId As String = "Generated_Shed_Id" ' Replace with actual logic to generate/set shed_id
-
         ' Determine which table to insert into based on the selected option
         If cboDD.SelectedItem.ToString() = "Today" Or cboDD.SelectedItem.ToString() = "Date" Then
             ' Temporary schedule, insert into schedtemp table
-            Dim query As String = "INSERT INTO schedtemp (room_code, room_time_in, room_time_out, room_date, shed_id, course_name, sections, subject_name) " &
-                              "VALUES (@room_code, @room_time_in, @room_time_out, @room_date, @shed_id, @course, @section, @subject_name)"
+            Dim query As String = "INSERT INTO schedtemp (room_code, room_time_in, room_time_out, room_date, course_name, sections, subject_name) " &
+                              "VALUES (@room_code, @room_time_in, @room_time_out, @room_date, @course, @section, @subject_name)"
 
             Using command As New MySqlCommand(query, conn)
                 ' Add parameters for the INSERT statement
@@ -562,7 +559,6 @@ Public Class addscheduleadmin
                 command.Parameters.AddWithValue("@room_time_in", selectedTimeIn)
                 command.Parameters.AddWithValue("@room_time_out", selectedTimeOut)
                 command.Parameters.AddWithValue("@room_date", selectedDateOrDay)
-                command.Parameters.AddWithValue("@shed_id", shedId)
                 command.Parameters.AddWithValue("@course", selectedCourse)
                 command.Parameters.AddWithValue("@section", selectedSection)
                 command.Parameters.AddWithValue("@subject_name", selectedSubject)
@@ -586,8 +582,8 @@ Public Class addscheduleadmin
 
         ElseIf cboDD.SelectedItem.ToString() = "Day" Then
             ' Permanent schedule, insert into sched table
-            Dim query As String = "INSERT INTO sched (room_code, room_time_in, room_time_out, room_day, shed_id, course_name, sections, subject_name) " &
-                              "VALUES (@room_code, @room_time_in, @room_time_out, @room_day, @shed_id, @course, @section, @subject_name)"
+            Dim query As String = "INSERT INTO sched (room_code, room_time_in, room_time_out, room_day, course_name, sections, subject_name) " &
+                              "VALUES (@room_code, @room_time_in, @room_time_out, @room_day, @course, @section, @subject_name)"
 
             Using command As New MySqlCommand(query, conn)
                 ' Add parameters for the INSERT statement
@@ -595,7 +591,6 @@ Public Class addscheduleadmin
                 command.Parameters.AddWithValue("@room_time_in", selectedTimeIn)
                 command.Parameters.AddWithValue("@room_time_out", selectedTimeOut)
                 command.Parameters.AddWithValue("@room_day", selectedDateOrDay)
-                command.Parameters.AddWithValue("@shed_id", shedId)
                 command.Parameters.AddWithValue("@course", selectedCourse)
                 command.Parameters.AddWithValue("@section", selectedSection)
                 command.Parameters.AddWithValue("@subject_name", selectedSubject)

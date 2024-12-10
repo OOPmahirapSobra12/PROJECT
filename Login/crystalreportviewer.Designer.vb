@@ -33,12 +33,12 @@ Partial Class crystalreportviewer
         Me.Roomlistreport1 = New Login.Roomlistreport()
         Me.roomloginhistory1 = New Login.roomloginhistory()
         Me.ScheduleListReport1 = New Login.ScheduleListReport()
-        Me.StaffAccessingAdminControlLogs1 = New Login.StaffAccessingAdminControlLogs()
-        Me.StaffListReport1 = New Login.StaffListReport()
+        Me.StaffAccessingAdminlogs1 = New Login.StaffAccessingAdminlogs()
+        Me.Stafflistreport1 = New Login.Stafflistreport()
         Me.StudentListReport1 = New Login.StudentListReport()
         Me.subjectlist1 = New Login.subjectlist()
         Me.System_LogsReport1 = New Login.System_LogsReport()
-        Me.TemporaryScheduleListReport1 = New Login.TemporaryScheduleListReport()
+        Me.tempScheduleListReport1 = New Login.tempScheduleListReport()
         Me.SuspendLayout()
         '
         'CrystalReportViewer1
@@ -49,42 +49,40 @@ Partial Class crystalreportviewer
         Me.CrystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.CrystalReportViewer1.Location = New System.Drawing.Point(0, 0)
         Me.CrystalReportViewer1.Name = "CrystalReportViewer1"
-        Me.CrystalReportViewer1.ReportSource = Me.AcceptedRequestReport1
-        Me.CrystalReportViewer1.Size = New System.Drawing.Size(1040, 558)
+        Me.CrystalReportViewer1.ReportSource = Me.tempScheduleListReport1
+        Me.CrystalReportViewer1.Size = New System.Drawing.Size(800, 450)
         Me.CrystalReportViewer1.TabIndex = 0
         '
         'crystalreportviewer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackgroundImage = Global.Login.My.Resources.Resources.FB_IMG_1729211691620
-        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1040, 558)
+        Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.CrystalReportViewer1)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "crystalreportviewer"
-        Me.Text = "crystalreportviewer"
+        Me.Text = "Form1"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents CrystalReportViewer1 As CrystalDecisions.Windows.Forms.CrystalReportViewer
-    Friend WithEvents AcceptedRequestReport1 As Login.AcceptedRequestReport
-    Friend WithEvents AdminListReport1 As Login.AdminListReport
-    Friend WithEvents CourseSectionReport1 As Login.CourseSectionReport
-    Friend WithEvents CurrentRequests1 As Login.CurrentRequests
-    Friend WithEvents DeniedRequestForm1 As Login.DeniedRequestForm
-    Friend WithEvents feedbackshistory1 As Login.feedbackshistory
-    Friend WithEvents reportshistory1 As Login.reportshistory
-    Friend WithEvents Roomlistreport1 As Login.Roomlistreport
-    Friend WithEvents roomloginhistory1 As Login.roomloginhistory
-    Friend WithEvents ScheduleListReport1 As Login.ScheduleListReport
-    Friend WithEvents StaffAccessingAdminControlLogs1 As Login.StaffAccessingAdminControlLogs
-    Friend WithEvents StaffListReport1 As Login.StaffListReport
-    Friend WithEvents StudentListReport1 As Login.StudentListReport
-    Friend WithEvents subjectlist1 As Login.subjectlist
-    Friend WithEvents System_LogsReport1 As Login.System_LogsReport
-    Friend WithEvents TemporaryScheduleListReport1 As Login.TemporaryScheduleListReport
+    Friend WithEvents AcceptedRequestReport1 As AcceptedRequestReport
+    Friend WithEvents System_LogsReport1 As System_LogsReport
+    Friend WithEvents AdminListReport1 As AdminListReport
+    Friend WithEvents CourseSectionReport1 As CourseSectionReport
+    Friend WithEvents CurrentRequests1 As CurrentRequests
+    Friend WithEvents DeniedRequestForm1 As DeniedRequestForm
+    Friend WithEvents feedbackshistory1 As feedbackshistory
+    Friend WithEvents reportshistory1 As reportshistory
+    Friend WithEvents Roomlistreport1 As Roomlistreport
+    Friend WithEvents roomloginhistory1 As roomloginhistory
+    Friend WithEvents ScheduleListReport1 As ScheduleListReport
+    Friend WithEvents StaffAccessingAdminlogs1 As StaffAccessingAdminlogs
+    Friend WithEvents Stafflistreport1 As Stafflistreport
+    Friend WithEvents StudentListReport1 As StudentListReport
+    Friend WithEvents subjectlist1 As subjectlist
+    Friend WithEvents tempScheduleListReport1 As tempScheduleListReport
 End Class

@@ -18,7 +18,7 @@ Imports System
 Imports System.ComponentModel
 
 
-Public Class StaffAccessingAdminControlLogs
+Public Class StaffAccessingAdminlogs
     Inherits ReportClass
     
     Public Sub New()
@@ -27,7 +27,7 @@ Public Class StaffAccessingAdminControlLogs
     
     Public Overrides Property ResourceName() As String
         Get
-            Return "StaffAccessingAdminControlLogs.rpt"
+            Return "StaffAccessingAdminlogs.rpt"
         End Get
         Set
             'Do nothing
@@ -45,7 +45,7 @@ Public Class StaffAccessingAdminControlLogs
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "Login.StaffAccessingAdminControlLogs.rpt"
+            Return "Login.StaffAccessingAdminlogs.rpt"
         End Get
         Set
             'Do nothing
@@ -126,7 +126,7 @@ Public Class StaffAccessingAdminControlLogs
 End Class
 
 <System.Drawing.ToolboxBitmapAttribute(GetType(CrystalDecisions.[Shared].ExportOptions), "report.bmp")>  _
-Public Class CachedStaffAccessingAdminControlLogs
+Public Class CachedStaffAccessingAdminlogs
     Inherits Component
     Implements ICachedReport
     
@@ -168,7 +168,7 @@ Public Class CachedStaffAccessingAdminControlLogs
     End Property
     
     Public Overridable Function CreateReport() As CrystalDecisions.CrystalReports.Engine.ReportDocument Implements CrystalDecisions.ReportSource.ICachedReport.CreateReport
-        Dim rpt As StaffAccessingAdminControlLogs = New StaffAccessingAdminControlLogs()
+        Dim rpt As StaffAccessingAdminlogs = New StaffAccessingAdminlogs()
         rpt.Site = Me.Site
         Return rpt
     End Function

@@ -65,18 +65,9 @@ Public Class AdminPage4
         ElseIf choice = "requests" Then
             crystalreportviewer.Show()
             crystalreportviewer.CrystalReportViewer1.ReportSource = crystalreportviewer.AcceptedRequestReport1
-        ElseIf choice = "schedules" Then
-            crystalreportviewer.Show()
-            crystalreportviewer.CrystalReportViewer1.ReportSource = crystalreportviewer.TemporaryScheduleListReport1
         ElseIf choice = "login" Then
             crystalreportviewer.Show()
-            crystalreportviewer.CrystalReportViewer1.ReportSource = crystalreportviewer.System_logsReport1
-        ElseIf choice = "feedbackreport" Then
-            crystalreportviewer.Show()
-            crystalreportviewer.CrystalReportViewer1.ReportSource = crystalreportviewer.reportshistory1
-        ElseIf choice = "coursesectionsubject" Then
-            crystalreportviewer.Show()
-            crystalreportviewer.CrystalReportViewer1.ReportSource = crystalreportviewer.subjectlist1
+            crystalreportviewer.CrystalReportViewer1.ReportSource = crystalreportviewer.System_LogsReport1
         End If
     End Sub
 
@@ -84,12 +75,21 @@ Public Class AdminPage4
         If choice = "accounts" Then
             crystalreportviewer.Show()
             crystalreportviewer.CrystalReportViewer1.ReportSource = crystalreportviewer.StudentListReport1
+        ElseIf choice = "schedules" Then
+            crystalreportviewer.Show()
+            crystalreportviewer.CrystalReportViewer1.ReportSource = crystalreportviewer.tempScheduleListReport1
         ElseIf choice = "requests" Then
             crystalreportviewer.Show()
             crystalreportviewer.CrystalReportViewer1.ReportSource = crystalreportviewer.DeniedRequestForm1
         ElseIf choice = "login" Then
             crystalreportviewer.Show()
-            crystalreportviewer.CrystalReportViewer1.ReportSource = crystalreportviewer.StaffAccessingAdminControlLogs1
+            crystalreportviewer.CrystalReportViewer1.ReportSource = crystalreportviewer.StaffAccessingAdminlogs1
+        ElseIf choice = "feedbackreport" Then
+            crystalreportviewer.Show()
+            crystalreportviewer.CrystalReportViewer1.ReportSource = crystalreportviewer.reportshistory1
+        ElseIf choice = "coursesectionsubject" Then
+            crystalreportviewer.Show()
+            crystalreportviewer.CrystalReportViewer1.ReportSource = crystalreportviewer.subjectlist1
         End If
     End Sub
 

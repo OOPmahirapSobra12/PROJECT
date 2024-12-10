@@ -105,7 +105,7 @@ Partial Class staffreport
         Me.TableLayoutPanel9.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.05747!))
         Me.TableLayoutPanel9.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.09579!))
         Me.TableLayoutPanel9.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.10345!))
-        Me.TableLayoutPanel9.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70.0!))
+        Me.TableLayoutPanel9.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 73.0!))
         Me.TableLayoutPanel9.Controls.Add(Me.btnsearch, 5, 0)
         Me.TableLayoutPanel9.Controls.Add(Me.cboType, 2, 0)
         Me.TableLayoutPanel9.Controls.Add(Me.txtsearch, 4, 0)
@@ -126,7 +126,7 @@ Partial Class staffreport
         Me.btnsearch.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnsearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnsearch.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnsearch.Location = New System.Drawing.Point(799, 3)
+        Me.btnsearch.Location = New System.Drawing.Point(796, 3)
         Me.btnsearch.Name = "btnsearch"
         Me.btnsearch.Size = New System.Drawing.Size(169, 35)
         Me.btnsearch.TabIndex = 12
@@ -141,9 +141,9 @@ Partial Class staffreport
         Me.cboType.ForeColor = System.Drawing.Color.MidnightBlue
         Me.cboType.FormattingEnabled = True
         Me.cboType.Items.AddRange(New Object() {"Choose:", "Report ID", "Sender Name", "Date Reported", "Time Reported"})
-        Me.cboType.Location = New System.Drawing.Point(239, 3)
+        Me.cboType.Location = New System.Drawing.Point(238, 3)
         Me.cboType.Name = "cboType"
-        Me.cboType.Size = New System.Drawing.Size(214, 33)
+        Me.cboType.Size = New System.Drawing.Size(213, 33)
         Me.cboType.TabIndex = 9
         '
         'txtsearch
@@ -152,9 +152,9 @@ Partial Class staffreport
         Me.txtsearch.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtsearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtsearch.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.txtsearch.Location = New System.Drawing.Point(556, 3)
+        Me.txtsearch.Location = New System.Drawing.Point(554, 3)
         Me.txtsearch.Name = "txtsearch"
-        Me.txtsearch.Size = New System.Drawing.Size(237, 31)
+        Me.txtsearch.Size = New System.Drawing.Size(236, 31)
         Me.txtsearch.TabIndex = 11
         '
         'Label3
@@ -163,7 +163,7 @@ Partial Class staffreport
         Me.Label3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.Label3.Location = New System.Drawing.Point(459, 0)
+        Me.Label3.Location = New System.Drawing.Point(457, 0)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(91, 41)
         Me.Label3.TabIndex = 100
@@ -178,7 +178,7 @@ Partial Class staffreport
         Me.Label2.ForeColor = System.Drawing.Color.MidnightBlue
         Me.Label2.Location = New System.Drawing.Point(95, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(138, 41)
+        Me.Label2.Size = New System.Drawing.Size(137, 41)
         Me.Label2.TabIndex = 8
         Me.Label2.Text = "Search for :"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.TopRight

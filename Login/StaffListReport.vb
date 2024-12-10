@@ -18,7 +18,7 @@ Imports System
 Imports System.ComponentModel
 
 
-Public Class StaffListReport
+Public Class Stafflistreport
     Inherits ReportClass
     
     Public Sub New()
@@ -27,7 +27,7 @@ Public Class StaffListReport
     
     Public Overrides Property ResourceName() As String
         Get
-            Return "StaffListReport.rpt"
+            Return "Stafflistreport.rpt"
         End Get
         Set
             'Do nothing
@@ -45,7 +45,7 @@ Public Class StaffListReport
     
     Public Overrides Property FullResourceName() As String
         Get
-            Return "Login.StaffListReport.rpt"
+            Return "Login.Stafflistreport.rpt"
         End Get
         Set
             'Do nothing
@@ -94,7 +94,7 @@ Public Class StaffListReport
 End Class
 
 <System.Drawing.ToolboxBitmapAttribute(GetType(CrystalDecisions.[Shared].ExportOptions), "report.bmp")>  _
-Public Class CachedStaffListReport
+Public Class CachedStafflistreport
     Inherits Component
     Implements ICachedReport
     
@@ -136,7 +136,7 @@ Public Class CachedStaffListReport
     End Property
     
     Public Overridable Function CreateReport() As CrystalDecisions.CrystalReports.Engine.ReportDocument Implements CrystalDecisions.ReportSource.ICachedReport.CreateReport
-        Dim rpt As StaffListReport = New StaffListReport()
+        Dim rpt As Stafflistreport = New Stafflistreport()
         rpt.Site = Me.Site
         Return rpt
     End Function

@@ -1,7 +1,3 @@
-﻿Imports CrystalDecisions.CrystalReports.Engine
-Imports CrystalDecisions.ReportSource
-Imports CrystalDecisions.Shared
-Imports CrystalDecisions.Windows.Forms
-Public Class crystalreportviewer
+﻿Public Class crystalreportviewer
 
 End Class

@@ -146,8 +146,7 @@ Public Class Staff
                 MessageBox.Show("Password confirmed! You can now proceed.", "Access Granted", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
                 logs.L_ID = U_ID
-                logs.action2 = "login"
-                staff_requestapproval_logs()
+                logs.staff_requestapproval_login()
                 requestapproval.Show()
                 Me.Hide()
 

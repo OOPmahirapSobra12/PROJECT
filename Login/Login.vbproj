@@ -137,13 +137,13 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AcceptedRequest_module.vb" />
     <Compile Include="AcceptedRequestReport.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>AcceptedRequestReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="AcceptedRequest_module.vb" />
     <Compile Include="accountlogs.Designer.vb">
       <DependentUpon>accountlogs.vb</DependentUpon>
     </Compile>
@@ -173,6 +173,12 @@
     </Compile>
     <Compile Include="addscheduleadmin.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminListReport.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdminListReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="AdminPage2.Designer.vb">
       <DependentUpon>AdminPage2.vb</DependentUpon>
@@ -216,24 +222,12 @@
     <Compile Include="addnewcourse.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminListReport.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AdminListReport.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="automatictemporaryscheduleexpirer.vb" />
     <Compile Include="CourseSectionReport.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CourseSectionReport.rpt</DependentUpon>
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="automatictemporaryscheduleexpirer.vb" />
-    <Compile Include="crystalreportviewer.Designer.vb">
-      <DependentUpon>crystalreportviewer.vb</DependentUpon>
-    </Compile>
-    <Compile Include="crystalreportviewer.vb">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="CurrentRequests.vb">
       <AutoGen>True</AutoGen>
@@ -247,13 +241,19 @@
       <DependentUpon>DeniedRequestForm.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="deniedRequest.vb" />
     <Compile Include="feedbackshistory.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>feedbackshistory.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="deniedRequest.vb" />
+    <Compile Include="crystalreportviewer.Designer.vb">
+      <DependentUpon>crystalreportviewer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="crystalreportviewer.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="reportshistory.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -278,16 +278,16 @@
       <DependentUpon>ScheduleListReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="StaffAccessingAdminControlLogs.vb">
+    <Compile Include="StaffAccessingAdminlogs.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>StaffAccessingAdminControlLogs.rpt</DependentUpon>
+      <DependentUpon>StaffAccessingAdminlogs.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="StaffListReport.vb">
+    <Compile Include="Stafflistreport.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>StaffListReport.rpt</DependentUpon>
+      <DependentUpon>Stafflistreport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="StudentListReport.vb">
@@ -300,12 +300,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>subjectlist.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="System_LogsReport.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>System_LogsReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="logs.vb" />
@@ -363,10 +357,16 @@
     <Compile Include="Subjects.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TemporaryScheduleListReport.vb">
+    <Compile Include="System_LogsReport.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>TemporaryScheduleListReport.rpt</DependentUpon>
+      <DependentUpon>System_LogsReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="tempScheduleListReport.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>tempScheduleListReport.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="viewreportfeedback.Designer.vb">
@@ -498,6 +498,10 @@
     <EmbeddedResource Include="addscheduleadmin.resx">
       <DependentUpon>addscheduleadmin.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AdminListReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>AdminListReport.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminPage2.resx">
       <DependentUpon>AdminPage2.vb</DependentUpon>
     </EmbeddedResource>
@@ -518,10 +522,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="addnewcourse.resx">
       <DependentUpon>addnewcourse.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AdminListReport.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>AdminListReport.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="CourseSectionReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -558,13 +558,13 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ScheduleListReport.vb</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="StaffAccessingAdminControlLogs.rpt">
+    <EmbeddedResource Include="StaffAccessingAdminlogs.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>StaffAccessingAdminControlLogs.vb</LastGenOutput>
+      <LastGenOutput>StaffAccessingAdminlogs.vb</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="StaffListReport.rpt">
+    <EmbeddedResource Include="Stafflistreport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>StaffListReport.vb</LastGenOutput>
+      <LastGenOutput>Stafflistreport.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="StudentListReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -573,10 +573,6 @@
     <EmbeddedResource Include="subjectlist.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>subjectlist.vb</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="System_LogsReport.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>System_LogsReport.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="profile.resx">
       <DependentUpon>profile.vb</DependentUpon>
@@ -605,9 +601,13 @@
     <EmbeddedResource Include="Subjects.resx">
       <DependentUpon>Subjects.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TemporaryScheduleListReport.rpt">
+    <EmbeddedResource Include="System_LogsReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>TemporaryScheduleListReport.vb</LastGenOutput>
+      <LastGenOutput>System_LogsReport.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tempScheduleListReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>tempScheduleListReport.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="viewreportfeedback.resx">
       <DependentUpon>viewreportfeedback.vb</DependentUpon>

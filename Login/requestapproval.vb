@@ -117,9 +117,6 @@ Public Class requestapproval
             Admin.Show()
         ElseIf access = "mid" Then
             Staff.Show()
-            logs.L_ID = U_ID
-            logs.action2 = "logout"
-            staff_requestapproval_logs()
         Else
             MsgBox("Error, can't go back to the previous UI!")
         End If

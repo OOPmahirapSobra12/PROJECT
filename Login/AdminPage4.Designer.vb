@@ -149,14 +149,14 @@ Partial Class AdminPage4
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 10
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 18.0!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.30303!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.72727!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.81818!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.93939!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.33225!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.35505!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.71237!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46.0!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.83113!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.92876!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.40106!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.6095!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.34565!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.69841!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.37566!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.90476!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(381, 435)
         Me.TableLayoutPanel2.TabIndex = 1
@@ -169,9 +169,9 @@ Partial Class AdminPage4
         Me.crystalbtncoursesectionsubject.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.crystalbtncoursesectionsubject.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.crystalbtncoursesectionsubject.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.crystalbtncoursesectionsubject.Location = New System.Drawing.Point(53, 351)
+        Me.crystalbtncoursesectionsubject.Location = New System.Drawing.Point(53, 355)
         Me.crystalbtncoursesectionsubject.Name = "crystalbtncoursesectionsubject"
-        Me.crystalbtncoursesectionsubject.Size = New System.Drawing.Size(271, 40)
+        Me.crystalbtncoursesectionsubject.Size = New System.Drawing.Size(271, 39)
         Me.crystalbtncoursesectionsubject.TabIndex = 41
         Me.crystalbtncoursesectionsubject.Text = "Course / Section / Subject list"
         Me.crystalbtncoursesectionsubject.UseVisualStyleBackColor = False
@@ -184,9 +184,9 @@ Partial Class AdminPage4
         Me.crystalbtnroomlist.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.crystalbtnroomlist.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.crystalbtnroomlist.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.crystalbtnroomlist.Location = New System.Drawing.Point(53, 88)
+        Me.crystalbtnroomlist.Location = New System.Drawing.Point(53, 81)
         Me.crystalbtnroomlist.Name = "crystalbtnroomlist"
-        Me.crystalbtnroomlist.Size = New System.Drawing.Size(271, 36)
+        Me.crystalbtnroomlist.Size = New System.Drawing.Size(271, 43)
         Me.crystalbtnroomlist.TabIndex = 43
         Me.crystalbtnroomlist.Text = "Room List"
         Me.crystalbtnroomlist.UseVisualStyleBackColor = False
@@ -201,7 +201,7 @@ Partial Class AdminPage4
         Me.crystalbtnaccountlist.ForeColor = System.Drawing.Color.NavajoWhite
         Me.crystalbtnaccountlist.Location = New System.Drawing.Point(53, 130)
         Me.crystalbtnaccountlist.Name = "crystalbtnaccountlist"
-        Me.crystalbtnaccountlist.Size = New System.Drawing.Size(271, 33)
+        Me.crystalbtnaccountlist.Size = New System.Drawing.Size(271, 41)
         Me.crystalbtnaccountlist.TabIndex = 38
         Me.crystalbtnaccountlist.Text = "Account List"
         Me.crystalbtnaccountlist.UseVisualStyleBackColor = False
@@ -214,9 +214,9 @@ Partial Class AdminPage4
         Me.buttonback.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.buttonback.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.buttonback.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.buttonback.Location = New System.Drawing.Point(53, 397)
+        Me.buttonback.Location = New System.Drawing.Point(53, 400)
         Me.buttonback.Name = "buttonback"
-        Me.buttonback.Size = New System.Drawing.Size(271, 35)
+        Me.buttonback.Size = New System.Drawing.Size(271, 32)
         Me.buttonback.TabIndex = 35
         Me.buttonback.Text = "<="
         Me.buttonback.UseVisualStyleBackColor = False
@@ -229,9 +229,9 @@ Partial Class AdminPage4
         Me.crystalbtnlogin.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.crystalbtnlogin.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.crystalbtnlogin.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.crystalbtnlogin.Location = New System.Drawing.Point(53, 262)
+        Me.crystalbtnlogin.Location = New System.Drawing.Point(53, 264)
         Me.crystalbtnlogin.Name = "crystalbtnlogin"
-        Me.crystalbtnlogin.Size = New System.Drawing.Size(271, 38)
+        Me.crystalbtnlogin.Size = New System.Drawing.Size(271, 42)
         Me.crystalbtnlogin.TabIndex = 37
         Me.crystalbtnlogin.Text = "Log-In / Security Logs"
         Me.crystalbtnlogin.UseVisualStyleBackColor = False
@@ -244,9 +244,9 @@ Partial Class AdminPage4
         Me.crystalbtnfeedbackreport.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.crystalbtnfeedbackreport.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.crystalbtnfeedbackreport.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.crystalbtnfeedbackreport.Location = New System.Drawing.Point(53, 306)
+        Me.crystalbtnfeedbackreport.Location = New System.Drawing.Point(53, 312)
         Me.crystalbtnfeedbackreport.Name = "crystalbtnfeedbackreport"
-        Me.crystalbtnfeedbackreport.Size = New System.Drawing.Size(271, 39)
+        Me.crystalbtnfeedbackreport.Size = New System.Drawing.Size(271, 37)
         Me.crystalbtnfeedbackreport.TabIndex = 40
         Me.crystalbtnfeedbackreport.Text = "Feedback / Report Logs"
         Me.crystalbtnfeedbackreport.UseVisualStyleBackColor = False
@@ -259,9 +259,9 @@ Partial Class AdminPage4
         Me.crystalbtnschedulelogs.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.crystalbtnschedulelogs.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.crystalbtnschedulelogs.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.crystalbtnschedulelogs.Location = New System.Drawing.Point(53, 215)
+        Me.crystalbtnschedulelogs.Location = New System.Drawing.Point(53, 221)
         Me.crystalbtnschedulelogs.Name = "crystalbtnschedulelogs"
-        Me.crystalbtnschedulelogs.Size = New System.Drawing.Size(271, 41)
+        Me.crystalbtnschedulelogs.Size = New System.Drawing.Size(271, 37)
         Me.crystalbtnschedulelogs.TabIndex = 36
         Me.crystalbtnschedulelogs.Text = "Schedule Logs"
         Me.crystalbtnschedulelogs.UseVisualStyleBackColor = False
@@ -274,9 +274,9 @@ Partial Class AdminPage4
         Me.crystalbtnrequestlogs.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.crystalbtnrequestlogs.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.crystalbtnrequestlogs.ForeColor = System.Drawing.Color.NavajoWhite
-        Me.crystalbtnrequestlogs.Location = New System.Drawing.Point(53, 169)
+        Me.crystalbtnrequestlogs.Location = New System.Drawing.Point(53, 177)
         Me.crystalbtnrequestlogs.Name = "crystalbtnrequestlogs"
-        Me.crystalbtnrequestlogs.Size = New System.Drawing.Size(271, 40)
+        Me.crystalbtnrequestlogs.Size = New System.Drawing.Size(271, 38)
         Me.crystalbtnrequestlogs.TabIndex = 39
         Me.crystalbtnrequestlogs.Text = "Request Logs"
         Me.crystalbtnrequestlogs.UseVisualStyleBackColor = False
@@ -292,7 +292,7 @@ Partial Class AdminPage4
         Me.lbl.ImageAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.lbl.Location = New System.Drawing.Point(53, 18)
         Me.lbl.Name = "lbl"
-        Me.lbl.Size = New System.Drawing.Size(271, 67)
+        Me.lbl.Size = New System.Drawing.Size(271, 60)
         Me.lbl.TabIndex = 92
         Me.lbl.Text = "Crystal Reports"
         Me.lbl.TextAlign = System.Drawing.ContentAlignment.BottomCenter

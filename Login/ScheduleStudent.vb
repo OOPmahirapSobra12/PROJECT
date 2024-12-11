@@ -98,13 +98,13 @@ Public Class ScheduleStudent
     End Sub
 
     Private Sub btnsearch_Click(sender As Object, e As EventArgs) Handles btnsearch.Click
-        ' Validate that the user has entered a search term
+        ' Check if the user has entered a search term
         If String.IsNullOrWhiteSpace(txtsearch.Text) Then
             MessageBox.Show("Please enter a search term.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return
         End If
 
-        ' Validate that courseName and section are set
+        ' Check if the courseName and section are set
         If String.IsNullOrEmpty(course) OrElse String.IsNullOrEmpty(section) Then
             MessageBox.Show("Course and Section must be selected.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return
@@ -146,7 +146,7 @@ Public Class ScheduleStudent
     JOIN roomlist ON schedtemp.room_code = roomlist.room_code
     WHERE schedtemp.course_name = @courseName AND schedtemp.sections = @section AND {0} LIKE @searchTerm;"
 
-        ' Map categories to database columns
+        ' Populate categories to database columns
         Dim columnMap As New Dictionary(Of String, String) From {
             {"Schedule Code", "shed_id"},
             {"Room Code", "room_code"},
@@ -159,7 +159,7 @@ Public Class ScheduleStudent
             {"Time Out", "room_time_out"}
         }
 
-        ' Validate the selected category
+        ' Check the selected category
         If Not columnMap.ContainsKey(selectedCategory) Then
             MessageBox.Show("Invalid search category selected.", "Search Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return

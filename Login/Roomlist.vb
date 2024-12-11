@@ -32,7 +32,7 @@ Public Class Roomlist
             DGVroomlist.AutoGenerateColumns = False
             DGVroomlist.DataSource = dataTable
 
-            ' Map data to columns
+            ' Populate data to columns
             For Each column As DataGridViewColumn In DGVroomlist.Columns
                 Select Case column.Name
                     Case "room_code"
@@ -118,7 +118,7 @@ Public Class Roomlist
         Try
             ' Handle numeric filtering for specific columns
             If category = "Chair #" OrElse category = "Computer #" OrElse category = "Laptop #" Then
-                ' Ensure the input is numeric
+                ' Ensure the input is a number
                 If Not Integer.TryParse(searchValue, Nothing) Then
                     MessageBox.Show($"Please enter a valid number for '{category}'.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                     Return

@@ -24,7 +24,7 @@ Public Class staff_feedback
         Dim table As New DataTable()
 
         Try
-            ' Fill the DataTable with data from the feedback table
+            ' Populate the DataTable with data from the feedback table
             adapter.Fill(table)
 
             ' Set AutoGenerateColumns to False to avoid extra columns

@@ -53,33 +53,35 @@ Partial Class Sections
         Me.TableLayoutPanel1.Controls.Add(Me.TableLayoutPanel3, 0, 0)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(800, 450)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1067, 554)
         Me.TableLayoutPanel1.TabIndex = 0
         '
         'TableLayoutPanel3
         '
         Me.TableLayoutPanel3.ColumnCount = 3
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27.0!))
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27.0!))
         Me.TableLayoutPanel3.Controls.Add(Me.DGVsections, 1, 3)
         Me.TableLayoutPanel3.Controls.Add(Me.TableLayoutPanel4, 1, 2)
         Me.TableLayoutPanel3.Controls.Add(Me.Button1, 1, 1)
         Me.TableLayoutPanel3.Controls.Add(Me.TableLayoutPanel2, 1, 4)
         Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel3.Location = New System.Drawing.Point(3, 3)
+        Me.TableLayoutPanel3.Location = New System.Drawing.Point(4, 4)
+        Me.TableLayoutPanel3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
         Me.TableLayoutPanel3.RowCount = 6
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.3995!))
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.91811!))
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 64.51613!))
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.19403!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(794, 444)
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(1059, 546)
         Me.TableLayoutPanel3.TabIndex = 1
         '
         'DGVsections
@@ -92,16 +94,19 @@ Partial Class Sections
         Me.DGVsections.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.course, Me.section})
         Me.DGVsections.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DGVsections.GridColor = System.Drawing.SystemColors.HotTrack
-        Me.DGVsections.Location = New System.Drawing.Point(23, 121)
+        Me.DGVsections.Location = New System.Drawing.Point(31, 149)
+        Me.DGVsections.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.DGVsections.Name = "DGVsections"
         Me.DGVsections.ReadOnly = True
-        Me.DGVsections.Size = New System.Drawing.Size(748, 254)
+        Me.DGVsections.RowHeadersWidth = 51
+        Me.DGVsections.Size = New System.Drawing.Size(997, 311)
         Me.DGVsections.TabIndex = 89
         '
         'course
         '
         Me.course.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.course.HeaderText = "Course"
+        Me.course.MinimumWidth = 6
         Me.course.Name = "course"
         Me.course.ReadOnly = True
         Me.course.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
@@ -110,6 +115,7 @@ Partial Class Sections
         '
         Me.section.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.section.HeaderText = "Sections"
+        Me.section.MinimumWidth = 6
         Me.section.Name = "section"
         Me.section.ReadOnly = True
         Me.section.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
@@ -125,14 +131,15 @@ Partial Class Sections
         Me.TableLayoutPanel4.Controls.Add(Me.txtsearch, 1, 0)
         Me.TableLayoutPanel4.Controls.Add(Me.btnsearch, 2, 0)
         Me.TableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel4.Location = New System.Drawing.Point(23, 77)
+        Me.TableLayoutPanel4.Location = New System.Drawing.Point(31, 95)
+        Me.TableLayoutPanel4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
         Me.TableLayoutPanel4.RowCount = 1
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38.0!))
-        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38.0!))
-        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38.0!))
-        Me.TableLayoutPanel4.Size = New System.Drawing.Size(748, 38)
+        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47.0!))
+        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47.0!))
+        Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47.0!))
+        Me.TableLayoutPanel4.Size = New System.Drawing.Size(997, 46)
         Me.TableLayoutPanel4.TabIndex = 90
         '
         'cbotype
@@ -143,9 +150,10 @@ Partial Class Sections
         Me.cbotype.ForeColor = System.Drawing.Color.MidnightBlue
         Me.cbotype.FormattingEnabled = True
         Me.cbotype.Items.AddRange(New Object() {"Choose:", "Course", "Section"})
-        Me.cbotype.Location = New System.Drawing.Point(3, 3)
+        Me.cbotype.Location = New System.Drawing.Point(4, 4)
+        Me.cbotype.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.cbotype.Name = "cbotype"
-        Me.cbotype.Size = New System.Drawing.Size(216, 33)
+        Me.cbotype.Size = New System.Drawing.Size(288, 38)
         Me.cbotype.TabIndex = 91
         '
         'txtsearch
@@ -154,9 +162,10 @@ Partial Class Sections
         Me.txtsearch.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtsearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!)
         Me.txtsearch.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.txtsearch.Location = New System.Drawing.Point(225, 3)
+        Me.txtsearch.Location = New System.Drawing.Point(300, 4)
+        Me.txtsearch.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtsearch.Name = "txtsearch"
-        Me.txtsearch.Size = New System.Drawing.Size(307, 31)
+        Me.txtsearch.Size = New System.Drawing.Size(410, 37)
         Me.txtsearch.TabIndex = 92
         '
         'btnsearch
@@ -167,9 +176,10 @@ Partial Class Sections
         Me.btnsearch.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnsearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnsearch.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnsearch.Location = New System.Drawing.Point(538, 3)
+        Me.btnsearch.Location = New System.Drawing.Point(718, 4)
+        Me.btnsearch.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnsearch.Name = "btnsearch"
-        Me.btnsearch.Size = New System.Drawing.Size(207, 32)
+        Me.btnsearch.Size = New System.Drawing.Size(275, 38)
         Me.btnsearch.TabIndex = 93
         Me.btnsearch.Text = "Search"
         Me.btnsearch.UseVisualStyleBackColor = False
@@ -182,9 +192,10 @@ Partial Class Sections
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.Button1.Location = New System.Drawing.Point(23, 23)
+        Me.Button1.Location = New System.Drawing.Point(31, 29)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(748, 48)
+        Me.Button1.Size = New System.Drawing.Size(997, 58)
         Me.Button1.TabIndex = 95
         Me.Button1.Text = "List of Sections"
         Me.Button1.UseVisualStyleBackColor = False
@@ -201,11 +212,12 @@ Partial Class Sections
         Me.TableLayoutPanel2.Controls.Add(Me.btnback, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.btndelete, 2, 0)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(23, 381)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(31, 468)
+        Me.TableLayoutPanel2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 1
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(748, 39)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(997, 47)
         Me.TableLayoutPanel2.TabIndex = 96
         '
         'btnadd
@@ -216,9 +228,10 @@ Partial Class Sections
         Me.btnadd.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnadd.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnadd.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnadd.Location = New System.Drawing.Point(371, 3)
+        Me.btnadd.Location = New System.Drawing.Point(495, 4)
+        Me.btnadd.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnadd.Name = "btnadd"
-        Me.btnadd.Size = New System.Drawing.Size(237, 33)
+        Me.btnadd.Size = New System.Drawing.Size(316, 39)
         Me.btnadd.TabIndex = 100
         Me.btnadd.Text = "Add New Section"
         Me.btnadd.UseVisualStyleBackColor = False
@@ -231,9 +244,10 @@ Partial Class Sections
         Me.btnmodify.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnmodify.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnmodify.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnmodify.Location = New System.Drawing.Point(77, 3)
+        Me.btnmodify.Location = New System.Drawing.Point(103, 4)
+        Me.btnmodify.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnmodify.Name = "btnmodify"
-        Me.btnmodify.Size = New System.Drawing.Size(288, 33)
+        Me.btnmodify.Size = New System.Drawing.Size(384, 39)
         Me.btnmodify.TabIndex = 99
         Me.btnmodify.Text = "Modify Selected Section"
         Me.btnmodify.UseVisualStyleBackColor = False
@@ -246,9 +260,10 @@ Partial Class Sections
         Me.btnback.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnback.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnback.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnback.Location = New System.Drawing.Point(3, 3)
+        Me.btnback.Location = New System.Drawing.Point(4, 4)
+        Me.btnback.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnback.Name = "btnback"
-        Me.btnback.Size = New System.Drawing.Size(68, 33)
+        Me.btnback.Size = New System.Drawing.Size(91, 39)
         Me.btnback.TabIndex = 96
         Me.btnback.Text = "Back"
         Me.btnback.UseVisualStyleBackColor = False
@@ -261,22 +276,24 @@ Partial Class Sections
         Me.btndelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btndelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btndelete.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btndelete.Location = New System.Drawing.Point(614, 3)
+        Me.btndelete.Location = New System.Drawing.Point(819, 4)
+        Me.btndelete.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btndelete.Name = "btndelete"
-        Me.btndelete.Size = New System.Drawing.Size(131, 33)
+        Me.btndelete.Size = New System.Drawing.Size(174, 39)
         Me.btndelete.TabIndex = 98
         Me.btndelete.Text = "Delete"
         Me.btndelete.UseVisualStyleBackColor = False
         '
         'Sections
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.Login.My.Resources.Resources._467460386_1064088022134846_6079649981189841706_n
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(1067, 554)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "Sections"
         Me.Text = "Sections"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized

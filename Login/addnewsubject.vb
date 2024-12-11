@@ -3,7 +3,7 @@ Imports System.Windows.Forms
 Imports System.Data
 
 Public Class addnewsubject
-    ' Flag to determine if we are adding or modifying a subject
+    '  Method to determine if we are adding or modifying a subject
     Public isModify As Boolean
     Public subject As String
     Public course As String
@@ -15,7 +15,7 @@ Public Class addnewsubject
         If conn.State = ConnectionState.Open Then
             conn.Close()
         End If
-        DbConnect() ' Ensure DbConnect is defined elsewhere in your project
+        DbConnect() ' Ensure DbConnect is defined elsewhere in project
 
         ' Populate the course ComboBox first
         PopulateCourseComboBox()
@@ -39,13 +39,13 @@ Public Class addnewsubject
     End Sub
 
     Private Sub ModifySubject()
-        ' Validate if the subject name is empty
+        ' Check if the subject name is empty
         If String.IsNullOrWhiteSpace(txtsubject.Text) Then
             MessageBox.Show("Please enter a subject name.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return
         End If
 
-        ' Validate if a course and section are selected
+        ' Check if a course and section are selected
         If cbocourse.SelectedIndex = -1 Then
             MessageBox.Show("Please select a course.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return
@@ -118,7 +118,7 @@ Public Class addnewsubject
 
     ' Method to add a new subject along with selected course and section
     Private Sub AddNewSubject()
-        ' Validate if the subject name is empty
+        ' Check if the subject name is empty
         If String.IsNullOrWhiteSpace(txtsubject.Text) Then
             MessageBox.Show("Please enter a subject name.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return
@@ -130,7 +130,7 @@ Public Class addnewsubject
             Return
         End If
 
-        ' Validate if a course and section are selected
+        ' Check if a course and section are selected
         If cbocourse.SelectedIndex = -1 Then
             MessageBox.Show("Please select a course.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return
@@ -225,7 +225,7 @@ Public Class addnewsubject
             End If
             reader = cmd.ExecuteReader()
 
-            ' Clear existing items in the ComboBox
+            ' Clear existing data in the ComboBox
             cbosection.Items.Clear()
 
             ' Populate ComboBox with section names

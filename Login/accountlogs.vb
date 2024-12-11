@@ -21,7 +21,7 @@ Public Class accountlogs
     End Sub
 
     Private Sub LoadAccountLogs()
-        ' Modified query to join login_history and accounts tables
+        ' Query to join login_history and accounts tables
         Dim query As String = "SELECT lh.ID, a.username, lh.log_in_date, lh.log_in_time, lh.log_out_date, lh.log_out_time " &
                           "FROM login_history lh " &
                           "JOIN accounts a ON lh.ID = a.ID"
@@ -29,7 +29,7 @@ Public Class accountlogs
         Dim table As New DataTable()
 
         Try
-            ' Fill the DataTable with data from the login_history table (with username from accounts)
+            ' Populate the DataTable with data from the login_history table (with username from accounts)
             adapter.Fill(table)
 
             ' Bind the DataTable to the DataGridView

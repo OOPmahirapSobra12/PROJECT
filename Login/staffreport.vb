@@ -40,7 +40,7 @@ Public Class staffreport
                 conn.Open()
             End If
 
-            ' Fill the data into the DataTable
+            ' Populate the data into the DataTable
             dataAdapter.Fill(dataTable)
 
             DGVreport.AutoGenerateColumns = False
@@ -81,8 +81,8 @@ Public Class staffreport
                 MessageBox.Show("Invalid Feedback ID. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 Return
             End If
-            viewreportfeedback.M_ID = reportID ' Assuming M_ID is a public property in the viewreportfeedback form
-            viewreportfeedback.type = "report"  ' Assuming type is a public property in the viewreportfeedback form
+            viewreportfeedback.M_ID = reportID ' Assuming M_ID is a public  in the viewreportfeedback form
+            viewreportfeedback.type = "report"  ' Assuming type is a public  in the viewreportfeedback form
 
             ' Show the view report feedback form
             viewreportfeedback.Show() ' Using ShowDialog for modal behavior

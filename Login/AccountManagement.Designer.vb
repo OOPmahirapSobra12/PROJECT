@@ -88,18 +88,19 @@ Partial Class AccountManagement
         Me.TableLayoutPanel1.Controls.Add(Me.TableLayoutPanel6, 1, 0)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(800, 450)
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1067, 554)
         Me.TableLayoutPanel1.TabIndex = 0
         '
         'TableLayoutPanel2
         '
         Me.TableLayoutPanel2.BackColor = System.Drawing.Color.Transparent
         Me.TableLayoutPanel2.ColumnCount = 2
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27.0!))
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel2.Controls.Add(Me.Label1, 1, 1)
         Me.TableLayoutPanel2.Controls.Add(Me.DGVaccounts, 1, 3)
@@ -107,17 +108,18 @@ Partial Class AccountManagement
         Me.TableLayoutPanel2.Controls.Add(Me.TableLayoutPanel4, 1, 2)
         Me.TableLayoutPanel2.Controls.Add(Me.TableLayoutPanel5, 1, 5)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(3, 3)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(4, 4)
+        Me.TableLayoutPanel2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 7
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 11.0!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 14.0!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.71322!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.95238!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.71429!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.18408!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.47382!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 11.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(493, 444)
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 14.0!))
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(657, 546)
         Me.TableLayoutPanel2.TabIndex = 1
         '
         'Label1
@@ -126,9 +128,10 @@ Partial Class AccountManagement
         Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.Label1.Location = New System.Drawing.Point(23, 11)
+        Me.Label1.Location = New System.Drawing.Point(31, 14)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(467, 62)
+        Me.Label1.Size = New System.Drawing.Size(622, 76)
         Me.Label1.TabIndex = 3
         Me.Label1.Text = "Account Logs"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -145,18 +148,20 @@ Partial Class AccountManagement
         Me.DGVaccounts.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.accountID, Me.username, Me.Accesslevel})
         Me.DGVaccounts.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DGVaccounts.GridColor = System.Drawing.Color.MidnightBlue
-        Me.DGVaccounts.Location = New System.Drawing.Point(23, 122)
+        Me.DGVaccounts.Location = New System.Drawing.Point(31, 150)
+        Me.DGVaccounts.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.DGVaccounts.MultiSelect = False
         Me.DGVaccounts.Name = "DGVaccounts"
         Me.DGVaccounts.ReadOnly = True
         Me.DGVaccounts.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders
-        Me.DGVaccounts.Size = New System.Drawing.Size(467, 207)
+        Me.DGVaccounts.Size = New System.Drawing.Size(622, 254)
         Me.DGVaccounts.TabIndex = 98
         '
         'accountID
         '
         Me.accountID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.accountID.HeaderText = "Account ID"
+        Me.accountID.MinimumWidth = 6
         Me.accountID.Name = "accountID"
         Me.accountID.ReadOnly = True
         '
@@ -164,6 +169,7 @@ Partial Class AccountManagement
         '
         Me.username.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.username.HeaderText = "Username"
+        Me.username.MinimumWidth = 6
         Me.username.Name = "username"
         Me.username.ReadOnly = True
         '
@@ -171,6 +177,7 @@ Partial Class AccountManagement
         '
         Me.Accesslevel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.Accesslevel.HeaderText = "Access Level"
+        Me.Accesslevel.MinimumWidth = 6
         Me.Accesslevel.Name = "Accesslevel"
         Me.Accesslevel.ReadOnly = True
         '
@@ -183,12 +190,13 @@ Partial Class AccountManagement
         Me.TableLayoutPanel3.Controls.Add(Me.btndelete, 0, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.btnmodify, 2, 0)
         Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel3.Location = New System.Drawing.Point(23, 335)
+        Me.TableLayoutPanel3.Location = New System.Drawing.Point(31, 412)
+        Me.TableLayoutPanel3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
         Me.TableLayoutPanel3.RowCount = 1
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 49.0!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(467, 49)
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60.0!))
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(622, 60)
         Me.TableLayoutPanel3.TabIndex = 99
         '
         'btndelete
@@ -199,9 +207,10 @@ Partial Class AccountManagement
         Me.btndelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btndelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btndelete.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btndelete.Location = New System.Drawing.Point(3, 3)
+        Me.btndelete.Location = New System.Drawing.Point(4, 4)
+        Me.btndelete.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btndelete.Name = "btndelete"
-        Me.btndelete.Size = New System.Drawing.Size(188, 43)
+        Me.btndelete.Size = New System.Drawing.Size(251, 52)
         Me.btndelete.TabIndex = 96
         Me.btndelete.Text = "Delete"
         Me.btndelete.UseVisualStyleBackColor = False
@@ -214,9 +223,10 @@ Partial Class AccountManagement
         Me.btnmodify.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnmodify.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnmodify.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnmodify.Location = New System.Drawing.Point(283, 3)
+        Me.btnmodify.Location = New System.Drawing.Point(378, 4)
+        Me.btnmodify.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnmodify.Name = "btnmodify"
-        Me.btnmodify.Size = New System.Drawing.Size(181, 43)
+        Me.btnmodify.Size = New System.Drawing.Size(240, 52)
         Me.btnmodify.TabIndex = 97
         Me.btnmodify.Text = "Modify"
         Me.btnmodify.UseVisualStyleBackColor = False
@@ -231,11 +241,12 @@ Partial Class AccountManagement
         Me.TableLayoutPanel4.Controls.Add(Me.cbosearch, 0, 0)
         Me.TableLayoutPanel4.Controls.Add(Me.txtsearchbox, 1, 0)
         Me.TableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel4.Location = New System.Drawing.Point(23, 76)
+        Me.TableLayoutPanel4.Location = New System.Drawing.Point(31, 94)
+        Me.TableLayoutPanel4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
         Me.TableLayoutPanel4.RowCount = 1
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel4.Size = New System.Drawing.Size(467, 40)
+        Me.TableLayoutPanel4.Size = New System.Drawing.Size(622, 48)
         Me.TableLayoutPanel4.TabIndex = 100
         '
         'btnsearch
@@ -246,9 +257,10 @@ Partial Class AccountManagement
         Me.btnsearch.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnsearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnsearch.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnsearch.Location = New System.Drawing.Point(313, 3)
+        Me.btnsearch.Location = New System.Drawing.Point(418, 4)
+        Me.btnsearch.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnsearch.Name = "btnsearch"
-        Me.btnsearch.Size = New System.Drawing.Size(151, 34)
+        Me.btnsearch.Size = New System.Drawing.Size(200, 40)
         Me.btnsearch.TabIndex = 96
         Me.btnsearch.Text = "btnsearch"
         Me.btnsearch.UseVisualStyleBackColor = False
@@ -261,9 +273,10 @@ Partial Class AccountManagement
         Me.cbosearch.ForeColor = System.Drawing.Color.MidnightBlue
         Me.cbosearch.FormattingEnabled = True
         Me.cbosearch.Items.AddRange(New Object() {"Choose:", "Account ID", "Username", "Access Level"})
-        Me.cbosearch.Location = New System.Drawing.Point(3, 3)
+        Me.cbosearch.Location = New System.Drawing.Point(4, 4)
+        Me.cbosearch.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.cbosearch.Name = "cbosearch"
-        Me.cbosearch.Size = New System.Drawing.Size(149, 33)
+        Me.cbosearch.Size = New System.Drawing.Size(199, 38)
         Me.cbosearch.TabIndex = 94
         '
         'txtsearchbox
@@ -272,9 +285,10 @@ Partial Class AccountManagement
         Me.txtsearchbox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtsearchbox.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!)
         Me.txtsearchbox.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.txtsearchbox.Location = New System.Drawing.Point(158, 3)
+        Me.txtsearchbox.Location = New System.Drawing.Point(211, 4)
+        Me.txtsearchbox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtsearchbox.Name = "txtsearchbox"
-        Me.txtsearchbox.Size = New System.Drawing.Size(149, 31)
+        Me.txtsearchbox.Size = New System.Drawing.Size(199, 37)
         Me.txtsearchbox.TabIndex = 95
         '
         'TableLayoutPanel5
@@ -282,15 +296,16 @@ Partial Class AccountManagement
         Me.TableLayoutPanel5.ColumnCount = 3
         Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.54755!))
         Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 69.45245!))
-        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 126.0!))
+        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 169.0!))
         Me.TableLayoutPanel5.Controls.Add(Me.btnback, 1, 0)
         Me.TableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel5.Location = New System.Drawing.Point(23, 390)
+        Me.TableLayoutPanel5.Location = New System.Drawing.Point(31, 480)
+        Me.TableLayoutPanel5.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
         Me.TableLayoutPanel5.RowCount = 1
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38.0!))
-        Me.TableLayoutPanel5.Size = New System.Drawing.Size(467, 38)
+        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 47.0!))
+        Me.TableLayoutPanel5.Size = New System.Drawing.Size(622, 46)
         Me.TableLayoutPanel5.TabIndex = 101
         '
         'btnback
@@ -301,9 +316,10 @@ Partial Class AccountManagement
         Me.btnback.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnback.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnback.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnback.Location = New System.Drawing.Point(107, 3)
+        Me.btnback.Location = New System.Drawing.Point(142, 4)
+        Me.btnback.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnback.Name = "btnback"
-        Me.btnback.Size = New System.Drawing.Size(230, 32)
+        Me.btnback.Size = New System.Drawing.Size(306, 38)
         Me.btnback.TabIndex = 99
         Me.btnback.Text = "Back"
         Me.btnback.UseVisualStyleBackColor = False
@@ -312,16 +328,17 @@ Partial Class AccountManagement
         '
         Me.TableLayoutPanel6.ColumnCount = 2
         Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 8.0!))
+        Me.TableLayoutPanel6.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 11.0!))
         Me.TableLayoutPanel6.Controls.Add(Me.TableLayoutPanel7, 0, 1)
         Me.TableLayoutPanel6.Controls.Add(Me.TableLayoutPanel8, 0, 0)
         Me.TableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel6.Location = New System.Drawing.Point(502, 3)
+        Me.TableLayoutPanel6.Location = New System.Drawing.Point(669, 4)
+        Me.TableLayoutPanel6.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TableLayoutPanel6.Name = "TableLayoutPanel6"
         Me.TableLayoutPanel6.RowCount = 2
         Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 29.50451!))
         Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70.4955!))
-        Me.TableLayoutPanel6.Size = New System.Drawing.Size(295, 444)
+        Me.TableLayoutPanel6.Size = New System.Drawing.Size(394, 546)
         Me.TableLayoutPanel6.TabIndex = 2
         '
         'TableLayoutPanel7
@@ -348,7 +365,8 @@ Partial Class AccountManagement
         Me.TableLayoutPanel7.Controls.Add(Me.Label8, 0, 5)
         Me.TableLayoutPanel7.Controls.Add(Me.txtsection, 1, 6)
         Me.TableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel7.Location = New System.Drawing.Point(3, 134)
+        Me.TableLayoutPanel7.Location = New System.Drawing.Point(4, 165)
+        Me.TableLayoutPanel7.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TableLayoutPanel7.Name = "TableLayoutPanel7"
         Me.TableLayoutPanel7.RowCount = 9
         Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.42345!))
@@ -360,8 +378,8 @@ Partial Class AccountManagement
         Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.09772!))
         Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.40065!))
         Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.30945!))
-        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel7.Size = New System.Drawing.Size(281, 307)
+        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
+        Me.TableLayoutPanel7.Size = New System.Drawing.Size(375, 377)
         Me.TableLayoutPanel7.TabIndex = 0
         '
         'btnclear
@@ -372,9 +390,10 @@ Partial Class AccountManagement
         Me.btnclear.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnclear.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnclear.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnclear.Location = New System.Drawing.Point(3, 258)
+        Me.btnclear.Location = New System.Drawing.Point(4, 320)
+        Me.btnclear.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnclear.Name = "btnclear"
-        Me.btnclear.Size = New System.Drawing.Size(127, 46)
+        Me.btnclear.Size = New System.Drawing.Size(170, 53)
         Me.btnclear.TabIndex = 131
         Me.btnclear.Text = "Clear"
         Me.btnclear.UseVisualStyleBackColor = False
@@ -388,9 +407,10 @@ Partial Class AccountManagement
         Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.Color.MidnightBlue
         Me.Label9.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Label9.Location = New System.Drawing.Point(3, 190)
+        Me.Label9.Location = New System.Drawing.Point(4, 236)
+        Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(127, 31)
+        Me.Label9.Size = New System.Drawing.Size(170, 38)
         Me.Label9.TabIndex = 128
         Me.Label9.Text = "Section:"
         Me.Label9.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -403,9 +423,10 @@ Partial Class AccountManagement
         Me.btnadd.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnadd.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnadd.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnadd.Location = New System.Drawing.Point(136, 258)
+        Me.btnadd.Location = New System.Drawing.Point(182, 320)
+        Me.btnadd.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnadd.Name = "btnadd"
-        Me.btnadd.Size = New System.Drawing.Size(142, 46)
+        Me.btnadd.Size = New System.Drawing.Size(189, 53)
         Me.btnadd.TabIndex = 98
         Me.btnadd.Text = "Add"
         Me.btnadd.UseVisualStyleBackColor = False
@@ -416,9 +437,10 @@ Partial Class AccountManagement
         Me.txtcourse.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtcourse.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtcourse.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.txtcourse.Location = New System.Drawing.Point(136, 160)
+        Me.txtcourse.Location = New System.Drawing.Point(182, 200)
+        Me.txtcourse.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtcourse.Name = "txtcourse"
-        Me.txtcourse.Size = New System.Drawing.Size(142, 29)
+        Me.txtcourse.Size = New System.Drawing.Size(189, 34)
         Me.txtcourse.TabIndex = 124
         '
         'txtID
@@ -427,9 +449,10 @@ Partial Class AccountManagement
         Me.txtID.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtID.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtID.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.txtID.Location = New System.Drawing.Point(136, 3)
+        Me.txtID.Location = New System.Drawing.Point(182, 4)
+        Me.txtID.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtID.Name = "txtID"
-        Me.txtID.Size = New System.Drawing.Size(142, 29)
+        Me.txtID.Size = New System.Drawing.Size(189, 34)
         Me.txtID.TabIndex = 105
         '
         'Label4
@@ -441,9 +464,10 @@ Partial Class AccountManagement
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.MidnightBlue
         Me.Label4.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Label4.Location = New System.Drawing.Point(3, 0)
+        Me.Label4.Location = New System.Drawing.Point(4, 0)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(127, 31)
+        Me.Label4.Size = New System.Drawing.Size(170, 39)
         Me.Label4.TabIndex = 104
         Me.Label4.Text = "Account ID:"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -454,9 +478,10 @@ Partial Class AccountManagement
         Me.txtfname.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtfname.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtfname.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.txtfname.Location = New System.Drawing.Point(136, 34)
+        Me.txtfname.Location = New System.Drawing.Point(182, 43)
+        Me.txtfname.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtfname.Name = "txtfname"
-        Me.txtfname.Size = New System.Drawing.Size(142, 29)
+        Me.txtfname.Size = New System.Drawing.Size(189, 34)
         Me.txtfname.TabIndex = 107
         '
         'Label5
@@ -468,9 +493,10 @@ Partial Class AccountManagement
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.MidnightBlue
         Me.Label5.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Label5.Location = New System.Drawing.Point(3, 31)
+        Me.Label5.Location = New System.Drawing.Point(4, 39)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(127, 31)
+        Me.Label5.Size = New System.Drawing.Size(170, 39)
         Me.Label5.TabIndex = 108
         Me.Label5.Text = "First Name:"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -481,9 +507,10 @@ Partial Class AccountManagement
         Me.txtlname.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtlname.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtlname.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.txtlname.Location = New System.Drawing.Point(136, 65)
+        Me.txtlname.Location = New System.Drawing.Point(182, 82)
+        Me.txtlname.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtlname.Name = "txtlname"
-        Me.txtlname.Size = New System.Drawing.Size(142, 29)
+        Me.txtlname.Size = New System.Drawing.Size(189, 34)
         Me.txtlname.TabIndex = 109
         '
         'Label6
@@ -495,9 +522,10 @@ Partial Class AccountManagement
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.MidnightBlue
         Me.Label6.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Label6.Location = New System.Drawing.Point(3, 62)
+        Me.Label6.Location = New System.Drawing.Point(4, 78)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(127, 31)
+        Me.Label6.Size = New System.Drawing.Size(170, 39)
         Me.Label6.TabIndex = 110
         Me.Label6.Text = "Last Name:"
         Me.Label6.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -508,9 +536,10 @@ Partial Class AccountManagement
         Me.txtusername.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtusername.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtusername.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.txtusername.Location = New System.Drawing.Point(136, 96)
+        Me.txtusername.Location = New System.Drawing.Point(182, 121)
+        Me.txtusername.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtusername.Name = "txtusername"
-        Me.txtusername.Size = New System.Drawing.Size(142, 29)
+        Me.txtusername.Size = New System.Drawing.Size(189, 34)
         Me.txtusername.TabIndex = 111
         '
         'txtcode
@@ -522,9 +551,10 @@ Partial Class AccountManagement
         Me.txtcode.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtcode.ForeColor = System.Drawing.Color.MidnightBlue
         Me.txtcode.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.txtcode.Location = New System.Drawing.Point(3, 93)
+        Me.txtcode.Location = New System.Drawing.Point(4, 117)
+        Me.txtcode.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.txtcode.Name = "txtcode"
-        Me.txtcode.Size = New System.Drawing.Size(127, 33)
+        Me.txtcode.Size = New System.Drawing.Size(170, 40)
         Me.txtcode.TabIndex = 112
         Me.txtcode.Text = "Username:"
         Me.txtcode.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -535,9 +565,10 @@ Partial Class AccountManagement
         Me.txtpassword.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtpassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtpassword.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.txtpassword.Location = New System.Drawing.Point(136, 129)
+        Me.txtpassword.Location = New System.Drawing.Point(182, 161)
+        Me.txtpassword.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtpassword.Name = "txtpassword"
-        Me.txtpassword.Size = New System.Drawing.Size(142, 29)
+        Me.txtpassword.Size = New System.Drawing.Size(189, 34)
         Me.txtpassword.TabIndex = 114
         '
         'Label2
@@ -549,9 +580,10 @@ Partial Class AccountManagement
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.MidnightBlue
         Me.Label2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Label2.Location = New System.Drawing.Point(3, 126)
+        Me.Label2.Location = New System.Drawing.Point(4, 157)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(127, 31)
+        Me.Label2.Size = New System.Drawing.Size(170, 39)
         Me.Label2.TabIndex = 113
         Me.Label2.Text = "Password:"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -565,9 +597,10 @@ Partial Class AccountManagement
         Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.Color.MidnightBlue
         Me.Label7.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Label7.Location = New System.Drawing.Point(3, 221)
+        Me.Label7.Location = New System.Drawing.Point(4, 274)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(127, 34)
+        Me.Label7.Size = New System.Drawing.Size(170, 42)
         Me.Label7.TabIndex = 115
         Me.Label7.Text = "Access Level:"
         Me.Label7.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -580,9 +613,10 @@ Partial Class AccountManagement
         Me.cbolevel.ForeColor = System.Drawing.Color.MidnightBlue
         Me.cbolevel.FormattingEnabled = True
         Me.cbolevel.Items.AddRange(New Object() {"Choose:", "low", "mid", "high"})
-        Me.cbolevel.Location = New System.Drawing.Point(136, 224)
+        Me.cbolevel.Location = New System.Drawing.Point(182, 278)
+        Me.cbolevel.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.cbolevel.Name = "cbolevel"
-        Me.cbolevel.Size = New System.Drawing.Size(142, 32)
+        Me.cbolevel.Size = New System.Drawing.Size(189, 37)
         Me.cbolevel.TabIndex = 116
         '
         'Label8
@@ -594,9 +628,10 @@ Partial Class AccountManagement
         Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.MidnightBlue
         Me.Label8.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Label8.Location = New System.Drawing.Point(3, 157)
+        Me.Label8.Location = New System.Drawing.Point(4, 196)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(127, 33)
+        Me.Label8.Size = New System.Drawing.Size(170, 40)
         Me.Label8.TabIndex = 122
         Me.Label8.Text = "Course:"
         Me.Label8.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -607,9 +642,10 @@ Partial Class AccountManagement
         Me.txtsection.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtsection.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtsection.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.txtsection.Location = New System.Drawing.Point(136, 193)
+        Me.txtsection.Location = New System.Drawing.Point(182, 240)
+        Me.txtsection.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtsection.Name = "txtsection"
-        Me.txtsection.Size = New System.Drawing.Size(142, 29)
+        Me.txtsection.Size = New System.Drawing.Size(189, 34)
         Me.txtsection.TabIndex = 127
         '
         'TableLayoutPanel8
@@ -619,12 +655,13 @@ Partial Class AccountManagement
         Me.TableLayoutPanel8.Controls.Add(Me.Label3, 0, 0)
         Me.TableLayoutPanel8.Controls.Add(Me.TableLayoutPanel9, 0, 1)
         Me.TableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel8.Location = New System.Drawing.Point(3, 3)
+        Me.TableLayoutPanel8.Location = New System.Drawing.Point(4, 4)
+        Me.TableLayoutPanel8.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TableLayoutPanel8.Name = "TableLayoutPanel8"
         Me.TableLayoutPanel8.RowCount = 2
         Me.TableLayoutPanel8.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20.0!))
         Me.TableLayoutPanel8.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80.0!))
-        Me.TableLayoutPanel8.Size = New System.Drawing.Size(281, 125)
+        Me.TableLayoutPanel8.Size = New System.Drawing.Size(375, 153)
         Me.TableLayoutPanel8.TabIndex = 1
         '
         'Label3
@@ -636,9 +673,10 @@ Partial Class AccountManagement
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.MidnightBlue
         Me.Label3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Label3.Location = New System.Drawing.Point(3, 0)
+        Me.Label3.Location = New System.Drawing.Point(4, 0)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(275, 25)
+        Me.Label3.Size = New System.Drawing.Size(367, 30)
         Me.Label3.TabIndex = 96
         Me.Label3.Text = "Account Pic:"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.BottomLeft
@@ -651,11 +689,12 @@ Partial Class AccountManagement
         Me.TableLayoutPanel9.Controls.Add(Me.PBpic, 0, 0)
         Me.TableLayoutPanel9.Controls.Add(Me.TableLayoutPanel10, 1, 0)
         Me.TableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel9.Location = New System.Drawing.Point(3, 28)
+        Me.TableLayoutPanel9.Location = New System.Drawing.Point(4, 34)
+        Me.TableLayoutPanel9.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TableLayoutPanel9.Name = "TableLayoutPanel9"
         Me.TableLayoutPanel9.RowCount = 1
         Me.TableLayoutPanel9.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 79.16666!))
-        Me.TableLayoutPanel9.Size = New System.Drawing.Size(275, 94)
+        Me.TableLayoutPanel9.Size = New System.Drawing.Size(367, 115)
         Me.TableLayoutPanel9.TabIndex = 2
         '
         'PBpic
@@ -663,9 +702,10 @@ Partial Class AccountManagement
         Me.PBpic.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.PBpic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PBpic.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PBpic.Location = New System.Drawing.Point(3, 3)
+        Me.PBpic.Location = New System.Drawing.Point(4, 4)
+        Me.PBpic.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.PBpic.Name = "PBpic"
-        Me.PBpic.Size = New System.Drawing.Size(95, 88)
+        Me.PBpic.Size = New System.Drawing.Size(127, 107)
         Me.PBpic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PBpic.TabIndex = 100
         Me.PBpic.TabStop = False
@@ -677,12 +717,13 @@ Partial Class AccountManagement
         Me.TableLayoutPanel10.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.66667!))
         Me.TableLayoutPanel10.Controls.Add(Me.buttonpic, 0, 1)
         Me.TableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel10.Location = New System.Drawing.Point(104, 3)
+        Me.TableLayoutPanel10.Location = New System.Drawing.Point(139, 4)
+        Me.TableLayoutPanel10.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TableLayoutPanel10.Name = "TableLayoutPanel10"
         Me.TableLayoutPanel10.RowCount = 2
         Me.TableLayoutPanel10.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 63.63636!))
         Me.TableLayoutPanel10.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 36.36364!))
-        Me.TableLayoutPanel10.Size = New System.Drawing.Size(168, 88)
+        Me.TableLayoutPanel10.Size = New System.Drawing.Size(224, 107)
         Me.TableLayoutPanel10.TabIndex = 101
         '
         'buttonpic
@@ -693,22 +734,24 @@ Partial Class AccountManagement
         Me.buttonpic.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.buttonpic.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.buttonpic.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.buttonpic.Location = New System.Drawing.Point(3, 58)
+        Me.buttonpic.Location = New System.Drawing.Point(4, 72)
+        Me.buttonpic.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.buttonpic.Name = "buttonpic"
-        Me.buttonpic.Size = New System.Drawing.Size(117, 27)
+        Me.buttonpic.Size = New System.Drawing.Size(156, 31)
         Me.buttonpic.TabIndex = 101
         Me.buttonpic.Text = "Update Pic:"
         Me.buttonpic.UseVisualStyleBackColor = False
         '
         'AccountManagement
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.Login.My.Resources.Resources._467460386_1064088022134846_6079649981189841706_n
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(1067, 554)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "AccountManagement"
         Me.Text = "AccountManagement"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized

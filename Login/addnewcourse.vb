@@ -4,12 +4,12 @@ Imports System.Data
 
 
 Public Class addnewcourse
-    ' Flag to determine if we are adding or modifying a course
+    ' Determine if we are adding or modifying a course
     Public isModify As Boolean
     Public course As String
     Public course_id As String
 
-    ' Form load event: Initializes the form based on whether we're modifying or adding a new course
+    ' Initializes the form based on whether we're modifying or adding a new course
     Public Sub addnewcourse_load(sender As Object, e As EventArgs) Handles MyBase.Load
         If conn.State = ConnectionState.Open Then
             conn.Close()
@@ -56,9 +56,9 @@ Public Class addnewcourse
         End Try
     End Function
 
-    ' Method to add a new course
+    ' Method to add a new Course
     Private Sub AddNewCourse()
-        ' Validate if the course name is empty
+        ' Validates if the course name is empty
         If String.IsNullOrWhiteSpace(txtcourse.Text) Then
             MessageBox.Show("Please enter a course name.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return

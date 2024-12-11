@@ -6,7 +6,7 @@ Module logs
     Public L_Course As String
     Public L_Section As String
 
-    ' Subroutine for handling login/logout functionality
+    ' Method handling login/logout functionality
     Public Sub logging_log()
         Try
             If conn.State <> ConnectionState.Open Then
@@ -137,7 +137,7 @@ Module logs
 
 
 
-    ' Subroutine for fetching course based on user ID
+    ' Method for fetching course based on user ID
     Public course As String
     Public section As String
 
@@ -176,10 +176,10 @@ Module logs
         End Try
     End Sub
 
-    ' Subroutine for fetching section based on user ID
+    ' Method for fetching section based on user ID
     Public Sub sectionfinder()
         L_ID = U_ID
-        section = "" ' Clear the section initially
+        section = "" ' Clear the section first
 
         Try
             If conn.State <> ConnectionState.Open Then
@@ -190,7 +190,7 @@ Module logs
             Dim checkCommand As New MySqlCommand(query, conn)
             checkCommand.Parameters.AddWithValue("@U_ID", L_ID)
 
-            Dim result = checkCommand.ExecuteScalar() ' Fetch the section as a single value
+            Dim result = checkCommand.ExecuteScalar() ' Retrieve the section as a single value
 
             If result IsNot Nothing Then
                 section = result.ToString() ' Set the section value

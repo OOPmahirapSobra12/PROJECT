@@ -10,7 +10,7 @@ Public Class Courses
         If conn.State = ConnectionState.Open Then
             conn.Close()
         End If
-        DbConnect()  ' Ensure DbConnect is defined elsewhere in your project
+        DbConnect()  ' Make sure that the DbConnect is defined elsewhere in your project
         tableloader()  ' Load the courses table into the DataGridView
     End Sub
 
@@ -50,7 +50,7 @@ Public Class Courses
     End Sub
 
 
-    ' Search functionality to filter courses by name
+    ' Search Method to filter courses by name
     Private Sub btnsearch_Click(sender As Object, e As EventArgs) Handles btnsearch.Click
         ' Validate if a search term is entered
         If String.IsNullOrWhiteSpace(txtsearch.Text) Then
@@ -93,7 +93,7 @@ Public Class Courses
         End Try
     End Sub
 
-    ' Delete functionality for a selected course
+    ' Delete Method for a selected course
     Private Sub btndelete_Click(sender As Object, e As EventArgs) Handles btndelete.Click
         ' Check if a row is selected in the DataGridView
         If DGVcourses.SelectedRows.Count > 0 Then
@@ -154,7 +154,7 @@ Public Class Courses
     End Sub
 
 
-    ' Event for the "Modify" button: Opens the addnewcourse form to modify the selected course
+    ' Method for the Modify button: Opens the addnewcourse form to modify the selected course
     Private Sub btnmodify_Click(sender As Object, e As EventArgs) Handles btnmodify.Click
         ' Check if a row is selected in the DataGridView
         If DGVcourses.SelectedRows.Count > 0 Then

@@ -19,7 +19,7 @@ Public Class roomlogs
                 conn.Open()
             End If
 
-            ' Fill the DataTable with data from the room_logshistory table
+            ' Populate the DataTable with data from the room_logshistory table
             adapter.Fill(table)
 
             ' Set AutoGenerateColumns to False to avoid extra columns in DataGridView
@@ -56,7 +56,7 @@ Public Class roomlogs
     End Sub
 
 
-    ' Search functionality based on the selected category
+    ' Search function based on the selected category
     Private Sub btnsearch_Click(sender As Object, e As EventArgs) Handles btnsearch.Click
         If String.IsNullOrEmpty(txtsearchbox.Text) Then
             LoadRoomLogs()
@@ -89,7 +89,7 @@ Public Class roomlogs
             ' Create the MySqlCommand object
             Dim command As New MySqlCommand(query, conn)
 
-            ' Add the parameter for the search term, using '%' for partial matching
+            ' Add the parameter for the search term, using '%' for matching
             command.Parameters.AddWithValue("@search", "%" & search & "%")
 
             Dim table As New DataTable()

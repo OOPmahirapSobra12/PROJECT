@@ -98,7 +98,7 @@ Public Class scheduleaddmodify
                 End Select
             End If
 
-            ' Optionally, disable editing of specific controls
+            ' Disable editing of specific controls (Optional)
             txtschedID.Enabled = False
             txtname.Enabled = False
 

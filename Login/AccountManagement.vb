@@ -180,7 +180,7 @@ Public Class AccountManagement
     End Sub
 
     Private Sub updating()
-        ' Validate that none of the fields are empty
+        ' Verify that none of the fields are empty
         If String.IsNullOrEmpty(txtfname.Text) OrElse
            String.IsNullOrEmpty(txtID.Text) OrElse
            String.IsNullOrEmpty(txtlname.Text) OrElse
@@ -193,7 +193,7 @@ Public Class AccountManagement
             Return
         End If
 
-        ' Validate that the access level is either Low, Middle, or High (case insensitive)
+        ' Ensure that the access level is either Low, Middle, or High (case insensitive)
         Dim allowedLevels As String() = {"low", "middle", "high"}
         Dim accesslevel As String = cbolevel.SelectedItem.ToString().ToLower() ' Convert to lowercase for comparison
 
@@ -202,7 +202,7 @@ Public Class AccountManagement
             Return
         End If
 
-        ' Prepare data for update
+        ' Prepare the data for update
         Dim fname As String = txtfname.Text
         Dim id As String = txtID.Text
         Dim lname As String = txtlname.Text
@@ -220,7 +220,7 @@ Public Class AccountManagement
             End Using
         End If
 
-        ' Define the query to update the account
+        ' SQL Query to update the account
         Dim query As String = "UPDATE accounts SET username = @username, pword = @pword, fname = @fname, lname = @lname,course_name = @course, sections = @section,
                                 accesslevel = @accesslevel, image = @image WHERE ID = @id"
 

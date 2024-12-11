@@ -3,7 +3,7 @@
 Module AcceptedRequest_automation ' Module name should be properly capitalized (Optional but recommended)
     Public R_ID As String
     Public R_requestID As String
-    ' Method to process and transfer accepted requests
+    'Processing and transferring accepted requests 
     Public Sub ProcessAcceptedRequests()
         Try
             ' Ensure the database connection is open
@@ -59,7 +59,7 @@ Module AcceptedRequest_automation ' Module name should be properly capitalized (
                 End Using
             End Using
         Catch ex As Exception
-            ' Log or display the exception details
+            ' Display the exception details
             Console.WriteLine("An error occurred: " & ex.Message)
         Finally
             ' Ensure the database connection is closed

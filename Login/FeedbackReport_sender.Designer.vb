@@ -56,12 +56,13 @@ Partial Class FeedbackReport_sender
         Me.TableLayoutPanel1.Controls.Add(Me.TableLayoutPanel2, 0, 1)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 2
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.01512!))
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88.98488!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(800, 500)
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(1067, 615)
         Me.TableLayoutPanel1.TabIndex = 13
         '
         'txttitle
@@ -70,9 +71,10 @@ Partial Class FeedbackReport_sender
         Me.txttitle.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txttitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txttitle.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.txttitle.Location = New System.Drawing.Point(3, 0)
+        Me.txttitle.Location = New System.Drawing.Point(4, 0)
+        Me.txttitle.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.txttitle.Name = "txttitle"
-        Me.txttitle.Size = New System.Drawing.Size(794, 55)
+        Me.txttitle.Size = New System.Drawing.Size(1059, 67)
         Me.txttitle.TabIndex = 99
         Me.txttitle.Text = "Report and Feedback Center"
         Me.txttitle.TextAlign = System.Drawing.ContentAlignment.BottomCenter
@@ -85,12 +87,13 @@ Partial Class FeedbackReport_sender
         Me.TableLayoutPanel2.Controls.Add(Me.TableLayoutPanel3, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.TableLayoutPanel5, 0, 1)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(3, 58)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(4, 71)
+        Me.TableLayoutPanel2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 2
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 86.73219!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.26781!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(794, 439)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(1059, 540)
         Me.TableLayoutPanel2.TabIndex = 13
         '
         'TableLayoutPanel3
@@ -101,12 +104,13 @@ Partial Class FeedbackReport_sender
         Me.TableLayoutPanel3.Controls.Add(Me.txtmessage, 0, 1)
         Me.TableLayoutPanel3.Controls.Add(Me.TableLayoutPanel4, 0, 0)
         Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel3.Location = New System.Drawing.Point(3, 3)
+        Me.TableLayoutPanel3.Location = New System.Drawing.Point(4, 4)
+        Me.TableLayoutPanel3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
         Me.TableLayoutPanel3.RowCount = 2
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34.9711!))
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65.0289!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(788, 374)
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(1051, 460)
         Me.TableLayoutPanel3.TabIndex = 14
         '
         'txtmessage
@@ -115,17 +119,18 @@ Partial Class FeedbackReport_sender
         Me.txtmessage.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtmessage.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!)
         Me.txtmessage.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.txtmessage.Location = New System.Drawing.Point(3, 133)
+        Me.txtmessage.Location = New System.Drawing.Point(4, 164)
+        Me.txtmessage.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtmessage.Multiline = True
         Me.txtmessage.Name = "txtmessage"
-        Me.txtmessage.Size = New System.Drawing.Size(782, 238)
+        Me.txtmessage.Size = New System.Drawing.Size(1043, 292)
         Me.txtmessage.TabIndex = 108
         '
         'TableLayoutPanel4
         '
         Me.TableLayoutPanel4.BackColor = System.Drawing.Color.Transparent
         Me.TableLayoutPanel4.ColumnCount = 5
-        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27.0!))
         Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 18.72659!))
         Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.8427!))
         Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.83521!))
@@ -139,13 +144,14 @@ Partial Class FeedbackReport_sender
         Me.TableLayoutPanel4.Controls.Add(Me.cboWHAT, 4, 0)
         Me.TableLayoutPanel4.Controls.Add(Me.btnselect, 4, 1)
         Me.TableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel4.Location = New System.Drawing.Point(3, 3)
+        Me.TableLayoutPanel4.Location = New System.Drawing.Point(4, 4)
+        Me.TableLayoutPanel4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
         Me.TableLayoutPanel4.RowCount = 3
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanel4.Size = New System.Drawing.Size(782, 124)
+        Me.TableLayoutPanel4.Size = New System.Drawing.Size(1043, 152)
         Me.TableLayoutPanel4.TabIndex = 15
         '
         'Label2
@@ -154,9 +160,10 @@ Partial Class FeedbackReport_sender
         Me.Label2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.Label2.Location = New System.Drawing.Point(23, 0)
+        Me.Label2.Location = New System.Drawing.Point(31, 0)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(136, 41)
+        Me.Label2.Size = New System.Drawing.Size(181, 50)
         Me.Label2.TabIndex = 102
         Me.Label2.Text = "Sender:"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -167,9 +174,10 @@ Partial Class FeedbackReport_sender
         Me.Label3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.Label3.Location = New System.Drawing.Point(23, 41)
+        Me.Label3.Location = New System.Drawing.Point(31, 50)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(136, 41)
+        Me.Label3.Size = New System.Drawing.Size(181, 50)
         Me.Label3.TabIndex = 103
         Me.Label3.Text = "Type:"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -180,9 +188,10 @@ Partial Class FeedbackReport_sender
         Me.Label4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.Label4.Location = New System.Drawing.Point(23, 82)
+        Me.Label4.Location = New System.Drawing.Point(31, 100)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(136, 42)
+        Me.Label4.Size = New System.Drawing.Size(181, 52)
         Me.Label4.TabIndex = 104
         Me.Label4.Text = "Message:"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.BottomRight
@@ -194,9 +203,10 @@ Partial Class FeedbackReport_sender
         Me.lblWHAT.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblWHAT.ForeColor = System.Drawing.Color.MidnightBlue
         Me.lblWHAT.ImageAlign = System.Drawing.ContentAlignment.TopRight
-        Me.lblWHAT.Location = New System.Drawing.Point(361, 0)
+        Me.lblWHAT.Location = New System.Drawing.Point(481, 0)
+        Me.lblWHAT.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblWHAT.Name = "lblWHAT"
-        Me.lblWHAT.Size = New System.Drawing.Size(235, 41)
+        Me.lblWHAT.Size = New System.Drawing.Size(314, 50)
         Me.lblWHAT.TabIndex = 105
         Me.lblWHAT.Text = "What to report?"
         Me.lblWHAT.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -208,10 +218,11 @@ Partial Class FeedbackReport_sender
         Me.txtuser.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtuser.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!)
         Me.txtuser.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.txtuser.Location = New System.Drawing.Point(165, 3)
+        Me.txtuser.Location = New System.Drawing.Point(220, 4)
+        Me.txtuser.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtuser.Name = "txtuser"
         Me.txtuser.ReadOnly = True
-        Me.txtuser.Size = New System.Drawing.Size(190, 31)
+        Me.txtuser.Size = New System.Drawing.Size(253, 37)
         Me.txtuser.TabIndex = 106
         '
         'cbotype
@@ -222,9 +233,10 @@ Partial Class FeedbackReport_sender
         Me.cbotype.ForeColor = System.Drawing.Color.MidnightBlue
         Me.cbotype.FormattingEnabled = True
         Me.cbotype.Items.AddRange(New Object() {"Choose:", "Report", "Feedback"})
-        Me.cbotype.Location = New System.Drawing.Point(165, 44)
+        Me.cbotype.Location = New System.Drawing.Point(220, 54)
+        Me.cbotype.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.cbotype.Name = "cbotype"
-        Me.cbotype.Size = New System.Drawing.Size(190, 33)
+        Me.cbotype.Size = New System.Drawing.Size(253, 38)
         Me.cbotype.TabIndex = 112
         '
         'cboWHAT
@@ -235,9 +247,10 @@ Partial Class FeedbackReport_sender
         Me.cboWHAT.ForeColor = System.Drawing.Color.MidnightBlue
         Me.cboWHAT.FormattingEnabled = True
         Me.cboWHAT.Items.AddRange(New Object() {"Choose:", "Room", "Data", "System"})
-        Me.cboWHAT.Location = New System.Drawing.Point(602, 3)
+        Me.cboWHAT.Location = New System.Drawing.Point(803, 4)
+        Me.cboWHAT.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.cboWHAT.Name = "cboWHAT"
-        Me.cboWHAT.Size = New System.Drawing.Size(177, 33)
+        Me.cboWHAT.Size = New System.Drawing.Size(236, 38)
         Me.cboWHAT.TabIndex = 113
         Me.cboWHAT.Visible = False
         '
@@ -249,9 +262,10 @@ Partial Class FeedbackReport_sender
         Me.btnselect.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnselect.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnselect.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnselect.Location = New System.Drawing.Point(602, 44)
+        Me.btnselect.Location = New System.Drawing.Point(803, 54)
+        Me.btnselect.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnselect.Name = "btnselect"
-        Me.btnselect.Size = New System.Drawing.Size(177, 35)
+        Me.btnselect.Size = New System.Drawing.Size(236, 42)
         Me.btnselect.TabIndex = 114
         Me.btnselect.Text = "Select Room"
         Me.btnselect.UseVisualStyleBackColor = False
@@ -267,11 +281,12 @@ Partial Class FeedbackReport_sender
         Me.TableLayoutPanel5.Controls.Add(Me.btnclear, 0, 0)
         Me.TableLayoutPanel5.Controls.Add(Me.btnback, 0, 0)
         Me.TableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Top
-        Me.TableLayoutPanel5.Location = New System.Drawing.Point(3, 383)
+        Me.TableLayoutPanel5.Location = New System.Drawing.Point(4, 472)
+        Me.TableLayoutPanel5.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
         Me.TableLayoutPanel5.RowCount = 1
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel5.Size = New System.Drawing.Size(788, 48)
+        Me.TableLayoutPanel5.Size = New System.Drawing.Size(1051, 59)
         Me.TableLayoutPanel5.TabIndex = 15
         '
         'btnsend
@@ -282,9 +297,10 @@ Partial Class FeedbackReport_sender
         Me.btnsend.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnsend.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnsend.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnsend.Location = New System.Drawing.Point(527, 3)
+        Me.btnsend.Location = New System.Drawing.Point(704, 4)
+        Me.btnsend.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnsend.Name = "btnsend"
-        Me.btnsend.Size = New System.Drawing.Size(258, 42)
+        Me.btnsend.Size = New System.Drawing.Size(343, 51)
         Me.btnsend.TabIndex = 102
         Me.btnsend.Text = "Send"
         Me.btnsend.UseVisualStyleBackColor = False
@@ -297,9 +313,10 @@ Partial Class FeedbackReport_sender
         Me.btnclear.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnclear.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnclear.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnclear.Location = New System.Drawing.Point(265, 3)
+        Me.btnclear.Location = New System.Drawing.Point(354, 4)
+        Me.btnclear.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnclear.Name = "btnclear"
-        Me.btnclear.Size = New System.Drawing.Size(256, 42)
+        Me.btnclear.Size = New System.Drawing.Size(342, 51)
         Me.btnclear.TabIndex = 101
         Me.btnclear.Text = "Clear"
         Me.btnclear.UseVisualStyleBackColor = False
@@ -312,25 +329,26 @@ Partial Class FeedbackReport_sender
         Me.btnback.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnback.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnback.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnback.Location = New System.Drawing.Point(3, 3)
+        Me.btnback.Location = New System.Drawing.Point(4, 4)
+        Me.btnback.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnback.Name = "btnback"
-        Me.btnback.Size = New System.Drawing.Size(256, 42)
+        Me.btnback.Size = New System.Drawing.Size(342, 51)
         Me.btnback.TabIndex = 100
         Me.btnback.Text = "Back"
         Me.btnback.UseVisualStyleBackColor = False
         '
         'FeedbackReport_sender
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.BackgroundImage = Global.Login.My.Resources.Resources._467460386_1064088022134846_6079649981189841706_n
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(800, 500)
+        Me.ClientSize = New System.Drawing.Size(1067, 615)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Margin = New System.Windows.Forms.Padding(2, 1, 2, 1)
+        Me.Margin = New System.Windows.Forms.Padding(3, 1, 3, 1)
         Me.Name = "FeedbackReport_sender"
         Me.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

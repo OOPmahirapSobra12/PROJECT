@@ -39,16 +39,17 @@ Partial Class addnewcourse
         Me.TableLayoutPanel7.BackColor = System.Drawing.Color.Transparent
         Me.TableLayoutPanel7.ColumnCount = 1
         Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27.0!))
         Me.TableLayoutPanel7.Controls.Add(Me.TableLayoutPanel11, 0, 1)
         Me.TableLayoutPanel7.Controls.Add(Me.TableLayoutPanel10, 0, 0)
         Me.TableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel7.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanel7.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TableLayoutPanel7.Name = "TableLayoutPanel7"
         Me.TableLayoutPanel7.RowCount = 2
         Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 45.78313!))
         Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 54.21687!))
-        Me.TableLayoutPanel7.Size = New System.Drawing.Size(398, 83)
+        Me.TableLayoutPanel7.Size = New System.Drawing.Size(531, 102)
         Me.TableLayoutPanel7.TabIndex = 5
         '
         'TableLayoutPanel11
@@ -59,11 +60,12 @@ Partial Class addnewcourse
         Me.TableLayoutPanel11.Controls.Add(Me.btnback, 1, 0)
         Me.TableLayoutPanel11.Controls.Add(Me.btnAdd, 0, 0)
         Me.TableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel11.Location = New System.Drawing.Point(3, 40)
+        Me.TableLayoutPanel11.Location = New System.Drawing.Point(4, 50)
+        Me.TableLayoutPanel11.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TableLayoutPanel11.Name = "TableLayoutPanel11"
         Me.TableLayoutPanel11.RowCount = 1
         Me.TableLayoutPanel11.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel11.Size = New System.Drawing.Size(392, 40)
+        Me.TableLayoutPanel11.Size = New System.Drawing.Size(523, 48)
         Me.TableLayoutPanel11.TabIndex = 2
         '
         'btnback
@@ -72,9 +74,10 @@ Partial Class addnewcourse
         Me.btnback.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnback.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnback.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnback.Location = New System.Drawing.Point(199, 3)
+        Me.btnback.Location = New System.Drawing.Point(265, 4)
+        Me.btnback.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnback.Name = "btnback"
-        Me.btnback.Size = New System.Drawing.Size(190, 34)
+        Me.btnback.Size = New System.Drawing.Size(254, 40)
         Me.btnback.TabIndex = 14
         Me.btnback.Text = "Back"
         Me.btnback.UseVisualStyleBackColor = False
@@ -85,9 +88,10 @@ Partial Class addnewcourse
         Me.btnAdd.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAdd.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnAdd.Location = New System.Drawing.Point(3, 3)
+        Me.btnAdd.Location = New System.Drawing.Point(4, 4)
+        Me.btnAdd.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.Size = New System.Drawing.Size(190, 34)
+        Me.btnAdd.Size = New System.Drawing.Size(253, 40)
         Me.btnAdd.TabIndex = 17
         Me.btnAdd.Text = "Add"
         Me.btnAdd.UseVisualStyleBackColor = False
@@ -100,11 +104,12 @@ Partial Class addnewcourse
         Me.TableLayoutPanel10.Controls.Add(Me.Label4, 0, 0)
         Me.TableLayoutPanel10.Controls.Add(Me.txtcourse, 1, 0)
         Me.TableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel10.Location = New System.Drawing.Point(3, 3)
+        Me.TableLayoutPanel10.Location = New System.Drawing.Point(4, 4)
+        Me.TableLayoutPanel10.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TableLayoutPanel10.Name = "TableLayoutPanel10"
         Me.TableLayoutPanel10.RowCount = 1
-        Me.TableLayoutPanel10.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
-        Me.TableLayoutPanel10.Size = New System.Drawing.Size(392, 31)
+        Me.TableLayoutPanel10.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44.0!))
+        Me.TableLayoutPanel10.Size = New System.Drawing.Size(523, 38)
         Me.TableLayoutPanel10.TabIndex = 0
         '
         'Label4
@@ -113,9 +118,10 @@ Partial Class addnewcourse
         Me.Label4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.0!, System.Drawing.FontStyle.Bold)
         Me.Label4.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.Label4.Location = New System.Drawing.Point(3, 0)
+        Me.Label4.Location = New System.Drawing.Point(4, 0)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(83, 36)
+        Me.Label4.Size = New System.Drawing.Size(112, 44)
         Me.Label4.TabIndex = 9
         Me.Label4.Text = "Course:"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -126,20 +132,22 @@ Partial Class addnewcourse
         Me.txtcourse.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtcourse.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtcourse.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.txtcourse.Location = New System.Drawing.Point(92, 3)
+        Me.txtcourse.Location = New System.Drawing.Point(124, 4)
+        Me.txtcourse.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtcourse.Name = "txtcourse"
-        Me.txtcourse.Size = New System.Drawing.Size(297, 31)
+        Me.txtcourse.Size = New System.Drawing.Size(395, 37)
         Me.txtcourse.TabIndex = 33
         '
         'addnewcourse
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.Login.My.Resources.Resources._467460386_1064088022134846_6079649981189841706_n
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(398, 83)
+        Me.ClientSize = New System.Drawing.Size(531, 102)
         Me.Controls.Add(Me.TableLayoutPanel7)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "addnewcourse"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Form1"

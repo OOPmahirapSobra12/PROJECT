@@ -57,22 +57,23 @@ Partial Class Roomlist
         '
         Me.TableLayoutPanel5.BackColor = System.Drawing.Color.Transparent
         Me.TableLayoutPanel5.ColumnCount = 3
-        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27.0!))
         Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel5.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27.0!))
         Me.TableLayoutPanel5.Controls.Add(Me.TableLayoutPanel6, 1, 1)
         Me.TableLayoutPanel5.Controls.Add(Me.TableLayoutPanel7, 1, 3)
         Me.TableLayoutPanel5.Controls.Add(Me.DGVroomlist, 1, 2)
         Me.TableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel5.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanel5.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
         Me.TableLayoutPanel5.RowCount = 5
-        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.50973!))
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 72.56809!))
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.922179!))
-        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel5.Size = New System.Drawing.Size(1056, 555)
+        Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
+        Me.TableLayoutPanel5.Size = New System.Drawing.Size(1408, 683)
         Me.TableLayoutPanel5.TabIndex = 3
         '
         'TableLayoutPanel6
@@ -83,27 +84,29 @@ Partial Class Roomlist
         Me.TableLayoutPanel6.Controls.Add(Me.TableLayoutPanel8, 0, 0)
         Me.TableLayoutPanel6.Controls.Add(Me.TableLayoutPanel9, 1, 0)
         Me.TableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel6.Location = New System.Drawing.Point(23, 23)
+        Me.TableLayoutPanel6.Location = New System.Drawing.Point(31, 29)
+        Me.TableLayoutPanel6.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TableLayoutPanel6.Name = "TableLayoutPanel6"
         Me.TableLayoutPanel6.RowCount = 1
         Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 84.0!))
-        Me.TableLayoutPanel6.Size = New System.Drawing.Size(1010, 84)
+        Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 103.0!))
+        Me.TableLayoutPanel6.Size = New System.Drawing.Size(1346, 102)
         Me.TableLayoutPanel6.TabIndex = 0
         '
         'TableLayoutPanel8
         '
         Me.TableLayoutPanel8.ColumnCount = 1
         Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel8.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27.0!))
         Me.TableLayoutPanel8.Controls.Add(Me.Label1, 0, 1)
         Me.TableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel8.Location = New System.Drawing.Point(3, 3)
+        Me.TableLayoutPanel8.Location = New System.Drawing.Point(4, 4)
+        Me.TableLayoutPanel8.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TableLayoutPanel8.Name = "TableLayoutPanel8"
         Me.TableLayoutPanel8.RowCount = 2
-        Me.TableLayoutPanel8.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel8.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
         Me.TableLayoutPanel8.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel8.Size = New System.Drawing.Size(234, 78)
+        Me.TableLayoutPanel8.Size = New System.Drawing.Size(311, 94)
         Me.TableLayoutPanel8.TabIndex = 0
         '
         'Label1
@@ -112,9 +115,10 @@ Partial Class Roomlist
         Me.Label1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.Label1.Location = New System.Drawing.Point(3, 20)
+        Me.Label1.Location = New System.Drawing.Point(4, 25)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(228, 58)
+        Me.Label1.Size = New System.Drawing.Size(303, 69)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Room List"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.BottomRight
@@ -133,12 +137,13 @@ Partial Class Roomlist
         Me.TableLayoutPanel9.Controls.Add(Me.txtsearch, 3, 1)
         Me.TableLayoutPanel9.Controls.Add(Me.btnsearch, 4, 1)
         Me.TableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel9.Location = New System.Drawing.Point(243, 3)
+        Me.TableLayoutPanel9.Location = New System.Drawing.Point(323, 4)
+        Me.TableLayoutPanel9.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TableLayoutPanel9.Name = "TableLayoutPanel9"
         Me.TableLayoutPanel9.RowCount = 2
-        Me.TableLayoutPanel9.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37.0!))
-        Me.TableLayoutPanel9.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33.0!))
-        Me.TableLayoutPanel9.Size = New System.Drawing.Size(764, 78)
+        Me.TableLayoutPanel9.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46.0!))
+        Me.TableLayoutPanel9.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 41.0!))
+        Me.TableLayoutPanel9.Size = New System.Drawing.Size(1019, 94)
         Me.TableLayoutPanel9.TabIndex = 1
         '
         'Label2
@@ -147,9 +152,10 @@ Partial Class Roomlist
         Me.Label2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 13.0!, System.Drawing.FontStyle.Bold)
         Me.Label2.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.Label2.Location = New System.Drawing.Point(3, 37)
+        Me.Label2.Location = New System.Drawing.Point(4, 46)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(129, 41)
+        Me.Label2.Size = New System.Drawing.Size(172, 48)
         Me.Label2.TabIndex = 8
         Me.Label2.Text = "Search for :"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -162,9 +168,10 @@ Partial Class Roomlist
         Me.cboType.ForeColor = System.Drawing.Color.MidnightBlue
         Me.cboType.FormattingEnabled = True
         Me.cboType.Items.AddRange(New Object() {"Choose", "Room Code", "Room Name", "Building", "Availability", "Chair #", "Computer #", "Laptop #"})
-        Me.cboType.Location = New System.Drawing.Point(138, 40)
+        Me.cboType.Location = New System.Drawing.Point(184, 50)
+        Me.cboType.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.cboType.Name = "cboType"
-        Me.cboType.Size = New System.Drawing.Size(179, 33)
+        Me.cboType.Size = New System.Drawing.Size(239, 38)
         Me.cboType.TabIndex = 9
         '
         'Label3
@@ -173,9 +180,10 @@ Partial Class Roomlist
         Me.Label3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.Label3.Location = New System.Drawing.Point(323, 37)
+        Me.Label3.Location = New System.Drawing.Point(431, 46)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(90, 41)
+        Me.Label3.Size = New System.Drawing.Size(120, 48)
         Me.Label3.TabIndex = 10
         Me.Label3.Text = "SEARCH:"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -186,9 +194,10 @@ Partial Class Roomlist
         Me.txtsearch.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtsearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtsearch.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.txtsearch.Location = New System.Drawing.Point(419, 40)
+        Me.txtsearch.Location = New System.Drawing.Point(559, 50)
+        Me.txtsearch.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtsearch.Name = "txtsearch"
-        Me.txtsearch.Size = New System.Drawing.Size(197, 31)
+        Me.txtsearch.Size = New System.Drawing.Size(263, 37)
         Me.txtsearch.TabIndex = 11
         '
         'btnsearch
@@ -197,9 +206,10 @@ Partial Class Roomlist
         Me.btnsearch.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnsearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnsearch.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnsearch.Location = New System.Drawing.Point(622, 40)
+        Me.btnsearch.Location = New System.Drawing.Point(830, 50)
+        Me.btnsearch.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnsearch.Name = "btnsearch"
-        Me.btnsearch.Size = New System.Drawing.Size(139, 35)
+        Me.btnsearch.Size = New System.Drawing.Size(185, 40)
         Me.btnsearch.TabIndex = 12
         Me.btnsearch.Text = "Search"
         Me.btnsearch.UseVisualStyleBackColor = False
@@ -209,23 +219,24 @@ Partial Class Roomlist
         Me.TableLayoutPanel7.ColumnCount = 2
         Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 88.21782!))
         Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.78218!))
-        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27.0!))
+        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27.0!))
+        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27.0!))
+        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27.0!))
+        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27.0!))
+        Me.TableLayoutPanel7.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27.0!))
         Me.TableLayoutPanel7.Controls.Add(Me.btnback, 1, 0)
         Me.TableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel7.Location = New System.Drawing.Point(23, 486)
+        Me.TableLayoutPanel7.Location = New System.Drawing.Point(31, 598)
+        Me.TableLayoutPanel7.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.TableLayoutPanel7.Name = "TableLayoutPanel7"
         Me.TableLayoutPanel7.RowCount = 1
         Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45.0!))
-        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45.0!))
-        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45.0!))
-        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45.0!))
-        Me.TableLayoutPanel7.Size = New System.Drawing.Size(1010, 45)
+        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55.0!))
+        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55.0!))
+        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55.0!))
+        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 55.0!))
+        Me.TableLayoutPanel7.Size = New System.Drawing.Size(1346, 54)
         Me.TableLayoutPanel7.TabIndex = 1
         '
         'btnback
@@ -234,9 +245,10 @@ Partial Class Roomlist
         Me.btnback.Dock = System.Windows.Forms.DockStyle.Fill
         Me.btnback.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnback.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnback.Location = New System.Drawing.Point(893, 3)
+        Me.btnback.Location = New System.Drawing.Point(1191, 4)
+        Me.btnback.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnback.Name = "btnback"
-        Me.btnback.Size = New System.Drawing.Size(114, 39)
+        Me.btnback.Size = New System.Drawing.Size(151, 46)
         Me.btnback.TabIndex = 15
         Me.btnback.Text = "Back"
         Me.btnback.UseVisualStyleBackColor = False
@@ -269,7 +281,8 @@ Partial Class Roomlist
         Me.DGVroomlist.DefaultCellStyle = DataGridViewCellStyle2
         Me.DGVroomlist.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DGVroomlist.GridColor = System.Drawing.SystemColors.HotTrack
-        Me.DGVroomlist.Location = New System.Drawing.Point(23, 113)
+        Me.DGVroomlist.Location = New System.Drawing.Point(31, 139)
+        Me.DGVroomlist.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.DGVroomlist.Name = "DGVroomlist"
         Me.DGVroomlist.ReadOnly = True
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
@@ -281,13 +294,14 @@ Partial Class Roomlist
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DGVroomlist.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.DGVroomlist.RowHeadersWidth = 62
-        Me.DGVroomlist.Size = New System.Drawing.Size(1010, 367)
+        Me.DGVroomlist.Size = New System.Drawing.Size(1346, 451)
         Me.DGVroomlist.TabIndex = 3
         '
         'room_code
         '
         Me.room_code.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.room_code.HeaderText = "Room Code"
+        Me.room_code.MinimumWidth = 6
         Me.room_code.Name = "room_code"
         Me.room_code.ReadOnly = True
         '
@@ -295,6 +309,7 @@ Partial Class Roomlist
         '
         Me.room_name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.room_name.HeaderText = "Room Name"
+        Me.room_name.MinimumWidth = 6
         Me.room_name.Name = "room_name"
         Me.room_name.ReadOnly = True
         '
@@ -302,6 +317,7 @@ Partial Class Roomlist
         '
         Me.building.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.building.HeaderText = "Building"
+        Me.building.MinimumWidth = 6
         Me.building.Name = "building"
         Me.building.ReadOnly = True
         '
@@ -309,6 +325,7 @@ Partial Class Roomlist
         '
         Me.status.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.status.HeaderText = "Availability"
+        Me.status.MinimumWidth = 6
         Me.status.Name = "status"
         Me.status.ReadOnly = True
         '
@@ -316,6 +333,7 @@ Partial Class Roomlist
         '
         Me.num_chairs.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.num_chairs.HeaderText = "Chair #"
+        Me.num_chairs.MinimumWidth = 6
         Me.num_chairs.Name = "num_chairs"
         Me.num_chairs.ReadOnly = True
         '
@@ -323,6 +341,7 @@ Partial Class Roomlist
         '
         Me.num_computers.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.num_computers.HeaderText = "Computer #"
+        Me.num_computers.MinimumWidth = 6
         Me.num_computers.Name = "num_computers"
         Me.num_computers.ReadOnly = True
         '
@@ -330,19 +349,20 @@ Partial Class Roomlist
         '
         Me.num_laptops.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.num_laptops.HeaderText = "Laptop #"
+        Me.num_laptops.MinimumWidth = 6
         Me.num_laptops.Name = "num_laptops"
         Me.num_laptops.ReadOnly = True
         '
         'Roomlist
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.Login.My.Resources.Resources._467460386_1064088022134846_6079649981189841706_n
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1056, 555)
+        Me.ClientSize = New System.Drawing.Size(1408, 683)
         Me.Controls.Add(Me.TableLayoutPanel5)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Margin = New System.Windows.Forms.Padding(2)
+        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.Name = "Roomlist"
         Me.Text = "roomliststaff"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized

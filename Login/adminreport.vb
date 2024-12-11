@@ -25,7 +25,7 @@ Public Class adminreport
     End Sub
 
     Private Sub tableloader()
-        ' Ensure that a valid filter/category is selected before loading the data (if applicable)
+        ' Ensures that a valid filter/category is selected before loading the data 
         If cboType.Text = "Choose:" OrElse String.IsNullOrWhiteSpace(cboType.Text) Then
             MessageBox.Show("Please select a valid filter category.", "Selection Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return
@@ -36,7 +36,7 @@ Public Class adminreport
                              "FROM report r " &
                              "JOIN accounts a ON r.ID = a.ID"
 
-        ' Optionally, apply a filter if a category is selected
+        ' Apply a filter if a category is selected (Optional)
         If cboType.Text <> "Choose:" Then
             sqlQuery &= " WHERE r.report LIKE @filter"
         End If
@@ -110,7 +110,7 @@ Public Class adminreport
             Return
         End If
 
-        ' Get the report_id from the selected row in the table
+        ' Retrieve the report_id from the selected row in the table
         Dim reportId As String = DGVreport.SelectedRows(0).Cells("report_id").Value.ToString()
 
         ' Confirm with the user before deleting
@@ -119,7 +119,7 @@ Public Class adminreport
             Return
         End If
 
-        ' Define the SQL query for deleting the report
+        ' SQL query for deleting the report
         Dim sqlDeleteReport As String = "DELETE FROM report WHERE reportid = @report_id"
 
         ' Create the command for deleting the report
@@ -150,7 +150,7 @@ Public Class adminreport
     End Sub
 
     Private Sub btnsearch_Click(sender As Object, e As EventArgs) Handles btnsearch.Click
-        ' Validate that the user has entered a search term
+        ' Check if the user has entered a search term
         If String.IsNullOrWhiteSpace(txtsearch.Text) Then
             MessageBox.Show("Please enter a search term.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return

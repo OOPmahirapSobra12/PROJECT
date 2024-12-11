@@ -4,7 +4,7 @@ Imports System.Data
 
 Public Class FeedbackReport_RoomSelection
 
-    ' Handles the selection of a room and passes data to the parent form
+    ' Handle the selection of a room and passes data to the parent form
     Private Sub btnsend_Click(sender As Object, e As EventArgs) Handles btnselect.Click
         ' Ensure a row is selected in the DataGridView
         If DGVroomlist.SelectedRows.Count = 0 Then
@@ -120,9 +120,9 @@ Public Class FeedbackReport_RoomSelection
                 dataTable.DefaultView.Sort = $"{columnName} ASC"
             Else
                 Try
-                    ' Handle numeric filtering for specific columns
+                    ' Handle filtering for specific columns
                     If category = "Chair #" OrElse category = "Computer #" OrElse category = "Laptop #" Then
-                        ' Ensure the input is numeric
+                        ' Ensure the input is a number
                         If Not Integer.TryParse(searchValue, Nothing) Then
                             MessageBox.Show($"Please enter a valid number for '{category}'.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                             Return
@@ -145,7 +145,7 @@ Public Class FeedbackReport_RoomSelection
         End Try
     End Sub
 
-    ' Handles form load and initial setup
+    ' Handler for the  form load and initial setup
     Private Sub Staff_report_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If conn.State = ConnectionState.Open Then
             conn.Close()

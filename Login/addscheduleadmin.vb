@@ -27,10 +27,10 @@ Public Class addscheduleadmin
     Private Sub courseloader()
         Dim query As String = "SELECT course_name FROM courses ORDER BY course_name"
 
-        ' Clear the ComboBox before loading
+        ' Clears the ComboBoxes before loading
         cbocourse.Items.Clear()
 
-        ' Add the default "Choose" option
+        ' Add  default "Choose" option
         cbocourse.Items.Add("Choose")
         cbocourse.SelectedIndex = 0
 
@@ -67,7 +67,7 @@ Public Class addscheduleadmin
         cbosearch.Items.Add("Room Code")
         cbosearch.Items.Add("Building Letter")
 
-        ' Set a default selection if desired
+        ' Set a default selection if wanted
         cbosearch.SelectedIndex = 0 ' Selects the first item (Room Name) by default
     End Sub
 
@@ -129,14 +129,14 @@ Public Class addscheduleadmin
         Dim secondOut As String = "00" ' Default to 00 seconds, as seconds aren't being selected
         Dim ampmOut As String = cboampmout.SelectedItem.ToString()
 
-        ' Convert "in" time to 12-hour AM/PM format with seconds
+        ' Change "in" time to 12-hour AM/PM format with seconds
         If ampmIn = "PM" And hourIn < 12 Then
             hourIn += 12
         ElseIf ampmIn = "AM" And hourIn = 12 Then
             hourIn = 0 ' Midnight case
         End If
 
-        ' Convert "out" time to 12-hour AM/PM format with seconds
+        ' Change "out" time to 12-hour AM/PM format with seconds
         If ampmOut = "PM" And hourOut < 12 Then
             hourOut += 12
         ElseIf ampmOut = "AM" And hourOut = 12 Then
@@ -243,7 +243,7 @@ Public Class addscheduleadmin
             Dim adapter As New MySqlDataAdapter(command)
             adapter.Fill(table)
 
-            ' Bind the DataTable to the DataGridView
+            ' Connect the DataTable to the DataGridView
             DGVrooms.DataSource = table
         Catch ex As Exception
             MessageBox.Show("Error retrieving room list: " & ex.Message)
@@ -448,7 +448,7 @@ Public Class addscheduleadmin
     End Sub
 
     Public Sub requestloader()
-        ' Check if the requestID is provided (it should not be empty or null)
+        ' Check if the requestID is provided (it should not be empty)
         If String.IsNullOrEmpty(requestID) Then
             MessageBox.Show("Request ID is missing or invalid.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return

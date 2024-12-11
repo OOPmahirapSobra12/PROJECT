@@ -36,10 +36,10 @@ Public Class roomoccupancy
         Dim selectedRoomName As String = cbocodeorname.SelectedItem.ToString()
 
         If cboChoose.SelectedIndex = 1 Then
-            ' Room code selected, fetch the room code directly
+            ' If the Room code selected, fetch the room code directly
             selectedRoomCode = cbocodeorname.SelectedItem.ToString()
         ElseIf cboChoose.SelectedIndex = 2 Then
-            ' Room name selected, fetch the room code corresponding to the selected room name
+            ' If the Room name selected, fetch the room code corresponding to the selected room name
             selectedRoomName = cbocodeorname.SelectedItem.ToString()
 
             ' Query to get the room code from the room name
@@ -165,7 +165,7 @@ Public Class roomoccupancy
         End If
     End Sub
 
-    ' Function to populate ComboBox with room codes
+    ' Method to populate ComboBox with room codes
     Private Sub PopulateRoomCodes()
         ' SQL query to fetch room codes (excluding rooms that are 'Closed')
         Dim query As String = "SELECT room_code FROM roomlist WHERE room_status <> 'Closed'"

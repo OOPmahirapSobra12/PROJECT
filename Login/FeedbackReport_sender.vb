@@ -132,7 +132,7 @@ Public Class FeedbackReport_sender
         Dim currentDate As String = DateTime.Now.ToString("yyyy-MM-dd")
         Dim currentTime As String = DateTime.Now.ToString("HH:mm:ss")
 
-        ' Determine the table and query based on the selected message type
+        ' Check if the table and query based on the selected message type
         If messageType = "Feedback" Then
             tableName = "feedback"
             query = "INSERT INTO feedback (ID, d, t, feedback) VALUES (@ID, @d, @t, @message)"

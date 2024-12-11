@@ -110,13 +110,13 @@ Public Class staff_schedule
         End Try
     End Sub
 
-    ' Handle Back button click
+    '  Back button 
     Private Sub btnback_Click(sender As Object, e As EventArgs) Handles btnback.Click
         Staff.Show()
         Me.Hide()
     End Sub
 
-    ' Handle Search button click
+    ' Search butto
     Private Sub btnsearch_Click(sender As Object, e As EventArgs) Handles btnsearch.Click
         ' Validate search term
         If String.IsNullOrWhiteSpace(txtsearch.Text) Then
@@ -214,12 +214,12 @@ Public Class staff_schedule
         End Try
     End Sub
 
-    ' Handle Request button click
+    '  Request button 
     Private Sub btnrequest_Click(sender As Object, e As EventArgs) Handles btnrequest.Click
         staffschedule_request_add.Show()
     End Sub
 
-    ' Handle Modify Request button click
+    ' Modify Request button 
     Private Sub btnrequest_modify_Click(sender As Object, e As EventArgs) Handles btnrequest_modify.Click
         ' Ensure a row is selected
         If DGVschedules.SelectedRows.Count > 0 Then

@@ -41,7 +41,7 @@ Public Class Admin
         ' Show the Schedule form
         scheduleForm.Show()
 
-        ' Optionally, you can hide the current form if you don't want it to be visible
+        ' Hide the current form if you don't want it to be visible (Optional)
         Me.Hide()
     End Sub
 

@@ -2,7 +2,7 @@
 Imports System.Timers
 
 Module AutomaticTemporaryScheduleExpirer
-    ' Timer for periodic execution
+    ' Timer for continous execution
     Private WithEvents ScheduleTimer As Timer
     Public Automation_IsRunning As Boolean = False ' Prevent multiple starts
 
@@ -41,7 +41,7 @@ Module AutomaticTemporaryScheduleExpirer
         CheckAndExpireSchedules()
     End Sub
 
-    ' Main logic for checking and expiring schedules
+    ' Main Method for checking and expiring schedules
     Private Sub CheckAndExpireSchedules()
         Try
             ' Ensure the database connection is open

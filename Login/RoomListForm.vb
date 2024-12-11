@@ -22,7 +22,7 @@ Public Class RoomListForm
             DGVroomlist.AutoGenerateColumns = False
             DGVroomlist.DataSource = dataTable
 
-            ' Map data to columns
+            ' Populate data to columns
             For Each column As DataGridViewColumn In DGVroomlist.Columns
                 Select Case column.Name
                     Case "room_code"
@@ -299,7 +299,7 @@ Public Class RoomListForm
             ' Disable cbostatus (make it inaccessible)
             cbostatus.Enabled = False
 
-            ' Optionally inform the user
+            ' Inform the user (Optional)
             MessageBox.Show("Room status set to 'Closed'. Occupancy status is now unavailable.", "Status Changed", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Else
             ' Enable cbostatus and allow the user to modify occupancy status

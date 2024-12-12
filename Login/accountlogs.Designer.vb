@@ -56,7 +56,7 @@ Partial Class accountlogs
         Me.TableLayoutPanel1.Controls.Add(Me.TableLayoutPanel5, 0, 0)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
-        Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 2
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.22222!))
@@ -75,7 +75,7 @@ Partial Class accountlogs
         Me.TableLayoutPanel2.Controls.Add(Me.TableLayoutPanel4, 0, 2)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(4, 104)
-        Me.TableLayoutPanel2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TableLayoutPanel2.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 4
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.77778!))
@@ -93,19 +93,19 @@ Partial Class accountlogs
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.81482!))
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.03704!))
         Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.14815!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 75.0!))
+        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 76.0!))
         Me.TableLayoutPanel3.Controls.Add(Me.cbosearch, 1, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.txtsearchbox, 2, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.btnsearch, 3, 0)
         Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel3.Location = New System.Drawing.Point(4, 4)
-        Me.TableLayoutPanel3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TableLayoutPanel3.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
         Me.TableLayoutPanel3.RowCount = 1
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 58.0!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 58.0!))
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 58.0!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 57.0!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 57.0!))
+        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 57.0!))
         Me.TableLayoutPanel3.Size = New System.Drawing.Size(776, 57)
         Me.TableLayoutPanel3.TabIndex = 3
         '
@@ -118,7 +118,7 @@ Partial Class accountlogs
         Me.cbosearch.FormattingEnabled = True
         Me.cbosearch.Items.AddRange(New Object() {"Choose:", "Username", "Date In", "Date Out", "Time In", "Time Out"})
         Me.cbosearch.Location = New System.Drawing.Point(31, 4)
-        Me.cbosearch.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cbosearch.Margin = New System.Windows.Forms.Padding(4)
         Me.cbosearch.Name = "cbosearch"
         Me.cbosearch.Size = New System.Drawing.Size(192, 38)
         Me.cbosearch.TabIndex = 91
@@ -130,9 +130,9 @@ Partial Class accountlogs
         Me.txtsearchbox.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!)
         Me.txtsearchbox.ForeColor = System.Drawing.Color.MidnightBlue
         Me.txtsearchbox.Location = New System.Drawing.Point(231, 4)
-        Me.txtsearchbox.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtsearchbox.Margin = New System.Windows.Forms.Padding(4)
         Me.txtsearchbox.Name = "txtsearchbox"
-        Me.txtsearchbox.Size = New System.Drawing.Size(309, 37)
+        Me.txtsearchbox.Size = New System.Drawing.Size(308, 37)
         Me.txtsearchbox.TabIndex = 92
         '
         'btnsearch
@@ -143,10 +143,10 @@ Partial Class accountlogs
         Me.btnsearch.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.btnsearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnsearch.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.btnsearch.Location = New System.Drawing.Point(548, 4)
-        Me.btnsearch.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnsearch.Location = New System.Drawing.Point(547, 4)
+        Me.btnsearch.Margin = New System.Windows.Forms.Padding(4)
         Me.btnsearch.Name = "btnsearch"
-        Me.btnsearch.Size = New System.Drawing.Size(148, 49)
+        Me.btnsearch.Size = New System.Drawing.Size(147, 49)
         Me.btnsearch.TabIndex = 93
         Me.btnsearch.Text = "Search"
         Me.btnsearch.UseVisualStyleBackColor = False
@@ -162,7 +162,7 @@ Partial Class accountlogs
         Me.DGVaccountlogs.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DGVaccountlogs.GridColor = System.Drawing.SystemColors.HotTrack
         Me.DGVaccountlogs.Location = New System.Drawing.Point(4, 69)
-        Me.DGVaccountlogs.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.DGVaccountlogs.Margin = New System.Windows.Forms.Padding(4)
         Me.DGVaccountlogs.Name = "DGVaccountlogs"
         Me.DGVaccountlogs.ReadOnly = True
         Me.DGVaccountlogs.RowHeadersWidth = 51
@@ -218,7 +218,7 @@ Partial Class accountlogs
         Me.TableLayoutPanel4.Controls.Add(Me.btnback, 1, 0)
         Me.TableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel4.Location = New System.Drawing.Point(4, 377)
-        Me.TableLayoutPanel4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TableLayoutPanel4.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
         Me.TableLayoutPanel4.RowCount = 1
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
@@ -234,7 +234,7 @@ Partial Class accountlogs
         Me.btnback.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnback.ForeColor = System.Drawing.Color.MidnightBlue
         Me.btnback.Location = New System.Drawing.Point(262, 4)
-        Me.btnback.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnback.Margin = New System.Windows.Forms.Padding(4)
         Me.btnback.Name = "btnback"
         Me.btnback.Size = New System.Drawing.Size(250, 43)
         Me.btnback.TabIndex = 93
@@ -250,7 +250,7 @@ Partial Class accountlogs
         Me.TableLayoutPanel5.Controls.Add(Me.Label1, 1, 1)
         Me.TableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel5.Location = New System.Drawing.Point(4, 4)
-        Me.TableLayoutPanel5.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TableLayoutPanel5.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
         Me.TableLayoutPanel5.RowCount = 3
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 31.39535!))
@@ -282,7 +282,7 @@ Partial Class accountlogs
         Me.ClientSize = New System.Drawing.Size(792, 554)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "accountlogs"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "accountlogs"

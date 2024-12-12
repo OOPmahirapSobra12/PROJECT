@@ -16,10 +16,7 @@ Module AutomaticTemporaryScheduleExpirer
             ScheduleTimer.Enabled = True
 
             Automation_IsRunning = True
-            Console.WriteLine("Timer started.")
             MessageBox.Show("Automatic schedule expiration has started.")
-        Else
-            Console.WriteLine("Automation is already running.")
         End If
     End Sub
 
@@ -29,10 +26,7 @@ Module AutomaticTemporaryScheduleExpirer
             ScheduleTimer.Stop()
             ScheduleTimer.Dispose()
             Automation_IsRunning = False
-            Console.WriteLine("Timer stopped.")
             MessageBox.Show("Automatic schedule expiration has stopped.")
-        Else
-            Console.WriteLine("Automation is not running or has already stopped.")
         End If
     End Sub
 
@@ -84,17 +78,10 @@ Module AutomaticTemporaryScheduleExpirer
                         deleteCmd.Parameters.AddWithValue("@CurrentDateTime", currentDateTime)
                         deleteCmd.ExecuteNonQuery()
                     End Using
-
-                    Console.WriteLine("Expired schedules moved to past_schedtemp successfully.")
                 Else
                     reader.Close()
-                    Console.WriteLine("No expired schedules found.")
                 End If
             End Using
-        Catch ex As MySqlException
-            Console.WriteLine("MySQL Error: " & ex.Message)
-        Catch ex As Exception
-            Console.WriteLine("Error: " & ex.Message)
         Finally
             ' Ensure the database connection is closed
             If ConnectionModule.conn.State = ConnectionState.Open Then

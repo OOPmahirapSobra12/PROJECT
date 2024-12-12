@@ -53,7 +53,7 @@ Partial Class Start_up_Login
         Me.TableLayoutPanel1.Controls.Add(Me.btnclose, 3, 6)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
-        Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 7
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 41.30055!))
@@ -71,7 +71,7 @@ Partial Class Start_up_Login
         Me.txtuname.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtuname.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!)
         Me.txtuname.Location = New System.Drawing.Point(713, 259)
-        Me.txtuname.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtuname.Margin = New System.Windows.Forms.Padding(4)
         Me.txtuname.Name = "txtuname"
         Me.txtuname.Size = New System.Drawing.Size(323, 37)
         Me.txtuname.TabIndex = 15
@@ -115,7 +115,7 @@ Partial Class Start_up_Login
         Me.btnlogin.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnlogin.ForeColor = System.Drawing.Color.NavajoWhite
         Me.btnlogin.Location = New System.Drawing.Point(713, 347)
-        Me.btnlogin.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnlogin.Margin = New System.Windows.Forms.Padding(4)
         Me.btnlogin.Name = "btnlogin"
         Me.btnlogin.Size = New System.Drawing.Size(323, 43)
         Me.btnlogin.TabIndex = 20
@@ -142,7 +142,7 @@ Partial Class Start_up_Login
         Me.txtpassword.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtpassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
         Me.txtpassword.Location = New System.Drawing.Point(713, 301)
-        Me.txtpassword.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtpassword.Margin = New System.Windows.Forms.Padding(4)
         Me.txtpassword.Name = "txtpassword"
         Me.txtpassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtpassword.Size = New System.Drawing.Size(323, 38)
@@ -158,7 +158,7 @@ Partial Class Start_up_Login
         Me.btncreate.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btncreate.ForeColor = System.Drawing.Color.NavajoWhite
         Me.btncreate.Location = New System.Drawing.Point(599, 347)
-        Me.btncreate.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btncreate.Margin = New System.Windows.Forms.Padding(4)
         Me.btncreate.MaximumSize = New System.Drawing.Size(0, 43)
         Me.btncreate.Name = "btncreate"
         Me.btncreate.Size = New System.Drawing.Size(106, 43)
@@ -175,7 +175,7 @@ Partial Class Start_up_Login
         Me.btnclose.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnclose.ForeColor = System.Drawing.Color.NavajoWhite
         Me.btnclose.Location = New System.Drawing.Point(713, 492)
-        Me.btnclose.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnclose.Margin = New System.Windows.Forms.Padding(4)
         Me.btnclose.Name = "btnclose"
         Me.btnclose.Size = New System.Drawing.Size(323, 58)
         Me.btnclose.TabIndex = 23
@@ -199,7 +199,7 @@ Partial Class Start_up_Login
         Me.DoubleBuffered = True
         Me.ForeColor = System.Drawing.SystemColors.ControlText
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Start_up_Login"
         Me.ShowInTaskbar = False
         Me.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide

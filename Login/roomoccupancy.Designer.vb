@@ -53,7 +53,7 @@ Partial Class roomoccupancy
         Me.cboChoose.FormattingEnabled = True
         Me.cboChoose.Items.AddRange(New Object() {"Choose:", "Room Code", "Room Name"})
         Me.cboChoose.Location = New System.Drawing.Point(4, 86)
-        Me.cboChoose.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cboChoose.Margin = New System.Windows.Forms.Padding(4)
         Me.cboChoose.Name = "cboChoose"
         Me.cboChoose.Size = New System.Drawing.Size(196, 37)
         Me.cboChoose.TabIndex = 106
@@ -66,7 +66,7 @@ Partial Class roomoccupancy
         Me.btnback.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnback.ForeColor = System.Drawing.Color.MidnightBlue
         Me.btnback.Location = New System.Drawing.Point(4, 126)
-        Me.btnback.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnback.Margin = New System.Windows.Forms.Padding(4)
         Me.btnback.Name = "btnback"
         Me.btnback.Size = New System.Drawing.Size(196, 41)
         Me.btnback.TabIndex = 105
@@ -81,7 +81,7 @@ Partial Class roomoccupancy
         Me.btnClear.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnClear.ForeColor = System.Drawing.Color.MidnightBlue
         Me.btnClear.Location = New System.Drawing.Point(4, 17)
-        Me.btnClear.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnClear.Margin = New System.Windows.Forms.Padding(4)
         Me.btnClear.Name = "btnClear"
         Me.btnClear.Size = New System.Drawing.Size(115, 39)
         Me.btnClear.TabIndex = 104
@@ -96,7 +96,7 @@ Partial Class roomoccupancy
         Me.btnregister.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnregister.ForeColor = System.Drawing.Color.MidnightBlue
         Me.btnregister.Location = New System.Drawing.Point(208, 126)
-        Me.btnregister.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnregister.Margin = New System.Windows.Forms.Padding(4)
         Me.btnregister.Name = "btnregister"
         Me.btnregister.Size = New System.Drawing.Size(303, 41)
         Me.btnregister.TabIndex = 103
@@ -110,7 +110,7 @@ Partial Class roomoccupancy
         Me.txtpassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtpassword.ForeColor = System.Drawing.Color.MidnightBlue
         Me.txtpassword.Location = New System.Drawing.Point(208, 45)
-        Me.txtpassword.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtpassword.Margin = New System.Windows.Forms.Padding(4)
         Me.txtpassword.Name = "txtpassword"
         Me.txtpassword.Size = New System.Drawing.Size(303, 34)
         Me.txtpassword.TabIndex = 102
@@ -122,7 +122,7 @@ Partial Class roomoccupancy
         Me.txtID.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtID.ForeColor = System.Drawing.Color.MidnightBlue
         Me.txtID.Location = New System.Drawing.Point(208, 4)
-        Me.txtID.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtID.Margin = New System.Windows.Forms.Padding(4)
         Me.txtID.Name = "txtID"
         Me.txtID.ReadOnly = True
         Me.txtID.Size = New System.Drawing.Size(303, 34)
@@ -173,7 +173,7 @@ Partial Class roomoccupancy
         Me.TableLayoutPanel1.Controls.Add(Me.TableLayoutPanel2, 1, 1)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
-        Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 3
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
@@ -191,7 +191,7 @@ Partial Class roomoccupancy
         Me.TableLayoutPanel2.Controls.Add(Me.TableLayoutPanel3, 0, 1)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(31, 29)
-        Me.TableLayoutPanel2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TableLayoutPanel2.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 2
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 22.31076!))
@@ -222,7 +222,7 @@ Partial Class roomoccupancy
         Me.TableLayoutPanel3.Controls.Add(Me.TableLayoutPanel5, 1, 0)
         Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel3.Location = New System.Drawing.Point(4, 72)
-        Me.TableLayoutPanel3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TableLayoutPanel3.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
         Me.TableLayoutPanel3.RowCount = 1
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
@@ -244,7 +244,7 @@ Partial Class roomoccupancy
         Me.TableLayoutPanel4.Controls.Add(Me.cbocodeorname, 1, 2)
         Me.TableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel4.Location = New System.Drawing.Point(4, 4)
-        Me.TableLayoutPanel4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TableLayoutPanel4.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel4.Name = "TableLayoutPanel4"
         Me.TableLayoutPanel4.RowCount = 5
         Me.TableLayoutPanel4.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 19.02174!))
@@ -263,7 +263,7 @@ Partial Class roomoccupancy
         Me.cbocodeorname.ForeColor = System.Drawing.Color.MidnightBlue
         Me.cbocodeorname.FormattingEnabled = True
         Me.cbocodeorname.Location = New System.Drawing.Point(208, 86)
-        Me.cbocodeorname.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cbocodeorname.Margin = New System.Windows.Forms.Padding(4)
         Me.cbocodeorname.Name = "cbocodeorname"
         Me.cbocodeorname.Size = New System.Drawing.Size(303, 37)
         Me.cbocodeorname.TabIndex = 107
@@ -275,7 +275,7 @@ Partial Class roomoccupancy
         Me.TableLayoutPanel5.Controls.Add(Me.btnClear, 0, 1)
         Me.TableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel5.Location = New System.Drawing.Point(527, 4)
-        Me.TableLayoutPanel5.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TableLayoutPanel5.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
         Me.TableLayoutPanel5.RowCount = 5
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.978261!))
@@ -295,7 +295,7 @@ Partial Class roomoccupancy
         Me.ClientSize = New System.Drawing.Size(724, 366)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "roomoccupancy"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "roomoccupancy"

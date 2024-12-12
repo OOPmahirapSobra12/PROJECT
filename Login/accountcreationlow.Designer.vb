@@ -57,7 +57,7 @@ Partial Class accountcreationlow
         Me.TableLayoutPanel1.Controls.Add(Me.TableLayoutPanel2, 0, 0)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
-        Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
@@ -83,7 +83,7 @@ Partial Class accountcreationlow
         Me.TableLayoutPanel3.Controls.Add(Me.TextBox1, 1, 4)
         Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel3.Location = New System.Drawing.Point(537, 4)
-        Me.TableLayoutPanel3.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TableLayoutPanel3.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
         Me.TableLayoutPanel3.RowCount = 7
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 30.18018!))
@@ -116,7 +116,7 @@ Partial Class accountcreationlow
         Me.txtFname.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtFname.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
         Me.txtFname.Location = New System.Drawing.Point(184, 169)
-        Me.txtFname.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtFname.Margin = New System.Windows.Forms.Padding(4)
         Me.txtFname.Name = "txtFname"
         Me.txtFname.Size = New System.Drawing.Size(312, 38)
         Me.txtFname.TabIndex = 24
@@ -141,7 +141,7 @@ Partial Class accountcreationlow
         Me.txtLname.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtLname.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
         Me.txtLname.Location = New System.Drawing.Point(184, 213)
-        Me.txtLname.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtLname.Margin = New System.Windows.Forms.Padding(4)
         Me.txtLname.Name = "txtLname"
         Me.txtLname.Size = New System.Drawing.Size(312, 38)
         Me.txtLname.TabIndex = 26
@@ -156,7 +156,7 @@ Partial Class accountcreationlow
         Me.btnexit.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnexit.ForeColor = System.Drawing.Color.NavajoWhite
         Me.btnexit.Location = New System.Drawing.Point(184, 349)
-        Me.btnexit.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnexit.Margin = New System.Windows.Forms.Padding(4)
         Me.btnexit.MaximumSize = New System.Drawing.Size(0, 43)
         Me.btnexit.Name = "btnexit"
         Me.btnexit.Size = New System.Drawing.Size(312, 41)
@@ -188,7 +188,7 @@ Partial Class accountcreationlow
         Me.btncreate.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btncreate.ForeColor = System.Drawing.Color.NavajoWhite
         Me.btncreate.Location = New System.Drawing.Point(4, 349)
-        Me.btncreate.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btncreate.Margin = New System.Windows.Forms.Padding(4)
         Me.btncreate.Name = "btncreate"
         Me.btncreate.Size = New System.Drawing.Size(172, 41)
         Me.btncreate.TabIndex = 20
@@ -215,7 +215,7 @@ Partial Class accountcreationlow
         Me.txtcourse.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtcourse.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
         Me.txtcourse.Location = New System.Drawing.Point(184, 256)
-        Me.txtcourse.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtcourse.Margin = New System.Windows.Forms.Padding(4)
         Me.txtcourse.Name = "txtcourse"
         Me.txtcourse.Size = New System.Drawing.Size(312, 38)
         Me.txtcourse.TabIndex = 34
@@ -225,7 +225,7 @@ Partial Class accountcreationlow
         Me.TextBox1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
         Me.TextBox1.Location = New System.Drawing.Point(184, 301)
-        Me.TextBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TextBox1.Margin = New System.Windows.Forms.Padding(4)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(312, 38)
         Me.TextBox1.TabIndex = 36
@@ -246,7 +246,7 @@ Partial Class accountcreationlow
         Me.TableLayoutPanel2.Controls.Add(Me.username, 0, 2)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(4, 4)
-        Me.TableLayoutPanel2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TableLayoutPanel2.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 8
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.5!))
@@ -265,7 +265,7 @@ Partial Class accountcreationlow
         Me.txtuname.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtuname.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!)
         Me.txtuname.Location = New System.Drawing.Point(184, 171)
-        Me.txtuname.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtuname.Margin = New System.Windows.Forms.Padding(4)
         Me.txtuname.Name = "txtuname"
         Me.txtuname.Size = New System.Drawing.Size(312, 37)
         Me.txtuname.TabIndex = 15
@@ -305,7 +305,7 @@ Partial Class accountcreationlow
         Me.txtpassword.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtpassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
         Me.txtpassword.Location = New System.Drawing.Point(184, 215)
-        Me.txtpassword.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtpassword.Margin = New System.Windows.Forms.Padding(4)
         Me.txtpassword.Name = "txtpassword"
         Me.txtpassword.Size = New System.Drawing.Size(312, 38)
         Me.txtpassword.TabIndex = 18
@@ -315,7 +315,7 @@ Partial Class accountcreationlow
         Me.txtID.Dock = System.Windows.Forms.DockStyle.Fill
         Me.txtID.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
         Me.txtID.Location = New System.Drawing.Point(184, 258)
-        Me.txtID.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtID.Margin = New System.Windows.Forms.Padding(4)
         Me.txtID.Name = "txtID"
         Me.txtID.Size = New System.Drawing.Size(312, 38)
         Me.txtID.TabIndex = 28
@@ -364,7 +364,7 @@ Partial Class accountcreationlow
         Me.DoubleBuffered = True
         Me.ForeColor = System.Drawing.Color.NavajoWhite
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "accountcreationlow"
         Me.Text = "Form2"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized

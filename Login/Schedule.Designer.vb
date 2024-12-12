@@ -72,7 +72,7 @@ Partial Class Schedule
         Me.TableLayoutPanel5.Controls.Add(Me.DGVschedules, 1, 2)
         Me.TableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel5.Location = New System.Drawing.Point(0, 0)
-        Me.TableLayoutPanel5.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TableLayoutPanel5.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel5.Name = "TableLayoutPanel5"
         Me.TableLayoutPanel5.RowCount = 5
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
@@ -92,11 +92,11 @@ Partial Class Schedule
         Me.TableLayoutPanel6.Controls.Add(Me.TableLayoutPanel9, 1, 0)
         Me.TableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel6.Location = New System.Drawing.Point(31, 29)
-        Me.TableLayoutPanel6.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TableLayoutPanel6.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel6.Name = "TableLayoutPanel6"
         Me.TableLayoutPanel6.RowCount = 1
         Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 103.0!))
+        Me.TableLayoutPanel6.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 102.0!))
         Me.TableLayoutPanel6.Size = New System.Drawing.Size(1346, 102)
         Me.TableLayoutPanel6.TabIndex = 0
         '
@@ -108,7 +108,7 @@ Partial Class Schedule
         Me.TableLayoutPanel8.Controls.Add(Me.Label1, 0, 1)
         Me.TableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel8.Location = New System.Drawing.Point(4, 4)
-        Me.TableLayoutPanel8.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TableLayoutPanel8.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel8.Name = "TableLayoutPanel8"
         Me.TableLayoutPanel8.RowCount = 2
         Me.TableLayoutPanel8.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25.0!))
@@ -145,7 +145,7 @@ Partial Class Schedule
         Me.TableLayoutPanel9.Controls.Add(Me.btnsearch, 4, 1)
         Me.TableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel9.Location = New System.Drawing.Point(323, 4)
-        Me.TableLayoutPanel9.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TableLayoutPanel9.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel9.Name = "TableLayoutPanel9"
         Me.TableLayoutPanel9.RowCount = 2
         Me.TableLayoutPanel9.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46.0!))
@@ -176,7 +176,7 @@ Partial Class Schedule
         Me.cboType.FormattingEnabled = True
         Me.cboType.Items.AddRange(New Object() {"Choose", "Schedule Code", "Room Code", "Room Name", "Subject", "Course", "Section", "Day", "Date", "Time In", "Time Out"})
         Me.cboType.Location = New System.Drawing.Point(184, 50)
-        Me.cboType.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.cboType.Margin = New System.Windows.Forms.Padding(4)
         Me.cboType.Name = "cboType"
         Me.cboType.Size = New System.Drawing.Size(239, 38)
         Me.cboType.TabIndex = 9
@@ -202,7 +202,7 @@ Partial Class Schedule
         Me.txtsearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtsearch.ForeColor = System.Drawing.Color.MidnightBlue
         Me.txtsearch.Location = New System.Drawing.Point(559, 50)
-        Me.txtsearch.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.txtsearch.Margin = New System.Windows.Forms.Padding(4)
         Me.txtsearch.Name = "txtsearch"
         Me.txtsearch.Size = New System.Drawing.Size(263, 37)
         Me.txtsearch.TabIndex = 11
@@ -214,7 +214,7 @@ Partial Class Schedule
         Me.btnsearch.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnsearch.ForeColor = System.Drawing.Color.MidnightBlue
         Me.btnsearch.Location = New System.Drawing.Point(830, 50)
-        Me.btnsearch.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnsearch.Margin = New System.Windows.Forms.Padding(4)
         Me.btnsearch.Name = "btnsearch"
         Me.btnsearch.Size = New System.Drawing.Size(185, 40)
         Me.btnsearch.TabIndex = 12
@@ -234,14 +234,14 @@ Partial Class Schedule
         Me.TableLayoutPanel7.Controls.Add(Me.TableLayoutPanel11, 0, 0)
         Me.TableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Top
         Me.TableLayoutPanel7.Location = New System.Drawing.Point(31, 589)
-        Me.TableLayoutPanel7.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TableLayoutPanel7.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel7.Name = "TableLayoutPanel7"
         Me.TableLayoutPanel7.RowCount = 1
         Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 64.0!))
-        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 64.0!))
-        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 64.0!))
-        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 64.0!))
+        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 63.0!))
+        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 63.0!))
+        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 63.0!))
+        Me.TableLayoutPanel7.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 63.0!))
         Me.TableLayoutPanel7.Size = New System.Drawing.Size(1346, 63)
         Me.TableLayoutPanel7.TabIndex = 1
         '
@@ -256,7 +256,7 @@ Partial Class Schedule
         Me.TableLayoutPanel11.Controls.Add(Me.btnback, 2, 0)
         Me.TableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel11.Location = New System.Drawing.Point(4, 4)
-        Me.TableLayoutPanel11.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.TableLayoutPanel11.Margin = New System.Windows.Forms.Padding(4)
         Me.TableLayoutPanel11.Name = "TableLayoutPanel11"
         Me.TableLayoutPanel11.RowCount = 1
         Me.TableLayoutPanel11.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 57.0!))
@@ -270,7 +270,7 @@ Partial Class Schedule
         Me.btndelete.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btndelete.ForeColor = System.Drawing.Color.MidnightBlue
         Me.btndelete.Location = New System.Drawing.Point(450, 4)
-        Me.btndelete.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btndelete.Margin = New System.Windows.Forms.Padding(4)
         Me.btndelete.Name = "btndelete"
         Me.btndelete.Size = New System.Drawing.Size(438, 49)
         Me.btndelete.TabIndex = 15
@@ -284,7 +284,7 @@ Partial Class Schedule
         Me.btnselect.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnselect.ForeColor = System.Drawing.Color.MidnightBlue
         Me.btnselect.Location = New System.Drawing.Point(4, 4)
-        Me.btnselect.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnselect.Margin = New System.Windows.Forms.Padding(4)
         Me.btnselect.Name = "btnselect"
         Me.btnselect.Size = New System.Drawing.Size(438, 49)
         Me.btnselect.TabIndex = 16
@@ -298,7 +298,7 @@ Partial Class Schedule
         Me.btnback.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnback.ForeColor = System.Drawing.Color.MidnightBlue
         Me.btnback.Location = New System.Drawing.Point(896, 4)
-        Me.btnback.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnback.Margin = New System.Windows.Forms.Padding(4)
         Me.btnback.Name = "btnback"
         Me.btnback.Size = New System.Drawing.Size(438, 49)
         Me.btnback.TabIndex = 14
@@ -334,7 +334,7 @@ Partial Class Schedule
         Me.DGVschedules.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DGVschedules.GridColor = System.Drawing.SystemColors.HotTrack
         Me.DGVschedules.Location = New System.Drawing.Point(31, 139)
-        Me.DGVschedules.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.DGVschedules.Margin = New System.Windows.Forms.Padding(4)
         Me.DGVschedules.MultiSelect = False
         Me.DGVschedules.Name = "DGVschedules"
         Me.DGVschedules.ReadOnly = True
@@ -451,7 +451,7 @@ Partial Class Schedule
         Me.ClientSize = New System.Drawing.Size(1408, 683)
         Me.Controls.Add(Me.TableLayoutPanel5)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "Schedule"
         Me.Text = "Schedule"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized

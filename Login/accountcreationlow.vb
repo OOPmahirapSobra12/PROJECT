@@ -50,7 +50,7 @@ Public Class accountcreationlow
             ' adding to mysql database
             Dim rowsAffected As Integer = logging.ExecuteNonQuery()
             If rowsAffected > 0 Then
-                MsgBox("Account created successfully! " & username & " " & id & password & " " & lname & "," & fname & " of " & course & "-" & " ")
+                MsgBox("Account created successfully!")
                 txtuname.Clear()
                 txtpassword.Clear()
                 txtFname.Clear()
